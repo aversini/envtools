@@ -1,0 +1,56 @@
+{
+  "name": "envtools",
+  "version": "0.0.1",
+  "description": "Environment manager and tools within nodejs",
+  "author": "Arno Versini",
+  "bin": {
+    "envtools": "./bin/envtools.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "data",
+    "scripts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aversini/envtools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aversini/envtools/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "~2.0.0",
+    "fedtools-commands": "~0.0.6",
+    "fedtools-logs": "~0.0.2",
+    "fedtools-utilities": "~0.0.1",
+    "ini": "~1.1.0",
+    "promptly": "~0.2.0",
+    "shelljs": "~0.2.6",
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-release": "*",
+    "grunt-curl": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-mkdir": "*",
+    "grunt-shell": "*",
+    "load-grunt-tasks": "*",
+    "moment": "~2.4.0",
+    "mustache": "~0.7.3",
+    "semver": "*"
+  },
+  "keywords": [
+    "fed",
+    "tools",
+    "env",
+    "console",
+    "terminal"
+  ]
+}
