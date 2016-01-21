@@ -46,7 +46,7 @@
     "underscore": "^1.8.3"
   },
   "optionalDependencies": {
-    "posix": "^4.0.0",
+    "posix": "^4.0.0"
   },
   "devDependencies": {
     "chai": "*",
