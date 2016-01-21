@@ -9,9 +9,11 @@
     "setRuby": "Update Ruby and Compass.",
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
-      "boot": "Welcome to Envtools - Bootstrap",
-      "getOutAdvice": "CTRL+C will abort the process",
-      "msg1": "Choose one of the following options (CTRL+C to exit):"
+      "auto": "★ Welcome to Envtools - Interactive Configuration ★",
+      "manual": "★ Welcome to Envtools - Manual Configuration ★",
+"getOutAdvice1": "          (CTRL+C will abort the process)",
+"getOutAdvice2": "       (CTRL+C will abort the process)",
+      "msg1": "Choose one of the following options:"
     },
     "errors": {
       "mvn": "Maven is either missing or not in the PATH...",
