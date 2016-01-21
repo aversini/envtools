@@ -1,5 +1,6 @@
 # Aliases
 
+
 ## Folder Navigation/Listing
 
 Alias | Description
@@ -9,6 +10,7 @@ Alias | Description
 `ld`  | Directories are listed as plain files (not searched recursively).
 `ll`  | List in long format unsorted. A total sum for all the file sizes is output on a line before the long listing.
 `lrt` | List in long format sorted alphabetically and the most recent first.
+
 
 ## Files/folders Search/Diff
 
@@ -20,6 +22,7 @@ Alias    | Description
 `ff`     | Find files or folders matching a pattern. Takes multiple arguments. See `ff -h` for options.
 `fgrs`   | Find a string in files. Takes multiple arguments. See `fgrs -h` for options.
 `tailf`  | Displays the content of a file and updates automatically if the content changes. Takes a file as an argument. Equivalent to `tail -f`.
+
 
 ## Mac Specific
 
@@ -38,6 +41,7 @@ Alias    | Description
 `psf`    | List running processes matching the string passed in argument. `psf node` will list all running node processes.
 `vm`     | VirtualBox Manager. Allows you to start/stop and list all VirtualBox installed appliances.
 
+
 ## Proxy Helpers
 
 Alias    | Description
@@ -54,3 +58,10 @@ Alias    | Description
 `r`      | Shortcut to reload your environment without having to restart your terminal.
 `sds`    | Shortcut for `sudo su -`
 `web`    | Starts a small web server on port 8080, serving files in the current folder.
+
+
+## Misc Helpers
+
+Alias    | Description
+---------|-------------
+`ccc`    | Run `compass clean && compass compile` in the current folder.
