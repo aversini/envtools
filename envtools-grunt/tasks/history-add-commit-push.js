@@ -10,14 +10,18 @@ module.exports = function (grunt) {
 
     if (noWrite) {
       grunt.log.writeln('history-add-commit-push dry run');
-      grunt.log.ok('git add ' + g.historyFile + ' ' + g.historyFileHTML);
-      grunt.log.ok('git commit -m ' + commitMsg );
+      grunt.log.ok('git add ' + g.historyFile + ' ' + g.historyFileHTML + ' ' + g.bashVersionFile);
+      grunt.log.ok('git commit -m ' + commitMsg);
       grunt.log.ok('git push');
       done();
     } else {
       grunt.util.spawn({
         cmd: 'git',
-        args: ['add', g.historyFile, g.historyFileHTML]
+        args: ['add',
+          g.historyFile,
+          g.historyFileHTML,
+          g.bashVersionFile
+        ]
       }, function (err) {
         if (err) {
           grunt.fail.fatal('Unable to run "git add" ' + err);
