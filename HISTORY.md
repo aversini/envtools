@@ -1,4 +1,12 @@
 
+__0.0.10 / 2016-01-21__
+
+- Adding alias for help in mac ([bf8b742](https://github.com/aversini/envtools/commit/bf8b742fc0db661a0b78ba04ccb33073735886b4))
+- Updating alias for Sublime ([a1538c5](https://github.com/aversini/envtools/commit/a1538c5a952e34e2112e570a74b2d7d2a253fbe9))
+- Generating help.html ([a46a35d](https://github.com/aversini/envtools/commit/a46a35ded1d311b8d1df00efabf4ec96d045531d))
+- Man pages: adding extra bit about customization ([cef6295](https://github.com/aversini/envtools/commit/cef629551c0f05e50e133fd6ea3bca367d6dc741))
+- Better man pages ([35814d2](https://github.com/aversini/envtools/commit/35814d28fe3363ee883dd019bfdf01f3256f510d))
+
 __0.0.9 / 2016-01-20__
 
 - Fixing git bootstrap - forgot array of cmd would not be async... ([e9810f4](https://github.com/aversini/envtools/commit/e9810f446a17af8a4091427d99522ee3567f44f5))
