@@ -28,3 +28,9 @@ alias axdiff='$TOOLSDIR/diff.js -a'
 
 # Open help file
 alias h='open $ENVDIR/../help.html'
+
+# Shortcut to some default path
+alias desk='cd $HOME/Desktop; tit "~/Desktop"'
+alias down='cd $HOME/Downloads; tit "~/Downloads"'
+alias dow='down'
+

@@ -5,11 +5,14 @@
 
 Alias | Description
 ------|-------------
-`..`  | Equivalent to 'cd ..'
+`..`  | Equivalent to `cd ..`
+`desk`| Equivalent to `cd ~/Desktop`
+`down`| Equivalent to `cd ~/Download`
 `la`  | Enhanced `ls` to list files and dot files, sorted by oldest on top.
 `ld`  | Directories are listed as plain files (not searched recursively).
 `ll`  | List in long format unsorted. A total sum for all the file sizes is output on a line before the long listing.
 `lrt` | List in long format sorted alphabetically and the most recent first.
+
 
 
 ## Files/folders Search/Diff
