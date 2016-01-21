@@ -14,8 +14,8 @@
 
   "commands": {
     "help": "Display extra help about a specific command.",
-    "config": "Manage the envtools/fedtools configuration file.",
-    "init": "Bootstrap a development environment."
+    "auto": "Bootstrap your environment automatically.",
+    "manual": "Bootstrap your environment step by step."
   },
 
   "prompt": {
