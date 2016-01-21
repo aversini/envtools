@@ -31,7 +31,7 @@
       "manual": {
         "synopsis": "Bootstrap your environment manually.",
         "command": "envtools manual",
-        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: auto) where you can pick and choose which part of the bootstrap you want to run. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
+        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: auto) where you can pick and choose which part of the bootstrap you want to run. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
 
         "options": {
           "0": {
@@ -43,7 +43,7 @@
       "auto": {
         "synopsis": "Bootstrap your environment automatically.",
         "command": "envtools auto",
-        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
+        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
 
         "options": {
           "0": {
