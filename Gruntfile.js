@@ -1,74 +1,17 @@
-/*jshint node:true */
-
 module.exports = function (grunt) {
 
-  var moment = require('moment'),
-    mustache = require('mustache'),
-    fs = require('fs'),
-    semver = require('semver'),
+  var
+    path = require('path'),
+    g = require('./envtools-grunt/globals');
 
-    historyFile = 'HISTORY.md',
-    PUBLISH_COMMIT_MSG = 'Publishing npm release',
-    TPL_HISTORY_ENTRY = '\n##Release {{version}} ~ {{date}}\n' +
-      '{{history}}';
+  // show fancy time for grunt tasks
+  require('time-grunt')(grunt);
 
   // load plugins
   require('load-grunt-tasks')(grunt);
 
-  // helper callback for shell task
-  // - Update the HISTORY.md file with the latest logs
-  // - Stage, commit and publish the HISTORY.md file
-  function postGetLatestLogs(err, stdout, stderr, cb) {
-    var buffer,
-      version = semver.inc(grunt.config.get('pkg').version, 'patch'),
-      date = moment(new Date()).format('MMM DD YYYY HH:mm');
-
-    if (stdout) {
-      buffer = mustache.render(TPL_HISTORY_ENTRY, {
-        version: version,
-        date: date,
-        history: stdout
-      });
-
-      if (buffer) {
-        fs.appendFileSync(historyFile, buffer);
-
-        grunt.util.spawn({
-          cmd: 'git',
-          args: ['add', historyFile]
-        }, function (err) {
-          if (err) {
-            grunt.fail.fatal('Unable to run "git add" ' + err);
-            cb();
-          } else {
-            grunt.util.spawn({
-              cmd: 'git',
-              args: ['commit', '-m', 'Updating HISTORY']
-            }, function (err) {
-              if (err) {
-                grunt.fail.fatal('Unable to run "git commit" ' + err);
-                cb();
-              } else {
-                grunt.util.spawn({
-                  cmd: 'git',
-                  args: ['push']
-                }, function (err) {
-                  if (err) {
-                    grunt.fail.fatal('Unable to run "git push" ' + err);
-                  }
-                  cb();
-                });
-              }
-            });
-          }
-        });
-      } else {
-        cb();
-      }
-    } else {
-      cb();
-    }
-  }
+  // load envtools tasks
+  grunt.loadTasks('envtools-grunt/tasks');
 
   // project configuration
   grunt.initConfig({
@@ -109,14 +52,13 @@ module.exports = function (grunt) {
       },
     },
 
-    shell: {
-      getHistory: {
-        command: 'git log <%=pkg.version%>..HEAD' +
-          ' --pretty=format:\'* [ %an ] %s\' --no-merges | grep -v "' +
-          PUBLISH_COMMIT_MSG + '"',
-        options: {
-          callback: postGetLatestLogs
-        }
+    coveralls: {
+      options: {
+        src: 'coverage-results/lcov.info',
+        // When true, grunt-coveralls will only print a warning rather than
+        // an error, to prevent CI builds from failing unnecessarily (e.g. if
+        // coveralls.io is down). Optional, defaults to false.
+        force: true
       }
     },
 
@@ -129,91 +71,46 @@ module.exports = function (grunt) {
         push: true,
         pushTags: true,
         npm: true,
-        commitMessage: PUBLISH_COMMIT_MSG + ' <%= version %>'
+        commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]',
+        beforeRelease: ['history']
       }
-    }
-  });
+    },
 
-  // register running tasks
-  grunt.registerTask('default', ['help']);
-  grunt.registerTask('publish', ['shell', 'release']);
-
-  grunt.registerTask('pack', 'Create package', function () {
-    var done = this.async();
-    grunt.util.spawn({
-      cmd: 'npm',
-      args: ['pack']
-    }, function (err) {
-      done(err);
-    });
-  });
-
-  grunt.registerTask('pack-remove', 'Remove package', function () {
-    var version = grunt.config.get('pkg').version,
-      name = grunt.config.get('pkg').name;
-    grunt.file.delete(name + '-' + version + '.tgz');
-  });
-
-  grunt.registerTask('untar', 'Untar packages', function () {
-    var done = this.async(),
-      version = grunt.config.get('pkg').version,
-      name = grunt.config.get('pkg').name,
-      localName = 'local-' + name + '-' + version + '.tgz',
-      regName = 'registry-' + name + '-' + version + '.tgz';
-
-    grunt.util.spawn({
-      cmd: 'tar',
-      args: ['xzf', regName, '-C', 'registry'],
-      opts: {
-        cwd: 'tmp'
-      }
-    }, function () {
-      grunt.util.spawn({
-        cmd: 'tar',
-        args: ['xzf', localName, '-C', 'local'],
-        opts: {
-          cwd: 'tmp'
+    markdown: {
+      envtools: {
+        files: [{
+          expand: false,
+          src: g.historyFile,
+          dest: g.historyFileHTML,
+        }],
+        options: {
+          template: path.join('data', 'templates', 'history', 'envtools-history.jst'),
+          templateContext: {
+            pageTitle: 'Envtools History',
+            headerTitle: 'Envtools commit history'
+          }
         }
-      }, function (err) {
-        done(err);
-      });
-
-    });
-  });
-
-  grunt.registerTask('diffd', 'Runs a diffd', function () {
-    var done = this.async();
-    grunt.util.spawn({
-      cmd: 'diff',
-      args: ['-b', '-q', '-r', 'local', 'registry'],
-      opts: {
-        cwd: 'tmp'
       }
-    }, function (err, data) {
-      if (data.stdout) {
-        console.log('\n', data.stdout);
-      }
-      done(err);
-    });
-  });
-
-  // need to check the release
-  grunt.registerTask('check', 'Check the release validity', function (env) {
-    grunt.task.run('clean');
-    grunt.task.run('mkdir');
-    if (env && env === 'noproxy') {
-      grunt.task.run('curl:noproxy');
-    } else {
-      grunt.task.run('curl:proxy');
     }
-    grunt.task.run('pack');
-    grunt.task.run('copy');
-    grunt.task.run('pack-remove');
-    grunt.task.run('untar');
-    grunt.task.run('diffd');
+
   });
+
+  // register multi-tasks aliases
+  grunt.registerTask('default', ['help']);
+  grunt.registerTask('history', [
+    'history-generate',
+    'history-add-commit-push'
+  ]);
+  grunt.registerTask('publish', [
+    'npm-pre-release',
+    'test',
+    'bash-version',
+    'release'
+  ]);
+
 
   grunt.registerTask('help', 'Display help usage', function () {
+    grunt.log.subhead('Grunt [ ' + this.name.cyan + ' ]');
     console.log();
     console.log('Type "grunt publish" to:');
     console.log(' - bump the version in package.json file.');
@@ -224,7 +121,7 @@ module.exports = function (grunt) {
     console.log(' - push the new tag out to github.');
     console.log(' - publish the new version to npm.');
     console.log();
-    console.log('Then type "grunt check" to:');
+    console.log('Type "grunt check" to:');
     console.log(' - check if the newly published package is valid.');
   });
 };

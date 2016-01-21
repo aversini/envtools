@@ -1,7 +1,7 @@
 {
   "name": "envtools",
   "version": "0.0.1",
-  "description": "Environment manager and tools within nodejs",
+  "description": "Set of env tools for Mac/Linux",
   "author": "Arno Versini",
   "bin": {
     "envtools": "./bin/envtools.js"
@@ -20,37 +20,53 @@
     "url": "https://github.com/aversini/envtools/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
+    "ci": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "preferGlobal": true,
   "dependencies": {
-    "commander": "~2.0.0",
-    "fedtools-commands": "~0.0.6",
-    "fedtools-logs": "~0.0.2",
-    "fedtools-utilities": "~0.0.1",
-    "ini": "~1.1.0",
-    "promptly": "~0.2.0",
-    "shelljs": "~0.2.6",
-    "underscore": "~1.5.2"
+    "async": "^1.5.0",
+    "commander": "^2.9.0",
+    "fedtools-commands": "~0.0.31",
+    "fedtools-config": "~0.0.18",
+    "fedtools-i18n": "~0.0.5",
+    "fedtools-logs": "~0.1.1",
+    "fedtools-notifier": "~0.0.13",
+    "fedtools-utilities": "~0.0.53",
+    "glob": "^6.0.2",
+    "inquirer": "~0.11.0",
+    "moment": "^2.10.2",
+    "mustache": "^2.2.1",
+    "optimist": "~0.6.1",
+    "posix": "^4.0.0",
+    "request": "^2.55.0",
+    "semver": "^5.1.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "chai": "*",
+    "coveralls": "*",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.11",
-    "grunt-release": "*",
+    "grunt-contrib-watch": "*",
     "grunt-curl": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-copy": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-markdown": "*",
     "grunt-mkdir": "*",
     "grunt-shell": "*",
+    "grunt-contrib-yuidoc": "*",
+    "istanbul": "*",
     "load-grunt-tasks": "*",
-    "moment": "~2.4.0",
-    "mustache": "~0.7.3",
-    "semver": "*"
+    "mocha": "*",
+    "mocha-lcov-reporter": "*",
+    "time-grunt": "*"
   },
   "keywords": [
-    "fed",
-    "tools",
-    "env",
-    "console",
-    "terminal"
+    "envtools"
   ]
 }

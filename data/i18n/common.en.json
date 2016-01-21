@@ -1,0 +1,73 @@
+{
+  "yes": "yes",
+  "no": "no",
+  "local": "local",
+  "remote": "remote",
+  "bye": "Bye then...",
+  "continue": "Continue",
+  "updateCmd": "[sudo -E] npm install -g envtools",
+  "updateCmdWin": "npm install -g envtools",
+
+  "errors": {
+    "incompatibleWithWindowz": "Sorry this command only runs on Mac/Linux"
+  },
+
+  "commands": {
+    "help": "Display extra help about a specific command.",
+    "config": "Manage the envtools/fedtools configuration file.",
+    "init": "Bootstrap a development environment."
+  },
+
+  "prompt": {
+    "parameters": "Available commands:",
+    "extraHelpTitle": "Help for a specific command:",
+    "extraHelpContent": "envtools help [command]",
+    "serve": {
+      "usage": "Usage: envtools %{command} -f <packaged-file.tar.gz|folder>"
+    }
+  },
+
+  "help": {
+    "h": "display full usage information",
+    "v": "display envtools version number",
+    "b": "do not use colors",
+    "d": "run command in debug mode",
+    "na": "There is no extra help for this command yet...",
+    "more": "For extra information, type envtools help",
+    "full": {
+      "synopsis": "SYNOPSIS",
+      "command": "COMMAND",
+      "description": "DESCRIPTION",
+      "options": "OPTIONS",
+      "examples": "EXAMPLES"
+    }
+  },
+
+  "results": {
+    "unit": {
+      "success": "All unit tests are successful",
+      "error": "Some unit tests failed..."
+    },
+    "build": {
+      "success": "Build was successful",
+      "error": "Build failed..."
+    },
+    "bootstrap": {
+      "success": "Bootstrap was successful",
+      "error": "Bootstrap failed..."
+    }
+  },
+
+  "version": {
+    "installed": "Envtools current version: ",
+    "updateAvailable": "Envtools update available: %{latest} (current: %{current})",
+    "runCommandToUpdate": "Run %{command} to update.",
+    "changelogLink": "\nChangelog: %{link}"
+  },
+  "choices": {
+    "chooseOptions": "Please choose one of the following options:",
+    "enterForDefault": ", or ENTER for default [%{data}]",
+    "enterForDefaultNoData": ", or ENTER for default",
+    "existingLocation": "Type a valid repository path you want to use"
+  }
+}
