@@ -1,6 +1,7 @@
 # Sublime
 if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]; then
   alias mate="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+  alias maten='mate -n'
 fi
 
 # Chrome
