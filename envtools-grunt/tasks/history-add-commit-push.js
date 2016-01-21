@@ -10,7 +10,8 @@ module.exports = function (grunt) {
 
     if (noWrite) {
       grunt.log.writeln('history-add-commit-push dry run');
-      grunt.log.ok('git add ' + g.historyFile + ' ' + g.historyFileHTML + ' ' + g.bashVersionFile);
+      grunt.log.ok('git add ' + g.historyFile + ' ' + g.historyFileHTML +
+        ' ' + g.bashVersionFile + ' ' + g.helpFileHTML);
       grunt.log.ok('git commit -m ' + commitMsg);
       grunt.log.ok('git push');
       done();
@@ -20,7 +21,8 @@ module.exports = function (grunt) {
         args: ['add',
           g.historyFile,
           g.historyFileHTML,
-          g.bashVersionFile
+          g.bashVersionFile,
+          g.helpFileHTML,
         ]
       }, function (err) {
         if (err) {

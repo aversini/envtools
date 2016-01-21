@@ -3,5 +3,7 @@ module.exports = {
   PUBLISH_COMMIT_MSG: 'Publishing npm release',
   historyFile: 'HISTORY.md',
   historyFileHTML: 'envtools-history.html',
-  bashVersionFile: 'version'
+  bashVersionFile: 'version',
+  helpFile: 'data/help.md',
+  helpFileHTML: 'help.html',
 };

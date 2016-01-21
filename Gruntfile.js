@@ -77,6 +77,21 @@ module.exports = function (grunt) {
     },
 
     markdown: {
+      help: {
+        files: [{
+          expand: false,
+          src: g.helpFile,
+          dest: g.helpFileHTML,
+        }],
+        options: {
+          gfm: true,
+          template: path.join('data', 'templates', 'help', 'envtools-help.jst'),
+          templateContext: {
+            pageTitle: 'Envtools Help',
+            headerTitle: 'Envtools Help'
+          }
+        }
+      },
       envtools: {
         files: [{
           expand: false,
@@ -105,6 +120,7 @@ module.exports = function (grunt) {
     'npm-pre-release',
     'test',
     'bash-version',
+    'markdown:help',
     'release'
   ]);
 
