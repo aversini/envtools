@@ -1,4 +1,9 @@
 
+__0.0.6 / 2016-01-20__
+
+- Adding bash version file to grunt task ([abbcc3e](https://github.com/aversini/envtools/commit/abbcc3ebceb56708502ddbe8735bbebe9456679b))
+- Fixing envtools logo... ([e9deb2f](https://github.com/aversini/envtools/commit/e9deb2f7d68dd476e0cd8a258463c175acfee2e7))
+
 __0.0.5 / 2016-01-20__
 
 - Fixing grunt tasks... ([8e64d3d](https://github.com/aversini/envtools/commit/8e64d3d3179104f8b89ca6237fe0723400d9567a))
