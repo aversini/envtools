@@ -41,10 +41,12 @@
     "moment": "^2.10.2",
     "mustache": "^2.2.1",
     "optimist": "~0.6.1",
-    "posix": "^4.0.0",
     "request": "^2.55.0",
     "semver": "^5.1.0",
     "underscore": "^1.8.3"
+  },
+  "optionalDependencies": {
+    "posix": "^4.0.0",
   },
   "devDependencies": {
     "chai": "*",
