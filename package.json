@@ -7,6 +7,7 @@
     "envtools": "./bin/envtools.js"
   },
   "files": [
+    "shell",
     "bin",
     "lib",
     "data",
