@@ -1,4 +1,8 @@
 
+__0.0.9 / 2016-01-20__
+
+- Fixing git bootstrap - forgot array of cmd would not be async... ([e9810f4](https://github.com/aversini/envtools/commit/e9810f446a17af8a4091427d99522ee3567f44f5))
+
 __0.0.8 / 2016-01-20__
 
 - Adding missing file at root level of npm package - not sure if this is going to work thouhg.. ([20bc08a](https://github.com/aversini/envtools/commit/20bc08a612f91e424e3316aa14120aeaca6b5193))
