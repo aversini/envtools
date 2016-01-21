@@ -218,7 +218,9 @@ function displayWelcomeBanner {
     else
       # Display a simple help intro
       txtBlue "Environment successfully loaded." "nl"
-      txtBlue "Type "; txtRed "h"; txtBlue " for available shortcuts." "nl"
+      if [ "$OS" == "Darwin" ]; then
+        txtBlue "Type "; txtRed "h"; txtBlue " for available shortcuts." "nl"
+      fi
       echo
     fi
     # and update the terminal tab title if needed
