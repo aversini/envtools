@@ -1,4 +1,9 @@
 
+__0.0.7 / 2016-01-20__
+
+- Better handling of proxy setting (before and after) ([6c420f6](https://github.com/aversini/envtools/commit/6c420f6984216d1fe309d60af1578c4892fb7cb9))
+- Do not ask for admin access in bootstrap mode ([5eeee4b](https://github.com/aversini/envtools/commit/5eeee4bc37d8dfe498d1656fb8205dc1f8a4e6e3))
+
 __0.0.6 / 2016-01-20__
 
 - Adding bash version file to grunt task ([abbcc3e](https://github.com/aversini/envtools/commit/abbcc3ebceb56708502ddbe8735bbebe9456679b))
