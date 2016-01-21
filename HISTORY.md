@@ -1,4 +1,10 @@
 
+__0.0.8 / 2016-01-20__
+
+- Adding missing file at root level of npm package - not sure if this is going to work thouhg.. ([20bc08a](https://github.com/aversini/envtools/commit/20bc08a612f91e424e3316aa14120aeaca6b5193))
+- Changing commands to 'auto' and 'manual' - makes more sense ([863cf0f](https://github.com/aversini/envtools/commit/863cf0f823a93a778993e2122d6ad26826644939))
+- Better introduction + better verbiage on proxy ([3542e41](https://github.com/aversini/envtools/commit/3542e41bb6f1483e0192023b6b2826adf699fc9e))
+
 __0.0.7 / 2016-01-20__
 
 - Better handling of proxy setting (before and after) ([6c420f6](https://github.com/aversini/envtools/commit/6c420f6984216d1fe309d60af1578c4892fb7cb9))
