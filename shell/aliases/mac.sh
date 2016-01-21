@@ -25,3 +25,6 @@ alias f=openInFinder
 # Diff helper for Araxis/Kaleidoscope
 alias ksdiff='$TOOLSDIR/diff.js -k'
 alias axdiff='$TOOLSDIR/diff.js -a'
+
+# Open help file
+alias h='open $ENVDIR/../help.html'
