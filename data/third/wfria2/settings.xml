@@ -1,0 +1,139 @@
+<settings>
+<proxies>
+        <proxy>
+            <id>proxy-1</id>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>proxy.wellsfargo.com</host>
+            <port>8080</port>
+            <nonProxyHosts>wnl-svr167.wellsfargo.com, code.wellsfargo.com|known-code.wellsfargo.com|*.wellsfargo.com|*.wachovia.net</nonProxyHosts>
+        </proxy>
+    </proxies>
+
+    <servers>
+        <server>
+            <id>wria2-nexus</id>
+            <username> <!-- enter uname --> </username>
+            <password> <!-- enter pword-->  </password>
+        </server>
+        <server>
+            <id>wria2-nexus-snapshots</id>
+            <username> <!-- enter uname --> </username>
+            <password> <!-- enter pword-->  </password>
+        </server>
+        <server>
+            <id>wria2-thirdparty</id>
+            <username> <!-- enter uname --> </username>
+            <password> <!-- enter pword-->  </password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <name>Nexus Public Mirror</name>
+            <url>http://code.wellsfargo.com:8081/nexus/content/groups/foss-components/</url>
+            <mirrorOf>!wria2-repo</mirrorOf>
+        </mirror>
+        <mirror>
+            <id>nexus-snapshots</id>
+            <name>Nexus Public Snapshots Mirror</name>
+            <url>http://code.wellsfargo.com:8081/nexus/content/groups/foss-snapshots/</url>
+            <mirrorOf>public-snapshots</mirrorOf>
+        </mirror>
+    </mirrors>
+
+
+    <profiles>
+        <profile>
+            <id>mvn2-dev</id>
+
+            <repositories>
+                <repository>
+                    <id>wria2-nexus-snapshots</id>
+                    <name>wria2 snapshots</name>
+                    <releases>
+                        <enabled>false</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>http://wnl-svr167.wellsfargo.com:8881/nexus/content/repositories/snapshots/</url>
+                    <layout>default</layout>
+                </repository>
+
+                <repository>
+                  <id>wria2-nexus</id>
+                  <name>wria2 releases</name>
+                  <releases>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                    <checksumPolicy>warn</checksumPolicy>
+                  </releases>
+                  <snapshots>
+                    <enabled>false</enabled>
+                    <updatePolicy>never</updatePolicy>
+                    <checksumPolicy>fail</checksumPolicy>
+                  </snapshots>
+                  <url>http://wnl-svr167.wellsfargo.com:8881/nexus/content/repositories/releases/</url>
+                  <layout>default</layout>
+                </repository>
+
+                <repository>
+                    <id>wria2-thirdparty</id>
+                    <name>wria2-thirdparty</name>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>http://wnl-svr167.wellsfargo.com:8881/nexus/content/repositories/thirdparty</url>
+                    <layout>default</layout>
+                </repository>
+
+            </repositories>
+
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <name>Common Component Repository Dev</name>
+                    <layout>default</layout>
+                    <url>http://code.wellsfargo.com:8081/nexus/content/groups/foss-components/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+
+        </pluginRepositories>
+
+            <properties>
+                <!--
+                     Enter your local variables here and then reference them in your pom.xml.
+                     Ex.  <jboss.home>C:\servers\jboss-5.0.1\</jboss.home>
+                 -->
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>mvn2-dev</activeProfile>
+    </activeProfiles>
+
+    <pluginGroups>
+        <pluginGroup>org.sonatype.plugins</pluginGroup>
+    </pluginGroups>
+
+</settings>

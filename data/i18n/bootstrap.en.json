@@ -1,13 +1,14 @@
 {
   "bootstrap": {
+    "setUsrLocal": "Enable sudo-less npm and ruby gems.",
     "setEnv": "Update your environment to load goodies automatically.",
     "setProxy": "Setup a proxy.",
     "checkApps": "Check for Applications needed by WF-RIA².",
     "setGitCfg": "Bootstrap your git configuration.",
-    "setNPM": "Configure npm and install a few indispensable Node packages.",
+    "setNPM": "Configure npm and install a few core node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
     "setRuby": "Update Ruby and Compass.",
-    "setMaven": "Install and configure Maven.",
+    "setMaven": "Install/update and configure Maven.",
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
       "auto": "★ Welcome to Envtools - Interactive Configuration ★",
