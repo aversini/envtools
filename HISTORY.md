@@ -1,4 +1,12 @@
 
+__0.0.11 / 2016-01-21__
+
+- Adding Maven installation ([07c382a](https://github.com/aversini/envtools/commit/07c382ad73c6d7f42118db865eeec01965f1fcfb))
+- Adding aliases for desktop/download folders on mac ([8a7cab7](https://github.com/aversini/envtools/commit/8a7cab76b4e8c42563c2a67f3b2d00a7b9eeb854))
+- Fixing invalid custom folder in help ([db0f69e](https://github.com/aversini/envtools/commit/db0f69e5a3e81245efbd57c3476945dc179f222a))
+- Fixing display banner for linux (no help here) ([45ebf3d](https://github.com/aversini/envtools/commit/45ebf3de316221f4799ae8d0b50710979e7430f8))
+- Adding missing ccc alias ([6f969c1](https://github.com/aversini/envtools/commit/6f969c111c9c20c7710d8610c2b23b603830d2c9))
+
 __0.0.10 / 2016-01-21__
 
 - Adding alias for help in mac ([bf8b742](https://github.com/aversini/envtools/commit/bf8b742fc0db661a0b78ba04ccb33073735886b4))
