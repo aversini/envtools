@@ -1,4 +1,9 @@
 
+__0.0.14 / 2016-01-22__
+
+- Adding fedtools step ([5ffb4b2](https://github.com/aversini/envtools/commit/5ffb4b24658655335e69ca80c60a1390ea253b6d))
+- Adding usr local chown + m2 settings ([d46f34f](https://github.com/aversini/envtools/commit/d46f34f724b419c512c5346b72cd2d5cd60ad9b0))
+
 __0.0.13 / 2016-01-21__
 
 - Fixing async issue with mkdirp - too tired to investigate :/ ([c001564](https://github.com/aversini/envtools/commit/c001564e485783d0ef259b07463c18441c3a1d68))
