@@ -33,6 +33,7 @@
   "dependencies": {
     "async": "^1.5.0",
     "commander": "^2.9.0",
+    "download": "^4.4.3",
     "fedtools-commands": "~0.0.31",
     "fedtools-config": "~0.0.18",
     "fedtools-i18n": "~0.0.5",

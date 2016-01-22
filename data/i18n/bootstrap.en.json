@@ -7,6 +7,7 @@
     "setNPM": "Configure npm and install a few indispensable Node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
     "setRuby": "Update Ruby and Compass.",
+    "setMaven": "Install and configure Maven.",
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
       "auto": "★ Welcome to Envtools - Interactive Configuration ★",
