@@ -1,4 +1,8 @@
 
+__0.0.13 / 2016-01-21__
+
+- Fixing async issue with mkdirp - too tired to investigate :/ ([c001564](https://github.com/aversini/envtools/commit/c001564e485783d0ef259b07463c18441c3a1d68))
+
 __0.0.11 / 2016-01-21__
 
 - Adding Maven installation ([07c382a](https://github.com/aversini/envtools/commit/07c382ad73c6d7f42118db865eeec01965f1fcfb))
