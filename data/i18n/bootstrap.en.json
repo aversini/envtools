@@ -7,8 +7,9 @@
     "setGitCfg": "Bootstrap your git configuration.",
     "setNPM": "Configure npm and install a few core node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
-    "setRuby": "Update Ruby and Compass.",
+    "setRuby": "Install/update Ruby and Compass.",
     "setMaven": "Install/update and configure Maven.",
+    "installFedtools": "Install/update Fedtools",
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
       "auto": "★ Welcome to Envtools - Interactive Configuration ★",
