@@ -1,4 +1,10 @@
 
+__0.0.19 / 2016-01-23__
+
+- Refactoring the prompt code to allow easier overridde ([91aa3ab](https://github.com/aversini/envtools/commit/91aa3abb39262a31f44ec91ae50b69b583e8bcc6))
+- Moving custom functions/exports/aliases at the very end to make sure they can override anything ([3f9ce90](https://github.com/aversini/envtools/commit/3f9ce90da9204eff214e8e001a8f124a8ef2e82c))
+- Better proxy set/unset with environment auto reload if needed ([75d0f0a](https://github.com/aversini/envtools/commit/75d0f0ae35c369232004deeea0f9080d6ad6c534))
+
 __0.0.18 / 2016-01-23__
 
 - Adding missing commit logs to npm package ([7fb60d3](https://github.com/aversini/envtools/commit/7fb60d393f838628f6c788f13fc7cbe932e26463))
