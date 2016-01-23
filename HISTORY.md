@@ -1,4 +1,8 @@
 
+__0.0.17 / 2016-01-23__
+
+- Oops debug logs in prod.. ([026497b](https://github.com/aversini/envtools/commit/026497bf06659dc6a925de46a172f839d8ab15cc))
+
 __0.0.16 / 2016-01-23__
 
 - Oops missing rimraf dep ([8c4c6e1](https://github.com/aversini/envtools/commit/8c4c6e1c7df01476f8141feef5661b4e5fe04c53))
