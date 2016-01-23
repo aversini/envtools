@@ -54,6 +54,13 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
     ulimit -n 7168
   fi
 
+  # Set proxy quietly
+  setProxyAtLoadTime
+  # Set the prompt
+  setPrompt
+  # And bid thee welcome
+  displayWelcomeBanner
+
   # Loading custom fuctions
   if [ -f "${RUNTIME_DIR}/custom/functions.sh" ]; then
     source "${RUNTIME_DIR}/custom/functions.sh"
@@ -66,13 +73,6 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   if [ -f "${RUNTIME_DIR}/custom/exports.sh" ]; then
     source "${RUNTIME_DIR}/custom/exports.sh"
   fi
-
-  # Set proxy quietly
-  setProxyAtLoadTime
-  # Set the prompt
-  setPrompt
-  # And bid thee welcome
-  displayWelcomeBanner
 
 else
   echo "OS not supported/recognized... ($OS)"
