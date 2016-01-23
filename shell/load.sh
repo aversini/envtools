@@ -8,6 +8,7 @@ ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 RUNTIME_DIR="${HOME}/.envtools"
 CUSTOM_ENVDIR="${RUNTIME_DIR}/custom"
 TOOLSDIR="${ENVDIR}/../lib"
+OLD_PS1="${PS1}"
 # The proxy value should be saved
 # in the file "${RUNTIME_DIR}/proxy".
 # Let's read it at load time and save it.

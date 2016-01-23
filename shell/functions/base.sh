@@ -103,27 +103,11 @@ function isSvn {
 # Reload the environment (no matter which one is loaded)
 #
 function reloadEnvironment {
+  unsetExtraPS1
+  export PS1="$OLD_PS1"
   export INIT_PARAM="reload"
   source $ENVDIR/load.sh
   unset INIT_PARAM
-}
-
-#
-# Set the global variable STR_PS1
-#
-function setExtraPS1 {
-  if isValid "$1"; then
-    STR_PS1=" $1"
-  else
-    STR_PS1=""
-  fi
-}
-
-#
-# Unset the global variable STR_PS1
-#
-function unsetExtraPS1 {
-  STR_PS1=""
 }
 
 #
@@ -170,26 +154,51 @@ function setTerminalTitle {
 }
 
 #
+# Set the global variable STR_PS1
+#
+function setExtraPS1 {
+  if isValid "$1"; then
+    STR_PS1="$1"
+  else
+    STR_PS1=""
+  fi
+}
+
+#
+# Unset the global variable STR_PS1
+#
+function unsetExtraPS1 {
+  STR_PS1=""
+}
+
+#
 # Setting prompt
 #
 function setPrompt {
-  # Example with git branch if any (master)
-  # [proxy ON] short pwd (git:master) $
-  if [ "$USER" == "root" ]; then
-    # No matter what, display the name of the machine too
-    export PS1='\['$COLOR_RED'\][\u@\h]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
-  else
-    # If Mac go for blue, otherwise switch to yellow
-    if [ "$OS" == "Darwin" ]; then
-      PROMPT_COLOR=$COLOR_BLUE
+  # Only set a custom prompt if the user asked for it
+  if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
+    # Example with git branch if any (master)
+    # [proxy ON] short pwd (git:master) $
+    if [ "$USER" == "root" ]; then
+      # No matter what, display the name of the machine too
+      unsetExtraPS1
+      export PS1='\['$COLOR_RED'\][\u@\h]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
     else
-      PROMPT_COLOR=$COLOR_YELLOW
-    fi
-    # Check if we are in an ssh session, if yes, display the name of the machine too
-    if isSSH ; then
-      export PS1='\['$PROMPT_COLOR'\][SSH session - Proxy ${PROXY_STATUS}]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
-    else
-      export PS1='\['$PROMPT_COLOR'\][Proxy: ${PROXY_STATUS}${STR_PS1}] \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
+      # If Mac go for blue, otherwise switch to yellow
+      if [ "$OS" == "Darwin" ]; then
+        PROMPT_COLOR=$COLOR_BLUE
+      else
+        PROMPT_COLOR=$COLOR_YELLOW
+      fi
+      # Check if we are in an ssh session, if yes, display the name of the machine too
+      if isSSH ; then
+        setExtraPS1 "[ssh - proxy ${PROXY_STATUS}]"
+        export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
+      else
+        echo "need to set the prompt"
+        setExtraPS1 "[Proxy: ${PROXY_STATUS}]"
+        export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
+      fi
     fi
   fi
 }
