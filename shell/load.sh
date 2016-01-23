@@ -55,16 +55,16 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   fi
 
   # Loading custom fuctions
-  if [ -f "${RUNTIME_DIR}/functions.sh" ]; then
-    source "${RUNTIME_DIR}/functions.sh"
+  if [ -f "${RUNTIME_DIR}/custom/functions.sh" ]; then
+    source "${RUNTIME_DIR}/custom/functions.sh"
   fi
   # Loading custom aliases
-  if [ -f "${RUNTIME_DIR}/aliases.sh" ]; then
-    source "${RUNTIME_DIR}/aliases.sh"
+  if [ -f "${RUNTIME_DIR}/custom/aliases.sh" ]; then
+    source "${RUNTIME_DIR}/custom/aliases.sh"
   fi
   # Loading custom exports
-  if [ -f "${RUNTIME_DIR}/exports.sh" ]; then
-    source "${RUNTIME_DIR}/exports.sh"
+  if [ -f "${RUNTIME_DIR}/custom/exports.sh" ]; then
+    source "${RUNTIME_DIR}/custom/exports.sh"
   fi
 
   # Set proxy quietly
