@@ -44,6 +44,7 @@ function setProxyStatusOnFile {
 
 function setProxies {
   local LOCAL_PROXY_STATUS=""
+  local RELOAD=false
 
   if isProxyKnown; then
     if [ -f "${RUNTIME_DIR}/proxy_status" ]; then
@@ -60,6 +61,7 @@ function setProxies {
         setNpmProxy "$PROXY" "OFF"
         setGitProxy "$PROXY" "OFF"
         setSublimeProxy "$PROXY" "OFF"
+        RELOAD=true
       fi
       setProxyStatusOnFile "OFF"
     elif [ "$1" == "ON" ]; then
@@ -73,8 +75,12 @@ function setProxies {
         setNpmProxy "$PROXY" "ON"
         setGitProxy "$PROXY" "ON"
         setSublimeProxy "$PROXY" "ON"
+        RELOAD=true
       fi
       setProxyStatusOnFile "ON"
+    fi
+    if [ $RELOAD == true ]; then
+      reloadEnvironment
     fi
     displayProxyStatus
   fi
