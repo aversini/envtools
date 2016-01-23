@@ -1,4 +1,8 @@
 
+__0.0.16 / 2016-01-23__
+
+- Oops missing rimraf dep ([8c4c6e1](https://github.com/aversini/envtools/commit/8c4c6e1c7df01476f8141feef5661b4e5fe04c53))
+
 __0.0.15 / 2016-01-23__
 
 - Oops, forgot to change the path to custom functions ([ff1b4aa](https://github.com/aversini/envtools/commit/ff1b4aa8809573b090dba51069115bcd0ac5a0b7))
