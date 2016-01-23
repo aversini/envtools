@@ -1,4 +1,12 @@
 
+__0.0.15 / 2016-01-23__
+
+- Oops, forgot to change the path to custom functions ([ff1b4aa](https://github.com/aversini/envtools/commit/ff1b4aa8809573b090dba51069115bcd0ac5a0b7))
+- Adding enabling/disabling command prompt ([1b6977b](https://github.com/aversini/envtools/commit/1b6977baedf84eb8a566665575b80ced249875e2))
+- ff ignores node_modules by default, but adding --rainbow to bypass ([6474c31](https://github.com/aversini/envtools/commit/6474c31a9388dce3f14f789799ecf3474226f614))
+- Removing unused code ([e518eb0](https://github.com/aversini/envtools/commit/e518eb0de488cd4c9d6d8037b6e15841656adcb9))
+- Fixing typos in help file ([f6e5c7f](https://github.com/aversini/envtools/commit/f6e5c7f4dfa2e08c83a3c1a40dbbd9987d38a884))
+
 __0.0.14 / 2016-01-22__
 
 - Adding fedtools step ([5ffb4b2](https://github.com/aversini/envtools/commit/5ffb4b24658655335e69ca80c60a1390ea253b6d))
