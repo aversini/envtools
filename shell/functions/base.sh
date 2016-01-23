@@ -195,7 +195,6 @@ function setPrompt {
         setExtraPS1 "[ssh - proxy ${PROXY_STATUS}]"
         export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
       else
-        echo "need to set the prompt"
         setExtraPS1 "[Proxy: ${PROXY_STATUS}]"
         export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
       fi
