@@ -173,20 +173,8 @@ function setTerminalTitle {
 # Setting prompt
 #
 function setPrompt {
-  # Set the command prompt
-  local EXTRA_STR=""
-
-  if [ "$DISTRO_NAME" != "" ]; then
-    local EXTRA_STR="($DISTRO_NAME)"
-  fi
-  if [ "$BRANCH_NAME" != "" ]; then
-    local EXTRA_STR="$BRANCH_NAME"
-  fi
-
-  setExtraPS1 $EXTRA_STR
-
   # Example with git branch if any (master)
-  # [proxy ON] STR:pwd (git:master) $
+  # [proxy ON] short pwd (git:master) $
   if [ "$USER" == "root" ]; then
     # No matter what, display the name of the machine too
     export PS1='\['$COLOR_RED'\][\u@\h]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
