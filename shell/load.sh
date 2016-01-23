@@ -56,8 +56,8 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
 
   # Set proxy quietly
   setProxyAtLoadTime
-  # Set the prompt
-  setPrompt
+  # Set the envtools custom prompt
+  setEnvtoolsPrompt
   # And bid thee welcome
   displayWelcomeBanner
 

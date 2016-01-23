@@ -172,9 +172,33 @@ function unsetExtraPS1 {
 }
 
 #
-# Setting prompt
+# Set the command prompt.
+# Takes 3 parameters:
+# arg1: what should appear before git branch status.
+# arg2: what should appear after the git branch status.
+# arg3: an optional printf string for the git branch format.
 #
-function setPrompt {
+function setCommandPromptWithGit {
+  if isValid "$1"; then
+    PS1_BEFORE="$1"
+  fi
+  if isValid "$2"; then
+    PS1_AFTER="$2"
+  fi
+  if isValid "$3"; then
+    PS1_GITPRINTF="$3"
+  else
+    PS1_GITPRINTF=" \[$COLOR_GREEN\](git:%s)\[$COLOR_DEFAULT\]"
+  fi
+
+  export PROMPT_COMMAND='__git_ps1 "$PS1_BEFORE" "$PS1_AFTER" "$PS1_GITPRINTF"'
+}
+
+
+#
+# Setting Envtools custom prompt
+#
+function setEnvtoolsPrompt {
   # Only set a custom prompt if the user asked for it
   if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
     # Example with git branch if any (master)
@@ -184,20 +208,16 @@ function setPrompt {
       unsetExtraPS1
       export PS1='\['$COLOR_RED'\][\u@\h]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
     else
-      # If Mac go for blue, otherwise switch to yellow
-      if [ "$OS" == "Darwin" ]; then
-        PROMPT_COLOR=$COLOR_BLUE
-      else
-        PROMPT_COLOR=$COLOR_YELLOW
-      fi
-      # Check if we are in an ssh session, if yes, display the name of the machine too
+      # Check if we are in an ssh session, if yes,
+      # indicate it, and change the color to yellow.
       if isSSH ; then
-        setExtraPS1 "[ssh - proxy ${PROXY_STATUS}]"
-        export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
+        setExtraPS1 "\[$COLOR_BLUE\][ssh - proxy ${PROXY_STATUS}]\[$COLOR_DEFAULT\] "
       else
-        setExtraPS1 "[Proxy: ${PROXY_STATUS}]"
-        export PS1='\['$PROMPT_COLOR'\]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
+        setExtraPS1 "[proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
       fi
+      local BEFORE="\[$COLOR_BLUE\]${STR_PS1}\[$COLOR_CYAN\]\W\[$COLOR_DEFAULT\]"
+      local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
+      setCommandPromptWithGit "$BEFORE" "$AFTER"
     fi
   fi
 }
