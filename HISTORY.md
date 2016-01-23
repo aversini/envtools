@@ -1,4 +1,8 @@
 
+__0.0.18 / 2016-01-23__
+
+- Adding missing commit logs to npm package ([7fb60d3](https://github.com/aversini/envtools/commit/7fb60d393f838628f6c788f13fc7cbe932e26463))
+
 __0.0.17 / 2016-01-23__
 
 - Oops debug logs in prod.. ([026497b](https://github.com/aversini/envtools/commit/026497bf06659dc6a925de46a172f839d8ab15cc))
