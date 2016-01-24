@@ -1,4 +1,9 @@
 
+__0.0.28 / 2016-01-24__
+
+- Display welcome banner via node ([6a77444](https://github.com/aversini/envtools/commit/6a77444842c520005c92ea023dffed63d76b0bf8))
+- Better wording for ruby/compass installation ([1bdd467](https://github.com/aversini/envtools/commit/1bdd467973ee66e85d99d7a41779455326a2eecf))
+
 __0.0.27 / 2016-01-24__
 
 - Fixing async installation of ruby/compass ([6b1f9dd](https://github.com/aversini/envtools/commit/6b1f9dd6f0818c6f41f68a81955ea9747bf35455))
