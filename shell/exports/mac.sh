@@ -10,5 +10,7 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 export PATH=/usr/local/bin:$PATH
 
 # Gems (sudo less)
-export GEM_HOME="$(brew --prefix)/gems"
-export GEM_PATH="$(brew --prefix)/gems"
+if [ -f "/usr/local/bin/brew" ]; then
+  export GEM_HOME="/usr/local/gems"
+  export GEM_PATH="/usr/local/gems"
+fi
