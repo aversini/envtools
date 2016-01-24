@@ -233,11 +233,7 @@ function displayWelcomeBanner {
       txtStatus "Reloading environment..." "SUCCESS"
     else
       # Display a simple help intro
-      txtBlue "Environment successfully loaded." "nl"
-      if [ "$OS" == "Darwin" ]; then
-        txtBlue "Type "; txtRed "h"; txtBlue " for available shortcuts." "nl"
-      fi
-      echo
+      envtools banner
     fi
     # and update the terminal tab title if needed
     if [ "$INIT_PARAM" != "reload" ]; then

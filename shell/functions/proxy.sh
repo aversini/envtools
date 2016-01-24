@@ -31,13 +31,13 @@ function setProxyAtLoadTime {
     setEnvProxy "$PROXY" "$LOCAL_STATUS"
     setProxyStatusOnFile "$LOCAL_STATUS"
   else
-    PROXY_STATUS="N/A"
+    export PROXY_STATUS="N/A"
   fi
 }
 
 function setProxyStatusOnFile {
   if isValid "$1"; then
-    PROXY_STATUS="$1"
+    export PROXY_STATUS="$1"
     echo $PROXY_STATUS > "${RUNTIME_DIR}/proxy_status"
   fi
 }
@@ -158,7 +158,7 @@ function displayProxyStatus {
   fi
 
   if isValid "$LOCAL_PROXY_STATUS"; then
-    PROXY_STATUS=$LOCAL_PROXY_STATUS
+    export PROXY_STATUS=$LOCAL_PROXY_STATUS
     echo
     txtStatus "Proxies are ${LOCAL_PROXY_STATUS}" "NOTICE"
     echo
