@@ -1,4 +1,8 @@
 
+__0.0.22 / 2016-01-23__
+
+- Confirm Admin request for git only if not bootstrap mode ([53cfc4d](https://github.com/aversini/envtools/commit/53cfc4d5aaff318230a7d28ca5b69f71659d2aca))
+
 __0.0.21 / 2016-01-23__
 
 - Set gem path via brew only if brew is installed ([eea4fa4](https://github.com/aversini/envtools/commit/eea4fa429aaec4f4f9d4fe0d1500223b822aad0a))
