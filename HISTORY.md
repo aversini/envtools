@@ -1,4 +1,8 @@
 
+__0.0.21 / 2016-01-23__
+
+- Set gem path via brew only if brew is installed ([eea4fa4](https://github.com/aversini/envtools/commit/eea4fa429aaec4f4f9d4fe0d1500223b822aad0a))
+
 __0.0.20 / 2016-01-23__
 
 - If .profile doesnt exist, create it ([e19a797](https://github.com/aversini/envtools/commit/e19a7976fa4db1c6706f7d2320a8385ca2cc44f4))
