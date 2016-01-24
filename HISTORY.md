@@ -1,4 +1,8 @@
 
+__0.0.26 / 2016-01-24__
+
+- Better wording for restarting session needs ([c66d09c](https://github.com/aversini/envtools/commit/c66d09c3d4989b0dd86315a697801d7962a1e8a5))
+
 __0.0.25 / 2016-01-24__
 
 - Need to specifiy gem install dir (in case env is not setup yet) ([dbddc09](https://github.com/aversini/envtools/commit/dbddc09c79455fbe70448c224b65675ecfe6f90d))
