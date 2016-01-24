@@ -1,4 +1,9 @@
 
+__0.0.24 / 2016-01-24__
+
+- Fixing brew installation (was not working since standard brew script is interactive) ([daf3735](https://github.com/aversini/envtools/commit/daf3735ed74813b717a8d9ba8745920c5f7bc7b6))
+- Default to yellow command prompt when ssh'ing ([2c7c959](https://github.com/aversini/envtools/commit/2c7c959befd3ee7fb56f27fdd3bf337dd9b4c5be))
+
 __0.0.23 / 2016-01-24__
 
 - No async for array of commands.. ([4193dd2](https://github.com/aversini/envtools/commit/4193dd2cf1ce6f5d7903a62a10812a5e867c12ab))
