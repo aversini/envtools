@@ -1,4 +1,9 @@
 
+__0.0.23 / 2016-01-24__
+
+- No async for array of commands.. ([4193dd2](https://github.com/aversini/envtools/commit/4193dd2cf1ce6f5d7903a62a10812a5e867c12ab))
+- Adding shifter in core npm packages ([41b2b14](https://github.com/aversini/envtools/commit/41b2b14f5458d8847a2a9283c8129a58bdee4ac9))
+
 __0.0.22 / 2016-01-23__
 
 - Confirm Admin request for git only if not bootstrap mode ([53cfc4d](https://github.com/aversini/envtools/commit/53cfc4d5aaff318230a7d28ca5b69f71659d2aca))
