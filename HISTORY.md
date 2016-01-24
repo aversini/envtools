@@ -1,4 +1,8 @@
 
+__0.0.20 / 2016-01-23__
+
+- If .profile doesnt exist, create it ([e19a797](https://github.com/aversini/envtools/commit/e19a7976fa4db1c6706f7d2320a8385ca2cc44f4))
+
 __0.0.19 / 2016-01-23__
 
 - Refactoring the prompt code to allow easier overridde ([91aa3ab](https://github.com/aversini/envtools/commit/91aa3abb39262a31f44ec91ae50b69b583e8bcc6))
