@@ -1,4 +1,8 @@
 
+__0.0.25 / 2016-01-24__
+
+- Need to specifiy gem install dir (in case env is not setup yet) ([dbddc09](https://github.com/aversini/envtools/commit/dbddc09c79455fbe70448c224b65675ecfe6f90d))
+
 __0.0.24 / 2016-01-24__
 
 - Fixing brew installation (was not working since standard brew script is interactive) ([daf3735](https://github.com/aversini/envtools/commit/daf3735ed74813b717a8d9ba8745920c5f7bc7b6))
