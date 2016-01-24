@@ -211,7 +211,7 @@ function setEnvtoolsPrompt {
       # Check if we are in an ssh session, if yes,
       # indicate it, and change the color to yellow.
       if isSSH ; then
-        setExtraPS1 "\[$COLOR_BLUE\][ssh - proxy ${PROXY_STATUS}]\[$COLOR_DEFAULT\] "
+        setExtraPS1 "\[$COLOR_YELLOW\][ssh - proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
       else
         setExtraPS1 "[proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
       fi
