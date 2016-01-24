@@ -1,4 +1,8 @@
 
+__0.0.27 / 2016-01-24__
+
+- Fixing async installation of ruby/compass ([6b1f9dd](https://github.com/aversini/envtools/commit/6b1f9dd6f0818c6f41f68a81955ea9747bf35455))
+
 __0.0.26 / 2016-01-24__
 
 - Better wording for restarting session needs ([c66d09c](https://github.com/aversini/envtools/commit/c66d09c3d4989b0dd86315a697801d7962a1e8a5))
