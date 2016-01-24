@@ -1,4 +1,8 @@
 
+__0.0.29 / 2016-01-24__
+
+- Playing with the welcome banner... ([7a5ba37](https://github.com/aversini/envtools/commit/7a5ba37e7ce5f8ba1fab54c5c9a7623daa1e1b10))
+
 __0.0.28 / 2016-01-24__
 
 - Display welcome banner via node ([6a77444](https://github.com/aversini/envtools/commit/6a77444842c520005c92ea023dffed63d76b0bf8))
