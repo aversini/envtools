@@ -26,7 +26,7 @@ alias diffd='diffDirectories'
 # alias for setting/un-setting the proxies
 alias pon='setProxies ON'
 alias poff='setProxies OFF'
-alias pq='displayProxyStatus'
+alias pq='displayProxyStatus && setEnvtoolsPrompt'
 
 # killing norton, jamf, lync, etc.
 alias knot=killNorton
