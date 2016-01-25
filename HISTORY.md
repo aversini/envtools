@@ -1,4 +1,8 @@
 
+__0.0.39 / 2016-01-25__
+
+- Fix check version process and display ([9765663](https://github.com/aversini/envtools/commit/97656631b1017da565981d7564544eb99f8c028f))
+
 __0.0.38 / 2016-01-25__
 
 - Display proxy should also update the prompt ([da22ebf](https://github.com/aversini/envtools/commit/da22ebff19874618c0b478b3ed7c14072ac5e316))
