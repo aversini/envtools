@@ -1,4 +1,10 @@
 
+__0.0.33 / 2016-01-24__
+
+- Adding Envtools vesion to welcome banner ([9fdacf7](https://github.com/aversini/envtools/commit/9fdacf71859e4aad608a9b7a868566cc763fc494))
+- Ignore error when setting proxy off and git config complains - it's ok ([133ee42](https://github.com/aversini/envtools/commit/133ee42d8b57b173f1d9c218b86518e023cb8cb5))
+- Do not ask for Proxy confirmation if proxy is already set (in auto mode) ([b170a8e](https://github.com/aversini/envtools/commit/b170a8e074ff33d2df61419e768c55915fe8f1e4))
+
 __0.0.32 / 2016-01-24__
 
 - Wip on adding debug flag ([8d07061](https://github.com/aversini/envtools/commit/8d070615aa9201b41662f36864e5b046c1640171))
