@@ -1,4 +1,8 @@
 
+__0.0.34 / 2016-01-25__
+
+- Better help ([25549c2](https://github.com/aversini/envtools/commit/25549c24bb1c2cb59c0ea8c9b065e0f9303cfe80))
+
 __0.0.33 / 2016-01-24__
 
 - Adding Envtools vesion to welcome banner ([9fdacf7](https://github.com/aversini/envtools/commit/9fdacf71859e4aad608a9b7a868566cc763fc494))
