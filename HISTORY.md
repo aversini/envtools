@@ -1,4 +1,8 @@
 
+__0.0.31 / 2016-01-24__
+
+- Adding .hushlogin to prevent nasty welcome banner ([948e6f4](https://github.com/aversini/envtools/commit/948e6f48f9ff665083faefc66d6c9175122a2ae0))
+
 __0.0.30 / 2016-01-24__
 
 - Allow banner to be disabled ([34cbe81](https://github.com/aversini/envtools/commit/34cbe81e554503c40fecd588f609ed26aa3126c6))
