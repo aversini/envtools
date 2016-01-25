@@ -1,4 +1,11 @@
 
+__0.0.32 / 2016-01-24__
+
+- Wip on adding debug flag ([8d07061](https://github.com/aversini/envtools/commit/8d070615aa9201b41662f36864e5b046c1640171))
+- Bypassing maven check if we just installed it before... ([3f39fb3](https://github.com/aversini/envtools/commit/3f39fb3d132b04c8b98c48288e326d1ad9da1527))
+- Installing Compass should be silent in auto mode ([cd761e4](https://github.com/aversini/envtools/commit/cd761e41263eea06d6e1ea9f1eb920c7978ea3e9))
+- Logging error message when failure to download maven ([b88ea39](https://github.com/aversini/envtools/commit/b88ea397fdc1efed33f40f97ca68f098dfbbffec))
+
 __0.0.31 / 2016-01-24__
 
 - Adding .hushlogin to prevent nasty welcome banner ([948e6f4](https://github.com/aversini/envtools/commit/948e6f48f9ff665083faefc66d6c9175122a2ae0))
