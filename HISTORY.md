@@ -1,4 +1,8 @@
 
+__0.0.35 / 2016-01-25__
+
+- Help: adding warning about node and java ([36775dc](https://github.com/aversini/envtools/commit/36775dc223b12101863adc0641377669d258758d))
+
 __0.0.34 / 2016-01-25__
 
 - Better help ([25549c2](https://github.com/aversini/envtools/commit/25549c24bb1c2cb59c0ea8c9b065e0f9303cfe80))
