@@ -8,7 +8,8 @@ html {
 }
 
 .envtools-help h2 {
-  color: #30418C;
+  /*color: #30418C;*/
+  color: #4078c0;
 }
 
 .envtools-help .envtools-logo {
