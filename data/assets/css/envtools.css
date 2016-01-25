@@ -1,0 +1,23 @@
+html {
+  font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
+}
+
+.envtools-help .header {
+  border-bottom: 1px solid #DFDFDF;
+  margin-bottom: 25px;
+}
+
+.envtools-help h2 {
+  color: #30418C;
+}
+
+.envtools-help .envtools-logo {
+  margin: 10px 0 7px 0;
+  padding-left: 20px;
+}
+
+.envtools-help .envtools-tab-content {
+  font-size: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
