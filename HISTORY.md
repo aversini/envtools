@@ -1,4 +1,9 @@
 
+__0.0.30 / 2016-01-24__
+
+- Allow banner to be disabled ([34cbe81](https://github.com/aversini/envtools/commit/34cbe81e554503c40fecd588f609ed26aa3126c6))
+- Still playing with the banner :) ([4edf307](https://github.com/aversini/envtools/commit/4edf307319c74f2303790d78f87483325a441a3e))
+
 __0.0.29 / 2016-01-24__
 
 - Playing with the welcome banner... ([7a5ba37](https://github.com/aversini/envtools/commit/7a5ba37e7ce5f8ba1fab54c5c9a7623daa1e1b10))
