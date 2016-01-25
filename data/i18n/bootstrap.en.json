@@ -11,15 +11,21 @@
     "setRuby": "Install/update Ruby and Compass.",
     "setMaven": "Install/update and configure Maven.",
     "installFedtools": "Install/update Fedtools",
+    "setQuicklook": "Install Quicklook plugins",
+
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
       "auto": "★ Welcome to Envtools - Interactive Configuration ★",
       "manual": "★ Welcome to Envtools - Manual Configuration ★",
+      "extra": "★ Welcome to Envtools - Extra Goodies ★",
       "getOutAdvice1": "          (CTRL+C will abort the process)",
       "getOutAdvice2": "       (CTRL+C will abort the process)",
+      "getOutAdvice3": "    (CTRL+C will abort the process)",
       "msg1": "Choose one of the following options:"
     },
     "errors": {
+      "general": "Something went wrong...",
+      "info": "You may want to run the command with the -d option for more info",
       "mvn": "Maven is either missing or not in the PATH...",
       "shifter": "Shifter is either missing or not in the PATH...",
       "java": "Java is either missing or not in the PATH...",
@@ -32,6 +38,17 @@
       "ruby": "Ruby is either missing or not in the PATH..."
     },
     "help": {
+      "extra": {
+        "synopsis": "Install/configure extra goodies not included in the automatic/manual processes.",
+        "command": "envtools extra",
+        "description": "TBD",
+        "options": {
+          "0": {
+            "option": "-d",
+            "desc": "Use this flag to display extra information, helpful for debugging."
+          }
+        }
+      },
       "manual": {
         "synopsis": "Bootstrap your environment manually.",
         "command": "envtools manual",

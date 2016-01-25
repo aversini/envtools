@@ -1,0 +1,228 @@
+/*
+ * styles for package content display
+ *
+ * $Id: pkg.css,v 1.12 2009/07/19 00:57:25 randy Exp $
+ */
+
+
+html
+{
+	/* the body sometimes doesn't completely fill the QL window */
+   background-color: rgb( 12, 12, 12 );
+}
+
+body
+{
+   margin: 20px;
+   padding: 0px;
+   font-family: LucidaGrande, sans-serif;
+   -apple-text-size-adjust: none; /* turns off text zoom */
+   color: rgb( 230, 230, 230 );
+   background-color: rgb( 12, 12, 12 );
+}
+a:link
+{
+   color: rgb( 230, 230, 230 );
+   border-bottom: 1px dotted rgb( 230, 230, 230 );
+   text-decoration: none;
+}
+a:hover
+{
+   border-bottom: 1px solid rgb( 230, 230, 230 );
+   text-decoration: none;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * header formatting
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#header img
+{
+   float: left;
+   padding: 10px 0 0 30px;
+}
+#header .details,
+#header .controls
+{
+   padding: 10px 0 0 180px;
+}
+#header h1
+{
+   font-size: 130%;
+   font-weight: bold;
+}
+#header h2, #header p
+{
+   font-size: 95%;
+   font-weight: normal;
+}
+#header h1, #header h2, #header p
+{
+   margin: 13px 0 0 0;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * properties and operations
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#properties, #operations
+{
+   padding: 0;
+   margin: 0;
+}
+#header .attr
+{
+   padding-left: 30px;
+   padding-right: 20px;
+   background: rgb( 12, 12, 12 ) url( cid:Props.png ) 0 0 no-repeat;
+   display: inline-block;
+   min-height: 24px;
+   max-height: 24px;
+   line-height: 24px;
+   margin: 13px 0 0 0;
+}
+#header .attr.admin
+{
+   background-position: 0 -24px;
+}
+#header .attr.logout
+{
+   background-position: 0 -48px;
+}
+#header .attr.restart
+{
+   background-position: 0 -72px;
+}
+#header .attr.shutdown
+{
+   background-position: 0 -96px;
+}
+
+#opattr
+{
+   display: inline-block;
+   margin-left: 10px;
+   width: 24px;
+   height: 24px;
+   background: rgb( 12, 12, 12 ) url( cid:Disclose.png ) 0 0 no-repeat;
+   text-decoration: none;
+   border: none;
+   text-indent: -5000px;
+}
+#opattr.open
+{
+   background-position: 0 -24px;
+}
+#opdetail
+{
+   display: none;
+   margin: 5px auto 20px 30px;
+   border: 1px solid rgb( 48, 48, 48 );
+   -webkit-border-top-right-radius: 10px;
+   -webkit-border-bottom-left-radius: 10px;
+   background: rgb( 24, 24, 24 );
+   font-size: 12px;
+   padding: 10px;
+   list-style-type: none;
+}
+#opdetail li
+{
+   padding: 0;
+   margin: 5px 0 0 0;
+}
+#opdetail h3
+{
+   padding: 0;
+   margin: 0 0 5px 0;
+}
+#opdetail pre, #opdetail p
+{
+   background-color: rgb( 230, 230, 230 );
+   color: rgb( 12, 12, 12 );
+   margin: 0 -10px 5px -10px;
+   padding: 2px 0 2px 4px;
+   overflow: auto;
+}
+#opdetail p
+{
+   font-style: italic;
+   font-size: 110%;
+   padding: 4px;
+}
+
+#header .controls
+{
+   margin-top: 10px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * file hierarchy content
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#content
+{
+   clear: both;
+   margin-top: 20px;
+   border: 1px solid #bbb;
+   -webkit-border-radius: 10px;
+   background: white;
+   color: black;
+   font-size: 12px;
+   padding: 10px;
+}
+
+#content ul
+{
+   margin: 0;
+   padding: 0;
+   line-height: 1.4;
+}
+#content li.outlineLeaf
+{
+   padding-left: 20px;
+   list-style-type: none;
+   background: transparent url( cid:Icons.png ) 2px 100% no-repeat;
+}
+#content li.outlineNonLeaf
+{
+   padding-left: 20px;
+   list-style-type: none;
+}
+#content ul.outlineClosed
+{
+   display: none;
+}
+#content ul.outlineOpen
+{
+   display: block;
+}
+#content span.outlineOpen, #content span.outlineClosed
+{
+   color: black;
+   padding-left: 20px;
+   background: transparent url( cid:Icons.png ) 2px 50% no-repeat;
+   margin-left: -20px;
+   border: none;
+   text-decoration: none;
+}
+#content span.outlineOpen
+{
+   background-image: url( cid:Icons.png );
+   background-position: 2px 0;
+}
+#content span.outlineOpen:focus, #content span.outlineClosed:focus
+{
+   outline: none;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * credits area
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#credits
+{
+   margin-top: 15px;
+   font-size: 10px;
+   text-align: center;
+}
+

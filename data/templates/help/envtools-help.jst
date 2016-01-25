@@ -24,6 +24,8 @@
 
     <!-- Tab panes -->
     <div class="envtools-tab-content tab-content">
+
+      <!-- introduction pane -->
       <div role="tabpanel" class="tab-pane active" id="intro">
         <p><strong>Envtools</strong> is a command line helper for WF-RIA² framework developers.</p>
         <p>Its primary goal is to simplify the tedious task of initializing a laptop for a framework developer. Many tools need to be installed, proxy and shell environments need to be configured. One mistake and hours are wasted trying to figure out what is wrong when a simple automation could have saved everybody's time.</p>
@@ -36,6 +38,8 @@
           IMPORTANT: <a href="https://nodejs.org/en/">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java</a> HAVE to be installed manually before hand.
         </div>
       </div>
+
+      <!-- commands pane -->
       <div role="tabpanel" class="tab-pane" id="commands">
         <p><strong>Envtools</strong> has 2 major commands: auto and manual</p>
         <p><h2>auto</h2></p>
@@ -49,10 +53,16 @@
 
         <p>Bootstrap your environment manually.</p>
         <p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It's most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, etc.)</p>
-
       </div>
+
+      <!-- aliases pane -->
       <div role="tabpanel" class="tab-pane" id="aliases"><%=content%></div>
-      <div role="tabpanel" class="tab-pane" id="customization">TBD</div>
+
+      <!-- customization pane -->
+      <div role="tabpanel" class="tab-pane" id="customization">
+      TBD
+      </div>
+
     </div>
 
     <script src="data/assets/js/jquery-1.12.0.min.js"></script>
