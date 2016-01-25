@@ -128,8 +128,8 @@ function setGitProxy {
       cmd "git config --global http.proxy ${PROXY}"
       cmd "git config --global https.proxy ${PROXY}"
     elif [ "$2" == "OFF" ]; then
-      cmd "git config --global --remove-section http"
-      cmd "git config --global --remove-section https"
+      cmd "git config --global --remove-section http" "ignore"
+      cmd "git config --global --remove-section https" "ignore"
     fi
   fi
 }
