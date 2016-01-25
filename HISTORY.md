@@ -1,4 +1,9 @@
 
+__0.0.36 / 2016-01-25__
+
+- Fixing quicklook plugins - remove only the ones that are going to be installed ([84535d7](https://github.com/aversini/envtools/commit/84535d70f2e15b5ca7c24a9293d97952329493f8))
+- Starting to add extra goodies (quicklook this time) ([ac3dce2](https://github.com/aversini/envtools/commit/ac3dce22f5f55d316c877abf37486f0aac76c963))
+
 __0.0.35 / 2016-01-25__
 
 - Help: adding warning about node and java ([36775dc](https://github.com/aversini/envtools/commit/36775dc223b12101863adc0641377669d258758d))
