@@ -232,8 +232,10 @@ function displayWelcomeBanner {
       # getSessionVersion
       txtStatus "Reloading environment..." "SUCCESS"
     else
-      # Display a simple help intro
-      envtools banner
+      # Display a simple help intro if user wants it
+      if [ ! -f "$RUNTIME_DIR/no-banner" ]; then
+        envtools banner
+      fi
     fi
     # and update the terminal tab title if needed
     if [ "$INIT_PARAM" != "reload" ]; then
