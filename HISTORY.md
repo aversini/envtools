@@ -1,4 +1,8 @@
 
+__0.0.37 / 2016-01-25__
+
+- workaround mkdirp async issue ([65a065a](https://github.com/aversini/envtools/commit/65a065ae43d55cb1b9c03cb7804e7c24ad8d434b))
+
 __0.0.36 / 2016-01-25__
 
 - Fixing quicklook plugins - remove only the ones that are going to be installed ([84535d7](https://github.com/aversini/envtools/commit/84535d70f2e15b5ca7c24a9293d97952329493f8))
