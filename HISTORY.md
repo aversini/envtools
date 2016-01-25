@@ -1,4 +1,8 @@
 
+__0.0.38 / 2016-01-25__
+
+- Display proxy should also update the prompt ([da22ebf](https://github.com/aversini/envtools/commit/da22ebff19874618c0b478b3ed7c14072ac5e316))
+
 __0.0.37 / 2016-01-25__
 
 - workaround mkdirp async issue ([65a065a](https://github.com/aversini/envtools/commit/65a065ae43d55cb1b9c03cb7804e7c24ad8d434b))
