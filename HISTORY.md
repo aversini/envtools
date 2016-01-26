@@ -1,4 +1,11 @@
 
+__0.0.40 / 2016-01-26__
+
+- Updating proxy setup for Atom ([359f266](https://github.com/aversini/envtools/commit/359f2668336b8c42010548c80a0e5a4dbc290cc2))
+- Adding screensaver fix to extra options ([e446657](https://github.com/aversini/envtools/commit/e44665729fc63135bfed638c9de553d82feba1a8))
+- Hidden option for extra ([268bad0](https://github.com/aversini/envtools/commit/268bad02ac3c1fd7fbf9858696a9083e84c1e561))
+- Fixing backup dir to just day hour min ([a0a7ae5](https://github.com/aversini/envtools/commit/a0a7ae5e78fb44a747cb397c5441ffc0c2212138))
+
 __0.0.39 / 2016-01-25__
 
 - Fix check version process and display ([9765663](https://github.com/aversini/envtools/commit/97656631b1017da565981d7564544eb99f8c028f))
