@@ -61,6 +61,7 @@ function setProxies {
         setNpmProxy "$PROXY" "OFF"
         setGitProxy "$PROXY" "OFF"
         setSublimeProxy "$PROXY" "OFF"
+        setAtomProxy "$PROXY" "OFF"
         RELOAD=true
       fi
       setProxyStatusOnFile "OFF"
@@ -75,6 +76,7 @@ function setProxies {
         setNpmProxy "$PROXY" "ON"
         setGitProxy "$PROXY" "ON"
         setSublimeProxy "$PROXY" "ON"
+        setAtomProxy "$PROXY" "ON"
         RELOAD=true
       fi
       setProxyStatusOnFile "ON"
@@ -150,9 +152,20 @@ function setSublimeProxy {
   fi
 }
 
+function setAtomProxy {
+  if [ -x "/usr/local/bin/apm" -o -x "/usr/bin/apm" ]; then
+    if [ "$2" == "ON" ]; then
+      apm config set ssl-strict false
+      apm config set https-proxy "${PROXY}"
+    elif [ "$2" == "OFF" ]; then
+      apm config delete ssl-strict
+      apm config delete https-proxy
+    fi
+  fi
+}
+
 function displayProxyStatus {
   local LOCAL_PROXY_STATUS=""
-
   if [ -f "${RUNTIME_DIR}/proxy_status" ]; then
     LOCAL_PROXY_STATUS=`cat "${RUNTIME_DIR}/proxy_status"`
   fi
