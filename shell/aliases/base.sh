@@ -49,7 +49,7 @@ if [ -f /usr/local/bin/vim -o -f /usr/bin/vim ]; then
 fi
 
 # environment aliases to load/reload profile, check version
-alias v='echo; getSessionVersion p; echo'
+alias v='echo; envtools -vb; echo'
 alias r='echo; reloadEnvironment; echo'
 alias reload='r'
 
