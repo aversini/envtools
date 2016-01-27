@@ -172,6 +172,7 @@ function displayProxyStatus {
 
   if isValid "$LOCAL_PROXY_STATUS"; then
     export PROXY_STATUS=$LOCAL_PROXY_STATUS
+    setEnvProxy "${PROXY}" "${LOCAL_PROXY_STATUS}"
     echo
     txtStatus "Proxies are ${LOCAL_PROXY_STATUS}" "NOTICE"
     echo
