@@ -1,4 +1,9 @@
 
+__0.0.44 / 2016-01-28__
+
+- Setting npm progess false by default (to speed up node v5+) ([94978c2](https://github.com/aversini/envtools/commit/94978c23fdeb440705e3dadcf29d79d4afb3df3c))
+- Removing maven warning during bootstrap ([d40551e](https://github.com/aversini/envtools/commit/d40551e9b8b8750a111d2beef90ee0973289944f))
+
 __0.0.43 / 2016-01-28__
 
 - Adding envtools web ([ae83857](https://github.com/aversini/envtools/commit/ae838577e6dc91fa6318f0462ac08e11fdeb279f))
