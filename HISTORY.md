@@ -1,4 +1,8 @@
 
+__0.0.43 / 2016-01-28__
+
+- Adding envtools web ([ae83857](https://github.com/aversini/envtools/commit/ae838577e6dc91fa6318f0462ac08e11fdeb279f))
+
 __0.0.42 / 2016-01-27__
 
 - Adding small blurb about `fedtools extra` in the help file. ([ab824c5](https://github.com/aversini/envtools/commit/ab824c58c51b28e0cc3f019ca6f2b83aab7fba9a))
