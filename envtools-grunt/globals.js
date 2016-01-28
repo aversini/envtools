@@ -4,6 +4,6 @@ module.exports = {
   historyFile: 'HISTORY.md',
   historyFileHTML: 'envtools-history.html',
   bashVersionFile: 'version',
-  helpFile: 'data/help.md',
+  helpFile: 'data/aliases.md',
   helpFileHTML: 'help.html',
 };
