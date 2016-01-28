@@ -1,4 +1,11 @@
 
+__0.0.42 / 2016-01-27__
+
+- Adding small blurb about `fedtools extra` in the help file. ([ab824c5](https://github.com/aversini/envtools/commit/ab824c58c51b28e0cc3f019ca6f2b83aab7fba9a))
+- Renamed help.md into aliases.md (cleaner...) ([74a0e05](https://github.com/aversini/envtools/commit/74a0e05f7905a9cb0e8090d6fd51dd8d210f6e8d))
+- Updating git-ptompt to latest release ([41efaf5](https://github.com/aversini/envtools/commit/41efaf52e7f7f232aa06d169a918a750b8a9a4cf))
+- Unused var ([b876b01](https://github.com/aversini/envtools/commit/b876b0126286e1ccdb71ba2944de0eb22583aed9))
+
 __0.0.41 / 2016-01-27__
 
 - Slighty better README/help ([1b8f06c](https://github.com/aversini/envtools/commit/1b8f06c4134112a0a2583243f0934d27158a17a4))
