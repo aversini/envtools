@@ -8,8 +8,9 @@ fi
 alias openc='open -a "Google Chrome"'
 
 # Simple http server
-alias web='python -m SimpleHTTPServer 8080'
+alias web='envtools web'
 alias wup=web # overriding the original npm wup which is too slow
+alias http=web
 
 # Trying to reproduce the Linux top
 alias top='top -s1 -o cpu -R -F'
@@ -33,4 +34,3 @@ alias h='open $ENVDIR/../help.html'
 alias desk='cd $HOME/Desktop; tit "~/Desktop"'
 alias down='cd $HOME/Downloads; tit "~/Downloads"'
 alias dow='down'
-

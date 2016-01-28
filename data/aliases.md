@@ -57,7 +57,7 @@ Alias    | Description
 ---------|-------------
 `r`      | Shortcut to reload your environment without having to restart your terminal.
 `sds`    | Shortcut for `sudo su -`
-`web`    | Starts a small web server on port 8080, serving files in the current folder.
+`web`    | Starts a small web server on port 8080, serving files in the current folder. Use `--port` to specify another port.
 
 
 ## Misc Helpers
