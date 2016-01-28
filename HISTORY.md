@@ -1,4 +1,11 @@
 
+__0.0.41 / 2016-01-27__
+
+- Slighty better README/help ([1b8f06c](https://github.com/aversini/envtools/commit/1b8f06c4134112a0a2583243f0934d27158a17a4))
+- Fixing "version" alias ([fe614b6](https://github.com/aversini/envtools/commit/fe614b691943cfa8fe8c3c116d628b936e5d8d6b))
+- If boring is passed, do not ask for the changelog ([dad4341](https://github.com/aversini/envtools/commit/dad43415f44dce9f76151c15f76582bd956e6ca7))
+- displayProxy should also reset the env if status is known ([81395a3](https://github.com/aversini/envtools/commit/81395a34dd8ba3498cbc6f78eb5909a3861d8d03))
+
 __0.0.40 / 2016-01-26__
 
 - Updating proxy setup for Atom ([359f266](https://github.com/aversini/envtools/commit/359f2668336b8c42010548c80a0e5a4dbc290cc2))
