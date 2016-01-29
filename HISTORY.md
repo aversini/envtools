@@ -1,4 +1,8 @@
 
+__0.0.47 / 2016-01-29__
+
+- Adding more essential Atom packages ([a8ec998](https://github.com/aversini/envtools/commit/a8ec9985469bafcc8576bec9568ab44844abc769))
+
 __0.0.46 / 2016-01-29__
 
 - Ooops, missing banner setup during auto ([4025bf5](https://github.com/aversini/envtools/commit/4025bf54ddbabdb5190eb5b306788ef1dbd44fa6))
