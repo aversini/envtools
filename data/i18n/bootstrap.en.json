@@ -13,6 +13,7 @@
     "installFedtools": "Install/update Fedtools.",
     "setQuicklook": "Install Quicklook plugins.",
     "fixScreensaver": "Fix screensaver not remembering your choices.",
+    "setAtom": "Configure Atom and install a few core packages.",
 
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
