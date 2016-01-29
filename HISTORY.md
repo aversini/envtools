@@ -1,4 +1,13 @@
 
+__0.0.45 / 2016-01-29__
+
+- Create runtime dir only if it doesnt exist (~/.envtools) ([6010694](https://github.com/aversini/envtools/commit/6010694a2527e9610790aa1637b1ffd3f32be694))
+- Adding option to remove the welcome banner ([64d84c6](https://github.com/aversini/envtools/commit/64d84c67c64088dcf8f8fe71b8bd27661bc6e907))
+- Adding http-proxy to Atom proxy helper ([1132fb1](https://github.com/aversini/envtools/commit/1132fb168aaa946c34f16092b907fe5528fb8d8d))
+- Adding Atom packages ([c287f25](https://github.com/aversini/envtools/commit/c287f25d6b9b072cf6110741944729eed29e6c5f))
+- Customization help - TBD ([fe01c6d](https://github.com/aversini/envtools/commit/fe01c6d2a7769e1abff4314a4ace5c72b6e7ef61))
+- Adding Atom to the help intro ([deab837](https://github.com/aversini/envtools/commit/deab837222960a93f1b2c7e70db7c162f611968a))
+
 __0.0.44 / 2016-01-28__
 
 - Setting npm progess false by default (to speed up node v5+) ([94978c2](https://github.com/aversini/envtools/commit/94978c23fdeb440705e3dadcf29d79d4afb3df3c))
