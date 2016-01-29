@@ -156,9 +156,11 @@ function setAtomProxy {
   if [ -x "/usr/local/bin/apm" -o -x "/usr/bin/apm" ]; then
     if [ "$2" == "ON" ]; then
       apm config set ssl-strict false
+      apm config set http-proxy "${PROXY}"
       apm config set https-proxy "${PROXY}"
     elif [ "$2" == "OFF" ]; then
       apm config delete ssl-strict
+      apm config delete http-proxy
       apm config delete https-proxy
     fi
   fi
