@@ -1,4 +1,8 @@
 
+__0.0.46 / 2016-01-29__
+
+- Ooops, missing banner setup during auto ([4025bf5](https://github.com/aversini/envtools/commit/4025bf54ddbabdb5190eb5b306788ef1dbd44fa6))
+
 __0.0.45 / 2016-01-29__
 
 - Create runtime dir only if it doesnt exist (~/.envtools) ([6010694](https://github.com/aversini/envtools/commit/6010694a2527e9610790aa1637b1ffd3f32be694))
