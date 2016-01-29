@@ -2,7 +2,8 @@
   "bootstrap": {
     "setUsrLocal": "Enable sudo-less npm and ruby gems.",
     "setEnv": "Update your environment to load goodies automatically.",
-    "setPrompt": "Enable/disable nicer command prompt (git info, etc.)",
+    "setPrompt": "Enable/disable nicer command line prompt (git info, etc.)",
+    "setBanner": "Enable/disable welcome banner at session start.",
     "setProxy": "Setup a proxy.",
     "checkApps": "Check for Applications needed by WF-RIA².",
     "setGitCfg": "Bootstrap your git configuration.",

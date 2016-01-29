@@ -219,6 +219,9 @@ function setEnvtoolsPrompt {
       local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
       setCommandPromptWithGit "$BEFORE" "$AFTER"
     fi
+  else
+    unsetExtraPS1
+    unset PROMPT_COMMAND
   fi
 }
 
@@ -233,9 +236,7 @@ function displayWelcomeBanner {
       txtStatus "Reloading environment..." "SUCCESS"
     else
       # Display a simple help intro if user wants it
-      if [ ! -f "$RUNTIME_DIR/no-banner" ]; then
-        envtools banner
-      fi
+      envtools banner
     fi
     # and update the terminal tab title if needed
     if [ "$INIT_PARAM" != "reload" ]; then
