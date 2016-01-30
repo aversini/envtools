@@ -1,4 +1,10 @@
 
+__0.0.48 / 2016-01-30__
+
+- Refactoring to handle auto/manual/extra requests more efficiently in the future ([d9dbdd0](https://github.com/aversini/envtools/commit/d9dbdd05c2612e739345ad0cc15922c6e43f667a))
+- More Atom packages ([15bfb82](https://github.com/aversini/envtools/commit/15bfb8273f57e9331ab34947d8159c53c8439c57))
+- Minifying help file ([cbd6d87](https://github.com/aversini/envtools/commit/cbd6d879e3d991d1fb8cac2c01261f2f7d2bf798))
+
 __0.0.47 / 2016-01-29__
 
 - Adding more essential Atom packages ([a8ec998](https://github.com/aversini/envtools/commit/a8ec9985469bafcc8576bec9568ab44844abc769))
