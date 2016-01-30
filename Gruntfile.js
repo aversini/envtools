@@ -62,6 +62,18 @@ module.exports = function (grunt) {
       }
     },
 
+    htmlmin: { // Task
+      help: { // Target
+        options: { // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: { // Dictionary of files
+          'help.html': 'help.html' // 'destination': 'source'
+        }
+      }
+    },
+
     release: {
       options: {
         bump: true,
@@ -121,6 +133,7 @@ module.exports = function (grunt) {
     'test',
     'bash-version',
     'markdown:help',
+    'htmlmin:help',
     'release'
   ]);
 
