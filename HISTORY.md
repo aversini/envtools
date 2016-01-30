@@ -1,4 +1,10 @@
 
+__0.0.49 / 2016-01-30__
+
+- Better centralized messaging ([37a4777](https://github.com/aversini/envtools/commit/37a47779d482d715ad29e847db224b832a7edde4))
+- Setting the proxy should not end the process ([e5e1472](https://github.com/aversini/envtools/commit/e5e14728a255636d7e221caa4e090f98bc769874))
+- Setting fancy banner and prompt for auto mode ([8097d57](https://github.com/aversini/envtools/commit/8097d575979b5149da9389f6d088de4c6f0d30db))
+
 __0.0.48 / 2016-01-30__
 
 - Refactoring to handle auto/manual/extra requests more efficiently in the future ([d9dbdd0](https://github.com/aversini/envtools/commit/d9dbdd05c2612e739345ad0cc15922c6e43f667a))
