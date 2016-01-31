@@ -156,7 +156,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('publish', [
     'npm-pre-release',
-    'test',
     'release'
   ]);
 
