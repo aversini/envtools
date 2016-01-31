@@ -1,4 +1,8 @@
 
+__0.0.53 / 2016-01-31__
+
+- Missing file in the final npm package ([5ea41e2](https://github.com/aversini/envtools/commit/5ea41e2c1a3779a16d74febdbf2ca853844c2cc7))
+
 __0.0.52 / 2016-01-31__
 
 - Removing test from publish since there are no tests... so far.. ([75a90f1](https://github.com/aversini/envtools/commit/75a90f177a6fd99c8364ad0d4d6e737c9f795d1e))
