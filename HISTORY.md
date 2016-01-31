@@ -1,4 +1,8 @@
 
+__0.0.50 / 2016-01-30__
+
+- Better auto mode: do not ask for env or proxy if already set ([4114324](https://github.com/aversini/envtools/commit/4114324aa86d4fe5e489167eedf762445d44f8ac))
+
 __0.0.49 / 2016-01-30__
 
 - Better centralized messaging ([37a4777](https://github.com/aversini/envtools/commit/37a47779d482d715ad29e847db224b832a7edde4))
