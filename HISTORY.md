@@ -1,4 +1,10 @@
 
+__0.0.52 / 2016-01-31__
+
+- Removing test from publish since there are no tests... so far.. ([75a90f1](https://github.com/aversini/envtools/commit/75a90f177a6fd99c8364ad0d4d6e737c9f795d1e))
+- No need to artificially bump bash version since it's now part of "release" ([69a20f3](https://github.com/aversini/envtools/commit/69a20f3e901bb1fe30c8cacf06a955cb7bab2b1a))
+- Removing old file ([9772a1d](https://github.com/aversini/envtools/commit/9772a1de3e3d8f5090f971648aca7c8e46caae0a))
+
 __0.0.51 / 2016-01-31__
 
 - Adding history to help file ([64ba2df](https://github.com/aversini/envtools/commit/64ba2df46102d9fc7ae4bd68defdb6e41479d10f))
