@@ -67,6 +67,7 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-yuidoc": "*",
     "grunt-curl": "*",
+    "grunt-import": "^0.1.7",
     "grunt-markdown": "*",
     "grunt-mkdir": "*",
     "grunt-shell": "*",

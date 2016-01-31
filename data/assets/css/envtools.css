@@ -2,13 +2,24 @@ html {
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
 }
 
+body.envtools-help {
+  width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 739px) {
+  body.envtools-help {
+    width: auto;
+  }
+}
+
 .envtools-help .header {
   border-bottom: 1px solid #DFDFDF;
   margin-bottom: 25px;
 }
 
 .envtools-help h2 {
-  /*color: #30418C;*/
   color: #4078c0;
 }
 

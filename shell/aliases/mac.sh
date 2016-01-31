@@ -28,7 +28,7 @@ alias ksdiff='$TOOLSDIR/diff.js -k'
 alias axdiff='$TOOLSDIR/diff.js -a'
 
 # Open help file
-alias h='open $ENVDIR/../help.html'
+alias h='open $ENVDIR/../envtools-help.html'
 
 # Shortcut to some default path
 alias desk='cd $HOME/Desktop; tit "~/Desktop"'

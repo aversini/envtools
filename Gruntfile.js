@@ -69,7 +69,7 @@ module.exports = function (grunt) {
           collapseWhitespace: true
         },
         files: { // Dictionary of files
-          'help.html': 'help.html' // 'destination': 'source'
+          'envtools-help.html': 'envtools-help.html'
         }
       }
     },
@@ -84,16 +84,27 @@ module.exports = function (grunt) {
         pushTags: true,
         npm: true,
         commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]',
-        beforeRelease: ['history']
+        beforeRelease: [
+          'bash-version',
+          'history-generate',
+          'help-generate',
+          'history-help-add-commit-push'
+        ]
       }
     },
-
-    markdown: {
+    import: {
+      options: {},
       help: {
+        src: g.tmpHelpFileHTML,
+        dest: g.helpFileHTML,
+      }
+    },
+    markdown: {
+      aliases: {
         files: [{
           expand: false,
-          src: g.helpFile,
-          dest: g.helpFileHTML,
+          src: g.aliasesFileMd,
+          dest: g.tmpHelpFileHTML,
         }],
         options: {
           gfm: true,
@@ -104,7 +115,18 @@ module.exports = function (grunt) {
           }
         }
       },
-      envtools: {
+      rawHistory: {
+        files: [{
+          expand: false,
+          src: g.historyFile,
+          dest: g.historyRawFileHTML,
+        }],
+        options: {
+          gfm: true,
+          template: path.join('data', 'templates', 'help', 'envtools-history-raw.jst')
+        }
+      },
+      history: {
         files: [{
           expand: false,
           src: g.historyFile,
@@ -124,19 +146,19 @@ module.exports = function (grunt) {
 
   // register multi-tasks aliases
   grunt.registerTask('default', ['help']);
-  grunt.registerTask('history', [
-    'history-generate',
-    'history-add-commit-push'
+
+  grunt.registerTask('help-generate', [
+    'markdown:rawHistory',
+    'markdown:aliases',
+    'import:help',
+    'htmlmin:help',
   ]);
+
   grunt.registerTask('publish', [
     'npm-pre-release',
     'test',
-    'bash-version',
-    'markdown:help',
-    'htmlmin:help',
     'release'
   ]);
-
 
   grunt.registerTask('help', 'Display help usage', function () {
     grunt.log.subhead('Grunt [ ' + this.name.cyan + ' ]');

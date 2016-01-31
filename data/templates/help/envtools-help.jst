@@ -20,6 +20,7 @@
       <li role="presentation"><a href="#commands">Commands</a></li>
       <li role="presentation"><a href="#aliases">Aliases</a></li>
       <li role="presentation"><a href="#customization">Customization</a></li>
+      <li role="presentation"><a href="#history">History</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -30,12 +31,11 @@
         <p><strong>Envtools</strong> is a command line helper for WF-RIA² framework developers.</p>
         <p>Its primary goal is to simplify the tedious task of initializing a laptop for a framework developer. Many tools need to be installed, proxy and shell environments need to be configured. One mistake and hours are wasted trying to figure out what is wrong when a simple automation could have saved everybody's time.</p>
         <p>Not only <strong>Envtools</strong> will setup a WF-RIA² developer environment in no time, it also comes loaded with goodies (bash aliases, fixes for the OS, Atom Plugins, etc.).</p>
-        <p>Go ahead and familiarize yourself with <strong>Envtools</strong> capabilities in this help page. See <code>Commands</code> for the initialization part and <code>Aliases</code> or <code>Customization</code> once you have gone through it.</p>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-warning" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
           </span>
           <span class="sr-only">IMPORTANT:</span>
-          IMPORTANT: Xcode, <a href="https://nodejs.org/en/">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java</a> HAVE to be installed manually before hand.
+          IMPORTANT: <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>, <a href="https://nodejs.org/en/" target="_blank">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java</a> HAVE to be installed manually before hand.
         </div>
       </div>
 
@@ -73,6 +73,11 @@
       <!-- customization pane -->
       <div role="tabpanel" class="tab-pane" id="customization">
         If you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh
+      </div>
+
+      <!-- history pane -->
+      <div role="tabpanel" class="tab-pane" id="history">
+        @import "history-raw.html"
       </div>
 
     </div>

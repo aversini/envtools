@@ -15,10 +15,10 @@ module.exports = function (grunt) {
       if (!err) {
         if (!noWrite) {
           grunt.file.write(g.historyFile, log);
-          grunt.task.run('markdown:envtools');
+          grunt.task.run('markdown:history');
         } else {
           grunt.log.ok('history-generate: fedtools-utilities.git.getChangeLog');
-          grunt.log.ok('history-generate: markdown:envtools');
+          grunt.log.ok('history-generate: markdown:history');
         }
       }
       done(err);
