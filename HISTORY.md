@@ -1,4 +1,10 @@
 
+__0.0.51 / 2016-01-31__
+
+- Adding history to help file ([64ba2df](https://github.com/aversini/envtools/commit/64ba2df46102d9fc7ae4bd68defdb6e41479d10f))
+- Better proxy fat finger filtering ([366d79b](https://github.com/aversini/envtools/commit/366d79b5cc3f60218144b1f3dea336847b40f0a9))
+- Better error/message on proxy setting ([6f9d8fb](https://github.com/aversini/envtools/commit/6f9d8fb091f4ede5d33f2f8d0382fb0896c6fd83))
+
 __0.0.50 / 2016-01-30__
 
 - Better auto mode: do not ask for env or proxy if already set ([4114324](https://github.com/aversini/envtools/commit/4114324aa86d4fe5e489167eedf762445d44f8ac))
