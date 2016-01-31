@@ -10,7 +10,7 @@ module.exports = function (grunt) {
       grunt.log.writeln('bash-version dry run');
     }
     if (!noWrite) {
-      grunt.file.write(g.bashVersionFile, require('semver').inc(version, 'patch'));
+      grunt.file.write(g.bashVersionFile, version);
     } else {
       grunt.log.ok('bash-version: write file');
     }
