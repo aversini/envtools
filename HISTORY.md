@@ -1,4 +1,8 @@
 
+__0.0.54 / 2016-01-31__
+
+- Removing wrong notification ([d7a8974](https://github.com/aversini/envtools/commit/d7a8974c1dd2ad9bc7af1c134536db3974258ccb))
+
 __0.0.53 / 2016-01-31__
 
 - Missing file in the final npm package ([5ea41e2](https://github.com/aversini/envtools/commit/5ea41e2c1a3779a16d74febdbf2ca853844c2cc7))
