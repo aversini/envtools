@@ -1,4 +1,8 @@
 
+__0.0.59 / 2016-02-01__
+
+- Reverting to Maven 3.2.5 (See PN-13533) ([72c4ffa](https://github.com/aversini/envtools/commit/72c4ffa6a100b652cf5b5288e8aba6e4dadc471c))
+
 __0.0.58 / 2016-02-01__
 
 - Removing heroku and status from gith ([38d9d82](https://github.com/aversini/envtools/commit/38d9d82a030e97dd0963e23c878f5c4f9dc69db2))
