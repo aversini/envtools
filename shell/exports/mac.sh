@@ -14,3 +14,6 @@ if [ -f "/usr/local/bin/brew" ]; then
   export GEM_HOME="/usr/local/gems"
   export GEM_PATH="/usr/local/gems"
 fi
+
+# Araxis
+export ARAXIS_CLI="${TOOLSDIR}/third/compare"
