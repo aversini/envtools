@@ -1,4 +1,8 @@
 
+__0.0.60 / 2016-02-01__
+
+- Fixing Araxis Merge ([fc2c302](https://github.com/aversini/envtools/commit/fc2c302da249968fd9a81a702cbb8eb14fdeaeef))
+
 __0.0.59 / 2016-02-01__
 
 - Reverting to Maven 3.2.5 (See PN-13533) ([72c4ffa](https://github.com/aversini/envtools/commit/72c4ffa6a100b652cf5b5288e8aba6e4dadc471c))
