@@ -1,4 +1,8 @@
 
+__0.0.55 / 2016-01-31__
+
+- Adding atomatigit to atom package list ([6079808](https://github.com/aversini/envtools/commit/6079808e253622d4401a61aa72f9920f3e2c6ee4))
+
 __0.0.54 / 2016-01-31__
 
 - Removing wrong notification ([d7a8974](https://github.com/aversini/envtools/commit/d7a8974c1dd2ad9bc7af1c134536db3974258ccb))
