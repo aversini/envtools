@@ -1,4 +1,8 @@
 
+__0.0.57 / 2016-01-31__
+
+- Resuming envtools auto after first time env/proxy setup ([a5c51a1](https://github.com/aversini/envtools/commit/a5c51a1871234557ec209113f1602a50b96b9bed))
+
 __0.0.56 / 2016-01-31__
 
 - Adding power charging sound ([9b4bf1b](https://github.com/aversini/envtools/commit/9b4bf1bbb5cb0e2fd2e12768ce614b8eafe41c59))
