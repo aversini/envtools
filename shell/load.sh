@@ -58,8 +58,13 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   setProxyAtLoadTime
   # Set the envtools custom prompt
   setEnvtoolsPrompt
-  # And bid thee welcome
+  # Bid thee welcome
   displayWelcomeBanner
+
+  # if resume auto file is found, restart envtools auto.
+  if [ -f "${RUNTIME_DIR}/resume_auto" ]; then
+    envtools auto
+  fi
 
   # Loading custom fuctions
   if [ -f "${RUNTIME_DIR}/custom/functions.sh" ]; then
@@ -77,5 +82,3 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
 else
   echo "OS not supported/recognized... ($OS)"
 fi
-
-
