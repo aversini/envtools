@@ -60,7 +60,6 @@ function setProxies {
       if [ "$LOCAL_PROXY_STATUS" == "ON" ]; then
         setNpmProxy "$PROXY" "OFF"
         setGitProxy "$PROXY" "OFF"
-        setSublimeProxy "$PROXY" "OFF"
         setAtomProxy "$PROXY" "OFF"
         RELOAD=true
       fi
@@ -75,7 +74,6 @@ function setProxies {
       if [ "$LOCAL_PROXY_STATUS" == "OFF" ]; then
         setNpmProxy "$PROXY" "ON"
         setGitProxy "$PROXY" "ON"
-        setSublimeProxy "$PROXY" "ON"
         setAtomProxy "$PROXY" "ON"
         RELOAD=true
       fi
@@ -132,22 +130,6 @@ function setGitProxy {
     elif [ "$2" == "OFF" ]; then
       cmd "git config --global --remove-section http" "ignore"
       cmd "git config --global --remove-section https" "ignore"
-    fi
-  fi
-}
-
-function setSublimeProxy {
-  local PKG_FILE="${HOME}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
-
-  if isValid $1; then
-    if [ -f "${PKG_FILE}" ]; then
-      if [ "$2" == "ON" ]; then
-        node "${TOOLSDIR}/third/json.js" -f "${PKG_FILE}" -I -q -e "this.http_proxy=\"$PROXY\""
-        node "${TOOLSDIR}/third/json.js" -f "${PKG_FILE}" -I -q -e "this.https_proxy=\"$PROXY\""
-      elif [ "$2" == "OFF" ]; then
-        node "${TOOLSDIR}/third/json.js" -f "${PKG_FILE}" -I -q -e "this.http_proxy=\"\""
-        node "${TOOLSDIR}/third/json.js" -f "${PKG_FILE}" -I -q -e "this.https_proxy=\"\""
-      fi
     fi
   fi
 }
