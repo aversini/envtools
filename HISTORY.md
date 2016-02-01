@@ -1,4 +1,9 @@
 
+__0.0.56 / 2016-01-31__
+
+- Adding power charging sound ([9b4bf1b](https://github.com/aversini/envtools/commit/9b4bf1bbb5cb0e2fd2e12768ce614b8eafe41c59))
+- Adding fix for Mac App Store ([d20fc7e](https://github.com/aversini/envtools/commit/d20fc7e30639453a091e2b5450729c04f98848bd))
+
 __0.0.55 / 2016-01-31__
 
 - Adding atomatigit to atom package list ([6079808](https://github.com/aversini/envtools/commit/6079808e253622d4401a61aa72f9920f3e2c6ee4))
