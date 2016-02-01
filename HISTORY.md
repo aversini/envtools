@@ -1,4 +1,11 @@
 
+__0.0.58 / 2016-02-01__
+
+- Removing heroku and status from gith ([38d9d82](https://github.com/aversini/envtools/commit/38d9d82a030e97dd0963e23c878f5c4f9dc69db2))
+- Removing support for sublime proxy switch (was buggy) ([362e00d](https://github.com/aversini/envtools/commit/362e00de0af5de9a3074f70acf53929d66b993cf))
+- Renaming options.bootstrap into options.auto for consistency ([2415f48](https://github.com/aversini/envtools/commit/2415f4844ad34b200a2971dba39bcb44d3b496d8))
+- Adding 'svgo' to core npm packages and removing 'jshint' ([851801e](https://github.com/aversini/envtools/commit/851801e041bd49ded5b23acbd1ddeda4fa1d0811))
+
 __0.0.57 / 2016-01-31__
 
 - Resuming envtools auto after first time env/proxy setup ([a5c51a1](https://github.com/aversini/envtools/commit/a5c51a1871234557ec209113f1602a50b96b9bed))
