@@ -1,4 +1,8 @@
 
+__0.0.61 / 2016-02-02__
+
+- Adding isDirtyGit bash function to check if a local repo is clean ([e78bdc0](https://github.com/aversini/envtools/commit/e78bdc0a2fa53b8fb67579013f064dbc4c384089))
+
 __0.0.60 / 2016-02-01__
 
 - Fixing Araxis Merge ([fc2c302](https://github.com/aversini/envtools/commit/fc2c302da249968fd9a81a702cbb8eb14fdeaeef))
