@@ -5,7 +5,7 @@
   "remote": "remote",
   "bye": "Bye then...",
   "continue": "Continue",
-  "updateCmd": "[sudo -E] npm install -g envtools",
+  "updateCmd": "npm install -g envtools",
   "updateCmdWin": "npm install -g envtools",
 
   "errors": {
