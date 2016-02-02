@@ -88,6 +88,23 @@ function isGit {
 }
 
 #
+# returns 0 if the current path is a dirty git repo
+# return 1 otherwise
+#
+function isDirtyGit {
+  if ! isGit; then
+    return 1
+  else
+    local DIRTY="$(git describe --dirty)"
+    if [[ $DIRTY == *"dirty"* ]]; then
+      return 0
+    else
+      return 1
+    fi
+  fi
+}
+
+#
 # returns 0 if the current path is a svn repository
 # return 1 otherwise
 #
