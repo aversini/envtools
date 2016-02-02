@@ -1,4 +1,8 @@
 
+__0.0.62 / 2016-02-02__
+
+- Adding 'new version available' to banner if there is one... ([acff94b](https://github.com/aversini/envtools/commit/acff94bb907dd53876aa9dafae896b53d3b6c079))
+
 __0.0.61 / 2016-02-02__
 
 - Adding isDirtyGit bash function to check if a local repo is clean ([e78bdc0](https://github.com/aversini/envtools/commit/e78bdc0a2fa53b8fb67579013f064dbc4c384089))
