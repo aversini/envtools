@@ -1,4 +1,8 @@
 
+__0.0.63 / 2016-02-02__
+
+- Refactoring `gith` to access better tags info and removing useless sugar (git status really?!?) ([526d852](https://github.com/aversini/envtools/commit/526d852dae84a2b8441122e1df6f930327c8e5ee))
+
 __0.0.62 / 2016-02-02__
 
 - Adding 'new version available' to banner if there is one... ([acff94b](https://github.com/aversini/envtools/commit/acff94bb907dd53876aa9dafae896b53d3b6c079))
