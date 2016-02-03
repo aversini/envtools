@@ -1,4 +1,8 @@
 
+__0.0.65 / 2016-02-03__
+
+- Ooops - fixing regression introduced by ESLint config - async.waterfall issue ([1aafe0a](https://github.com/aversini/envtools/commit/1aafe0af9a1404011e106ef7c4d3f98ad4ef6ea0))
+
 __0.0.64 / 2016-02-03__
 
 - Adding ESLint configuration to auto and manual ([5356b52](https://github.com/aversini/envtools/commit/5356b52a02161b193fa66e1230b29f5a3263a510))
