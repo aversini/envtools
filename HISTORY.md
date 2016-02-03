@@ -1,4 +1,9 @@
 
+__0.0.64 / 2016-02-03__
+
+- Adding ESLint configuration to auto and manual ([5356b52](https://github.com/aversini/envtools/commit/5356b52a02161b193fa66e1230b29f5a3263a510))
+- Trying to fix Atom package installation ([fde62ff](https://github.com/aversini/envtools/commit/fde62ff2e0667e7982231ed0195d45925d9b7fef))
+
 __0.0.63 / 2016-02-02__
 
 - Refactoring `gith` to access better tags info and removing useless sugar (git status really?!?) ([526d852](https://github.com/aversini/envtools/commit/526d852dae84a2b8441122e1df6f930327c8e5ee))
