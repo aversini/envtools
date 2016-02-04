@@ -15,8 +15,13 @@ body.envtools-help {
 }
 
 .envtools-help .header {
-  border-bottom: 1px solid #DFDFDF;
-  margin-bottom: 25px;
+  position: fixed;
+  width: 740px;
+  background-color: #FFF;
+}
+
+.envtools-help .content {
+  margin-top: 160px;
 }
 
 .envtools-help h2 {

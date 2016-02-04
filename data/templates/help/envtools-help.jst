@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title><%=pageTitle%></title>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="data/assets/css/envtools-logo.css">
-    <link rel="stylesheet" type="text/css" href="data/assets/css/envtools.css">
-    <link rel="stylesheet" type="text/css" href="data/assets/css/gfm-md-min.css">
-    <link rel="stylesheet" type="text/css" href="data/assets/css/bootstrap.min.css">
-  </head>
 
-  <body class="envtools-help markdown-body">
-    <div class="header">
-      <div class="envtools-logo"> </div>
-    </div>
+<head>
+  <title>
+    <%=pageTitle%>
+  </title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="data/assets/css/envtools-logo.css">
+  <link rel="stylesheet" type="text/css" href="data/assets/css/envtools.css">
+  <link rel="stylesheet" type="text/css" href="data/assets/css/gfm-md-min.css">
+  <link rel="stylesheet" type="text/css" href="data/assets/css/bootstrap.min.css">
+</head>
+
+<body class="envtools-help markdown-body">
+  <div class="header">
+    <div class="envtools-logo"> </div>
+    <!-- Tab controls -->
     <ul class="envtools-tabs nav nav-tabs">
       <li role="presentation" class="active"><a href="#intro">Introduction</a></li>
       <li role="presentation"><a href="#commands">Commands</a></li>
@@ -22,7 +25,9 @@
       <li role="presentation"><a href="#customization">Customization</a></li>
       <li role="presentation"><a href="#history">History</a></li>
     </ul>
+  </div>
 
+  <div class="content">
     <!-- Tab panes -->
     <div class="envtools-tab-content tab-content">
 
@@ -33,25 +38,27 @@
         <p>Not only <strong>Envtools</strong> will setup a WF-RIA² developer environment in no time, it also comes loaded with goodies (bash aliases, fixes for the OS, Atom Plugins, etc.).</p>
         <div class="alert alert-warning" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
-          </span>
-          <span class="sr-only">IMPORTANT:</span>
-          IMPORTANT: <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>, <a href="https://nodejs.org/en/" target="_blank">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java</a> HAVE to be installed manually before hand.
+            </span>
+          <span class="sr-only">IMPORTANT:</span> IMPORTANT: <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>, <a href="https://nodejs.org/en/" target="_blank">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java</a> HAVE to be installed manually before hand.
         </div>
       </div>
 
       <!-- commands pane -->
       <div role="tabpanel" class="tab-pane" id="commands">
-        <p><h2>auto</h2></p>
+        <p>
+          <h2>auto</h2></p>
         <code>envtools auto</code>
         <p>Use this command to bootstrap your environment automatically.</p>
         <p>This command <em>should</em> rarely be used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.</p>
 
-        <p><h2>manual</h2></p>
+        <p>
+          <h2>manual</h2></p>
         <code>envtools manual</code>
         <p>Bootstrap your environment manually.</p>
         <p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It's most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, etc.)</p>
 
-        <p><h2>extra</h2></p>
+        <p>
+          <h2>extra</h2></p>
         <code>envtools extra</code>
         <p>Install and configure some extra goodies that are not included in the manual/automatic bootstrap routines.</p>
         <ul>
@@ -68,7 +75,9 @@
       </div>
 
       <!-- aliases pane -->
-      <div role="tabpanel" class="tab-pane" id="aliases"><%=content%></div>
+      <div role="tabpanel" class="tab-pane" id="aliases">
+        <%=content%>
+      </div>
 
       <!-- customization pane -->
       <div role="tabpanel" class="tab-pane" id="customization">
@@ -81,10 +90,11 @@
       </div>
 
     </div>
+  </div>
 
-    <script src="data/assets/js/jquery-1.12.0.min.js"></script>
-    <script src="data/assets/js/bootstrap.min.js"></script>
-    <script src="data/assets/js/envtools.js"></script>
-  </body>
+  <script src="data/assets/js/jquery-1.12.0.min.js"></script>
+  <script src="data/assets/js/bootstrap.min.js"></script>
+  <script src="data/assets/js/envtools.js"></script>
+</body>
 
 </html>
