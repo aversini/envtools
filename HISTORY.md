@@ -1,4 +1,8 @@
 
+__0.0.68 / 2016-02-03__
+
+- Oops, forgot vendor prefixes... who do I think I am.. ([bb5331a](https://github.com/aversini/envtools/commit/bb5331ab0200c7f673e1fac4e0bf10ec51ba58d1))
+
 __0.0.67 / 2016-02-03__
 
 - Even better logo via SVG ([ed42faf](https://github.com/aversini/envtools/commit/ed42fafe592ec43c452ecca6a72a8ce814ec9329))
