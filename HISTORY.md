@@ -1,4 +1,9 @@
 
+__0.0.66 / 2016-02-03__
+
+- Fixed header for the help page ([92cc77d](https://github.com/aversini/envtools/commit/92cc77d74cf47251d5b8e9d51f44b3fef26d0c36))
+- Adding default .jsbeautifyrc file ([9a9f70f](https://github.com/aversini/envtools/commit/9a9f70fedd6379bac127cab8c6327b5a58f99a1e))
+
 __0.0.65 / 2016-02-03__
 
 - Ooops - fixing regression introduced by ESLint config - async.waterfall issue ([1aafe0a](https://github.com/aversini/envtools/commit/1aafe0af9a1404011e106ef7c4d3f98ad4ef6ea0))
