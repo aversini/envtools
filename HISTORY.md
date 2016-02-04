@@ -1,4 +1,8 @@
 
+__0.0.67 / 2016-02-03__
+
+- Even better logo via SVG ([ed42faf](https://github.com/aversini/envtools/commit/ed42fafe592ec43c452ecca6a72a8ce814ec9329))
+
 __0.0.66 / 2016-02-03__
 
 - Fixed header for the help page ([92cc77d](https://github.com/aversini/envtools/commit/92cc77d74cf47251d5b8e9d51f44b3fef26d0c36))
