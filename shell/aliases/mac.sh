@@ -34,3 +34,7 @@ alias h='open $ENVDIR/../envtools-help.html'
 alias desk='cd $HOME/Desktop; tit "~/Desktop"'
 alias down='cd $HOME/Downloads; tit "~/Downloads"'
 alias dow='down'
+
+# testing perf of the hard drive
+alias hdd='hddPerf'
+alias ssd=hdd

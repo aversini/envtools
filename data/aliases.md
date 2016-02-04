@@ -40,6 +40,7 @@ Alias    | Description
 `openc`  | Open a file in Google Chrome.
 `psf`    | List running processes matching the string passed in argument, e.g. `psf node` will list all running node processes.
 `vm`     | VirtualBox Manager. Allows you to start/stop and list all installed VirtualBox appliances.
+`hdd`    | Test and return the read/write capabilities of the current disk.
 
 
 ## Proxy Helpers
