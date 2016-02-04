@@ -14,6 +14,20 @@ body.envtools-help {
   }
 }
 
+.envtools-logo {
+  display: flex;
+  align-items: center;
+}
+
+.envtools-logo-text {
+  height: 22px;
+  padding-left: 5px;
+  margin-bottom: 24px;
+}
+.envtools-logo-text::after {
+  content: url('../images/envtools-text.png');
+}
+
 .envtools-help .header {
   position: fixed;
   width: 740px;
