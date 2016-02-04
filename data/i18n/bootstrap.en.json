@@ -6,6 +6,7 @@
     "setBanner": "Enable/disable welcome banner at session start.",
     "setProxy": "Setup a proxy.",
     "checkApps": "Check for Applications needed by WF-RIA².",
+    "setJsBeautifyConfig": "Install default WF-RIA² jsBeautify configuration.",
     "setEslintConfig": "Install default WF-RIA² ESLint configuration.",
     "setGitCfg": "Bootstrap your git configuration.",
     "setNPM": "Configure npm and install a few core node packages.",
