@@ -6,6 +6,29 @@ function fixFinderOpenWith {
   txtYellow "You may need to restart TotalFinder manually..." "nl"
 }
 
+function fixFinderIconsAssociations {
+  local DONE_AND_DUSTED=false
+  sudo find /private/var/folders/ -name com.apple.dock.iconcache -exec rm {} \;
+  if shouldContinue; then
+    txtStatus "sudo find /private/var/folders/ -name com.apple.dock.iconcache -exec rm {} \;" "SUCCESS"
+    sudo find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;
+    if shouldContinue; then
+      txtStatus "sudo find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;" "SUCCESS"
+      sudo rm -rf /Library/Caches/com.apple.iconservices.store
+      cmd "killall Finder"
+      DONE_AND_DUSTED=true
+    fi
+  fi
+
+  echo
+  if [ $DONE_AND_DUSTED == false ]; then
+    txtStatus "Something went wrong... sorry about that..." "nl"
+  else
+    txtYellow "Icon associations in Finder have been reset!" "nl"
+    txtYellow "You may need to restart your Mac..." "nl"
+  fi
+}
+
 function openInFinder {
   if isValid $1; then
     open -a Finder "$1"

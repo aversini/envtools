@@ -19,6 +19,10 @@ alias top='top -s1 -o cpu -R -F'
 # of duplicates in the Open With submenu.
 alias fixopenwith=fixFinderOpenWith
 alias fix=fixopenwith
+# Not so quick way to rebuild the icon association in Finder (need
+# to restart the laptop to take it into account)
+alias fixIcons=fixFinderIconsAssociations
+alias fixIcon=fixIcons
 
 # Open file or current path in finder
 alias f=openInFinder
