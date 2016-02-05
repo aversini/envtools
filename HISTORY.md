@@ -1,4 +1,9 @@
 
+__0.0.69 / 2016-02-04__
+
+- Adding alias to fix icon association in Finder ([e13033b](https://github.com/aversini/envtools/commit/e13033b53db80988af6ef74438ad444a6d49ed29))
+- Adding alias for testing HDD performance (hdd) ([327490e](https://github.com/aversini/envtools/commit/327490e68057657e90588f211ad667293a93ce04))
+
 __0.0.68 / 2016-02-03__
 
 - Oops, forgot vendor prefixes... who do I think I am.. ([bb5331a](https://github.com/aversini/envtools/commit/bb5331ab0200c7f673e1fac4e0bf10ec51ba58d1))
