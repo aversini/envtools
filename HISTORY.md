@@ -1,4 +1,10 @@
 
+__0.0.70 / 2016-02-05__
+
+- Add bash function `getArtifacts` to get nexus artifacts quickly ([2f0e9e2](https://github.com/aversini/envtools/commit/2f0e9e2acc8f3de067bf33b29ba2862aa60d1785))
+- Removing Atom package atomatigit (not working very well) ([1f32f46](https://github.com/aversini/envtools/commit/1f32f460931667da84ee714617897ba61e1c4eb6))
+- Adding project-manager to the list of Atom packages to be installed ([2914a1e](https://github.com/aversini/envtools/commit/2914a1efee5880ba0a6f176f2f4e2ef7e426690a))
+
 __0.0.69 / 2016-02-04__
 
 - Adding alias to fix icon association in Finder ([e13033b](https://github.com/aversini/envtools/commit/e13033b53db80988af6ef74438ad444a6d49ed29))
