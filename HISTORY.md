@@ -1,4 +1,8 @@
 
+__0.0.71 / 2016-02-05__
+
+- Adding wget as the first real core package needed after brew ([0334bd1](https://github.com/aversini/envtools/commit/0334bd12ce08681b6c097546424277b2fef9d5be))
+
 __0.0.70 / 2016-02-05__
 
 - Add bash function `getArtifacts` to get nexus artifacts quickly ([2f0e9e2](https://github.com/aversini/envtools/commit/2f0e9e2acc8f3de067bf33b29ba2862aa60d1785))
