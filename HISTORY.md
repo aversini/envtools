@@ -1,4 +1,8 @@
 
+__0.0.72 / 2016-02-08__
+
+- Removing App Store fix since it does not work... ([1068ae1](https://github.com/aversini/envtools/commit/1068ae15399374a3971661e08a4c4d575429ba28))
+
 __0.0.71 / 2016-02-05__
 
 - Adding wget as the first real core package needed after brew ([0334bd1](https://github.com/aversini/envtools/commit/0334bd12ce08681b6c097546424277b2fef9d5be))
