@@ -17,7 +17,6 @@
     "setQuicklook": "Install Quicklook plugins.",
     "fixScreensaver": "Fix screensaver not remembering your choices.",
     "setAtom": "Configure Atom and install a few core packages.",
-    "fixAppStore": "Fix App Store slugish startup time.",
     "enablePowerChime": "Enable/disable iOS like power charging sound when plugged in.",
 
     "intro": {
