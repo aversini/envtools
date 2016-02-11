@@ -41,6 +41,6 @@
     "quotes": [ 2, "single" ],
     "semi": [ 0, "never" ],
     "valid-typeof": 2,
-    "wrap-iife": [ 2, "inside" ]
+    "wrap-iife": [ 2, "any" ]
   }
 }
