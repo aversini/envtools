@@ -2,7 +2,7 @@
 alias ls='ls -G'
 alias l=ls
 alias ll='ls -lo'
-alias la='ls -ltra'
+alias la='ls -lrtd .?*'
 alias lt='ls -lt'
 alias lrt='ls -lrt'
 alias ld='ls -ld */'
