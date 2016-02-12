@@ -1,4 +1,9 @@
 
+__0.0.73 / 2016-02-11__
+
+- Adding support for .bash_profile (on top of .profile) ([b84e968](https://github.com/aversini/envtools/commit/b84e96897c26fd67e07bd4e71e9a2602e627c3e2))
+- Relaxing eslint rule for style of wrap-iife functions ([bae4e84](https://github.com/aversini/envtools/commit/bae4e843aef773000ec7375099160d7711b2456b))
+
 __0.0.72 / 2016-02-08__
 
 - Removing App Store fix since it does not work... ([1068ae1](https://github.com/aversini/envtools/commit/1068ae15399374a3971661e08a4c4d575429ba28))
