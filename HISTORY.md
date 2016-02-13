@@ -1,4 +1,9 @@
 
+__0.0.74 / 2016-02-12__
+
+- Updating `la` alias to list only hidden files ([bfb3e83](https://github.com/aversini/envtools/commit/bfb3e8373370eb9aa541bdfa93d824b7b62885b9))
+- Sligthly better help ([db4b433](https://github.com/aversini/envtools/commit/db4b433efdc65e89a897b6225eeae035c7961643))
+
 __0.0.73 / 2016-02-11__
 
 - Adding support for .bash_profile (on top of .profile) ([b84e968](https://github.com/aversini/envtools/commit/b84e96897c26fd67e07bd4e71e9a2602e627c3e2))
