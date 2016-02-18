@@ -1,4 +1,8 @@
 
+__0.0.75 / 2016-02-17__
+
+- Dump the resume_auto file only in auto mode! ([f47c249](https://github.com/aversini/envtools/commit/f47c249685df46e3be106a430e3e93f4c4007286))
+
 __0.0.74 / 2016-02-12__
 
 - Updating `la` alias to list only hidden files ([bfb3e83](https://github.com/aversini/envtools/commit/bfb3e8373370eb9aa541bdfa93d824b7b62885b9))
