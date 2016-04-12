@@ -1,4 +1,10 @@
 
+__0.0.76 / 2016-04-11__
+
+- Simplifying README ([a0e4ac3](https://github.com/aversini/envtools/commit/a0e4ac31766386031af149ae1318afe164d8e01f))
+- Adding eslint and unicorn to default NPM packages ([69b9ceb](https://github.com/aversini/envtools/commit/69b9ceb5f740a926bbc3c1495353c69afa2b8cfe))
+- Fix lint error ([37af907](https://github.com/aversini/envtools/commit/37af907d8b0cd02c57cae3e77759012eefb1d120))
+
 __0.0.75 / 2016-02-17__
 
 - Dump the resume_auto file only in auto mode! ([f47c249](https://github.com/aversini/envtools/commit/f47c249685df46e3be106a430e3e93f4c4007286))
