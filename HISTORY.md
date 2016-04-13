@@ -1,4 +1,8 @@
 
+__0.0.77 / 2016-04-13__
+
+- Removing fedtools installation from envtools ([6442c13](https://github.com/aversini/envtools/commit/6442c135dfda86c6e2c1f95535397d06cceeacbc))
+
 __0.0.76 / 2016-04-11__
 
 - Simplifying README ([a0e4ac3](https://github.com/aversini/envtools/commit/a0e4ac31766386031af149ae1318afe164d8e01f))
