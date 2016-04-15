@@ -1,4 +1,8 @@
 
+__0.0.78 / 2016-04-15__
+
+- Adding a few more Atom packages ([e864532](https://github.com/aversini/envtools/commit/e864532a77ea89314f199c735eb8fa8719904e00))
+
 __0.0.77 / 2016-04-13__
 
 - Removing fedtools installation from envtools ([6442c13](https://github.com/aversini/envtools/commit/6442c135dfda86c6e2c1f95535397d06cceeacbc))
