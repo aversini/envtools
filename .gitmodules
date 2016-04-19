@@ -1,5 +1,0 @@
-[submodule "versions"]
-	path = versions
-	url = https://github.com/aversini/versions.git
-	fetchrecursesubmodules = true
-	update = merge
