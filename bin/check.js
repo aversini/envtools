@@ -6,7 +6,7 @@ var
   moment = require('moment'),
   config = require('fedtools-config'),
   request = require('request'),
-  url = 'https://github.com/aversini/envtools/raw/master/package.json';
+  url = 'https://github.com/aversini/versions/raw/master/versions.json';
 
 request({
   url: url,
@@ -15,8 +15,8 @@ request({
   if (!error && response.statusCode === 200) {
     if (body) {
       res = JSON.parse(body, 'utf8');
-      if (res && res.version) {
-        latest = res.version;
+      if (res && res.envtools && res.envtools.version) {
+        latest = res.envtools.version;
 
         // need to mark version as checked
         config.setKey('envtoolsVersion', {
