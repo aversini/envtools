@@ -1,4 +1,14 @@
 
+__0.0.79 / 2016-04-21__
+
+- Removing reserved words ([be2f188](https://github.com/aversini/envtools/commit/be2f188c145de7fdd90a4a15e45db677eba3f63e))
+- Revert "Removing fedtools installation from envtools" ([25493b7](https://github.com/aversini/envtools/commit/25493b795994d322b1d89839bf14cef5e46437ac))
+- Removing grunt check ([b98e61a](https://github.com/aversini/envtools/commit/b98e61a50d3515245fbbcf23f77565548e201ec6))
+- Moving version checking to public package ([39d5d9e](https://github.com/aversini/envtools/commit/39d5d9e3e3006dba2414b0c70edd2e2392fd2082))
+- Removing submodule - not working.. ([1845139](https://github.com/aversini/envtools/commit/1845139986b6361c3dbef6568761cc21a1409e61))
+- Not sure what I'm doing here.. ([1b936d7](https://github.com/aversini/envtools/commit/1b936d7ab9d89e835d33ea78215f9bb0fac4b7e4))
+- Adding submodule "versions" ([0ba32bf](https://github.com/aversini/envtools/commit/0ba32bf23d82af4c87535e760d953ec9e7182d90))
+
 __0.0.78 / 2016-04-15__
 
 - Adding a few more Atom packages ([e864532](https://github.com/aversini/envtools/commit/e864532a77ea89314f199c735eb8fa8719904e00))
