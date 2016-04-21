@@ -5,9 +5,9 @@
     "setPrompt": "Enable/disable nicer command line prompt (git info, etc.)",
     "setBanner": "Enable/disable welcome banner at session start.",
     "setProxy": "Setup a proxy.",
-    "checkApps": "Check for Applications needed by WF-RIA².",
-    "setJsBeautifyConfig": "Install default WF-RIA² jsBeautify configuration.",
-    "setEslintConfig": "Install default WF-RIA² ESLint configuration.",
+    "checkApps": "Check for Applications needed by the framework.",
+    "setJsBeautifyConfig": "Install default framework jsBeautify configuration.",
+    "setEslintConfig": "Install default framework ESLint configuration.",
     "setGitCfg": "Bootstrap your git configuration.",
     "setNPM": "Configure npm and install a few core node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
@@ -58,7 +58,7 @@
       "manual": {
         "synopsis": "Bootstrap your environment manually.",
         "command": "envtools manual",
-        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: auto) where you can pick and choose which part of the bootstrap you want to run. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
+        "description": "This command 'should' be rarely used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: auto) where you can pick and choose which part of the bootstrap you want to run. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build the framework and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
 
         "options": {
           "0": {
@@ -70,7 +70,7 @@
       "auto": {
         "synopsis": "Bootstrap your environment automatically.",
         "command": "envtools auto",
-        "description": "This command 'should' rarely be used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build WF-RIA² and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
+        "description": "This command 'should' rarely be used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build the framework and even check if you eventually have all that is required to run a build.\nIf you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder ~/.envtools/custom/ and their names HAVE to be functions.sh, aliases.sh and exports.sh",
 
         "options": {
           "0": {
