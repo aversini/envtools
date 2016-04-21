@@ -19,22 +19,6 @@ module.exports = function (grunt) {
 
     clean: ['./tmp/*'],
 
-    curl: {
-      proxy: {
-        src: [{
-          url: 'http://registry.npmjs.org/<%=pkg.name%>/-/<%=pkg.name%>-<%=pkg.version%>.tgz',
-          proxy: 'http://proxy.wellsfargo.com'
-        }],
-        dest: './tmp/registry-<%=pkg.name%>-<%=pkg.version%>.tgz'
-      },
-      noproxy: {
-        src: [{
-          url: 'http://registry.npmjs.org/<%=pkg.name%>/-/<%=pkg.name%>-<%=pkg.version%>.tgz'
-        }],
-        dest: './tmp/registry-<%=pkg.name%>-<%=pkg.version%>.tgz'
-      }
-    },
-
     copy: {
       main: {
         files: [{
@@ -171,7 +155,5 @@ module.exports = function (grunt) {
     console.log(' - push the new tag out to github.');
     console.log(' - publish the new version to npm.');
     console.log();
-    console.log('Type "grunt check" to:');
-    console.log(' - check if the newly published package is valid.');
   });
 };
