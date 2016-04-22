@@ -58,15 +58,12 @@
   "devDependencies": {
     "chai": "*",
     "coveralls": "*",
-    "grunt": "~0.4.2",
-    "grunt-cli": "~0.1.11",
+    "grunt": "^0.4.5",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-connect": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-htmlmin": "^0.6.0",
     "grunt-contrib-watch": "*",
     "grunt-contrib-yuidoc": "*",
-    "grunt-curl": "*",
     "grunt-import": "^0.1.7",
     "grunt-markdown": "*",
     "grunt-mkdir": "*",
@@ -74,8 +71,7 @@
     "istanbul": "*",
     "load-grunt-tasks": "*",
     "mocha": "*",
-    "mocha-lcov-reporter": "*",
-    "time-grunt": "*"
+    "mocha-lcov-reporter": "*"
   },
   "keywords": [
     "envtools"
