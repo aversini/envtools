@@ -1,4 +1,10 @@
 
+__0.0.80 / 2016-04-21__
+
+- Try to limit grunt dependencies ([3c9f24f](https://github.com/aversini/envtools/commit/3c9f24f97c4a06917a4e4506f6d5b96360c73948))
+- grunt-cli is enough, not need to install grunt as well ([6a6a928](https://github.com/aversini/envtools/commit/6a6a928902dd9a2c53a0e7dcccab0c484fab8be6))
+- Adding chai to globals for ESLint ([d983aed](https://github.com/aversini/envtools/commit/d983aedb452aaeb84f576425d62a0953f1062b9a))
+
 __0.0.79 / 2016-04-21__
 
 - Removing reserved words ([be2f188](https://github.com/aversini/envtools/commit/be2f188c145de7fdd90a4a15e45db677eba3f63e))
