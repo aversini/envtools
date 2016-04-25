@@ -1,4 +1,8 @@
 
+__0.0.81 / 2016-04-25__
+
+- Updating ESLintrc ([a21401e](https://github.com/aversini/envtools/commit/a21401ed16416c4dbef7ad4803bd0052e9d4bf69))
+
 __0.0.80 / 2016-04-21__
 
 - Try to limit grunt dependencies ([3c9f24f](https://github.com/aversini/envtools/commit/3c9f24f97c4a06917a4e4506f6d5b96360c73948))
