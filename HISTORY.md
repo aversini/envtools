@@ -1,4 +1,8 @@
 
+__0.0.82 / 2016-04-26__
+
+- Updating ESLintrc to latest from framework ([deedb96](https://github.com/aversini/envtools/commit/deedb96a823682125f85435806e3aec10a85ecc2))
+
 __0.0.81 / 2016-04-25__
 
 - Updating ESLintrc ([a21401e](https://github.com/aversini/envtools/commit/a21401ed16416c4dbef7ad4803bd0052e9d4bf69))
