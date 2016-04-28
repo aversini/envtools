@@ -1,4 +1,9 @@
 
+__0.0.84 / 2016-04-27__
+
+- Enabling by-passing a few steps in "envtools auto" ([82f4604](https://github.com/aversini/envtools/commit/82f4604b84e9208a85d6365a63f85b4d1329236f))
+- Sorting Vms ([5a24412](https://github.com/aversini/envtools/commit/5a244128c0f5343b89560d15add188a330b6f541))
+
 __0.0.83 / 2016-04-27__
 
 - Linting via ESLint ([7d02e5a](https://github.com/aversini/envtools/commit/7d02e5a043de408396a21afadd9d5dcc942a77de))
