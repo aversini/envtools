@@ -1,4 +1,9 @@
 
+__0.0.83 / 2016-04-27__
+
+- Linting via ESLint ([7d02e5a](https://github.com/aversini/envtools/commit/7d02e5a043de408396a21afadd9d5dcc942a77de))
+- Adding unicorn as a required App for framework ([6683390](https://github.com/aversini/envtools/commit/668339099f6e3e87c2e6e237ec900484369c9db9))
+
 __0.0.82 / 2016-04-26__
 
 - Updating ESLintrc to latest from framework ([deedb96](https://github.com/aversini/envtools/commit/deedb96a823682125f85435806e3aec10a85ecc2))
