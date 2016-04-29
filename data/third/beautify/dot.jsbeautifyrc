@@ -6,6 +6,7 @@
   "indent_level": 0,
   "indent_with_tabs": false,
   "format_on_save": false,
+  "end_with_newline": true,
 
   "html": {
     "indent_scripts": "normal",
