@@ -1,4 +1,8 @@
 
+__0.0.89 / 2016-04-29__
+
+- Removing gemnasium from README ([01c1f3b](https://github.com/aversini/envtools/commit/01c1f3b17eff56e29ecedb1e468b430e8a8b6339))
+
 __0.0.88 / 2016-04-29__
 
 - Tiny update to trigger a bump - failing to publish because of... sinopia :) ([40fe7fa](https://github.com/aversini/envtools/commit/40fe7fa1a7aa0d72f82b3c92052d8a1ee3e09d89))
