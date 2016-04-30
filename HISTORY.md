@@ -1,4 +1,8 @@
 
+__0.0.88 / 2016-04-29__
+
+- Tiny update to trigger a bump - failing to publish because of... sinopia :) ([40fe7fa](https://github.com/aversini/envtools/commit/40fe7fa1a7aa0d72f82b3c92052d8a1ee3e09d89))
+
 __0.0.85 / 2016-04-29__
 
 - Fix package dev dependencies ([eed240c](https://github.com/aversini/envtools/commit/eed240c400099d1cf1c2d8a322a82cc3ee6b7a78))
