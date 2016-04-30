@@ -1,4 +1,16 @@
 
+__0.0.85 / 2016-04-29__
+
+- Fix package dev dependencies ([eed240c](https://github.com/aversini/envtools/commit/eed240c400099d1cf1c2d8a322a82cc3ee6b7a78))
+- Removing time-grunt ([a8640c2](https://github.com/aversini/envtools/commit/a8640c22c2552f1dd68549ebba1f5abdfe5d8a2f))
+- Adding Sinopia to handle npm caching locally ([7e3ff5d](https://github.com/aversini/envtools/commit/7e3ff5dd765ce4cc0276ee9a4014c680f44870c0))
+- update .jsbeautifyrc to add a new line at the end of files ([fbc4fb3](https://github.com/aversini/envtools/commit/fbc4fb38b73d985e4784189c5af6d78c3e2cdae6))
+- Fix invalid fs-extra dep version ([9afea47](https://github.com/aversini/envtools/commit/9afea47e112a44c6985b08863e3d6b59c6f70ac2))
+- Update to latest stable version of inquirer (migrating to promises) ([8ab92d0](https://github.com/aversini/envtools/commit/8ab92d0de988adb63350f76d1b6949e8f3c074f1))
+- Adding license to package.json to prevent CLI warning ([960bf70](https://github.com/aversini/envtools/commit/960bf70dff486d62164d78011f4d3fecab3d3e1d))
+- Updating to latest stable version of glob ([aa70ff3](https://github.com/aversini/envtools/commit/aa70ff3800edb15a316c4bbd65a3ca29564c3d71))
+- Updating to latest stable version of fs-extra ([fa6bcd4](https://github.com/aversini/envtools/commit/fa6bcd4d475b43193cd409d313d17a23971b1f71))
+
 __0.0.84 / 2016-04-27__
 
 - Enabling by-passing a few steps in "envtools auto" ([82f4604](https://github.com/aversini/envtools/commit/82f4604b84e9208a85d6365a63f85b4d1329236f))
