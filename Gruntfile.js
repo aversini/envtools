@@ -77,7 +77,7 @@ module.exports = function (grunt) {
       options: {},
       help: {
         src: g.tmpHelpFileHTML,
-        dest: g.helpFileHTML,
+        dest: g.helpFileHTML
       }
     },
     markdown: {
