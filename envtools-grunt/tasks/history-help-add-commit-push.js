@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         ' ' + g.bashVersionFile + ' ' + g.helpFileHTML);
       grunt.log.ok('git commit -m ' + commitMsg);
       grunt.log.ok('git push');
-      done();
+      return done();
     } else {
       grunt.util.spawn({
         cmd: 'git',
@@ -22,12 +22,12 @@ module.exports = function (grunt) {
           g.historyFile,
           g.historyFileHTML,
           g.bashVersionFile,
-          g.helpFileHTML,
+          g.helpFileHTML
         ]
       }, function (err) {
         if (err) {
           grunt.fail.fatal('Unable to run "git add" ' + err);
-          done();
+          return done();
         } else {
           grunt.util.spawn({
             cmd: 'git',
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
           }, function (err) {
             if (err) {
               grunt.fail.fatal('Unable to run "git commit" ' + err);
-              done();
+              return done();
             } else {
               grunt.util.spawn({
                 cmd: 'git',
