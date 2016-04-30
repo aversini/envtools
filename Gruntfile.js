@@ -4,9 +4,6 @@ module.exports = function (grunt) {
     path = require('path'),
     g = require('./envtools-grunt/globals');
 
-  // show fancy time for grunt tasks
-  require('time-grunt')(grunt);
-
   // load plugins
   require('load-grunt-tasks')(grunt);
 
