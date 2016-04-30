@@ -19,6 +19,7 @@ function isProxyKnown {
 # if there is a known proxy.
 #
 function setProxyAtLoadTime {
+  export SINOPIA_STATUS="N/A"
   local STATUS="ON"
   if [ -f "${RUNTIME_DIR}/proxy_status" ]; then
     LOCAL_STATUS=`cat "${RUNTIME_DIR}/proxy_status"`
@@ -32,6 +33,13 @@ function setProxyAtLoadTime {
     setProxyStatusOnFile "$LOCAL_STATUS"
   else
     export PROXY_STATUS="N/A"
+  fi
+
+  if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
+    local LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
+    if [ "$LOCAL_SINOPIA_STATUS" == "ON" -o "$LOCAL_SINOPIA_STATUS" == "OFF" ]; then
+      export SINOPIA_STATUS="$LOCAL_SINOPIA_STATUS"
+    fi
   fi
 }
 
@@ -100,6 +108,7 @@ function setEnvProxy {
       export ALL_PROXY=$http_proxy
       export HTTP_PROXY=$http_proxy
       export HTTPS_PROXY=$http_proxy
+      export no_proxy=localhost,127.0.0.1
     elif [ "$2" == "OFF" ]; then
       unset http_proxy
       unset https_proxy
@@ -112,9 +121,25 @@ function setEnvProxy {
 
 function setNpmProxy {
   if isValid $1; then
+    local PROXY_VALUE="${PROXY}"
+    export SINOPIA_STATUS="N/A"
+
+    # Need to check if Sinopia is ON.
+    # If so, it is the proxy for NPM...
+    if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
+      local LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
+      if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
+        PROXY_VALUE="http://localhost:4873/"
+        export SINOPIA_STATUS="ON"
+      fi
+      if [ "$LOCAL_SINOPIA_STATUS" == "OFF" ]; then
+        export SINOPIA_STATUS="OFF"
+      fi
+    fi
+
     if [ "$2" == "ON" ]; then
-      cmd "npm config set proxy ${PROXY}"
-      cmd "npm config set https-proxy ${PROXY}"
+      cmd "npm config set proxy ${PROXY_VALUE}"
+      cmd "npm config set https-proxy ${PROXY_VALUE}"
     elif [ "$2" == "OFF" ]; then
       cmd "npm config delete proxy"
       cmd "npm config delete https-proxy"
@@ -150,6 +175,7 @@ function setAtomProxy {
 
 function displayProxyStatus {
   local LOCAL_PROXY_STATUS=""
+  local LOCAL_SINOPIA_STATUS=""
   if [ -f "${RUNTIME_DIR}/proxy_status" ]; then
     LOCAL_PROXY_STATUS=`cat "${RUNTIME_DIR}/proxy_status"`
   fi
@@ -159,10 +185,19 @@ function displayProxyStatus {
     setEnvProxy "${PROXY}" "${LOCAL_PROXY_STATUS}"
     echo
     txtStatus "Proxies are ${LOCAL_PROXY_STATUS}" "NOTICE"
-    echo
   else
     echo
     txtStatus "There is no proxy set" "NOTICE"
-    echo
   fi
+
+  if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
+    LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
+  fi
+  if isValid "$LOCAL_SINOPIA_STATUS"; then
+    if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
+      txtStatus "NPM is cached via Sinopia" "NOTICE"
+    fi
+  fi
+
+  echo
 }
