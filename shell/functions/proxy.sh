@@ -173,6 +173,31 @@ function setAtomProxy {
   fi
 }
 
+function setSinopia {
+  if [ "$1" == "ON" ]; then
+    echo "ON" > "${RUNTIME_DIR}/sinopia_status"
+    PROXY_VALUE="http://localhost:4873/"
+    export SINOPIA_STATUS="ON"
+    cmd "npm config set proxy ${PROXY_VALUE}"
+    cmd "npm config set https-proxy ${PROXY_VALUE}"
+    cmd "npm config set registry ${PROXY_VALUE}"
+  elif [ "$1" == "OFF" ]; then
+    cmd "npm config set registry http://registry.npmjs.org/"
+    echo "OFF" > "${RUNTIME_DIR}/sinopia_status"
+    export SINOPIA_STATUS="OFF"
+    # Here is depends if proxy is ON or OFF...
+    # If it's ON, we need to reset the npm proxy to the actual
+    # proxy value, if it's OFF we just need to remove it.
+    if [ "${PROXY_STATUS}" == "OFF" -o "${PROXY_STATUS}" == "N/A" ]; then
+      cmd "npm config delete proxy"
+      cmd "npm config delete https-proxy"
+    else
+      cmd "npm config set proxy ${PROXY}"
+      cmd "npm config set https-proxy ${PROXY}"
+    fi
+  fi
+}
+
 function displayProxyStatus {
   local LOCAL_PROXY_STATUS=""
   local LOCAL_SINOPIA_STATUS=""
@@ -190,14 +215,29 @@ function displayProxyStatus {
     txtStatus "There is no proxy set" "NOTICE"
   fi
 
+  displaySinopiaStatus "quiet"
+  echo
+}
+
+function displaySinopiaStatus {
   if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
     LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
   fi
   if isValid "$LOCAL_SINOPIA_STATUS"; then
     if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
-      txtStatus "NPM is cached via Sinopia" "NOTICE"
+      if [ "$1" != "quiet" ]; then
+        echo
+      fi
+      txtStatus "NPM requests are proxied through Sinopia" "NOTICE"
+      if [ "$1" != "quiet" ]; then
+        echo
+      fi
+    else
+      if [ "$1" != "quiet" ]; then
+        echo
+        txtStatus "NPM is NOT using Sinopia" "NOTICE"
+        echo
+      fi
     fi
   fi
-
-  echo
 }
