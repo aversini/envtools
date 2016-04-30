@@ -1,4 +1,8 @@
 
+__0.0.90 / 2016-04-30__
+
+- Adding more sinopia goodies ([c82a474](https://github.com/aversini/envtools/commit/c82a4743ea65879be4ddbb6a4c6bca4da700bda0))
+
 __0.0.89 / 2016-04-29__
 
 - Removing gemnasium from README ([01c1f3b](https://github.com/aversini/envtools/commit/01c1f3b17eff56e29ecedb1e468b430e8a8b6339))
