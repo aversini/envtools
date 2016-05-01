@@ -1,4 +1,10 @@
 
+__0.0.91 / 2016-05-01__
+
+- Slightly better help (for sinopia shortcuts) ([4a8290e](https://github.com/aversini/envtools/commit/4a8290e0bca920c6badaa77393c34733bdb5caf7))
+- Need to reload env when setting sinopia (on or off) ([3ec233f](https://github.com/aversini/envtools/commit/3ec233f5c76a0fa236ec65b7489cd7820cd721a9))
+- Reload custom export when reloading prompt (for ex via pq or sq) ([a91dd18](https://github.com/aversini/envtools/commit/a91dd1852f97ee07c95daa80d617dcf75dd773dd))
+
 __0.0.90 / 2016-04-30__
 
 - Adding more sinopia goodies ([c82a474](https://github.com/aversini/envtools/commit/c82a4743ea65879be4ddbb6a4c6bca4da700bda0))
