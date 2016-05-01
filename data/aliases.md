@@ -51,8 +51,8 @@ Alias    | Description
 `pon`    | If a proxy is known (see `envtools auto`), it will be turned ON (in env, in git configuration, in npm configuration and in sublime configuration - if any).
 `poff`   | If a proxy is known (see `envtools auto`), it will be turned OFF (in env, in git configuration, in npm configuration and in sublime configuration - if any).
 `pq`     | Displays the current status of the proxy (ON, OFF or N/A).
-`son`    | If [sinopia](https://www.npmjs.com/package/sinopia) is installed, it will configure npm to use your local sinopia database instead of the official registry. Make sure sinopia is running after you run this command.
-`soff`   | This will deactivate [sinopia](https://www.npmjs.com/package/sinopia) and revert npm configuration to either use a proxy if you have one, or plain old direct link to registry.npmjs.org
+`son`    | If [sinopia](https://www.npmjs.com/package/sinopia) is installed, this command will configure npm to use your local sinopia database instead of the official registry. Make sure sinopia is running after you execute this command.
+`soff`   | This command will deactivate [sinopia](https://www.npmjs.com/package/sinopia) and revert npm configuration to either use a proxy if you have one, or plain old direct link to registry.npmjs.org
 `sq`     | Checks if npm is using [sinopia](https://www.npmjs.com/package/sinopia) or not.
 
 
