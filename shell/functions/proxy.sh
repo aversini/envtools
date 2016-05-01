@@ -181,6 +181,7 @@ function setSinopia {
     cmd "npm config set proxy ${PROXY_VALUE}"
     cmd "npm config set https-proxy ${PROXY_VALUE}"
     cmd "npm config set registry ${PROXY_VALUE}"
+    reloadEnvironment
   elif [ "$1" == "OFF" ]; then
     cmd "npm config set registry http://registry.npmjs.org/"
     echo "OFF" > "${RUNTIME_DIR}/sinopia_status"
@@ -195,6 +196,7 @@ function setSinopia {
       cmd "npm config set proxy ${PROXY}"
       cmd "npm config set https-proxy ${PROXY}"
     fi
+    reloadEnvironment
   fi
 }
 
