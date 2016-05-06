@@ -1,4 +1,8 @@
 
+__0.0.92 / 2016-05-05__
+
+- Restricting phantomjs installation to 1.9.8 ([44d1d11](https://github.com/aversini/envtools/commit/44d1d11a1b3a296b3c6dc42b86259f5f2a4b8a6f))
+
 __0.0.91 / 2016-05-01__
 
 - Slightly better help (for sinopia shortcuts) ([4a8290e](https://github.com/aversini/envtools/commit/4a8290e0bca920c6badaa77393c34733bdb5caf7))
