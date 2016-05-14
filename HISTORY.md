@@ -1,4 +1,8 @@
 
+__0.0.93 / 2016-05-13__
+
+- Fix envtools message display in node v6+ ([71b3708](https://github.com/aversini/envtools/commit/71b37084583974b6b30694e332123aae0189850f))
+
 __0.0.92 / 2016-05-05__
 
 - Restricting phantomjs installation to 1.9.8 ([44d1d11](https://github.com/aversini/envtools/commit/44d1d11a1b3a296b3c6dc42b86259f5f2a4b8a6f))
