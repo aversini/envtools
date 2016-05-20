@@ -1,4 +1,8 @@
 
+__0.0.94 / 2016-05-19__
+
+- Updating npm bootstrap to take sinopia into account (if already setup) ([ce502ae](https://github.com/aversini/envtools/commit/ce502ae743fc6cad9842d2f1cd636c0145abdab8))
+
 __0.0.93 / 2016-05-13__
 
 - Fix envtools message display in node v6+ ([71b3708](https://github.com/aversini/envtools/commit/71b37084583974b6b30694e332123aae0189850f))
