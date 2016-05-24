@@ -1,4 +1,8 @@
 
+__0.0.95 / 2016-05-24__
+
+- Adding gulp to needed npm packages ([76ca6f9](https://github.com/aversini/envtools/commit/76ca6f9948ebd88d63126e5edf0d680c300055f3))
+
 __0.0.94 / 2016-05-19__
 
 - Updating npm bootstrap to take sinopia into account (if already setup) ([ce502ae](https://github.com/aversini/envtools/commit/ce502ae743fc6cad9842d2f1cd636c0145abdab8))
