@@ -1,4 +1,23 @@
 #
+# returns true if the user confirmed yes
+#
+function confirm () {
+  # call with a prompt string or use a default
+  read -r -p "${1:-Continue? [Y/n]} " response
+  case $response in
+    [nN][oO]|[nN])
+      false
+      ;;
+    [yY][eE][sS]|[yY]|"")
+      true
+      ;;
+    *)
+      echo "Please answer yes or no"
+      return -1;;
+  esac
+}
+
+#
 # returns true if a variable is defined (set) and value's length > 0
 # returns false otherwise
 #
