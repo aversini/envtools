@@ -50,7 +50,7 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   bind '"\e[B":history-search-forward'
 
   # Extend the max # of open files per terminal session
-  if [ "${OS}" == "Darwin" ]; then
+  if [ "${OS}" == "Darwin" -o "${OS}" == "MINGW32_NT-6.1" ]; then
     ulimit -n 7168
   fi
 

@@ -6,6 +6,9 @@ GLOBAL_CONTINUE=true
 # color definitions
 COLOR_RED="\e[0;31m"
 COLOR_BLUE="\e[0;34m"
+if [ "${OS}" == "MINGW32_NT-6.1" ]; then
+  COLOR_BLUE="\e[0;36m"
+fi
 COLOR_GREEN="\e[0;32m"
 COLOR_YELLOW="\e[0;33m"
 COLOR_MAGENTA="\e[0;35m"
@@ -152,46 +155,57 @@ extractStatusAndColor () {
   FATAL )
           GLOBAL_STATUS_TEXT="  FATAL  "
           GLOBAL_COLOR_CMD="$CMD_RED"
+          GLOBAL_COLOR_NAME="$COLOR_RED"
           ;;
   ALERT )
           GLOBAL_STATUS_TEXT="  ALERT  "
           GLOBAL_COLOR_CMD="$CMD_RED"
+          GLOBAL_COLOR_NAME="$COLOR_RED"
           ;;
   ERROR | ABORT | EMERGENCY | CRITICAL | FAILURE | FAILED | FAIL )
           GLOBAL_STATUS_TEXT="  ERROR  "
           GLOBAL_COLOR_CMD="$CMD_RED"
+          GLOBAL_COLOR_NAME="$COLOR_RED"
           ;;
   WARNING )
           GLOBAL_STATUS_TEXT=" WARNING "
           GLOBAL_COLOR_CMD="$CMD_YELLOW"
+          GLOBAL_COLOR_NAME="$COLOR_YELLOW"
           ;;
   NOTICE )
           GLOBAL_STATUS_TEXT=" NOTICE  "
           GLOBAL_COLOR_CMD="$CMD_YELLOW"
+          GLOBAL_COLOR_NAME="$COLOR_YELLOW"
           ;;
   INFO )
           GLOBAL_STATUS_TEXT="  INFO   "
           GLOBAL_COLOR_CMD="$CMD_BLUE"
+          GLOBAL_COLOR_NAME="$COLOR_BLUE"
           ;;
   DEBUG )
           GLOBAL_STATUS_TEXT="  DEBUG  "
           GLOBAL_COLOR_CMD="$CMD_DEFAULT"
+          GLOBAL_COLOR_NAME="$COLOR_DEFAULT"
           ;;
   OK  )
           GLOBAL_STATUS_TEXT="   OK    "
           GLOBAL_COLOR_CMD="$CMD_GREEN"
+          GLOBAL_COLOR_NAME="$COLOR_GREEN"
           ;;
   PASSED )
           GLOBAL_STATUS_TEXT=" PASSED  "
           GLOBAL_COLOR_CMD="$CMD_GREEN"
+          GLOBAL_COLOR_NAME="$COLOR_GREEN"
           ;;
   SUCCESS )
           GLOBAL_STATUS_TEXT=" SUCCESS "
           GLOBAL_COLOR_CMD="$CMD_GREEN"
+          GLOBAL_COLOR_NAME="$COLOR_GREEN"
           ;;
   *)
           GLOBAL_STATUS_TEXT="UNDEFINED"
           GLOBAL_COLOR_CMD="$CMD_YELLOW"
+          GLOBAL_COLOR_NAME="$COLOR_YELLOW"
   esac
 }
 
@@ -209,10 +223,14 @@ function txtStatus {
     MESSAGE="$1"
     STATUS="$2"
     extractStatusAndColor "$STATUS"
-    $GLOBAL_COLOR_CMD
-    echo "$MESSAGE"
-    $CMD_DEFAULT
-    raw_status "$GLOBAL_STATUS_TEXT" "$GLOBAL_COLOR_CMD"
+    if [ "$OS" == "MINGW32_NT-6.1" ]; then
+      txtColor "$GLOBAL_COLOR_NAME" "$MESSAGE  [$GLOBAL_STATUS_TEXT]"
+    else
+      $GLOBAL_COLOR_CMD
+      echo "$MESSAGE"
+      $CMD_DEFAULT
+      raw_status "$GLOBAL_STATUS_TEXT" "$GLOBAL_COLOR_CMD"
+    fi
   fi
 }
 
