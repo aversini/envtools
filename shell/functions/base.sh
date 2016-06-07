@@ -269,19 +269,17 @@ function setEnvtoolsPrompt {
 # Call this function to display a welcome banner
 #
 function displayWelcomeBanner {
-  if [ "$OS" == "Darwin" -o "$OS" == "Linux" ]; then
-    if [ "$INIT_PARAM" == "reload" ]; then
-      # initSessionVersion
-      # getSessionVersion
-      txtStatus "Reloading environment..." "SUCCESS"
-    else
-      # Display a simple help intro if user wants it
-      envtools banner
-    fi
-    # and update the terminal tab title if needed
-    if [ "$INIT_PARAM" != "reload" ]; then
-      setTerminalTitle
-    fi
+  if [ "$INIT_PARAM" == "reload" ]; then
+    # initSessionVersion
+    # getSessionVersion
+    txtStatus "Reloading environment..." "SUCCESS"
+  else
+    # Display a simple help intro if user wants it
+    envtools banner
+  fi
+  # and update the terminal tab title if needed
+  if [ "$INIT_PARAM" != "reload" ]; then
+    setTerminalTitle
   fi
 }
 
