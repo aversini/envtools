@@ -1,4 +1,14 @@
 
+__0.0.96 / 2016-06-07__
+
+- Replacing "cp -f" with fs.copy ([ff5b6e6](https://github.com/aversini/envtools/commit/ff5b6e62452e5b6b79b73299d8a73fdd482f9041))
+- Merge branch 'master' of https://github.com/aversini/envtools ([2354811](https://github.com/aversini/envtools/commit/235481100b0804e2d62bb399fb78f9901cf39f51))
+- Merge branch 'master' of https://github.com/aversini/envtools ([6939d0d](https://github.com/aversini/envtools/commit/6939d0d963d3c9348c5861a48ae04f94237480bb))
+- Merge branch 'master' of https://github.com/aversini/envtools ([69ab883](https://github.com/aversini/envtools/commit/69ab8836014e6f328d69236d4899ff4925703ee8))
+- First pass at trying to support windows ([631ef1d](https://github.com/aversini/envtools/commit/631ef1de58eae9d34dbe02df5488a1ce28e9dbb8))
+- First pass at trying to support windows ([e4db46c](https://github.com/aversini/envtools/commit/e4db46cb6d5cee6e1cfd37c16248b364efdd6073))
+- (internal) Adding sugar shell method "confirm" ([c83191b](https://github.com/aversini/envtools/commit/c83191be19179008f0251efc66d62eafe7a98787))
+
 __0.0.95 / 2016-05-24__
 
 - Adding gulp to needed npm packages ([76ca6f9](https://github.com/aversini/envtools/commit/76ca6f9948ebd88d63126e5edf0d680c300055f3))
