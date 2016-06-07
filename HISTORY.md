@@ -1,4 +1,10 @@
 
+__0.0.97 / 2016-06-07__
+
+- Removing stars in banner on Windows ([38ad271](https://github.com/aversini/envtools/commit/38ad271f5734336bfcae42484f4117c913fc7955))
+- Merge branch 'master' of https://github.com/aversini/envtools ([c6508c3](https://github.com/aversini/envtools/commit/c6508c36dbcaf6bae9ba5d2904a78e346ebbd426))
+- No sudo on windows ([3ba2e73](https://github.com/aversini/envtools/commit/3ba2e7312db8eec94a096cc6fbf0e3ce51f2e181))
+
 __0.0.96 / 2016-06-07__
 
 - Replacing "cp -f" with fs.copy ([ff5b6e6](https://github.com/aversini/envtools/commit/ff5b6e62452e5b6b79b73299d8a73fdd482f9041))
