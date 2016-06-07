@@ -4,7 +4,11 @@
 # Setting some constants available at load time
 # and within all scripts and functions sourced here.
 OS=$(uname)
-ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+if [ "$ENVTOOLS_ENVDIR" != "" ]; then
+  ENVDIR=${ENVTOOLS_ENVDIR}
+else
+  ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+fi
 RUNTIME_DIR="${HOME}/.envtools"
 CUSTOM_ENVDIR="${RUNTIME_DIR}/custom"
 TOOLSDIR="${ENVDIR}/../lib"
@@ -50,7 +54,7 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   bind '"\e[B":history-search-forward'
 
   # Extend the max # of open files per terminal session
-  if [ "${OS}" == "Darwin" ]; then
+  if [ "${OS}" == "Darwin" -o "${OS}" == "MINGW32_NT-6.1" ]; then
     ulimit -n 7168
   fi
 

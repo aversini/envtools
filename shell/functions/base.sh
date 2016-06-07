@@ -142,7 +142,7 @@ function reloadEnvironment {
   unsetExtraPS1
   export PS1="$OLD_PS1"
   export INIT_PARAM="reload"
-  source $ENVDIR/load.sh
+  source "$ENVDIR/load.sh"
   unset INIT_PARAM
 }
 
