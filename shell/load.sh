@@ -54,8 +54,11 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   bind '"\e[B":history-search-forward'
 
   # Extend the max # of open files per terminal session
-  if [ "${OS}" == "Darwin" -o "${OS}" == "MINGW32_NT-6.1" ]; then
+  if [ "${OS}" == "Darwin" ]; then
     ulimit -n 7168
+  fi
+  if [ "${OS}" == "MINGW32_NT-6.1" ]; then
+    ulimit -n 3072
   fi
 
   # Set proxy quietly
