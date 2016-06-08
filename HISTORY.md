@@ -1,4 +1,8 @@
 
+__0.0.100 / 2016-06-08__
+
+- Better welcome banner for non-mac ([4fc8e8a](https://github.com/aversini/envtools/commit/4fc8e8ab2219b5f77147ae9f48ccada740a74ccf))
+
 __0.0.99 / 2016-06-08__
 
 - Limiting 'h' for help on mac ([e839e0c](https://github.com/aversini/envtools/commit/e839e0cae73fe7d7062162f183ab8054ab56ab3b))
