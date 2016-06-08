@@ -1,4 +1,8 @@
 
+__0.0.99 / 2016-06-08__
+
+- Limiting 'h' for help on mac ([e839e0c](https://github.com/aversini/envtools/commit/e839e0cae73fe7d7062162f183ab8054ab56ab3b))
+
 __0.0.98 / 2016-06-08__
 
 - Adding alias for clear (c) ([93bfdb3](https://github.com/aversini/envtools/commit/93bfdb3c0e543a1ff17bc63698524b9daef45704))
