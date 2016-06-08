@@ -1,4 +1,9 @@
 
+__0.0.101 / 2016-06-08__
+
+- Do not check for ruby in auto mode on windows ([d4fe39d](https://github.com/aversini/envtools/commit/d4fe39dc2e8c65d7be2ea6d5e05f97ea9e0912df))
+- Lowering ulimit for windows ([ec96680](https://github.com/aversini/envtools/commit/ec96680ccdba9d1230dd6f4859ffdc50793d3b1d))
+
 __0.0.100 / 2016-06-08__
 
 - Better welcome banner for non-mac ([4fc8e8a](https://github.com/aversini/envtools/commit/4fc8e8ab2219b5f77147ae9f48ccada740a74ccf))
