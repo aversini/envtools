@@ -22,6 +22,7 @@ alias ..='cd ..'
 alias tit=setTerminalTitle
 alias t=tit
 alias diffd='diffDirectories'
+alias c='clear'
 
 # alias for setting/un-setting the proxies
 alias pon='setProxies ON'

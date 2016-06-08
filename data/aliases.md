@@ -69,4 +69,5 @@ Alias    | Description
 
 Alias    | Description
 ---------|-------------
+`c`      | Clear the current terminal screen.
 `ccc`    | Run `compass clean && compass compile` in the current folder.
