@@ -1,4 +1,9 @@
 
+__0.0.98 / 2016-06-08__
+
+- Adding alias for clear (c) ([93bfdb3](https://github.com/aversini/envtools/commit/93bfdb3c0e543a1ff17bc63698524b9daef45704))
+- no sudo on windows - take 2 ([fc8e9f9](https://github.com/aversini/envtools/commit/fc8e9f9dfe2e4efaea5eae539a56b0aeb7b6bca9))
+
 __0.0.97 / 2016-06-07__
 
 - Removing stars in banner on Windows ([38ad271](https://github.com/aversini/envtools/commit/38ad271f5734336bfcae42484f4117c913fc7955))
