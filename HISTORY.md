@@ -1,4 +1,8 @@
 
+__0.0.102 / 2016-06-09__
+
+- Special character is not working on windows ([4293b6e](https://github.com/aversini/envtools/commit/4293b6eb306137a407663a1f9ee3ea3433635787))
+
 __0.0.101 / 2016-06-08__
 
 - Do not check for ruby in auto mode on windows ([d4fe39d](https://github.com/aversini/envtools/commit/d4fe39dc2e8c65d7be2ea6d5e05f97ea9e0912df))
