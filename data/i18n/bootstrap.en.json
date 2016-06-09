@@ -22,9 +22,9 @@
 
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
-      "auto": "★ Welcome to Envtools - Interactive Configuration ★",
-      "manual": "★ Welcome to Envtools - Manual Configuration ★",
-      "extra": "★ Welcome to Envtools - Extra Goodies ★",
+      "auto": "─ Welcome to Envtools - Interactive Configuration ─",
+      "manual": "─ Welcome to Envtools - Manual Configuration ─",
+      "extra": "─ Welcome to Envtools - Extra Goodies ─",
       "getOutAdvice1": "          (CTRL+C will abort the process)",
       "getOutAdvice2": "       (CTRL+C will abort the process)",
       "getOutAdvice3": "    (CTRL+C will abort the process)",
