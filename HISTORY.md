@@ -1,4 +1,8 @@
 
+__0.0.104 / 2016-06-10__
+
+- Fixing homebrew installing - need to run update now ([0fd00fc](https://github.com/aversini/envtools/commit/0fd00fc5543c76166b58e48aec609967ffdb98e5))
+
 __0.0.103 / 2016-06-10__
 
 - Refactoring - extracting each individual plugin ([d79425d](https://github.com/aversini/envtools/commit/d79425de93fd7e543265988e620f989739aef723))
