@@ -1,4 +1,8 @@
 
+__0.0.103 / 2016-06-10__
+
+- Refactoring - extracting each individual plugin ([d79425d](https://github.com/aversini/envtools/commit/d79425de93fd7e543265988e620f989739aef723))
+
 __0.0.102 / 2016-06-09__
 
 - Special character is not working on windows ([4293b6e](https://github.com/aversini/envtools/commit/4293b6eb306137a407663a1f9ee3ea3433635787))
