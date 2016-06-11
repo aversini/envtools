@@ -1,4 +1,8 @@
 
+__0.0.105 / 2016-06-10__
+
+- Better handling of npm installationg failure ([1fade8c](https://github.com/aversini/envtools/commit/1fade8ca7a313f8b6f45a6b9749c712630dabfa2))
+
 __0.0.104 / 2016-06-10__
 
 - Fixing homebrew installing - need to run update now ([0fd00fc](https://github.com/aversini/envtools/commit/0fd00fc5543c76166b58e48aec609967ffdb98e5))
