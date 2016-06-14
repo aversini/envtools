@@ -1,4 +1,9 @@
 
+__0.0.106 / 2016-06-14__
+
+- In extra mode, allowing the user to choose which atom packages to install ([850d4c5](https://github.com/aversini/envtools/commit/850d4c58f43d288f2e93f3771ca02352e43e1640))
+- In manual mode, allowing the user to choose which npm packages to install ([365ab88](https://github.com/aversini/envtools/commit/365ab88011383da04c174a6424d20f075d60de4e))
+
 __0.0.105 / 2016-06-10__
 
 - Better handling of npm installationg failure ([1fade8c](https://github.com/aversini/envtools/commit/1fade8ca7a313f8b6f45a6b9749c712630dabfa2))
