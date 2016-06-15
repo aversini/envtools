@@ -1,4 +1,8 @@
 
+__0.0.107 / 2016-06-15__
+
+- Small refactoring ([d89b187](https://github.com/aversini/envtools/commit/d89b187646bec4ace162a96da556945b21626a21))
+
 __0.0.106 / 2016-06-14__
 
 - In extra mode, allowing the user to choose which atom packages to install ([850d4c5](https://github.com/aversini/envtools/commit/850d4c58f43d288f2e93f3771ca02352e43e1640))
