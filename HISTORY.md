@@ -1,4 +1,8 @@
 
+__0.0.108 / 2016-06-17__
+
+- Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
+
 __0.0.107 / 2016-06-15__
 
 - Small refactoring ([d89b187](https://github.com/aversini/envtools/commit/d89b187646bec4ace162a96da556945b21626a21))
