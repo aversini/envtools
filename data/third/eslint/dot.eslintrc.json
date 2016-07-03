@@ -4,7 +4,8 @@
     "builtin": true,
     "jasmine": true,
     "mocha": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
   "globals": {
     "chai": false,
