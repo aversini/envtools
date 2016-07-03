@@ -239,7 +239,9 @@
       "warn",
       "consistent"
     ],
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "single", {
+      "allowTemplateLiterals": true
+    }],
     "radix": "warn",
     "require-jsdoc": "off",
     "require-yield": "off",
