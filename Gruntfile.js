@@ -1,5 +1,4 @@
 module.exports = function (grunt) {
-
   var
     path = require('path'),
     g = require('./envtools-grunt/globals');
@@ -29,8 +28,8 @@ module.exports = function (grunt) {
       all: {
         options: {
           create: ['tmp/local', 'tmp/registry']
-        },
-      },
+        }
+      }
     },
 
     coveralls: {
@@ -85,7 +84,7 @@ module.exports = function (grunt) {
         files: [{
           expand: false,
           src: g.aliasesFileMd,
-          dest: g.tmpHelpFileHTML,
+          dest: g.tmpHelpFileHTML
         }],
         options: {
           gfm: true,
@@ -100,7 +99,7 @@ module.exports = function (grunt) {
         files: [{
           expand: false,
           src: g.historyFile,
-          dest: g.historyRawFileHTML,
+          dest: g.historyRawFileHTML
         }],
         options: {
           gfm: true,
@@ -111,7 +110,7 @@ module.exports = function (grunt) {
         files: [{
           expand: false,
           src: g.historyFile,
-          dest: g.historyFileHTML,
+          dest: g.historyFileHTML
         }],
         options: {
           template: path.join('data', 'templates', 'history', 'envtools-history.jst'),
@@ -132,7 +131,7 @@ module.exports = function (grunt) {
     'markdown:rawHistory',
     'markdown:aliases',
     'import:help',
-    'htmlmin:help',
+    'htmlmin:help'
   ]);
 
   grunt.registerTask('publish', [
