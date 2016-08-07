@@ -254,10 +254,6 @@ function setEnvtoolsPrompt {
       local BEFORE="\[$COLOR_BLUE\]${STR_PS1}\[$COLOR_CYAN\]\W\[$COLOR_DEFAULT\]"
       local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
       setCommandPromptWithGit "$BEFORE" "$AFTER"
-      # Loading custom exports if any
-      if [ -f "${RUNTIME_DIR}/custom/exports.sh" ]; then
-        source "${RUNTIME_DIR}/custom/exports.sh"
-      fi
     fi
   else
     unsetExtraPS1

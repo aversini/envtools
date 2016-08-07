@@ -1,15 +1,7 @@
-/*jshint jquery:true */
-
-
+/*eslint-disable*/
 
 $(function () {
-  // function _displayTab() {
-  //   console.log('==> this: ', this);
-  //   $(this).tab('show');
-  // }
-
-  // $('.envtools-tabs a').click(_displayTab);
-
+  hljs.initHighlightingOnLoad();
   $('.envtools-tabs a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
