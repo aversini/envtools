@@ -323,62 +323,6 @@ function diffDirectories {
 }
 
 #
-# Get artifacts from Nexus
-#
-function getArtifacts {
-  local SUCCESS=false
-  local USAGE="Usage: getArtifacts <version>"
-  local EXAMPLE="Example: getArtifacts 2.10.0rc1"
-  echo
-  if [ $# -eq 1 ]; then
-    if [ -x /usr/local/bin/wget ]; then
-      local VERSION=$1
-      clear
-      echo "About to download artifacts for  v$1"
-      echo "Make sure you are connected to the intranet..."
-      while true; do
-        read -p "Continue? [y|n] " yn
-        case $yn in
-          [Yy]* )
-            local ARTIFACTS_FOLDER="artifacts-$1"
-            local NEXUS_URL="http://wnl-svr167.wellsfargo.com:8881"
-            local WRIA2_PATH="nexus/service/local/repositories/releases/content/com/wellsfargo/wria2"
-            mkdir $ARTIFACTS_FOLDER
-            cd $ARTIFACTS_FOLDER
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2/$1/wria2-$1.pom
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-components-gen/$1/wria2-components-gen-$1.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-components-gen/$1/wria2-components-gen-$1-sources.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-components-gen/$1/wria2-components-gen-$1.pom
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-tldgenerator/$1/wria2-tldgenerator-$1.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-tldgenerator/$1/wria2-tldgenerator-$1-test-sources.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-tldgenerator/$1/wria2-tldgenerator-$1-sources.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-tldgenerator/$1/wria2-tldgenerator-$1.pom
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary/$1/wria2-taglibrary-$1.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary/$1/wria2-taglibrary-$1-with-dependencies.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary/$1/wria2-taglibrary-$1-test-sources.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary/$1/wria2-taglibrary-$1-sources.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary/$1/wria2-taglibrary-$1.pom
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary-all/$1/wria2-taglibrary-all-$1.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary-all/$1/wria2-taglibrary-all-$1-with-dependencies.jar
-            wget --no-proxy --show-progress --quiet $NEXUS_URL/$WRIA2_PATH/wria2-taglibrary-all/$1/wria2-taglibrary-all-$1.pom
-            return;;
-          [Nn]* ) echo "Bye!"; return;;
-          * ) echo "Please answer yes or no.";;
-        esac
-      done
-    else
-      txtRed "Please install wget (brew install wget)" "nl"
-    fi
-  else
-    txtRed "$USAGE" "nl"
-    txtRed "$EXAMPLE" "nl"
-  fi
-  echo
-}
-
-
-
-#
 # Loading specific Mac functions
 #
 if [ "${OS}" = "Darwin" ]; then
