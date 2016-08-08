@@ -1,4 +1,9 @@
 
+__0.0.113 / 2016-08-08__
+
+- Removing getArtifacts - not needed anymore ([b9433d0](https://github.com/aversini/envtools/commit/b9433d0d26cca3cbc9fcfc9e16cb960da2578762))
+- Spelling! ([f2d138e](https://github.com/aversini/envtools/commit/f2d138ef52636bc82da922e36a3aaedf01963d67))
+
 __0.0.112 / 2016-08-07__
 
 - Adding example to customization tab ([82f8841](https://github.com/aversini/envtools/commit/82f8841655e27721750c671d59245dd28ad8d040))
@@ -10,7 +15,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
