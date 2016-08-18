@@ -1,4 +1,8 @@
 
+__0.0.114 / 2016-08-17__
+
+- Bumping maven version to 3.3.9 since it's now supported ([bd8a8c2](https://github.com/aversini/envtools/commit/bd8a8c26f606fa152f6fb2a9660bca7fc0649ff5))
+
 __0.0.113 / 2016-08-08__
 
 - Removing getArtifacts - not needed anymore ([b9433d0](https://github.com/aversini/envtools/commit/b9433d0d26cca3cbc9fcfc9e16cb960da2578762))
