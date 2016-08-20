@@ -31,7 +31,6 @@ else
 fi
 
 if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ]; then
-
   # Loading some functions
   source "${ENVDIR}/third/git-prompt.sh"
   source "${ENVDIR}/functions/base.sh"
@@ -46,20 +45,6 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
 
   # Exporting some constants for future terminal use
   source "${ENVDIR}/exports/base.sh"
-
-  # Improve history search with up and down keys.
-  # Try typing ls
-  # and then up and down arrows... joy!
-  bind '"\e[A":history-search-backward'
-  bind '"\e[B":history-search-forward'
-
-  # Extend the max # of open files per terminal session
-  if [ "${OS}" == "Darwin" ]; then
-    ulimit -n 7168
-  fi
-  if [ "${OS}" == "MINGW32_NT-6.1" ]; then
-    ulimit -n 3072
-  fi
 
   # Set proxy quietly
   setProxyAtLoadTime
