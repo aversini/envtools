@@ -1,7 +1,7 @@
 {
   "bootstrap": {
     "setUsrLocal": "Enable sudo-less npm and ruby gems.",
-    "setEnv": "Update your environment to load goodies automatically.",
+    "setEnv": "Update your profile to load goodies automatically.",
     "setPrompt": "Enable/disable Envtools custom command line prompt (git info, etc.)",
     "setBanner": "Enable/disable Envtools welcome banner for each session.",
     "setProxy": "Setup a proxy.",
