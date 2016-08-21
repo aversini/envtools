@@ -1,4 +1,8 @@
 
+__0.0.116 / 2016-08-21__
+
+- Refactoring maven settings installation
+
 __0.0.115 / 2016-08-20__
 
 - Removing git link from history since it’s a private repo
