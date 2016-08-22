@@ -13,5 +13,7 @@ npm install -g envtools
 
 ```
 envtools auto
-envtools --help
+envtools manual
+envtools extra
+envtools help
 ```
