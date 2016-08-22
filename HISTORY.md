@@ -1,4 +1,8 @@
 
+__0.0.117 / 2016-08-21__
+
+- Refactoring help page (available for Windows too)
+
 __0.0.116 / 2016-08-21__
 
 - Refactoring maven settings installation
