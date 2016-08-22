@@ -50,6 +50,9 @@ alias fgrs='$TOOLSDIR/fgrs.js'
 alias ff='$TOOLSDIR/ff.js'
 alias gith='$TOOLSDIR/gith.js'
 
+# Open help file
+alias h='envtools help'
+
 if [ -f /usr/local/bin/vim -o -f /usr/bin/vim ]; then
   alias vi=vim
 fi
