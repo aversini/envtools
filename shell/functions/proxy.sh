@@ -178,8 +178,8 @@ function setSinopia {
     echo "ON" > "${RUNTIME_DIR}/sinopia_status"
     PROXY_VALUE="http://localhost:4873/"
     export SINOPIA_STATUS="ON"
-    cmd "npm config set proxy ${PROXY_VALUE}"
-    cmd "npm config set https-proxy ${PROXY_VALUE}"
+    cmd "npm config delete proxy"
+    cmd "npm config delete https-proxy"
     cmd "npm config set registry ${PROXY_VALUE}"
     reloadEnvironment
   elif [ "$1" == "OFF" ]; then
