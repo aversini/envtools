@@ -1,4 +1,13 @@
 
+__0.0.118 / 2016-08-25__
+
+- Optimizing sinopia (better external usage)
+- Bump download dependency version
+- Bump dev dependencies
+- No need to remove “progress” for npm (fixed perf at master)
+- Better README
+- Simplifying "envtools -h" since the web page is now supported
+
 __0.0.117 / 2016-08-21__
 
 - Refactoring help page (available for Windows too)
@@ -34,7 +43,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support
 - eslint rules: allowing template litterals
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities
 
