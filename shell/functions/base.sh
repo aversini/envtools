@@ -227,7 +227,14 @@ function setCommandPromptWithGit {
     PS1_GITPRINTF=" \[$COLOR_GREEN\](git:%s)\[$COLOR_DEFAULT\]"
   fi
 
-  export PROMPT_COMMAND='__git_ps1 "$PS1_BEFORE" "$PS1_AFTER" "$PS1_GITPRINTF"'
+  PROMPT_COMMAND='__git_ps1 "$PS1_BEFORE" "$PS1_AFTER" "$PS1_GITPRINTF"'
+  if [ $(uname) = "Darwin" ]; then
+    if type update_terminal_cwd > /dev/null 2>&1 ; then
+      if ! [[ $PROMPT_COMMAND =~ (^|;)update_terminal_cwd($|;) ]] ; then
+        export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd"
+      fi
+    fi
+  fi
 }
 
 
@@ -251,8 +258,8 @@ function setEnvtoolsPrompt {
       else
         setExtraPS1 "[proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
       fi
-      local BEFORE="\[$COLOR_BLUE\]${STR_PS1}\[$COLOR_CYAN\]\W\[$COLOR_DEFAULT\]"
-      local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
+      local BEFORE="$COLOR_BLUE${STR_PS1}$COLOR_CYAN\W$COLOR_DEFAULT"
+      local AFTER="$COLOR_CYAN \$$COLOR_DEFAULT "
       setCommandPromptWithGit "$BEFORE" "$AFTER"
     fi
   else
