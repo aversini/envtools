@@ -1,4 +1,11 @@
 
+__0.0.120 / 2016-08-31__
+
+- Better session reloading mechanism
+- Remove duplicate warning logs
+- Refactoring to simplify some tasks
+- Adding testing CLI to envtools
+
 __0.0.119 / 2016-08-26__
 
 - Fix login prompt not remembering previous location
@@ -49,7 +56,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support
 - eslint rules: allowing template litterals
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities
 
