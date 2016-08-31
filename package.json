@@ -1,6 +1,6 @@
 {
   "name": "envtools",
-  "version": "0.0.120",
+  "version": "0.0.121",
   "description": "Set of env tools for Mac/Linux",
   "author": "Arno Versini",
   "bin": {
