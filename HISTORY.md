@@ -1,4 +1,8 @@
 
+__0.0.121 / 2016-08-31__
+
+- Fix for git boostrap when there is no config at all
+
 __0.0.120 / 2016-08-31__
 
 - Better session reloading mechanism
