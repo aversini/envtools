@@ -209,7 +209,7 @@
     "no-unreachable": "error",
     "no-unused-expressions": "off",
     "no-unused-labels": "error",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "error",
     "no-use-before-define": "error",
     "no-useless-call": "error",
     "no-useless-concat": "error",
