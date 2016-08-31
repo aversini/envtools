@@ -27,12 +27,12 @@ alias c='clear'
 # alias for setting/un-setting the proxies
 alias pon='setProxies ON'
 alias poff='setProxies OFF'
-alias pq='displayProxyStatus && setEnvtoolsPrompt'
+alias pq='displayProxyStatus && reloadEnvironment'
 
 # alias for enabling/disabling sinopia
 alias son='setSinopia ON'
 alias soff='setSinopia OFF'
-alias sq='displaySinopiaStatus && setEnvtoolsPrompt'
+alias sq='displaySinopiaStatus && reloadEnvironment'
 
 # killing norton, jamf, lync, etc.
 alias knot=killNorton
@@ -59,7 +59,7 @@ fi
 
 # environment aliases to load/reload profile, check version
 alias v='echo; envtools -vb; echo'
-alias r='echo; reloadEnvironment; echo'
+alias r='echo; echo "Reloading Environemnt..."; reloadEnvironment; echo'
 alias reload='r'
 
 # shortcuts for projects folder

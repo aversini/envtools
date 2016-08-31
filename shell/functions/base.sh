@@ -272,16 +272,10 @@ function setEnvtoolsPrompt {
 # Call this function to display a welcome banner
 #
 function displayWelcomeBanner {
-  if [ "$INIT_PARAM" == "reload" ]; then
-    # initSessionVersion
-    # getSessionVersion
-    txtStatus "Reloading environment..." "SUCCESS"
-  else
+  if [ "$INIT_PARAM" != "reload" ]; then
     # Display a simple help intro if user wants it
     envtools banner
-  fi
-  # and update the terminal tab title if needed
-  if [ "$INIT_PARAM" != "reload" ]; then
+    # Update the terminal tab title if needed
     setTerminalTitle
   fi
 }
