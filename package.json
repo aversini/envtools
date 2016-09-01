@@ -50,7 +50,7 @@
     "optimist": "~0.6.1",
     "request": "^2.55.0",
     "rimraf": "^2.5.1",
-    "semver": "^5.1.0"
+    "semver": "^5.3.0"
   },
   "optionalDependencies": {
     "posix": "^4.0.0"
