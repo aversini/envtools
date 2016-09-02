@@ -258,8 +258,8 @@ function setEnvtoolsPrompt {
       else
         setExtraPS1 "[proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
       fi
-      local BEFORE="$COLOR_BLUE${STR_PS1}$COLOR_CYAN\W$COLOR_DEFAULT"
-      local AFTER="$COLOR_CYAN \$$COLOR_DEFAULT "
+      local BEFORE="\[$COLOR_BLUE\]${STR_PS1}\[$COLOR_CYAN\]\W\[$COLOR_DEFAULT\]"
+      local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
       setCommandPromptWithGit "$BEFORE" "$AFTER"
     fi
   else
