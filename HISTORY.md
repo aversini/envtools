@@ -1,4 +1,17 @@
 
+__0.0.122 / 2016-09-02__
+
+- Merge remote-tracking branch 'origin/master' into npm-node-sinopia
+- Fixing prompt cutting of after a big amount of key strokes
+- Merge remote-tracking branch 'origin/master' into npm-node-sinopia
+- Adding short logs (feedback text) for each command
+- wip on re-writting help pages
+- removing debug code
+- wip
+- wip
+- wip node vs proxy
+- Removing phantomjs installation - not required anymore
+
 __0.0.121 / 2016-08-31__
 
 - Fix for git boostrap when there is no config at all

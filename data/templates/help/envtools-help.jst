@@ -37,6 +37,7 @@
       <li role="presentation"><a href="#commands">Commands</a></li>
       <li role="presentation"><a href="#aliases">Aliases</a></li>
       <li role="presentation"><a href="#customization">Customization</a></li>
+      <li role="presentation"><a href="#sinopia">Sinopia</a></li>
       <li role="presentation"><a href="#history">History</a></li>
     </ul>
   </div>
@@ -47,48 +48,12 @@
 
       <!-- introduction pane -->
       <div role="tabpanel" class="tab-pane active" id="intro">
-        <p><strong>Envtools</strong> is a command line helper for framework developers.</p>
-        <p>Its primary goal is to simplify the tedious task of initializing a laptop for a framework developer. Many tools need to be installed, proxy and shell environments need to be configured. One mistake and hours are wasted trying to figure out what is wrong when a simple automation could have saved everybody's time.</p>
-        <p>Not only <strong>Envtools</strong> will setup a framework developer environment in no time, it also comes loaded with goodies (bash aliases, fixes for the OS, Atom Plugins, etc.).</p>
-        <div class="alert alert-warning" role="alert">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
-            </span>
-          <span class="sr-only">IMPORTANT:</span> IMPORTANT: <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>, <a href="https://nodejs.org/en/" target="_blank">Node</a> and <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java</a> HAVE to be installed manually before hand.
-        </div>
+        @import "envtools-intro.html"
       </div>
 
       <!-- commands pane -->
       <div role="tabpanel" class="tab-pane" id="commands">
-        <p>
-          <h2>auto</h2></p>
-        <code>envtools auto</code>
-        <p>Use this command to bootstrap your environment automatically.</p>
-        <p>This command <em>should</em> rarely be used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build the framework and even check if you eventually have all that is required to run a build.</p>
-
-        <p>
-          <h2>manual</h2></p>
-        <code>envtools manual</code>
-        <p>Bootstrap your environment manually.</p>
-        <p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It's most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, etc.)</p>
-
-        <p>
-          <h2>extra</h2></p>
-        <code>envtools extra</code>
-        <p>Install and configure some extra goodies that are not included in the manual/automatic bootstrap routines.</p>
-        <ul>
-          <li>
-            Install some QuickLook plugins. For example in the Finder, pressing on the SPACE bar when selecting a .zip or .pkg file would open a tree preview of the content of the packages... You need this.
-          </li>
-          <li>
-            Fix Mac screensaver files permissions. If you are changing your screensaver settings and realize that after a while, they are reset to the previous values, you need this fix.
-          </li>
-          <li>
-            Install some Atom core packages.
-          </li>
-          <li>
-            More goodies are added regularly...
-          </li>
-        </ul>
+        @import "envtools-commands.html"
       </div>
 
       <!-- aliases pane -->
@@ -98,82 +63,20 @@
 
       <!-- customization pane -->
       <div role="tabpanel" class="tab-pane" id="customization">
-        <h1>Customization</h1>
-        <p>
-          If you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder <code>~/.envtools/custom/</code> and their names HAVE to be <code>functions.sh</code>, <code>aliases.sh</code> and <code>exports.sh</code>.
-        </p>
-        <p>
-          These files do not exist by default so you have to create them yourself. They will be loaded one by one by Envtools in the following order: functions, aliases then exports. The naming is just a convention to organize your code, but if you wanted to, you can be sloppy and just create one file (with one of the names mentioned) and load all your custom code there.
-        </p>
+        @import "envtools-custom.html"
+      </div>
 
-
-        <h2>Example</h2>
-        <h3>Overwriting the Envtools Command Line Prompt</h3>
-        <p>
-          On Mac, the default Bash command line prompt is limited. It shows the machine name, followed by a colon, the current folder, a space and the name of the current user.
-        </p>
-        <img src="data/assets/images/prompt/terminal-default-standard-prompt.png" />
-        <p>
-           Envtools enhances the command prompt with color and customization (it is enabled by default if you run the <code>envtools auto</code> mode and you can enable or disable it via the <code>envtools extra</code> mode).
-        </p>
-        <img src="data/assets/images/prompt/terminal-default-envtools-prompt.png" />
-        <p>
-          Aww, that's better! Now you can clearly see the state of your proxy, the folder you are in is color coded and your username and machine name have been removed because really, who cares.
-        </p>
-        <p>
-          Of course, this is one way of customizing the command prompt. What if you prefer to see more of the path? Or you still want the username, or for crying out loud, changing the color theme? This is where customization comes in.
-        </p>
-        <p>
-          Here is a step-by-step instruction on how to customize your own command prompt.
-        </p>
-        <h4>Step 1</h4>
-        <p>
-          Let's create the file <code>~/.envtools/custom/exports.sh</code> and add the following line:
-          <code>echo "Hello World"</code>. Reload your terminal and you should see something like this:
-        </p>
-        <img src="data/assets/images/prompt/terminal-hello-world.png" />
-        <p>
-          Great! We have our first customization :)
-        </p>
-        <h4>Step 2</h4>
-        <p>
-          Let's remove this line and use one of the Envtools API function: <code>setCommandPromptWithGit</code>
-          <pre>
-            <code class="bash">
-# Calling public Envtools Bash API 'setCommandPromptWithGit'
-# This method takes 2 optional parameters to customize the
-# command line prompt, along with git information if any.
-# arg1: what will be displayed first on the prompt, before any git info.
-# arg2: what will be displayed at the end of the prompt, after any git info.
-setCommandPromptWithGit "[\t][\u:\w]" " \$ "</code>
-          </pre>
-        </p>
-        <p>
-          Reload your terminal and see the timestamp (keyword \t) has been added at the beginning.
-          Please check this <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">page</a> for all available keywords. </p>
-        <img src="data/assets/images/prompt/terminal-custom.png" />
-        <h4>Step 3</h4>
-        <p>
-          Let's add some color to that sad custom prompt. You can use pre-defined colors available at no charge to you from Envtools or you can use the ASCII codes listed <a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html" target="_blank">here</a>.
-          The colors provided by Envtools are <code>$COLOR_RED</code>, <code>$COLOR_GREEN</code>, <code>$COLOR_CYAN</code>, <code>$COLOR_BLUE</code>, <code>$COLOR_YELLOW</code> and <code>$COLOR_DEFAULT</code> - to reset any other color.
-        </p>
-        <p>
-          Let's use <code>$COLOR_BLUE</code> to spice up the <code>timestamp</code> part of our custom prompt:
-        </p>
-        <pre>
-          <code class="bash">
-setCommandPromptWithGit "$COLOR_BLUE[\t]$COLOR_DEFAULT[\u:\w]" " \$ "</code>
-        </pre>
-        <img src="data/assets/images/prompt/terminal-custom-color.png" />
-        <p>
-          That's all folks! Enjoy Envtools and don't hesitate to report any bugs or feature requests!
-        </p>
+      <!-- Sinopia pane -->
+      <div role="tabpanel" class="tab-pane" id="sinopia">
+        @import "envtools-sinopia.html"
       </div>
 
       <!-- history pane -->
       <div role="tabpanel" class="tab-pane" id="history">
+        <h1>History</h1>
         @import "history-raw.html"
       </div>
+
 
     </div>
   </div>
