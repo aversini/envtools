@@ -15,15 +15,6 @@ module.exports = function (grunt) {
 
     clean: ['./tmp/*'],
 
-    copy: {
-      main: {
-        files: [{
-          src: '<%=pkg.name%>-<%=pkg.version%>.tgz',
-          dest: 'tmp/local-<%=pkg.name%>-<%=pkg.version%>.tgz'
-        }]
-      }
-    },
-
     mkdir: {
       all: {
         options: {
@@ -79,6 +70,32 @@ module.exports = function (grunt) {
         dest: g.helpFileHTML
       }
     },
+    copy: {
+      sinopia: {
+        files: [{
+          src: ['data/templates/help/envtools-sinopia.html'],
+          dest: 'tmp/envtools-sinopia.html'
+        }]
+      },
+      custom: {
+        files: [{
+          src: ['data/templates/help/envtools-custom.html'],
+          dest: 'tmp/envtools-custom.html'
+        }]
+      },
+      commands: {
+        files: [{
+          src: ['data/templates/help/envtools-commands.html'],
+          dest: 'tmp/envtools-commands.html'
+        }]
+      },
+      intro: {
+        files: [{
+          src: ['data/templates/help/envtools-intro.html'],
+          dest: 'tmp/envtools-intro.html'
+        }]
+      }
+    },
     markdown: {
       aliases: {
         files: [{
@@ -128,6 +145,8 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['help']);
 
   grunt.registerTask('help-generate', [
+    'clean',
+    'copy',
     'markdown:rawHistory',
     'markdown:aliases',
     'import:help',

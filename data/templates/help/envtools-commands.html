@@ -1,0 +1,28 @@
+<h1>Commands</h1>
+<h2>auto</h2>
+<code>envtools auto</code>
+<p>Use this command to bootstrap your environment automatically.</p>
+<p>This command <em>should</em> rarely be used. Its goal is to set up and initialize a working environment for your terminal sessions. This is a step-by-step process (see the opposite option: manual) where all the available bootstrap options are being executed one after the other. It allows you to load useful aliases, set your proxy, setup your git and npm configurations, install most packages needed to build the framework and even check if you eventually have all that is required to run a build.</p>
+
+<h2>manual</h2>
+<code>envtools manual</code>
+<p>Bootstrap your environment manually.</p>
+<p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It's most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, etc.)</p>
+
+<h2>extra</h2>
+<code>envtools extra</code>
+<p>Install and configure some extra goodies that are not included in the manual/automatic bootstrap routines.</p>
+<ul>
+  <li>
+    Install some QuickLook plugins. For example in the Finder, pressing on the SPACE bar when selecting a .zip or .pkg file would open a tree preview of the content of the packages... You need this.
+  </li>
+  <li>
+    Fix Mac screensaver files permissions. If you are changing your screensaver settings and realize that after a while, they are reset to the previous values, you need this fix.
+  </li>
+  <li>
+    Install some Atom core packages.
+  </li>
+  <li>
+    More goodies are added regularly...
+  </li>
+</ul>

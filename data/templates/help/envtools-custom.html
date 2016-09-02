@@ -1,0 +1,67 @@
+<h1>Customization</h1>
+<p>
+  If you need customization, your can drop 3 bash files that will be loaded for each sessions. Those files HAVE to be put in the folder <code>~/.envtools/custom/</code> and their names HAVE to be <code>functions.sh</code>, <code>aliases.sh</code> and <code>exports.sh</code>.
+</p>
+<p>
+  These files do not exist by default so you have to create them yourself. They will be loaded one by one by Envtools in the following order: functions, aliases then exports. The naming is just a convention to organize your code, but if you wanted to, you can be sloppy and just create one file (with one of the names mentioned) and load all your custom code there.
+</p>
+
+<h2>Example</h2>
+<h3>Overwriting the Envtools Command Line Prompt</h3>
+<p>
+  On Mac, the default Bash command line prompt is limited. It shows the machine name, followed by a colon, the current folder, a space and the name of the current user.
+</p>
+<img src="data/assets/images/prompt/terminal-default-standard-prompt.png" />
+<p>
+  Envtools enhances the command prompt with color and customization (it is enabled by default if you run the <code>envtools auto</code> mode and you can enable or disable it via the <code>envtools extra</code> mode).
+</p>
+<img src="data/assets/images/prompt/terminal-default-envtools-prompt.png" />
+<p>
+  Aww, that's better! Now you can clearly see the state of your proxy, the folder you are in is color coded and your username and machine name have been removed because really, who cares.
+</p>
+<p>
+  Of course, this is one way of customizing the command prompt. What if you prefer to see more of the path? Or you still want the username, or for crying out loud, changing the color theme? This is where customization comes in.
+</p>
+<p>
+  Here is a step-by-step instruction on how to customize your own command prompt.
+</p>
+<h4>Step 1</h4>
+<p>
+  Let's create the file <code>~/.envtools/custom/exports.sh</code> and add the following line:
+  <code>echo "Hello World"</code>. Reload your terminal and you should see something like this:
+</p>
+<img src="data/assets/images/prompt/terminal-hello-world.png" />
+<p>
+  Great! We have our first customization :)
+</p>
+<h4>Step 2</h4>
+<p>
+  Let's remove this line and use one of the Envtools API function: <code>setCommandPromptWithGit</code>
+  <pre>
+      <code class="bash">
+# Calling public Envtools Bash API 'setCommandPromptWithGit'
+# This method takes 2 optional parameters to customize the
+# command line prompt, along with git information if any.
+# arg1: what will be displayed first on the prompt, before any git info.
+# arg2: what will be displayed at the end of the prompt, after any git info.
+setCommandPromptWithGit "[\t][\u:\w]" " \$ "</code>
+    </pre>
+</p>
+<p>
+  Reload your terminal and see the timestamp (keyword \t) has been added at the beginning. Please check this <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">page</a> for all available keywords. </p>
+<img src="data/assets/images/prompt/terminal-custom.png" />
+<h4>Step 3</h4>
+<p>
+  Let's add some color to that sad custom prompt. You can use pre-defined colors available at no charge to you from Envtools or you can use the ASCII codes listed <a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html" target="_blank">here</a>. The colors provided by Envtools are <code>$COLOR_RED</code>, <code>$COLOR_GREEN</code>, <code>$COLOR_CYAN</code>, <code>$COLOR_BLUE</code>, <code>$COLOR_YELLOW</code> and <code>$COLOR_DEFAULT</code> - to reset any other color.
+</p>
+<p>
+  Let's use <code>$COLOR_BLUE</code> to spice up the <code>timestamp</code> part of our custom prompt:
+</p>
+<pre>
+    <code class="bash">
+setCommandPromptWithGit "$COLOR_BLUE[\t]$COLOR_DEFAULT[\u:\w]" " \$ "</code>
+  </pre>
+<img src="data/assets/images/prompt/terminal-custom-color.png" />
+<p>
+  That's all folks! Enjoy Envtools and don't hesitate to report any bugs or feature requests!
+</p>

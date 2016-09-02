@@ -1,0 +1,27 @@
+<h1>Sinopia</h1>
+<h2>Introduction</h2>
+<p>
+  Sinopia is a private/caching npm repository server. It allows you to have a local npm registry with zero configuration. You don't have to install and replicate an entire database. Sinopia keeps its own small database and, if a package doesn't exist there, it asks npmjs.org for it keeping only those packages you use.
+</p>
+<h2>Use case</h2>
+<p>
+  The main use case for framework developers is when we are working on node 6+ and are located behind a proxy. There is a known issue with npm that renders installations painfully slow. A workaround is to use Sinopia because it caches npmjs calls, therefore avoiding a call outside through the proxy.
+</p>
+<h2>How it works</h2>
+<p>
+  Once Sinopia is installed and running on your machine, npm has to be configured to use it instead of the standard npmjs.org repository. At this point any <code>npm</code>commands will first check if a required package and its dependencies are available in the Sinopia cache. If the check is unsuccessful, the command will then try to fetch the packages from npmjs.org and cache them for future use.
+</p>
+<h2>Installation</h2>
+<h3>Installing Sinopia</h3>
+<p>
+  Sinopia is a npm package. Because there is a good chance that you are using node 6+ and are located behind a proxy (why would you still be reading this otherwise?), installing Sinopia may take a while. If you can temporarily disconnect from the proxy, go for it and run the following command:
+  <pre>
+    <code class="bash">
+  npm install -g sinopia</code>
+  </pre>
+</p>
+<h3>Configuring npm</h3>
+<p>
+  You can use Envtools to configure npm to use Sinopia for you. The command is available in the "extra" section of Envtools. Type <code>envtools extra</code> and select the Sinopia section. On the next screen, choose to enable Sinopia. You should see something close to this:
+</p>
+<img src="data/assets/images/sinopia/envtools-extra-sinopia.png" />
