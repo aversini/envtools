@@ -1,4 +1,9 @@
 
+__0.0.124 / 2016-09-03__
+
+- Adding npm badge to help file
+- Removed markdown dependency on building aliases help page
+
 __0.0.123 / 2016-09-02__
 
 - Adding a lot more about Sinopia and Node v6
