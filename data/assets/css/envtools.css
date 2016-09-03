@@ -65,3 +65,7 @@ body.envtools-help {
   margin-bottom: 16px;
   padding-bottom: .3em;
 }
+
+.envtools-help .npm-badge {
+  margin-bottom: 5px;
+}
