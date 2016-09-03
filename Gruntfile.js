@@ -71,6 +71,12 @@ module.exports = function (grunt) {
       }
     },
     copy: {
+      help: {
+        files: [{
+          src: ['data/templates/help/envtools-help.html'],
+          dest: 'tmp/help.html'
+        }]
+      },
       sinopia: {
         files: [{
           src: ['data/templates/help/envtools-sinopia.html'],
@@ -94,24 +100,16 @@ module.exports = function (grunt) {
           src: ['data/templates/help/envtools-intro.html'],
           dest: 'tmp/envtools-intro.html'
         }]
-      }
-    },
-    markdown: {
+      },
       aliases: {
         files: [{
-          expand: false,
-          src: g.aliasesFileMd,
-          dest: g.tmpHelpFileHTML
-        }],
-        options: {
-          gfm: true,
-          template: path.join('data', 'templates', 'help', 'envtools-help.jst'),
-          templateContext: {
-            pageTitle: 'Envtools Help',
-            headerTitle: 'Envtools Help'
-          }
-        }
-      },
+          src: ['data/templates/help/envtools-aliases.html'],
+          dest: 'tmp/envtools-aliases.html'
+        }]
+      }
+
+    },
+    markdown: {
       rawHistory: {
         files: [{
           expand: false,
@@ -148,7 +146,6 @@ module.exports = function (grunt) {
     'clean',
     'copy',
     'markdown:rawHistory',
-    'markdown:aliases',
     'import:help',
     'htmlmin:help'
   ]);

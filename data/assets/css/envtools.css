@@ -59,3 +59,9 @@ body.envtools-help {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.envtools-help h1 {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+  padding-bottom: .3em;
+}

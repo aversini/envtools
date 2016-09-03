@@ -3,7 +3,7 @@
 
 <head>
   <title>
-    <%=pageTitle%>
+    Envtools Help
   </title>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,20 +14,21 @@
   <link rel="stylesheet" type="text/css" href="data/assets/css/highlight/default.css">
 </head>
 
-<body class="envtools-help markdown-body">
+<body class="envtools-help  container">
+
   <div class="header">
     <div class="envtools-logo">
       <div class="envtools-logo-svg">
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 51 51" enable-background="new 0 0 51 51" xml:space="preserve">
-          <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1.0005" y1="0" x2="50.9995" y2="52" gradientTransform="matrix(1 0 0 -1 0 51)">
-            <stop offset="0" style="stop-color:#7A1315" />
-            <stop offset="0.1857" style="stop-color:#91161D" />
-            <stop offset="0.542" style="stop-color:#B91B2B" />
-            <stop offset="0.8259" style="stop-color:#D11F34" />
-            <stop offset="1" style="stop-color:#DA2037" />
-          </linearGradient>
-          <rect x="-1" y="-1" fill="url(#SVGID_1_)" width="52" height="52" />
-        </svg>
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1.0005" y1="0" x2="50.9995" y2="52" gradientTransform="matrix(1 0 0 -1 0 51)">
+          <stop offset="0" style="stop-color:#7A1315" />
+          <stop offset="0.1857" style="stop-color:#91161D" />
+          <stop offset="0.542" style="stop-color:#B91B2B" />
+          <stop offset="0.8259" style="stop-color:#D11F34" />
+          <stop offset="1" style="stop-color:#DA2037" />
+        </linearGradient>
+        <rect x="-1" y="-1" fill="url(#SVGID_1_)" width="52" height="52" />
+      </svg>
       </div>
       <div class="envtools-logo-text"></div>
     </div>
@@ -58,7 +59,7 @@
 
       <!-- aliases pane -->
       <div role="tabpanel" class="tab-pane" id="aliases">
-        <%=content%>
+        @import "envtools-aliases.html"
       </div>
 
       <!-- customization pane -->
@@ -76,7 +77,6 @@
         <h1>History</h1>
         @import "history-raw.html"
       </div>
-
 
     </div>
   </div>
