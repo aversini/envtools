@@ -1,4 +1,8 @@
 
+__0.0.125 / 2016-09-04__
+
+- Hiding mac only help on non-mac browsers
+
 __0.0.124 / 2016-09-03__
 
 - Adding npm badge to help file
