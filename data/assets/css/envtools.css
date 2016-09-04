@@ -67,7 +67,12 @@ body.envtools-help {
 }
 
 .envtools-help .npm-badge {
-  margin-bottom: 5px;
+  margin-bottom: 16px;
+}
+
+.envtools-help .npm-badge img {
+  width: 140px;
+  height: 20px;
 }
 
 .envtools-help .mac-only {
