@@ -1,4 +1,8 @@
 
+__0.0.126 / 2016-09-04__
+
+- Enabling sinopia configuration (envtools extra) for Windows
+
 __0.0.125 / 2016-09-04__
 
 - Hiding mac only help on non-mac browsers
