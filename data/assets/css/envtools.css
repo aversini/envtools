@@ -69,3 +69,7 @@ body.envtools-help {
 .envtools-help .npm-badge {
   margin-bottom: 5px;
 }
+
+.envtools-help .mac-only {
+  display: none;
+}
