@@ -139,9 +139,14 @@ function isSvn {
 # Reload the environment (no matter which one is loaded)
 #
 function reloadEnvironment {
-  unsetExtraPS1
   export PS1="$OLD_PS1"
   export INIT_PARAM="reload"
+  unset PROMPT_PROXY
+  unset PROMPT_SINOPIA
+  unset PROMPT_ON_SYMBOL
+  unset PROMPT_OFF_SYMBOL
+  unset PS1
+  unset PROMPT_COMMAND
   source "$ENVDIR/load.sh"
   unset INIT_PARAM
 }
@@ -170,6 +175,15 @@ function isRoot {
   fi
 }
 
+function isSinopiaRunning {
+  local SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
+  if isValid "$SINOPIA_PID"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 #
 # Write text to terminal tab.
 # Only works on Mac, but because it's used
@@ -186,85 +200,6 @@ function setTerminalTitle {
       local title="$CURRENT_DIR"
     fi
     echo -n "]1; "${title}""
-  fi
-}
-
-#
-# Set the global variable STR_PS1
-#
-function setExtraPS1 {
-  if isValid "$1"; then
-    STR_PS1="$1"
-  else
-    STR_PS1=""
-  fi
-}
-
-#
-# Unset the global variable STR_PS1
-#
-function unsetExtraPS1 {
-  STR_PS1=""
-}
-
-#
-# Set the command prompt.
-# Takes 3 parameters:
-# arg1: what should appear before git branch status.
-# arg2: what should appear after the git branch status.
-# arg3: an optional printf string for the git branch format.
-#
-function setCommandPromptWithGit {
-  if isValid "$1"; then
-    PS1_BEFORE="$1"
-  fi
-  if isValid "$2"; then
-    PS1_AFTER="$2"
-  fi
-  if isValid "$3"; then
-    PS1_GITPRINTF="$3"
-  else
-    PS1_GITPRINTF=" \[$COLOR_GREEN\](git:%s)\[$COLOR_DEFAULT\]"
-  fi
-
-  PROMPT_COMMAND='__git_ps1 "$PS1_BEFORE" "$PS1_AFTER" "$PS1_GITPRINTF"'
-  if [ $(uname) = "Darwin" ]; then
-    if type update_terminal_cwd > /dev/null 2>&1 ; then
-      if ! [[ $PROMPT_COMMAND =~ (^|;)update_terminal_cwd($|;) ]] ; then
-        export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd"
-      fi
-    fi
-  fi
-}
-
-
-#
-# Setting Envtools custom prompt
-#
-function setEnvtoolsPrompt {
-  # Only set a custom prompt if the user asked for it
-  if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
-    # Example with git branch if any (master)
-    # [proxy ON] short pwd (git:master) $
-    if [ "$USER" == "root" ]; then
-      # No matter what, display the name of the machine too
-      unsetExtraPS1
-      export PS1='\['$COLOR_RED'\][\u@\h]${STR_PS1} \['$COLOR_CYAN'\]\W\['$COLOR_GREEN'\]$(__git_ps1 " (git:%s)") \['$COLOR_CYAN'\]\$ \['$COLOR_DEFAULT'\]'
-    else
-      # Check if we are in an ssh session, if yes,
-      # indicate it, and change the color to yellow.
-      if isSSH ; then
-        setExtraPS1 "\[$COLOR_YELLOW\][ssh - proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
-      else
-        setExtraPS1 "[proxy: $(echo $PROXY_STATUS | tr '[:upper:]' '[:lower:]')] "
-      fi
-      local BEFORE="\[$COLOR_BLUE\]${STR_PS1}\[$COLOR_CYAN\]\W\[$COLOR_DEFAULT\]"
-      local AFTER="\[$COLOR_CYAN\] \$ \[$COLOR_DEFAULT\]"
-      setCommandPromptWithGit "$BEFORE" "$AFTER"
-    fi
-  else
-    unsetExtraPS1
-    unset PROMPT_COMMAND
   fi
 }
 

@@ -33,6 +33,7 @@ fi
 if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ]; then
   # Loading some functions
   source "${ENVDIR}/third/git-prompt.sh"
+  source "${ENVDIR}/functions/prompt.sh"
   source "${ENVDIR}/functions/base.sh"
   source "${ENVDIR}/functions/logs.sh"
 
@@ -48,8 +49,11 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
 
   # Set proxy quietly
   setProxyAtLoadTime
+
   # Set the envtools custom prompt
-  setEnvtoolsPrompt
+  setEnvtoolsPromptConfigurationDefault
+  PROMPT_COMMAND=setEnvtoolsPrompt
+
   # Bid thee welcome
   displayWelcomeBanner
 
@@ -69,6 +73,17 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   # Loading custom exports
   if [ -f "${RUNTIME_DIR}/custom/exports.sh" ]; then
     source "${RUNTIME_DIR}/custom/exports.sh"
+  fi
+
+  # in case of Mac and default terminal app, to allow opening a new tab
+  # in the same current folder, we need to trick the PROMPT_COMMAND a
+  # little bit
+  if [ "${OS}" == "Darwin" -a "${PROMPT_COMMAND}" != "" ]; then
+    if type update_terminal_cwd > /dev/null 2>&1 ; then
+      if ! [[ $PROMPT_COMMAND =~ (^|;)update_terminal_cwd($|;) ]] ; then
+        export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd"
+      fi
+    fi
   fi
 
 else
