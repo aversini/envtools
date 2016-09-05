@@ -50,9 +50,11 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
   # Set proxy quietly
   setProxyAtLoadTime
 
-  # Set the envtools custom prompt
-  setEnvtoolsPromptConfigurationDefault
-  PROMPT_COMMAND=setEnvtoolsPrompt
+  # Set the envtools custom prompt if the user asked for it
+  if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
+    setEnvtoolsPromptConfigurationDefault
+    PROMPT_COMMAND=setEnvtoolsPrompt
+  fi
 
   # Bid thee welcome
   displayWelcomeBanner
