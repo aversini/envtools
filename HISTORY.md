@@ -1,4 +1,13 @@
 
+__0.0.127 / 2016-09-05__
+
+- Fixing Sinopia running sign color
+- Updating customization help page a little bit
+- Typo
+- Better PROMPT_COMMAND - ready for more customizations
+- Adding hidden query string option to help page for debug
+- Fixing npm badge display in history page
+
 __0.0.126 / 2016-09-04__
 
 - Enabling sinopia configuration (envtools extra) for Windows
