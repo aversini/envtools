@@ -145,7 +145,6 @@ function reloadEnvironment {
   unset PROMPT_SINOPIA
   unset PROMPT_ON_SYMBOL
   unset PROMPT_OFF_SYMBOL
-  unset PS1
   unset PROMPT_COMMAND
   source "$ENVDIR/load.sh"
   unset INIT_PARAM
