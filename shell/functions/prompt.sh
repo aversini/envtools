@@ -118,8 +118,8 @@ function setEnvtoolsPromptConfigurationDefault {
 }
 
 function setEnvtoolsPromptConfigurationSinopia {
-  setPromptOFFSymbol "$COLOR_RED✘$COLOR_DEFAULT"
-  setPromptONSymbol "$COLOR_GREEN✔︎$COLOR_DEFAULT"
+  setPromptOFFSymbol "$COLOR_RED✘$COLOR_BLUE"
+  setPromptONSymbol "$COLOR_GREEN✔︎$COLOR_BLUE"
   setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
   setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
   setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
