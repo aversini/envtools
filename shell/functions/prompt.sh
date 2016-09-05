@@ -118,8 +118,13 @@ function setEnvtoolsPromptConfigurationDefault {
 }
 
 function setEnvtoolsPromptConfigurationSinopia {
-  setPromptOFFSymbol "$COLOR_RED✘$COLOR_BLUE"
-  setPromptONSymbol "$COLOR_GREEN✔︎$COLOR_BLUE"
+  if [ "${OS}" == "Darwin" ]; then
+    setPromptOFFSymbol "$COLOR_RED✘$COLOR_BLUE"
+    setPromptONSymbol "$COLOR_GREEN✔︎$COLOR_BLUE"
+  else
+    setPromptOFFSymbol "off"
+    setPromptONSymbol "on"
+  fi
   setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
   setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
   setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
