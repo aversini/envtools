@@ -41,10 +41,12 @@ function setPromptSinopia {
   local S_LABEL="sinopia: "
   local SINOPIA_RUN_SIGN=""
 
-  if isSinopiaRunning; then
-    SINOPIA_RUN_SIGN="(running)"
-  else
-    SINOPIA_RUN_SIGN="(stopped)"
+  if [ "$OS" == "Darwin" ]; then
+    if isSinopiaRunning; then
+      SINOPIA_RUN_SIGN=" (running)"
+    else
+      SINOPIA_RUN_SIGN=" (stopped)"
+    fi
   fi
 
   if isValid "$1"; then
@@ -58,9 +60,9 @@ function setPromptSinopia {
   fi
 
   if [ "$SINOPIA_STATUS" == "ON" ]; then
-    S_STATUS="${S_LABEL}${PROMPT_ON_SYMBOL} ${SINOPIA_RUN_SIGN}"
+    S_STATUS="${S_LABEL}${PROMPT_ON_SYMBOL}${SINOPIA_RUN_SIGN}"
   elif [ "$SINOPIA_STATUS" == "OFF" ]; then
-    S_STATUS="${S_LABEL}${PROMPT_OFF_SYMBOL} ${SINOPIA_RUN_SIGN}"
+    S_STATUS="${S_LABEL}${PROMPT_OFF_SYMBOL}${SINOPIA_RUN_SIGN}"
   else
     S_STATUS="${S_LABEL}N/A"
   fi

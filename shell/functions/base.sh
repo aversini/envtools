@@ -175,7 +175,11 @@ function isRoot {
 }
 
 function isSinopiaRunning {
-  local SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
+  local SINOPIA_PID
+
+  if [ "${OS}" == "Darwin" ]; then
+    SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
+  fi
   if isValid "$SINOPIA_PID"; then
     return 0
   else
