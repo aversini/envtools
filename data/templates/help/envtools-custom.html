@@ -17,7 +17,7 @@
 </p>
 <img src="data/assets/images/prompt/terminal-default-envtools-prompt.png" />
 <p>
-  Aww, that's better! Now you can clearly see the state of your proxy, the folder you are in is color coded and your username and machine name have been removed because really, who cares.
+  Aww, that's better! Now you can clearly see the state of your proxy, the folder is color coded and your username and machine name have been removed because really, who cares.
 </p>
 <p>
   Of course, this is one way of customizing the command prompt. What if you prefer to see more of the path? Or you still want the username, or for crying out loud, changing the color theme? This is where customization comes in.
@@ -32,7 +32,7 @@
 </p>
 <img src="data/assets/images/prompt/terminal-hello-world.png" />
 <p>
-  Great! We have our first customization :)
+  Great! We have our first customization :) You can see that the prompt still displays the proxy status - so the default prompt is still there, we are just augmenting it.
 </p>
 <h4>Step 2</h4>
 <p>
@@ -44,11 +44,11 @@
 # command line prompt, along with git information if any.
 # arg1: what will be displayed first on the prompt, before any git info.
 # arg2: what will be displayed at the end of the prompt, after any git info.
-setCommandPromptWithGit "[\t][\u:\w]" " \$ "</code>
+setCommandPromptWithGit "[\t][\u:\w]" "\$ "</code>
     </pre>
 </p>
 <p>
-  Reload your terminal and see the timestamp (keyword \t) has been added at the beginning. Please check this <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">page</a> for all available keywords. </p>
+  Reload your terminal and see the timestamp (keyword <code>\t</code>) has been added at the beginning. Please check the following <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">page</a> for all available keywords. </p>
 <img src="data/assets/images/prompt/terminal-custom.png" />
 <h4>Step 3</h4>
 <p>
@@ -59,7 +59,7 @@ setCommandPromptWithGit "[\t][\u:\w]" " \$ "</code>
 </p>
 <pre>
     <code class="bash">
-setCommandPromptWithGit "$COLOR_BLUE[\t]$COLOR_DEFAULT[\u:\w]" " \$ "</code>
+setCommandPromptWithGit "${COLOR_BLUE}[\t]${COLOR_DEFAULT}[\u:\w]" "\$ "</code>
   </pre>
 <img src="data/assets/images/prompt/terminal-custom-color.png" />
 <p>
