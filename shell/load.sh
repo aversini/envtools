@@ -52,7 +52,12 @@ if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ];
 
   # Set the envtools custom prompt if the user asked for it
   if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
-    setEnvtoolsPromptConfigurationDefault
+    CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
+    if [ "$CUSTOM_PROMPT_TYPE" == "2" ]; then
+      setEnvtoolsPromptConfigurationSinopia
+    else
+      setEnvtoolsPromptConfigurationDefault
+    fi
     PROMPT_COMMAND=setEnvtoolsPrompt
   fi
 
