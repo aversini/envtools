@@ -59,7 +59,7 @@ fi
 
 # environment aliases to load/reload profile, check version
 alias v='echo; envtools -vb; echo'
-alias r='echo; echo "Reloading Environemnt..."; reloadEnvironment; echo'
+alias r='echo; echo "Reloading Environment..."; reloadEnvironment; echo'
 alias reload='r'
 
 # shortcuts for projects folder
