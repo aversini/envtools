@@ -9,8 +9,14 @@ module.exports = function (grunt) {
       grunt.log.writeln('history-generate dry run');
     }
     require('fedtools-utilities').git.getChangeLog({
-      commitTemplate: '- %s',
-      ignore: [g.PUBLISH_COMMIT_MSG, g.UPDATING_HISTORY_COMMIT_MSG, g.WIP]
+      commitTemplate: '- %s ([%h](https://github.com/aversini/envtools/commit/%H))',
+      ignore: [
+        g.PUBLISH_COMMIT_MSG,
+        g.UPDATING_HISTORY_COMMIT_MSG,
+        g.WIP_COMMIT_MSG,
+        g.MERGE1_COMMIT_MSG,
+        g.MERGE2_COMMIT_MSG
+      ]
     }, function (err, log) {
       if (!err) {
         if (!noWrite) {
