@@ -1,4 +1,13 @@
 
+__0.0.128 / 2016-09-05__
+
+- Do not display sinopia running state if not on Mac
+- Fixing unicode prompt issue on non-mac
+- Allowing to load 2 different custom prompt preset
+- Fixing reloading env broken when no prompt are set
+- Refactoring common
+- Oops, only load custom prompt if the user asked for it
+
 __0.0.127 / 2016-09-05__
 
 - Fixing Sinopia running sign color
