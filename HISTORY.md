@@ -1,4 +1,8 @@
 
+__0.0.129 / 2016-09-06__
+
+- Simplifying Envtools configuration (profile, prompt and banner)
+
 __0.0.128 / 2016-09-05__
 
 - Do not display sinopia running state if not on Mac
