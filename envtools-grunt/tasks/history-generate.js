@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     }
     require('fedtools-utilities').git.getChangeLog({
       commitTemplate: '- %s',
-      ignore: [g.PUBLISH_COMMIT_MSG, g.UPDATING_HISTORY_COMMIT_MSG]
+      ignore: [g.PUBLISH_COMMIT_MSG, g.UPDATING_HISTORY_COMMIT_MSG, g.WIP]
     }, function (err, log) {
       if (!err) {
         if (!noWrite) {
