@@ -1,6 +1,12 @@
 module.exports = function (grunt) {
   var
-    g = require('../globals');
+    fs = require('fs-extra'),
+    path = require('path'),
+    g = require('../globals'),
+    status,
+    RUNTIME_DIR = process.env.RUNTIME_DIR || '',
+    SINOPIA = path.join(RUNTIME_DIR, 'sinopia_status');
+
 
   grunt.registerTask('npm-pre-release', 'Checking if we can release', function () {
     var
@@ -9,6 +15,12 @@ module.exports = function (grunt) {
 
     if (noWrite) {
       grunt.log.writeln('npm-pre-release dry run');
+    }
+    if (fs.existsSync(SINOPIA)) {
+      status = fs.readFileSync(SINOPIA, 'utf8').replace('\n', '');
+      if (status === 'ON') {
+        grunt.fail.warn('Sinopia is ON. Must be turned OFF...');
+      }
     }
     grunt.util.spawn({
       cmd: 'git',
