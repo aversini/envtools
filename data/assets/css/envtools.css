@@ -78,3 +78,7 @@ body.envtools-help {
 .envtools-help .mac-only {
   display: none;
 }
+
+#history li p {
+  margin: 0 0 0;
+}
