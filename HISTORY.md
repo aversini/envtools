@@ -1,4 +1,10 @@
 
+__0.0.131 / 2016-09-13__
+
+- Check for sinopia status before publishing ([b7e4aed](https://github.com/aversini/envtools/commit/b7e4aed7feaa850eb1b7ee29f9f3c48e0d4f8f78))
+- Minor CSS fix (history page) ([db562c7](https://github.com/aversini/envtools/commit/db562c7428f21b8d4e777a5c4bd52dbb68d05976))
+- Better history generator ([f46d3dd](https://github.com/aversini/envtools/commit/f46d3dde4bec177d7f18e2bfba0872cc3df5231b))
+
 __0.0.130 / 2016-09-06__
 
 - Adding “fastlint” to core node packages ([9d693f8](https://github.com/aversini/envtools/commit/9d693f855d3fe804083e332e69829c1e28805f24))
@@ -44,6 +50,7 @@ __0.0.124 / 2016-09-03__
 __0.0.123 / 2016-09-02__
 
 - Adding a lot more about Sinopia and Node v6 ([4dd06c7](https://github.com/aversini/envtools/commit/4dd06c7f8cddc279b86d28b206207028ebb5607f))
+- removing debug code ([448eeff](https://github.com/aversini/envtools/commit/448eeff83a7a18f62e52aa12948054861321b5d3))
 
 __0.0.122 / 2016-09-02__
 
@@ -61,6 +68,9 @@ __0.0.120 / 2016-08-31__
 - Better session reloading mechanism ([1d61d79](https://github.com/aversini/envtools/commit/1d61d798da076ed164a4fb8e614901911c267f24))
 - Remove duplicate warning logs ([19c66e5](https://github.com/aversini/envtools/commit/19c66e5191d191ce8f6838b41c902bb8cb8abe70))
 - Refactoring to simplify some tasks ([31b0779](https://github.com/aversini/envtools/commit/31b077931660bb5d0454b2766d45fef8335c0146))
+  - Better logging
+  - Better options
+  
 - Adding testing CLI to envtools ([b802fcf](https://github.com/aversini/envtools/commit/b802fcf1cbb655f222dabe5f9fbd52ae68c77f52))
 
 __0.0.119 / 2016-08-26__
@@ -73,6 +83,8 @@ __0.0.118 / 2016-08-25__
 
 - Optimizing sinopia (better external usage) ([9477d89](https://github.com/aversini/envtools/commit/9477d89590b8a897366afec73a49dc0a51153abd))
 - Bump download dependency version ([48a7291](https://github.com/aversini/envtools/commit/48a72918a279eadde1e2cba7c0b3af0d744c6c00))
+  - had to update the code to take new "download" promise API for homebrew and maven downloads.
+  
 - Bump dev dependencies ([ef0f325](https://github.com/aversini/envtools/commit/ef0f325a9dc06749ba7f38364e576d4bb1616e9e))
 - No need to remove “progress” for npm (fixed perf at master) ([1535642](https://github.com/aversini/envtools/commit/153564297f510140534b442d252db88b26d7230c))
 - Better README ([86577cf](https://github.com/aversini/envtools/commit/86577cfdc4ffce6bdad990ecf273a19cdd202ec3))
@@ -85,6 +97,9 @@ __0.0.117 / 2016-08-21__
 __0.0.116 / 2016-08-21__
 
 - Refactoring maven settings installation ([83fd442](https://github.com/aversini/envtools/commit/83fd442b2e68c5fe7b4776cbdadf039a4ba4547a))
+  - need a password to decrypt the settings.xml file
+  - better logging
+  
 
 __0.0.115 / 2016-08-20__
 
@@ -97,7 +112,7 @@ __0.0.114 / 2016-08-17__
 
 - Bumping maven version to 3.3.9 since it's now supported ([bd8a8c2](https://github.com/aversini/envtools/commit/bd8a8c26f606fa152f6fb2a9660bca7fc0649ff5))
 
-__0.0.113 / 2016-08-08__
+__0.0.113 / 2016-08-07__
 
 - Removing getArtifacts - not needed anymore ([b9433d0](https://github.com/aversini/envtools/commit/b9433d0d26cca3cbc9fcfc9e16cb960da2578762))
 - Spelling! ([f2d138e](https://github.com/aversini/envtools/commit/f2d138ef52636bc82da922e36a3aaedf01963d67))
@@ -113,7 +128,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
@@ -165,7 +180,7 @@ __0.0.97 / 2016-06-07__
 - Removing stars in banner on Windows ([38ad271](https://github.com/aversini/envtools/commit/38ad271f5734336bfcae42484f4117c913fc7955))
 - No sudo on windows ([3ba2e73](https://github.com/aversini/envtools/commit/3ba2e7312db8eec94a096cc6fbf0e3ce51f2e181))
 
-__0.0.96 / 2016-06-07__
+__0.0.96 / 2016-06-06__
 
 - Replacing "cp -f" with fs.copy ([ff5b6e6](https://github.com/aversini/envtools/commit/ff5b6e62452e5b6b79b73299d8a73fdd482f9041))
 - First pass at trying to support windows ([631ef1d](https://github.com/aversini/envtools/commit/631ef1de58eae9d34dbe02df5488a1ce28e9dbb8))
@@ -197,6 +212,13 @@ __0.0.91 / 2016-05-01__
 __0.0.90 / 2016-04-30__
 
 - Adding more sinopia goodies ([c82a474](https://github.com/aversini/envtools/commit/c82a4743ea65879be4ddbb6a4c6bca4da700bda0))
+  Command lines shortcuts
+  - "son" to force npm to use sinopia
+  - "soff" to disable sinopia - npm will use either your proxy or direct internet connection
+  - "sq" to check if npm is using sinopia
+  
+  You still need to start/restart sinopia manually though.
+  
 
 __0.0.89 / 2016-04-29__
 
@@ -211,6 +233,10 @@ __0.0.85 / 2016-04-29__
 - Fix package dev dependencies ([eed240c](https://github.com/aversini/envtools/commit/eed240c400099d1cf1c2d8a322a82cc3ee6b7a78))
 - Removing time-grunt ([a8640c2](https://github.com/aversini/envtools/commit/a8640c22c2552f1dd68549ebba1f5abdfe5d8a2f))
 - Adding Sinopia to handle npm caching locally ([7e3ff5d](https://github.com/aversini/envtools/commit/7e3ff5dd765ce4cc0276ee9a4014c680f44870c0))
+  - Install sinopia
+  - Activate it
+  - Enjoy better perfromance for npm v3 and node v6 behind a proxy
+  
 - update .jsbeautifyrc to add a new line at the end of files ([fbc4fb3](https://github.com/aversini/envtools/commit/fbc4fb38b73d985e4784189c5af6d78c3e2cdae6))
 - Fix invalid fs-extra dep version ([9afea47](https://github.com/aversini/envtools/commit/9afea47e112a44c6985b08863e3d6b59c6f70ac2))
 - Update to latest stable version of inquirer (migrating to promises) ([8ab92d0](https://github.com/aversini/envtools/commit/8ab92d0de988adb63350f76d1b6949e8f3c074f1))
@@ -246,6 +272,8 @@ __0.0.79 / 2016-04-21__
 
 - Removing reserved words ([be2f188](https://github.com/aversini/envtools/commit/be2f188c145de7fdd90a4a15e45db677eba3f63e))
 - Revert "Removing fedtools installation from envtools" ([25493b7](https://github.com/aversini/envtools/commit/25493b795994d322b1d89839bf14cef5e46437ac))
+  This reverts commit 6442c135dfda86c6e2c1f95535397d06cceeacbc.
+  
 - Removing grunt check ([b98e61a](https://github.com/aversini/envtools/commit/b98e61a50d3515245fbbcf23f77565548e201ec6))
 - Moving version checking to public package ([39d5d9e](https://github.com/aversini/envtools/commit/39d5d9e3e3006dba2414b0c70edd2e2392fd2082))
 - Removing submodule - not working.. ([1845139](https://github.com/aversini/envtools/commit/1845139986b6361c3dbef6568761cc21a1409e61))
@@ -617,3 +645,9 @@ __0.0.3 / 2016-01-20__
 
 - bad json bad! ([dc586fe](https://github.com/aversini/envtools/commit/dc586febd065c1c5b9712ed7fed312c834785973))
 - posix package would not install on linux... ([0081be6](https://github.com/aversini/envtools/commit/0081be6ee1121c1a6b6416c0bc1a49e373d85ea0))
+
+__0.0.0 / 2016-01-20__
+
+- Adding empty test harness - for now ([03525a0](https://github.com/aversini/envtools/commit/03525a0e32687c5f95912821a6da1b5be44a748a))
+- First commit after major refactor ([37d42a7](https://github.com/aversini/envtools/commit/37d42a73f4a46414ee005d228c07f6655c670dcf))
+- update README ([be620b7](https://github.com/aversini/envtools/commit/be620b7fb5f1b1d2dbe78a3397cc4941ee662f63))
