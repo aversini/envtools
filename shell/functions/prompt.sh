@@ -29,6 +29,7 @@ function setPromptONSymbol {
   fi
 }
 __print_status () {
+  local exit=$?
   local val="N/A"
   local STATUS
   local STATUS_BEFORE
@@ -65,7 +66,8 @@ __print_status () {
   else
     STATUS="N/A"
   fi
-  printf "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
+  printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
+  return $exit
 }
 function setPromptProxy {
   local P_BEFORE=""
