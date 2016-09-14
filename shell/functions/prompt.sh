@@ -69,39 +69,39 @@ __print_status () {
   printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
   return $exit
 }
-function setPromptProxy {
-  local P_BEFORE=""
-  local P_AFTER=""
-  local P_LABEL="proxy: "
+function _setPrompt {
+  local BEFORE=""
+  local AFTER=""
+  local LABEL=""
+  local STATUS
+  local TYPE
 
   if isValid "$1"; then
-    P_BEFORE="$1"
+    TYPE="$1"
+    LABEL="$1: "
   fi
   if isValid "$2"; then
-    P_AFTER="$2"
+    BEFORE="$2"
   fi
   if isValid "$3"; then
-    P_LABEL="$3"
+    AFTER="$3"
+  fi
+  if isValid "$4"; then
+    LABEL="$4"
   fi
 
-  PROMPT_PROXY="$P_BEFORE${P_LABEL}\$(__print_status 'proxy' '%s')$P_AFTER"
+  if [ "$OS" == "Darwin" ]; then
+    echo "$BEFORE${LABEL}\$(__print_status '$TYPE' '%s')$AFTER"
+  else
+    STATUS=$(__print_status '$TYPE' '%s')
+    echo "$BEFORE${LABEL}${STATUS}$AFTER"
+  fi
+}
+function setPromptProxy {
+  PROMPT_PROXY=`_setPrompt "proxy" "$@"`
 }
 function setPromptSinopia {
-  local S_BEFORE=""
-  local S_AFTER=""
-  local S_LABEL="sinopia: "
-
-  if isValid "$1"; then
-    S_BEFORE="$1"
-  fi
-  if isValid "$2"; then
-    S_AFTER="$2"
-  fi
-  if isValid "$3"; then
-    S_LABEL="$3"
-  fi
-
-  PROMPT_SINOPIA="$S_BEFORE${S_LABEL}\$(__print_status 'sinopia' '%s')$S_AFTER"
+  PROMPT_SINOPIA=`_setPrompt "sinopia" "$@"`
 }
 function setPromptLocation {
   local L_BEFORE=""
