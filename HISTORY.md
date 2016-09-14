@@ -1,4 +1,17 @@
 
+__0.0.133 / 2016-09-14__
+
+- One more try to fix Windows prompt... ([382e121](https://github.com/aversini/envtools/commit/382e121eeb08df5ee803a49dfca6face1c610d3d))
+- Fix for windows prompt: ([57b4ebe](https://github.com/aversini/envtools/commit/57b4ebe1df2f11cf251b64f60f16f0db45fd961f))
+  - Not fully dynamic
+  - Only refreshed if new terminal or with "r" alias
+  - F* windows
+  
+- Trying to fix prompt issue with Windows ([c6fd92b](https://github.com/aversini/envtools/commit/c6fd92b3829d2c5454edfbdbc5e2916adff52414))
+- Dynamic update of proxy/sinopia status ([ff0f1ad](https://github.com/aversini/envtools/commit/ff0f1adf9397a3f7352317f5ceb6a6c60a4ecee9))
+  - Even if the status changes in another terminal, the prompt will now reflect the change automatically
+  
+
 __0.0.132 / 2016-09-13__
 
 - Fix brew installation failure ([701ba00](https://github.com/aversini/envtools/commit/701ba007a875c162bdccac8667462880b336a067))
