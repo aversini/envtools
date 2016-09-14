@@ -2,14 +2,72 @@ function setPromptOFFSymbol {
   if isValid "$1"; then
     PROMPT_OFF_SYMBOL="$1"
   fi
+  if isValid "$2"; then
+    PROMPT_OFF_SYMBOL_BEFORE="$2"
+  else
+    unset PROMPT_OFF_SYMBOL_BEFORE
+  fi
+  if isValid "$3"; then
+    PROMPT_OFF_SYMBOL_AFTER="$3"
+  else
+    unset PROMPT_OFF_SYMBOL_AFTER
+  fi
 }
 function setPromptONSymbol {
   if isValid "$1"; then
     PROMPT_ON_SYMBOL="$1"
   fi
+  if isValid "$2"; then
+    PROMPT_ON_SYMBOL_BEFORE="$2"
+  else
+    unset PROMPT_ON_SYMBOL_BEFORE
+  fi
+  if isValid "$3"; then
+    PROMPT_ON_SYMBOL_AFTER="$3"
+  else
+    unset PROMPT_ON_SYMBOL_AFTER
+  fi
+}
+__print_status () {
+  local val="N/A"
+  local STATUS
+  local STATUS_BEFORE
+  local STATUS_AFTER
+  local SINOPIA_RUN_SIGN=""
+  local TYPE="$1"
+  local STATUS_FILE
+
+  if [ "$TYPE" == "proxy" ]; then
+    STATUS_FILE=${RUNTIME_DIR}/proxy_status
+  elif [ "$TYPE" == "sinopia" ]; then
+    STATUS_FILE=${RUNTIME_DIR}/sinopia_status
+  fi
+
+  if [ "$OS" == "Darwin" -a "$TYPE" == "sinopia" ]; then
+    if isSinopiaRunning; then
+      SINOPIA_RUN_SIGN=" (running)"
+    else
+      SINOPIA_RUN_SIGN=" (stopped)"
+    fi
+  fi
+
+  if [ -f $STATUS_FILE ]; then
+    val=`cat ${STATUS_FILE}`
+  fi
+  if [ "$val" == "ON" ]; then
+    STATUS="${PROMPT_ON_SYMBOL}"
+    STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
+    STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
+  elif [ "$val" == "OFF" ]; then
+    STATUS="${PROMPT_OFF_SYMBOL}"
+    STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
+    STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
+  else
+    STATUS="N/A"
+  fi
+  printf "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
 }
 function setPromptProxy {
-  local P_STATUS=""
   local P_BEFORE=""
   local P_AFTER=""
   local P_LABEL="proxy: "
@@ -24,30 +82,12 @@ function setPromptProxy {
     P_LABEL="$3"
   fi
 
-  if [ "$PROXY_STATUS" == "ON" ]; then
-    P_STATUS="${P_LABEL}${PROMPT_ON_SYMBOL}"
-  elif [ "$PROXY_STATUS" == "OFF" ]; then
-    P_STATUS="${P_LABEL}${PROMPT_OFF_SYMBOL}"
-  else
-    P_STATUS="${P_LABEL}N/A"
-  fi
-
-  PROMPT_PROXY="$P_BEFORE$P_STATUS$P_AFTER"
+  PROMPT_PROXY="$P_BEFORE${P_LABEL}\$(__print_status 'proxy' '%s')$P_AFTER"
 }
 function setPromptSinopia {
-  local S_STATUS=""
   local S_BEFORE=""
   local S_AFTER=""
   local S_LABEL="sinopia: "
-  local SINOPIA_RUN_SIGN=""
-
-  if [ "$OS" == "Darwin" ]; then
-    if isSinopiaRunning; then
-      SINOPIA_RUN_SIGN=" (running)"
-    else
-      SINOPIA_RUN_SIGN=" (stopped)"
-    fi
-  fi
 
   if isValid "$1"; then
     S_BEFORE="$1"
@@ -59,15 +99,7 @@ function setPromptSinopia {
     S_LABEL="$3"
   fi
 
-  if [ "$SINOPIA_STATUS" == "ON" ]; then
-    S_STATUS="${S_LABEL}${PROMPT_ON_SYMBOL}${SINOPIA_RUN_SIGN}"
-  elif [ "$SINOPIA_STATUS" == "OFF" ]; then
-    S_STATUS="${S_LABEL}${PROMPT_OFF_SYMBOL}${SINOPIA_RUN_SIGN}"
-  else
-    S_STATUS="${S_LABEL}N/A"
-  fi
-
-  PROMPT_SINOPIA="$S_BEFORE$S_STATUS$S_AFTER"
+  PROMPT_SINOPIA="$S_BEFORE${S_LABEL}\$(__print_status 'sinopia' '%s')$S_AFTER"
 }
 function setPromptLocation {
   local L_BEFORE=""
@@ -121,8 +153,8 @@ function setEnvtoolsPromptConfigurationDefault {
 
 function setEnvtoolsPromptConfigurationSinopia {
   if [ "${OS}" == "Darwin" ]; then
-    setPromptOFFSymbol "$COLOR_RED✘$COLOR_BLUE"
-    setPromptONSymbol "$COLOR_GREEN✔︎$COLOR_BLUE"
+    setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
+    setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
   else
     setPromptOFFSymbol "off"
     setPromptONSymbol "on"
