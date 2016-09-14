@@ -93,7 +93,7 @@ function _setPrompt {
   if [ "$OS" == "Darwin" ]; then
     echo "$BEFORE${LABEL}\$(__print_status '$TYPE' '%s')$AFTER"
   else
-    STATUS=$(__print_status '$TYPE' '%s')
+    STATUS=$(__print_status "${TYPE}" '%s')
     echo "$BEFORE${LABEL}${STATUS}$AFTER"
   fi
 }
