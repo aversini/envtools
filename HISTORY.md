@@ -1,4 +1,11 @@
 
+__0.0.132 / 2016-09-13__
+
+- Fix brew installation failure ([701ba00](https://github.com/aversini/envtools/commit/701ba007a875c162bdccac8667462880b336a067))
+  - Change in decompress meant that “strip” after download is now a number instead of a boolean
+  
+- Fixing invalid brew detection as well as others due to a regression with cmd.run and its output ([2348481](https://github.com/aversini/envtools/commit/2348481efe7c18dd9ad8afde429dd0fb432279ff))
+
 __0.0.131 / 2016-09-13__
 
 - Check for sinopia status before publishing ([b7e4aed](https://github.com/aversini/envtools/commit/b7e4aed7feaa850eb1b7ee29f9f3c48e0d4f8f78))
