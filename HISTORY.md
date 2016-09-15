@@ -1,4 +1,13 @@
 
+__0.0.134 / 2016-09-15__
+
+- Custom terminal theme mention in the help ([874c929](https://github.com/aversini/envtools/commit/874c92974f53b2339e030eb560a18fab383f210a))
+- Fix: do not place the terminal theme on the desktop in case of success ([d6541b9](https://github.com/aversini/envtools/commit/d6541b93716fa7cc8616f0b552adfb66b51f6f64))
+- Better dynamic proxy prompt ([1cb43af](https://github.com/aversini/envtools/commit/1cb43af534362275c9ab2f205fe70a6bdc4161fb))
+  - If the proxy is set in another tab, it should be reflected in any other already opened tabs
+  
+- Adding custom terminal theme option to "entools extra" ([5ab5b3d](https://github.com/aversini/envtools/commit/5ab5b3d5eef439cc3513c7073ec4f0604339adff))
+
 __0.0.133 / 2016-09-14__
 
 - One more try to fix Windows prompt... ([382e121](https://github.com/aversini/envtools/commit/382e121eeb08df5ee803a49dfca6face1c610d3d))
