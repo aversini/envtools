@@ -31,6 +31,7 @@ function setPromptONSymbol {
 __print_status () {
   local exit=$?
   local val="N/A"
+  local currentVal
   local STATUS
   local STATUS_BEFORE
   local STATUS_AFTER
@@ -38,10 +39,29 @@ __print_status () {
   local TYPE="$1"
   local STATUS_FILE
 
-  if [ "$TYPE" == "proxy" ]; then
+  if [ "$TYPE" == "proxy" -a "$PROXY" ]; then
     STATUS_FILE=${RUNTIME_DIR}/proxy_status
+    currentVal=$PROXY_STATUS
+    if [ -f $STATUS_FILE ]; then
+      val=`cat ${STATUS_FILE}`
+      # Need to check if val and currentVal are the same.
+      # currentVal is the environment state but val is
+      # the file state. We can be in a situation where the
+      # status has been toggled in another tab: the file around
+      # the environment are changed in tab1, but only the file
+      # reflect that change in tab2. Tab2 still has the old
+      # environment. In that case, we need to force a change.
+      if [ "$val" == "ON" -o "$val" == "OFF" ]; then
+        if [ "$val" != "$currentVal" ]; then
+          setEnvProxy "$PROXY" "$val"
+        fi
+      fi
+    fi
   elif [ "$TYPE" == "sinopia" ]; then
     STATUS_FILE=${RUNTIME_DIR}/sinopia_status
+    if [ -f $STATUS_FILE ]; then
+      val=`cat ${STATUS_FILE}`
+    fi
   fi
 
   if [ "$OS" == "Darwin" -a "$TYPE" == "sinopia" ]; then
@@ -52,9 +72,6 @@ __print_status () {
     fi
   fi
 
-  if [ -f $STATUS_FILE ]; then
-    val=`cat ${STATUS_FILE}`
-  fi
   if [ "$val" == "ON" ]; then
     STATUS="${PROMPT_ON_SYMBOL}"
     STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
