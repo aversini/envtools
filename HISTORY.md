@@ -1,4 +1,9 @@
 
+__0.0.135 / 2016-09-15__
+
+- Adding extra screensavers to "envtools extra" ([6ed59f7](https://github.com/aversini/envtools/commit/6ed59f735873be3e017aefbca8828aeb6fee9890))
+- Found a way to set the Terminal as default profile ([b1808c8](https://github.com/aversini/envtools/commit/b1808c8455552c86f09418adbacf205a02a9bba8))
+
 __0.0.134 / 2016-09-15__
 
 - Custom terminal theme mention in the help ([874c929](https://github.com/aversini/envtools/commit/874c92974f53b2339e030eb560a18fab383f210a))
