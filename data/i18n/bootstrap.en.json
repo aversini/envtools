@@ -17,6 +17,7 @@
     "installFedtools": "Install/update Fedtools.",
     "setQuicklook": "Install Quicklook plugins.",
     "fixScreensaver": "Fix screensaver not remembering your choices.",
+    "installScreensaver": "Install extra screensavers.",
     "setAtom": "Configure Atom and install a few core packages.",
     "enablePowerChime": "Enable/disable iOS like power charging sound when plugged in.",
     "setSinopia": "Enable/disable npm package local caching via Sinopia.",

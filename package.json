@@ -35,6 +35,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "commander": "^2.9.0",
+    "decompress": "^4.0.0",
     "download": "^5.0.2",
     "fedtools-commands": "~0.0.31",
     "fedtools-config": "~0.0.18",
