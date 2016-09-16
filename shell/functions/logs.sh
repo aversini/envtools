@@ -250,7 +250,7 @@ function txtStatus {
     STATUS="$2"
     extractStatusAndColor "$STATUS"
     if [ "$OS" == "MINGW32_NT-6.1" ]; then
-      txtColor "$GLOBAL_COLOR_NAME" "$MESSAGE  [$GLOBAL_STATUS_TEXT]"
+      txtColor "$GLOBAL_COLOR_NAME" "$MESSAGE  [$GLOBAL_STATUS_TEXT]" "nl"
     else
       $GLOBAL_COLOR_CMD
       echo "$MESSAGE"
