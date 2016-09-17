@@ -113,12 +113,14 @@ function txtColor {
 function showColors {
   local MSG="Lorem Ipsum Dolor Sit Amet"
   local array=( "RED" "BLUE" "GREEN" "YELLOW" "MAGENTA" "CYAN" "B_RED" "B_BLUE" "B_GREEN" "B_YELLOW" "B_MAGENTA" "B_CYAN")
+  echo
+  echo "Available colors codes for logs"
   for color in "${array[@]}"
   do
-    txtColor "$color: "
     local TMP="RAW_COLOR_$color"
-    txtColor ${!TMP} "$MSG" "nl"
+    txtColor ${!TMP} "$MSG (color code: $color)" "nl"
   done
+  echo
 }
 
 function abortMessage {
