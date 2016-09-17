@@ -47,7 +47,7 @@ __print_status () {
       # Need to check if val and currentVal are the same.
       # currentVal is the environment state but val is
       # the file state. We can be in a situation where the
-      # status has been toggled in another tab: the file around
+      # status has been toggled in another tab: the file and
       # the environment are changed in tab1, but only the file
       # reflect that change in tab2. Tab2 still has the old
       # environment. In that case, we need to force a change.
