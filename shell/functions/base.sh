@@ -25,6 +25,10 @@ function isValid {
   ! [[ -z "$1" ]]
 }
 
+function isInstalled {
+  type "$1" >/dev/null 2>&1 || { return -1; }
+}
+
 #
 # returns 0 if the global variable GLOBAL_CONTINUE is true or unset
 # return 1 otherwise.

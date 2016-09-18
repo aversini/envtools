@@ -39,3 +39,10 @@ alias dow='down'
 # testing perf of the hard drive
 alias hdd='hddPerf'
 alias ssd=hdd
+
+# wrapper for sinopia
+if isInstalled "sinopia"; then
+  alias sinopia='envtools sinopia'
+else
+  alias sinopia='echo "sinopia is not installed. install it with npm."'
+fi
