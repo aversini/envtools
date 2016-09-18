@@ -1,4 +1,13 @@
 
+__0.0.139 / 2016-09-18__
+
+- Adding sinopia wrapper to handle config ([cc0a887](https://github.com/aversini/envtools/commit/cc0a8879c4d1092c090947214426ad804c0a7ce5))
+- Better Envtools logo on help page ([f212517](https://github.com/aversini/envtools/commit/f21251705ed4cab34c5e2961737ed15b2c5f4c07))
+  - Support for retina/non-retina display
+  
+- typo ([c058d74](https://github.com/aversini/envtools/commit/c058d7404a570b32e42ede1347017c24afae2073))
+- Better color output for "showColors" ([2b4a4bf](https://github.com/aversini/envtools/commit/2b4a4bfdc9787fc6660867f1a3e3782abe565593))
+
 __0.0.138 / 2016-09-17__
 
 - Optimized version checking and getting rid of "request" dependency! ([04a97cd](https://github.com/aversini/envtools/commit/04a97cd626364f44b0ef8c1a14f5d3cbe3455332))
