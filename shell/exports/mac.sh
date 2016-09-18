@@ -4,7 +4,9 @@ if [ -f "$HOME/Library/Application Support/Sublime Text 3/Packages" ]; then
 fi
 
 # Java
-export JAVA_HOME="$(/usr/libexec/java_home)"
+if [ -f "/usr/libexec/java_home" ]; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
 
 # Brew
 export PATH=/usr/local/bin:$PATH
