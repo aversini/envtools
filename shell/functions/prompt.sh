@@ -151,6 +151,7 @@ function setPromptGitBranchStatusColor {
 function setPromptIndicator {
   local I_BEFORE=""
   local I_AFTER=""
+  local I_LABEL="\$"
 
   if isValid "$1"; then
     I_BEFORE="$1"
@@ -158,7 +159,10 @@ function setPromptIndicator {
   if isValid "$2"; then
     I_AFTER="$2"
   fi
-  PROMPT_INDICATOR="$I_BEFORE\$$I_AFTER"
+  if isValid "$3"; then
+    I_LABEL="$3"
+  fi
+  PROMPT_INDICATOR="$I_BEFORE$I_LABEL$I_AFTER"
 }
 
 function setEnvtoolsPromptConfigurationDefault {
@@ -167,7 +171,7 @@ function setEnvtoolsPromptConfigurationDefault {
   setPromptProxy "$COLOR_BLUE[" "]$COLOR_DEFAULT "
   setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT "
   setPromptGitBranchStatusColor "$COLOR_GREEN"
-  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT "
+  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
 function setEnvtoolsPromptConfigurationSinopia {
@@ -182,7 +186,7 @@ function setEnvtoolsPromptConfigurationSinopia {
   setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
   setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
   setPromptGitBranchStatusColor "$COLOR_GREEN"
-  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT "
+  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
 function setEnvtoolsPrompt {
