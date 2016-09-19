@@ -70,6 +70,9 @@ fi
 # shortcuts for dev
 alias ccc='compass clean && compass compile'
 
+# sort environment aliases output
+alias env='env | sort'
+
 
 if [ "${OS}" = "Darwin" ]; then
   source "${ENVDIR}/aliases/mac.sh"
