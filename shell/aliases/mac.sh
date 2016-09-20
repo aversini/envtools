@@ -46,3 +46,7 @@ if isInstalled "sinopia"; then
 else
   alias sinopia='echo "sinopia is not installed. install it with npm."'
 fi
+
+# kill the dock quickly
+alias kdock='confirm "Restart the Dock?" "y" && killall Dock && echo "done!" || echo "Bye then..."'
+alias kdoc=kdock
