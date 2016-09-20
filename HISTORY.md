@@ -1,4 +1,16 @@
 
+__0.0.140 / 2016-09-20__
+
+- Preparing support for envtools notifier ([726ce9a](https://github.com/aversini/envtools/commit/726ce9a4539f2dd11c56867b9e9f4dee1fc2308a))
+- Updating alias help page with kdock ([bb5cb8c](https://github.com/aversini/envtools/commit/bb5cb8cd0de7a94d93bedb489ff288c414c812a5))
+- Adding alias to kill the Dock quickly ([c898daf](https://github.com/aversini/envtools/commit/c898dafaa10ed654542e70e76fdb7c3107e5fa41))
+- Better "confirm" bash function ([073d128](https://github.com/aversini/envtools/commit/073d128ed5eca10c54f85cceca4d71eb0ce51449))
+- Better alias for env (sorted) ([27a7466](https://github.com/aversini/envtools/commit/27a74668d273241663c73159961f498de20e8752))
+- Adding possibility to have custom prompt ending indicator ([697027c](https://github.com/aversini/envtools/commit/697027c22cc3fdbf6b0e0b910c96b447f7b74d16))
+- Do not set JAVA_HOME if java is not installed ([528a84b](https://github.com/aversini/envtools/commit/528a84bf6aae7e09edbbb96851567505057048a9))
+- Fixing common.js refactoring… ([cf1b4c2](https://github.com/aversini/envtools/commit/cf1b4c2ffbf6771a9ea6f61ebf0bcaa6e6355858))
+- Refactoring common.js ([45fc2bf](https://github.com/aversini/envtools/commit/45fc2bfdc3371091d3cc4dc8df4a116b1bd471e1))
+
 __0.0.139 / 2016-09-18__
 
 - Adding sinopia wrapper to handle config ([cc0a887](https://github.com/aversini/envtools/commit/cc0a8879c4d1092c090947214426ad804c0a7ce5))
