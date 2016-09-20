@@ -1,20 +1,50 @@
 #
-# returns true if the user confirmed yes
+# returns 0 if the user confirmed yes, 1 otherwise
+# $1 optional prompt, default to "Continue? "
+# $2 optional default, "yes" or "no" - no default
 #
 function confirm () {
-  # call with a prompt string or use a default
-  read -r -p "${1:-Continue? [Y/n]} " response
-  case $response in
+  local default=""
+  local prompt="Continue?"
+
+  if isValid "$1"; then
+    prompt=$1
+  fi
+
+  case "$2" in
     [nN][oO]|[nN])
-      false
+      default="no"
+      prompt="$prompt [y|N] "
       ;;
-    [yY][eE][sS]|[yY]|"")
-      true
+    [yY][eE][sS]|[yY])
+      default="yes"
+      prompt="$prompt [Y|n] "
       ;;
     *)
-      echo "Please answer yes or no"
-      return -1;;
+      prompt="$prompt [y|n] "
+      ;;
   esac
+
+  while true; do
+    txtBoldWhite "$prompt"
+    read -n 1 resp
+    case "$resp" in
+      [nN])
+        echo && return 1
+        ;;
+      [yY])
+        echo && return 0
+        ;;
+      *)
+        if [ "$default" == "no" ]; then
+          return 1
+        elif [ "$default" == "yes" ]; then
+          return 0
+        else
+          txtRed "Yes or no?" "nl"
+        fi
+    esac
+  done
 }
 
 #

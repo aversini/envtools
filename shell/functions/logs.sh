@@ -22,6 +22,7 @@ COLOR_B_YELLOW="\[\e[1;33m\]"
 COLOR_B_MAGENTA="\[\e[1;35m\]"
 COLOR_B_CYAN="\[\e[1;36m\]"
 COLOR_B_GRAY="\[\e[1;90m\]"
+COLOR_B_WHITE="\[\e[1;97m\]"
 
 COLOR_DEFAULT="\[\e[00m\]"
 
@@ -45,6 +46,7 @@ RAW_COLOR_B_YELLOW="\e[1;33m"
 RAW_COLOR_B_MAGENTA="\e[1;35m"
 RAW_COLOR_B_CYAN="\e[1;36m"
 RAW_COLOR_B_GRAY="\e[1;90m"
+RAW_COLOR_B_WHITE="\e[1;97m"
 
 RAW_COLOR_DEFAULT="\e[00m"
 
@@ -99,6 +101,9 @@ function txtBoldMagenta {
 }
 function txtBoldCyan {
   txtColor "$RAW_COLOR_B_CYAN" "$@"
+}
+function txtBoldWhite {
+  txtColor "$RAW_COLOR_B_WHITE" "$@"
 }
 
 function txtColor {
