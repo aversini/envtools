@@ -91,6 +91,9 @@ function setProxies {
       reloadEnvironment
     fi
     displayProxyStatus
+    if isInstalled "envtools_notifier"; then
+      `notifier --title 'Proxy Status Changed' --message "Proxies are $1"`
+    fi
   fi
 }
 
@@ -197,6 +200,9 @@ function setSinopia {
       cmd "npm config set https-proxy ${PROXY}"
     fi
     reloadEnvironment
+  fi
+  if isInstalled "envtools_notifier"; then
+    `notifier --title 'Sinopia Proxy Status Changed' --message "Sinopia Proxy is $1"`
   fi
 }
 
