@@ -1,4 +1,11 @@
 
+__0.0.141 / 2016-09-21__
+
+- Fixing “ff” size calculation ([1a0536f](https://github.com/aversini/envtools/commit/1a0536f4f616fb6a71cbd00abd6ee4bf7cfe2e0d))
+- Fixing “ff” not interpreting file ownership correctly ([e993ed4](https://github.com/aversini/envtools/commit/e993ed413059f06bf411c509a96631a74ca1499d))
+- fgrs update options (no more async - always on) ([7ec13a9](https://github.com/aversini/envtools/commit/7ec13a931b6ae8f875bd6ae5a65c3af2dbd43381))
+- Refactoring `fgrs` ([9135c2f](https://github.com/aversini/envtools/commit/9135c2fb6667011d0251387655a9c5f3aa9ea4da))
+
 __0.0.140 / 2016-09-20__
 
 - Preparing support for envtools notifier ([726ce9a](https://github.com/aversini/envtools/commit/726ce9a4539f2dd11c56867b9e9f4dee1fc2308a))
