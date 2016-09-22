@@ -49,6 +49,7 @@
     "lodash": "^4.15.0",
     "moment": "^2.10.2",
     "optimist": "~0.6.1",
+    "recursive-readdir": "^2.1.0",
     "semver": "^5.3.0"
   },
   "optionalDependencies": {

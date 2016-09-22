@@ -45,10 +45,10 @@ alias psf='net_psf psf'
 alias net='net_psf net'
 
 # shortcuts for node scripts
-alias vm='$TOOLSDIR/vboxmanager.js'
-alias fgrs='$TOOLSDIR/fgrs.js'
-alias ff='$TOOLSDIR/ff.js'
-alias gith='$TOOLSDIR/gith.js'
+alias vm='node $TOOLSDIR/vboxmanager.js'
+alias fgrs='node $TOOLSDIR/fgrs.js'
+alias ff='node $TOOLSDIR/ff.js'
+alias gith='node $TOOLSDIR/gith.js'
 
 # Open help file
 alias h='envtools help'
