@@ -48,6 +48,7 @@ alias net='net_psf net'
 alias vm='node $TOOLSDIR/vboxmanager.js'
 alias fgrs='node $TOOLSDIR/fgrs.js'
 alias ff='node $TOOLSDIR/ff.js'
+alias fd='node $TOOLSDIR/ff.js --type d $@'
 alias gith='node $TOOLSDIR/gith.js'
 
 # Open help file
