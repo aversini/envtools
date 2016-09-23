@@ -1,4 +1,9 @@
 
+__0.0.142 / 2016-09-22__
+
+- Upgrading ff to use the new “performance” module for stats ([ca62962](https://github.com/aversini/envtools/commit/ca629629aca387be870d20993b997265195150de))
+- Using ‘performance’ module from utilities for fgrs stats ([1a564ec](https://github.com/aversini/envtools/commit/1a564ec9bf8c7df31b751827274c62805f7dba55))
+
 __0.0.141 / 2016-09-21__
 
 - Fixing “ff” size calculation ([1a0536f](https://github.com/aversini/envtools/commit/1a0536f4f616fb6a71cbd00abd6ee4bf7cfe2e0d))
