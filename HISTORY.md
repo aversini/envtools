@@ -1,4 +1,18 @@
 
+__0.0.143 / 2016-09-23__
+
+- Convert `fgrs` to use the same arguments as `ff` ([68c10f2](https://github.com/aversini/envtools/commit/68c10f2d4ac9fc60a8c9820616c2decd81e49bd3))
+  - pattern is now a full regex
+  - the pattern flag (-p) is now required…
+  
+- Extra help for `ff` ([736d085](https://github.com/aversini/envtools/commit/736d085446c7190b4ae2e9fb1ddeabb59fa5d6d8))
+- Limit `ff` regex match to filename insted of folder ([d5868cf](https://github.com/aversini/envtools/commit/d5868cf44f453504b14d64ff0deb6d1a237aa547))
+- Freaking windows… blue is too blue.. ([58a4b39](https://github.com/aversini/envtools/commit/58a4b3916c927034ad40dc6e00fefb548e37b9b8))
+- Optimized `ff` to allow pure regexp as a pattern search ([4cc7b3e](https://github.com/aversini/envtools/commit/4cc7b3e23c4cf8cd1dc1748f690bd8f9059ac817))
+- Refactoring `ff` and `fgrs` for a more unified experience ([53cb9c4](https://github.com/aversini/envtools/commit/53cb9c4f69b40075f56c70ea352e59dcd1ecfc53))
+- Oops - sorry for the "bash: notifier: command not found" when toggling proxies ([ccf824c](https://github.com/aversini/envtools/commit/ccf824c925bf3f3fd824a4c8bd9ba081520bbfc6))
+- Sligth color fix for fgrs and Windows ([4566cf9](https://github.com/aversini/envtools/commit/4566cf9d0fbd52a23322bf24e2cc71a9cc4d10c1))
+
 __0.0.142 / 2016-09-22__
 
 - Upgrading ff to use the new “performance” module for stats ([ca62962](https://github.com/aversini/envtools/commit/ca629629aca387be870d20993b997265195150de))
