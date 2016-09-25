@@ -1,4 +1,11 @@
 
+__0.0.144 / 2016-09-25__
+
+- Hiding sinopia http logs: ([1ff9853](https://github.com/aversini/envtools/commit/1ff98530356c21fc167a57c62337876662cb10ef))
+  - no more crazy http logs for sinopia
+  - just display a little spinner when there is activity
+  
+
 __0.0.143 / 2016-09-23__
 
 - Convert `fgrs` to use the same arguments as `ff` ([68c10f2](https://github.com/aversini/envtools/commit/68c10f2d4ac9fc60a8c9820616c2decd81e49bd3))
