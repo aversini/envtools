@@ -1,4 +1,8 @@
 
+__0.0.145 / 2016-09-30__
+
+- Updating maven config for new nexus URL ([3a0898f](https://github.com/aversini/envtools/commit/3a0898f13a70fcf7052c5b09950adb09f37edf33))
+
 __0.0.144 / 2016-09-25__
 
 - Hiding sinopia http logs: ([1ff9853](https://github.com/aversini/envtools/commit/1ff98530356c21fc167a57c62337876662cb10ef))
@@ -229,7 +233,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
