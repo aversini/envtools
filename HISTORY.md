@@ -1,4 +1,10 @@
 
+__0.0.146 / 2016-10-04__
+
+- Fixing `ff` to ignore EACCESS files ([3ff133f](https://github.com/aversini/envtools/commit/3ff133f4640742d0d52f0beb3bd8fd40c4f16d68))
+- Improved `frgs` by ignoring libraries (.so and .a files) ([aeeedd0](https://github.com/aversini/envtools/commit/aeeedd085892dd204255c1bc4fd365c73b11bcd2))
+- Better envtools logo on help page ([9ffb17d](https://github.com/aversini/envtools/commit/9ffb17d062ad32a5f0bd2c40fc8c6ed7cc3c39eb))
+
 __0.0.145 / 2016-09-30__
 
 - Updating maven config for new nexus URL ([3a0898f](https://github.com/aversini/envtools/commit/3a0898f13a70fcf7052c5b09950adb09f37edf33))
