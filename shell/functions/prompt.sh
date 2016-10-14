@@ -1,3 +1,23 @@
+function unsetDefaultPrompt {
+  unset PROMPT_OFF_SYMBOL
+  unset PROMPT_OFF_SYMBOL_BEFORE
+  unset PROMPT_OFF_SYMBOL_AFTER
+
+  unset PROMPT_ON_SYMBOL
+  unset PROMPT_ON_SYMBOL_BEFORE
+  unset PROMPT_ON_SYMBOL_AFTER
+
+  unset PROMPT_PROXY
+  unset PROMPT_SINOPIA
+
+  unset PROMPT_LOCATION
+  unset PROMPT_GIT
+  unset PROMPT_INDICATOR
+
+  unset PS1
+  unset PROMPT_COMMAND
+}
+
 function setPromptOFFSymbol {
   if isValid "$1"; then
     PROMPT_OFF_SYMBOL="$1"
