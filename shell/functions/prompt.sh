@@ -82,6 +82,8 @@ __print_status () {
     if [ -f $STATUS_FILE ]; then
       val=`cat ${STATUS_FILE}`
     fi
+  elif [ "$TYPE" == "node" ]; then
+    STATUS=`node -v`
   fi
 
   if [ "$OS" == "Darwin" -a "$TYPE" == "sinopia" ]; then
@@ -92,17 +94,20 @@ __print_status () {
     fi
   fi
 
-  if [ "$val" == "ON" ]; then
-    STATUS="${PROMPT_ON_SYMBOL}"
-    STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
-    STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
-  elif [ "$val" == "OFF" ]; then
-    STATUS="${PROMPT_OFF_SYMBOL}"
-    STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
-    STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
-  else
-    STATUS="N/A"
+  if [ "$TYPE" == "proxy" -o "$TYPE" == "sinopia" ]; then
+    if [ "$val" == "ON" ]; then
+      STATUS="${PROMPT_ON_SYMBOL}"
+      STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
+      STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
+    elif [ "$val" == "OFF" ]; then
+      STATUS="${PROMPT_OFF_SYMBOL}"
+      STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
+      STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
+    else
+      STATUS="N/A"
+    fi
   fi
+
   printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
   return $exit
 }
@@ -139,6 +144,9 @@ function setPromptProxy {
 }
 function setPromptSinopia {
   PROMPT_SINOPIA=`_setPrompt "sinopia" "$@"`
+}
+function setPromptNode {
+  PROMPT_NODE=`_setPrompt "node" "$@"`
 }
 function setPromptLocation {
   local L_BEFORE=""
@@ -210,7 +218,7 @@ function setEnvtoolsPromptConfigurationSinopia {
 }
 
 function setEnvtoolsPrompt {
-  export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
+  export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
 }
 
 
