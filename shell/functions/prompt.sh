@@ -169,7 +169,29 @@ function setPromptGitBranchStatusColor {
   local GIT_STATUS=""
   local G_COLOR=""
 
+  # By setting GIT_PS1_SHOWDIRTYSTATE to a nonempty value,
+  # unstaged (*) and staged (+) changes will be shown next to the branch name.
   GIT_PS1_SHOWDIRTYSTATE=1
+
+  # If you would like to see the difference between HEAD and its upstream,
+  # set GIT_PS1_SHOWUPSTREAM="auto".  A "<" indicates you are behind, ">"
+  # indicates you are ahead, "<>" indicates you have diverged and "="
+  # indicates that there is no difference. You can further control
+  # behaviour by setting GIT_PS1_SHOWUPSTREAM to a space-separated list
+  # of values:
+  #
+  #     verbose       show number of commits ahead/behind (+/-) upstream
+  #     name          if verbose, then also show the upstream abbrev name
+  #     legacy        don't use the '--count' option available in recent
+  #                   versions of git-rev-list
+  #     git           always compare HEAD to @{upstream}
+  #     svn           always compare HEAD to your SVN upstream
+  GIT_PS1_SHOWUPSTREAM="verbose git"
+
+  # If you would like __git_ps1 to do nothing in the case when the current
+  # directory is set up to be ignored by git, then set
+  # GIT_PS1_HIDE_IF_PWD_IGNORED to a nonempty value.
+  GIT_PS1_HIDE_IF_PWD_IGNORED=1
 
   if isValid "$1"; then
     G_COLOR="$1"
