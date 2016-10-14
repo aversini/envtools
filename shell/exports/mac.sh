@@ -8,8 +8,8 @@ if [ -f "/usr/libexec/java_home" ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
 
-# Brew
-export PATH=/usr/local/bin:$PATH
+# Brew, node
+export PATH=$PATH:/usr/local/bin
 
 # Gems (sudo less)
 if [ -f "/usr/local/bin/brew" ]; then
