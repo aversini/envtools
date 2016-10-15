@@ -58,6 +58,7 @@ __print_status () {
   local SINOPIA_RUN_SIGN=""
   local TYPE="$1"
   local STATUS_FILE
+  local NODE_VERSION
 
   if [ "$TYPE" == "proxy" -a "$PROXY" ]; then
     STATUS_FILE=${RUNTIME_DIR}/proxy_status
@@ -83,7 +84,13 @@ __print_status () {
       val=`cat ${STATUS_FILE}`
     fi
   elif [ "$TYPE" == "node" ]; then
-    STATUS=`node -v`
+    NODE_VERSION=`node -v`
+    STATUS="$NODE_VERSION (system)"
+    if [ "$NVM_DIR" != "" ]; then
+      if [ -d $NVM_DIR ]; then
+        STATUS="$NODE_VERSION (nvm)"
+      fi
+    fi
   fi
 
   if [ "$OS" == "Darwin" -a "$TYPE" == "sinopia" ]; then
