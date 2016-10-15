@@ -1,4 +1,15 @@
 
+__0.0.147 / 2016-10-15__
+
+- Adding node and nvm as an extra option available on the prompt ([9854813](https://github.com/aversini/envtools/commit/98548136a9bd1d28cc0dad2b44f5ed254dbde548))
+- Adding nvm installer to `extra` option ([a7846e1](https://github.com/aversini/envtools/commit/a7846e1a2fb7139cbbe25edd13141b7a924b4e2c))
+- Better git prompt status ([a61741e](https://github.com/aversini/envtools/commit/a61741e23f6d1e7d0c200290d169e311922a74a7))
+- Adding custom option to display node version in prompt ([1614627](https://github.com/aversini/envtools/commit/161462758813488675a71c07d8e539ffa1792e13))
+- Adding `unsetDefaultPrompt` to allow better customization ([705b1d6](https://github.com/aversini/envtools/commit/705b1d6438df3c540523e7c683674ad059ae8930))
+- Simplifying banner message ([46c55c3](https://github.com/aversini/envtools/commit/46c55c3d8cc13b16d99982bd82dea38f7f24a1f0))
+- Reducing /usr/local/bin priority in PATH to help nvm ([c7ed1e7](https://github.com/aversini/envtools/commit/c7ed1e7bb992c8da91e092ed9034b343d15a0a23))
+- Prevent double load (if init script is called more than once in same session) ([b01a7ab](https://github.com/aversini/envtools/commit/b01a7abef935067cd470386e95ea614bd122a3c7))
+
 __0.0.146 / 2016-10-04__
 
 - Fixing `ff` to ignore EACCESS files ([3ff133f](https://github.com/aversini/envtools/commit/3ff133f4640742d0d52f0beb3bd8fd40c4f16d68))
@@ -239,7 +250,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.109 / 2016-06-17__
+__0.0.108 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
