@@ -41,11 +41,7 @@ alias hdd='hddPerf'
 alias ssd=hdd
 
 # wrapper for sinopia
-if isInstalled "sinopia"; then
-  alias sinopia='envtools sinopia'
-else
-  alias sinopia='echo "sinopia is not installed. install it with npm."'
-fi
+alias sinopia='envtools sinopia'
 
 # kill the dock quickly
 alias kdock='confirm "Restart the Dock?" "y" && killall Dock && echo "done!" || echo "Bye then..."'
