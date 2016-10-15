@@ -1,4 +1,8 @@
 
+__0.0.148 / 2016-10-15__
+
+- Fixing wrapper for sinopia if used with nvm ([98f4889](https://github.com/aversini/envtools/commit/98f48896d8e0273328a55728f8e5f8f4051a9e79))
+
 __0.0.147 / 2016-10-15__
 
 - Adding node and nvm as an extra option available on the prompt ([9854813](https://github.com/aversini/envtools/commit/98548136a9bd1d28cc0dad2b44f5ed254dbde548))
