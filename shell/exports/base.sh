@@ -27,8 +27,11 @@ fi
 # Improve history search with up and down keys.
 # Try typing ls
 # and then up and down arrows... joy!
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+# (not binding when not interactive shell (scp for ex))
+if [[ $- == *i* ]]; then
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
+fi
 
 # Extend the max # of open files per terminal session
 if [ "${OS}" == "Darwin" ]; then
