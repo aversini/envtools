@@ -1,4 +1,10 @@
 
+__0.0.150 / 2016-10-16__
+
+- Missed one non-lite export ([e4dd560](https://github.com/aversini/envtools/commit/e4dd560ac4875eb04a8e25c63c0805ee06cbb64d))
+- Limiting shell fuctions to lite vs non-lite envtools ([694ae30](https://github.com/aversini/envtools/commit/694ae30b8a79865ce18bc21bc47c2321849049f8))
+- First pass at envtools-lite ([33ea0fe](https://github.com/aversini/envtools/commit/33ea0febfd73bcea78abd558e527511beeee6486))
+
 __0.0.149 / 2016-10-15__
 
 - Adding third type of custom prompt (proxy, git, sinopia, node and nvm!) ([7810a52](https://github.com/aversini/envtools/commit/7810a524d55874af809c7f541f3a87a4d73d713d))
