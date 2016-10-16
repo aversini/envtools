@@ -9,6 +9,7 @@ function unsetDefaultPrompt {
 
   unset PROMPT_PROXY
   unset PROMPT_SINOPIA
+  unset PROMPT_NODE
 
   unset PROMPT_LOCATION
   unset PROMPT_GIT
@@ -59,6 +60,8 @@ __print_status () {
   local TYPE="$1"
   local STATUS_FILE
   local NODE_VERSION
+  local NODE_LABEL=""
+  local NVM_CURRENT
 
   if [ "$TYPE" == "proxy" -a "$PROXY" ]; then
     STATUS_FILE=${RUNTIME_DIR}/proxy_status
@@ -84,11 +87,19 @@ __print_status () {
       val=`cat ${STATUS_FILE}`
     fi
   elif [ "$TYPE" == "node" ]; then
-    NODE_VERSION=`node -v`
-    STATUS="$NODE_VERSION (system)"
-    if [ "$NVM_DIR" != "" ]; then
-      if [ -d $NVM_DIR ]; then
-        STATUS="$NODE_VERSION (nvm)"
+    if isInstalled "node"; then
+      val="ON"
+      NODE_VERSION=`node -v`
+      NODE_LABEL=" ($NODE_VERSION, system)"
+      if [ "$OS" == "Darwin" -a "$NVM_DIR" != "" ]; then
+        if [ -d $NVM_DIR ]; then
+          NVM_CURRENT=`nvm current`
+          if [ "$NVM_CURRENT" == "system" ]; then
+            NODE_LABEL=" ($NODE_VERSION, system via nvm)"
+          else
+            NODE_LABEL=" ($NODE_VERSION, nvm)"
+          fi
+        fi
       fi
     fi
   fi
@@ -101,21 +112,19 @@ __print_status () {
     fi
   fi
 
-  if [ "$TYPE" == "proxy" -o "$TYPE" == "sinopia" ]; then
-    if [ "$val" == "ON" ]; then
-      STATUS="${PROMPT_ON_SYMBOL}"
-      STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
-      STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
-    elif [ "$val" == "OFF" ]; then
-      STATUS="${PROMPT_OFF_SYMBOL}"
-      STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
-      STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
-    else
-      STATUS="N/A"
-    fi
+  if [ "$val" == "ON" ]; then
+    STATUS="${PROMPT_ON_SYMBOL}"
+    STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
+    STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
+  elif [ "$val" == "OFF" ]; then
+    STATUS="${PROMPT_OFF_SYMBOL}"
+    STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
+    STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
+  else
+    STATUS="N/A"
   fi
 
-  printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN" "$STATUS"
+  printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN$NODE_LABEL" "$STATUS"
   return $exit
 }
 function _setPrompt {
@@ -245,6 +254,23 @@ function setEnvtoolsPromptConfigurationSinopia {
   setPromptGitBranchStatusColor "$COLOR_GREEN"
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
+
+function setEnvtoolsPromptConfigurationSinopiaAndNode {
+  if [ "${OS}" == "Darwin" ]; then
+    setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
+    setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
+  else
+    setPromptOFFSymbol "off"
+    setPromptONSymbol "on"
+  fi
+  setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
+  setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
+  setPromptNode "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "node    : "
+  setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
+  setPromptGitBranchStatusColor "$COLOR_GREEN"
+  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
+}
+
 
 function setEnvtoolsPrompt {
   export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
