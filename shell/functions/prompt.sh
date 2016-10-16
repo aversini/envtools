@@ -278,21 +278,22 @@ function setEnvtoolsPrompt {
 }
 
 function setEnvtoolsLitePrompt {
-  local DISTRO_NAME=""
   local HOST_AND_NAME=""
   local HOST_AND_NAME_COLOR="$RAW_COLOR_BLUE"
 
-  if [ "$OS" == "Darwin" ]; then
-    DISTRO_NAME="(MacOS) "
-  elif [ "$OS" == "Linux" ]; then
-    if [ -f /etc/issue ]; then
-      DISTRO_NAME=`head -n 1 /etc/issue | awk -F' ' '{printf("%s", $1)}'`
+  if [ "$DISTRO_NAME" == "" ]; then
+    if [ "$OS" == "Darwin" ]; then
+      DISTRO_NAME="(MacOS) "
+    elif [ "$OS" == "Linux" ]; then
+      if [ -f /etc/issue ]; then
+        DISTRO_NAME=`head -n 1 /etc/issue | awk -F' ' '{printf("%s", $1)}'`
+      fi
+      case $DISTRO_NAME in
+        "Red"|"Redhat"|"Fedora") DISTRO_NAME="(RedHat) ";;
+        "Ubuntu"|"ubuntu") DISTRO_NAME="(Ubuntu) ";;
+        "*") DISTRO_NAME="(Linux) "
+      esac
     fi
-    case $DISTRO_NAME in
-      "Red"|"Redhat"|"Fedora") DISTRO_NAME="(RedHat) ";;
-      "Ubuntu"|"ubuntu") DISTRO_NAME="(Ubuntu) ";;
-      "*") DISTRO_NAME="(Linux) "
-    esac
   fi
 
   if [ "$OS" != "Darwin" ]; then
