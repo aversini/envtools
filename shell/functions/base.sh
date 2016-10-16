@@ -180,6 +180,11 @@ function reloadEnvironment {
   unset PROMPT_ON_SYMBOL
   unset PROMPT_OFF_SYMBOL
   unset PROMPT_COMMAND
+  if [ "$NVM_DIR" != "" ]; then
+    if [ -f $NVM_DIR/nvm.sh ]; then
+      source "$NVM_DIR/nvm.sh"
+    fi
+  fi
   source "$ENVDIR/load.sh"
   unset INIT_PARAM
 }
