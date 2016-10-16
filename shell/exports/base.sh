@@ -1,5 +1,7 @@
 export RUNTIME_DIR
-export ENVTOOLS_VERSION="$(cat "${ENVDIR}"/../version)"
+if isValid "$ENVTOOLS_FULL"; then
+  export ENVTOOLS_VERSION="$(cat "${ENVDIR}"/../version)"
+fi
 export LANG=C
 export EDITOR=vi
 export PATH=$PATH:/usr/sbin
