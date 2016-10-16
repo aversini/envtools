@@ -7,6 +7,7 @@ if [ "$INIT_PARAM" != "reload" -a "$RUNTIME_DIR" != "" ]; then
 else
   # Setting some constants available at load time
   # and within all scripts and functions sourced here.
+  ENVTOOLS_FULL=1
   OS=$(uname)
   if [ "$ENVTOOLS_ENVDIR" != "" ]; then
     ENVDIR=${ENVTOOLS_ENVDIR}
@@ -34,6 +35,12 @@ else
      MYSUDO=""
   fi
 
+  # Checking if we are in full mode, or simple bash only (no node support)
+  # isValid function has not been loaded yet, so doing it manually...
+  if ! [[ -z "$ENVTOOLS_LITE" ]]; then
+    unset ENVTOOLS_FULL
+  fi
+
   if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ]; then
     # Loading some functions
     source "${ENVDIR}/third/git-prompt.sh"
@@ -54,25 +61,33 @@ else
     # Set proxy quietly
     setProxyAtLoadTime
 
-    # Set the envtools custom prompt if the user asked for it
-    if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
-      CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
-      if [ "$CUSTOM_PROMPT_TYPE" == "3" ]; then
-        setEnvtoolsPromptConfigurationSinopiaAndNode
-      elif [ "$CUSTOM_PROMPT_TYPE" == "2" ]; then
-        setEnvtoolsPromptConfigurationSinopia
-      else
-        setEnvtoolsPromptConfigurationDefault
+    if isValid "$ENVTOOLS_FULL"; then
+      # Set the envtools custom prompt if the user asked for it
+      if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
+        CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
+        if [ "$CUSTOM_PROMPT_TYPE" == "3" ]; then
+          setEnvtoolsPromptConfigurationSinopiaAndNode
+        elif [ "$CUSTOM_PROMPT_TYPE" == "2" ]; then
+          setEnvtoolsPromptConfigurationSinopia
+        else
+          setEnvtoolsPromptConfigurationDefault
+        fi
+        PROMPT_COMMAND=setEnvtoolsPrompt
       fi
-      PROMPT_COMMAND=setEnvtoolsPrompt
+    else
+      # setSimplePrompt
+      setEnvtoolsPromptConfigurationDefault
+      setEnvtoolsSimplePrompt
     fi
 
     # Bid thee welcome
     displayWelcomeBanner
 
     # if resume auto file is found, restart envtools auto.
-    if [ -f "${RUNTIME_DIR}/resume_auto" ]; then
-      envtools auto
+    if isValid "$ENVTOOLS_FULL"; then
+      if [ -f "${RUNTIME_DIR}/resume_auto" ]; then
+        envtools auto
+      fi
     fi
 
     # Loading custom fuctions

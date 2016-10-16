@@ -245,11 +245,13 @@ function setTerminalTitle {
 # Call this function to display a welcome banner
 #
 function displayWelcomeBanner {
-  if [ "$INIT_PARAM" != "reload" ]; then
-    # Display a simple help intro if user wants it
-    envtools banner
-    # Update the terminal tab title if needed
-    setTerminalTitle
+  if isValid "$ENVTOOLS_FULL"; then
+    if [ "$INIT_PARAM" != "reload" ]; then
+      # Display a simple help intro if user wants it
+      envtools banner
+      # Update the terminal tab title if needed
+      setTerminalTitle
+    fi
   fi
 }
 

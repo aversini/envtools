@@ -202,7 +202,9 @@ function setPromptGitBranchStatusColor {
   #                   versions of git-rev-list
   #     git           always compare HEAD to @{upstream}
   #     svn           always compare HEAD to your SVN upstream
-  GIT_PS1_SHOWUPSTREAM="verbose git"
+  if isValid "$ENVTOOLS_FULL"; then
+    GIT_PS1_SHOWUPSTREAM="verbose git"
+  fi
 
   # If you would like __git_ps1 to do nothing in the case when the current
   # directory is set up to be ignored by git, then set
@@ -271,11 +273,45 @@ function setEnvtoolsPromptConfigurationSinopiaAndNode {
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
-
 function setEnvtoolsPrompt {
   export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
 }
 
+function setEnvtoolsSimplePrompt {
+  local DISTRO_NAME=""
+  local HOST_AND_NAME=""
+  local HOST_AND_NAME_COLOR="$RAW_COLOR_BLUE"
+
+  if [ "$OS" == "Darwin" ]; then
+    DISTRO_NAME="(MacOS) "
+  elif [ "$OS" == "Linux" ]; then
+    if [ -f /etc/issue ]; then
+      DISTRO_NAME=`head -n 1 /etc/issue | awk -F' ' '{printf("%s", $1)}'`
+    fi
+    case $DISTRO_NAME in
+      "Red"|"Redhat"|"Fedora") DISTRO_NAME="(RedHat) ";;
+      "Ubuntu"|"ubuntu") DISTRO_NAME="(Ubuntu) ";;
+      "*") DISTRO_NAME="(Linux) "
+    esac
+  fi
+
+  if [ "$OS" != "Darwin" ]; then
+    # host, name and distro are yellow when not mac
+    HOST_AND_NAME_COLOR="$RAW_COLOR_YELLOW"
+  fi
+  if [ "$USER" == "root" ]; then
+    # No matter what, host, name and distro are red for root
+    HOST_AND_NAME_COLOR="$RAW_COLOR_RED"
+  fi
+  if isSSH; then
+    # If we are in a SSH session, add the user and the machine name
+    HOST_AND_NAME="$HOST_AND_NAME_COLOR[\u@\h] $DISTRO_NAME"
+  else
+    HOST_AND_NAME="$HOST_AND_NAME_COLOR$DISTRO_NAME"
+  fi
+
+  export PS1="$HOST_AND_NAME${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
+}
 
 # Obsolete function, kept around for backward compatibility.
 # Takes 3 parameters:
