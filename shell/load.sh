@@ -75,9 +75,8 @@ else
         PROMPT_COMMAND=setEnvtoolsPrompt
       fi
     else
-      # setSimplePrompt
       setEnvtoolsPromptConfigurationDefault
-      setEnvtoolsSimplePrompt
+      setEnvtoolsLitePrompt
     fi
 
     # Bid thee welcome

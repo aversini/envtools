@@ -267,6 +267,9 @@ function displayWelcomeBanner {
 function net_psf {
   if [ "$1" == "psf" ]; then
     local COMMAND="ps aux"
+    if [ "$OS" == "Linux" ]; then
+      COMMAND="ps -edf"
+    fi
     local USAGE="Usage: psf [-i] <string>"
     local DESC1="Lists all running processes that match the filter <string>."
     local DESC2="Use -i to ignore case."

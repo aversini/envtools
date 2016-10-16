@@ -45,21 +45,27 @@ alias psf='net_psf psf'
 alias net='net_psf net'
 
 # shortcuts for node scripts
-alias vm='node $TOOLSDIR/vboxmanager.js'
-alias fgrs='node $TOOLSDIR/fgrs.js'
-alias ff='node $TOOLSDIR/ff.js'
-alias fd='node $TOOLSDIR/ff.js --type d $@'
-alias gith='node $TOOLSDIR/gith.js'
+if isValid "$ENVTOOLS_FULL"; then
+  alias vm='node $TOOLSDIR/vboxmanager.js'
+  alias fgrs='node $TOOLSDIR/fgrs.js'
+  alias ff='node $TOOLSDIR/ff.js'
+  alias fd='node $TOOLSDIR/ff.js --type d $@'
+  alias gith='node $TOOLSDIR/gith.js'
+fi
 
 # Open help file
-alias h='envtools help'
+if isValid "$ENVTOOLS_FULL"; then
+  alias h='envtools help'
+fi
 
 if [ -f /usr/local/bin/vim -o -f /usr/bin/vim ]; then
   alias vi=vim
 fi
 
 # environment aliases to load/reload profile, check version
-alias v='echo; envtools -vb; echo'
+if isValid "$ENVTOOLS_FULL"; then
+  alias v='echo; envtools -vb; echo'
+fi
 alias r='echo; echo "Reloading Envtools Environment..."; reloadEnvironment; echo'
 alias reload='r'
 

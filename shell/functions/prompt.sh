@@ -277,7 +277,7 @@ function setEnvtoolsPrompt {
   export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
 }
 
-function setEnvtoolsSimplePrompt {
+function setEnvtoolsLitePrompt {
   local DISTRO_NAME=""
   local HOST_AND_NAME=""
   local HOST_AND_NAME_COLOR="$RAW_COLOR_BLUE"
