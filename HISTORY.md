@@ -1,4 +1,10 @@
 
+__0.0.149 / 2016-10-15__
+
+- Adding third type of custom prompt (proxy, git, sinopia, node and nvm!) ([7810a52](https://github.com/aversini/envtools/commit/7810a524d55874af809c7f541f3a87a4d73d713d))
+- Updating `r` alias to reload nvm as well ([5ec8770](https://github.com/aversini/envtools/commit/5ec87706d4b798c06df550356ddd023a573124b7))
+- Typo ([53e75d7](https://github.com/aversini/envtools/commit/53e75d7c71a09edfaf3c6428c073922fed69851b))
+
 __0.0.148 / 2016-10-15__
 
 - Fixing wrapper for sinopia if used with nvm ([98f4889](https://github.com/aversini/envtools/commit/98f48896d8e0273328a55728f8e5f8f4051a9e79))
