@@ -1,4 +1,11 @@
 
+__0.0.151 / 2016-10-16__
+
+- Adding `envtools lite`, a simple envtools-lite package generator ([c3efb31](https://github.com/aversini/envtools/commit/c3efb314c345008e40f9a1db6188f62fdd83d4e6))
+- Remove binding when not interactive shell (scp for example) ([12a12ba](https://github.com/aversini/envtools/commit/12a12baef028e46b1ae100b6abaff0cf332e8e6e))
+- Removing obsolete third party code ([4d9c12e](https://github.com/aversini/envtools/commit/4d9c12e1b41bcd745c51379d7d273cf4ad62b010))
+- Adding the possibility to overwrite the DISTRO_NAME (for envtools-lite) ([f6601ba](https://github.com/aversini/envtools/commit/f6601bac4674f486ced6c9e34f57ef9c13ef6d51))
+
 __0.0.150 / 2016-10-16__
 
 - Missed one non-lite export ([e4dd560](https://github.com/aversini/envtools/commit/e4dd560ac4875eb04a8e25c63c0805ee06cbb64d))
