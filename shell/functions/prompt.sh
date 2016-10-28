@@ -108,7 +108,7 @@ __print_status () {
     if isSinopiaRunning; then
       SINOPIA_RUN_SIGN=" (running)"
     else
-      SINOPIA_RUN_SIGN=" (stopped)"
+      SINOPIA_RUN_SIGN=" ${RAW_COLOR_YELLOW}(stopped)"
     fi
   fi
 
