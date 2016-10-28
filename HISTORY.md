@@ -1,4 +1,8 @@
 
+__0.0.153 / 2016-10-28__
+
+- Fix node modules installation in auto mode ([159c342](https://github.com/aversini/envtools/commit/159c3428b0aa01f902cc208481f9f1fa3b318758))
+
 __0.0.152 / 2016-10-28__
 
 - Moving all node packages together ([765d0a1](https://github.com/aversini/envtools/commit/765d0a1f25d1a12afcda2552a3da04d0b44664d5))
