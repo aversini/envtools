@@ -1,11 +1,11 @@
 # ls and all its variant
-alias ls='ls -G'
 alias l=ls
 alias ll='ls -lo'
 alias la='ls -lrtd .?*'
 alias lt='ls -lt'
 alias lrt='ls -lrt'
 alias ld='ls -ld */'
+
 
 # request confirmation before removing a file
 alias rm='rm -i'
@@ -83,4 +83,7 @@ alias env='env | sort'
 
 if [ "${OS}" = "Darwin" ]; then
   source "${ENVDIR}/aliases/mac.sh"
+fi
+if [ "${OS}" = "Linux" ]; then
+  source "${ENVDIR}/aliases/linux.sh"
 fi

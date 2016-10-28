@@ -4,6 +4,9 @@ if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]; then
   alias maten='mate -n'
 fi
 
+# ls in color
+alias ls='ls -G'
+
 # Chrome
 alias openc='open -a "Google Chrome"'
 
