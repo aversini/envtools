@@ -41,7 +41,7 @@ else
     unset ENVTOOLS_FULL
   fi
 
-  if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" ]; then
+  if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" -o "${OS}" == "MINGW64_NT-10.0" ]; then
     # Loading some functions
     source "${ENVDIR}/third/git-prompt.sh"
     source "${ENVDIR}/functions/prompt.sh"
