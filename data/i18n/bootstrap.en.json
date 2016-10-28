@@ -1,12 +1,11 @@
 {
   "bootstrap": {
-    "configureEnvtools": "Configure Envtools",
+    "configureEnvtools": "Configure Envtools.",
     "setUsrLocal": "Enable sudo-less npm and ruby gems installations.",
     "setEnv": "Enable/disable Envtools for each session.",
     "setPrompt": "Enable/disable Envtools Custom Command Line Prompt (git info, etc.)",
     "setBanner": "Enable/disable Envtools Welcome Banner.",
     "setProxy": "Setup/Enable/Disable a proxy.",
-    "checkApps": "Check for Applications needed by the framework.",
     "setJsBeautifyConfig": "Install default framework jsBeautify configuration.",
     "setEslintConfig": "Install default framework ESLint configuration.",
     "setGitCfg": "Bootstrap your git configuration.",
