@@ -1,4 +1,28 @@
 
+__0.0.152 / 2016-10-28__
+
+- Moving all node packages together ([765d0a1](https://github.com/aversini/envtools/commit/765d0a1f25d1a12afcda2552a3da04d0b44664d5))
+- Removing check for apps (too changing) ([160e2b1](https://github.com/aversini/envtools/commit/160e2b1d47f262b8c174e8bf18d93d3c684c9728))
+- Simplify help + better wording ([a4848a3](https://github.com/aversini/envtools/commit/a4848a31fa23a97c1c537112b1fadd0c27e42260))
+- Removing obsolete dependency ([937204c](https://github.com/aversini/envtools/commit/937204c30c441c90b23368b84075f449c7325b10))
+- If sinopia is stopped, change prompt status color ([2daf61c](https://github.com/aversini/envtools/commit/2daf61c8d1abb44914c7faf7412f5f6ebfec6e70))
+- Adding win64 support ([cb0c3af](https://github.com/aversini/envtools/commit/cb0c3af1dcc7d760f137ef20c911f6fbccee0299))
+- Fixing alias for ls in color (diff between mac and linux) ([0eea480](https://github.com/aversini/envtools/commit/0eea480385cf8f72d6fe79324dfe86dc0ac7e1ca))
+- typo ([f3c5963](https://github.com/aversini/envtools/commit/f3c5963a3e7c83b8bf1f13962a378c581eacde96))
+- Simplifying git credential keychain (always installed on mac now) ([a8f9fe3](https://github.com/aversini/envtools/commit/a8f9fe35c90aeb569de4b782db36cd9f1744900e))
+- Typo ([90e9f48](https://github.com/aversini/envtools/commit/90e9f480ac7f0eef96459dfe5f8755d9788ba31b))
+- Migrating chown for /usr/local with graphical sudo ([fb5ed42](https://github.com/aversini/envtools/commit/fb5ed4242a16126f61606be6a750fa1dd9a30604))
+- No more forcing admin when starting auto mode ([2984922](https://github.com/aversini/envtools/commit/29849225d9e7cad8c117853dc552d5ef48dfb976))
+- Do not suggest to restart session after installing npm package ([1141ec1](https://github.com/aversini/envtools/commit/1141ec13b959593afe29c0e4c346e958930db3eb))
+- Using the newly common npm installer to install fedtools ([69aa400](https://github.com/aversini/envtools/commit/69aa40026161fd1225988e5665bfdbdbb0129738))
+- Refactoring npm installation and moving it to common ([dc5034c](https://github.com/aversini/envtools/commit/dc5034c4b5c7f05e9d1a181192a6c03e1969648d))
+- Fixing sudo when installing npm ([6560c00](https://github.com/aversini/envtools/commit/6560c00488906481d6b7c8a02b191b326ed6e25c))
+- oops, wrong maven settings... fixing it! ([cc891dc](https://github.com/aversini/envtools/commit/cc891dcb33710dd7d7096b3f0c78ebae7068583a))
+- Replacing maven configuration with latest (encrypted) ([2d44433](https://github.com/aversini/envtools/commit/2d444333d4517885409e5a4788b83dae99c352ff))
+- Migrating node/npm to use as little sudo as possible ([e1d87db](https://github.com/aversini/envtools/commit/e1d87dbb5daa864602fcd8e45dee389340553ea1))
+- [sudo] removing sudo when installing fedtools ([713dd7e](https://github.com/aversini/envtools/commit/713dd7ef34fabbb7329ec0c78d503689f575d015))
+- Adding webpack to the list of core node packages ([82e622a](https://github.com/aversini/envtools/commit/82e622a51b43b4090b04bf0e746200f2a91f0fa9))
+
 __0.0.151 / 2016-10-16__
 
 - Adding `envtools lite`, a simple envtools-lite package generator ([c3efb31](https://github.com/aversini/envtools/commit/c3efb314c345008e40f9a1db6188f62fdd83d4e6))
