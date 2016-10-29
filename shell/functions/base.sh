@@ -290,12 +290,17 @@ function displayWelcomeBanner {
 # Usage:
 # psf node -> will show all running processes with
 # "node" in the command (arguments count too)
-# net TCP -> will show all open connections with TCP
-# in the listing. Useful to see all TCP/IP opened lines.
+# net 22 -> will show all open TCP connections with 22
+# in the listing. Useful to see all ssh opened connections.
 #
 function net_psf {
+  local COMMAND=""
+  local DESC2="Use -i to ignore case."
+
   if [ "$1" == "psf" ]; then
-    local COMMAND="ps aux"
+    if isMac; then
+      COMMAND="ps aux"
+    fi
     if isLinux; then
       COMMAND="ps -edf"
     fi
@@ -304,19 +309,17 @@ function net_psf {
     fi
     local USAGE="Usage: psf [-i] <string>"
     local DESC1="Lists all running processes that match the filter <string>."
-    local DESC2="Use -i to ignore case."
   else
-    local COMMAND="lsof -i"
+    local COMMAND="netstat -anp tcp"
     local USAGE="Usage: net [-i] <string>"
-    local DESC1="Lists all connections that match the filter <string>."
-    local DESC2="Use -i to ignore case."
+    local DESC1="Lists all TCP connections that match the filter <string>."
   fi
 
   if [ "$#" == "2" ]; then
-    $COMMAND | grep $2 | grep -v grep
+    $COMMAND | grep --color=auto $2
   elif [ "$#" == "3" -a "$2" == "-i" ]
   then
-    $COMMAND | grep -i $3 | grep -v grep
+    $COMMAND | grep --color=auto -i $3
   else
     echo $USAGE
     echo $DESC1
