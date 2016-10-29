@@ -1,4 +1,29 @@
 #
+# Test for OS types
+#
+function isWindows {
+  local LOCAL_OS=$OS
+  if [ "$LOCAL_OS" == "" ]; then
+    LOCAL_OS=$(uname)
+  fi
+  [[ "$LOCAL_OS" == "MINGW32_NT-6.1" || "$LOCAL_OS" == "MINGW64_NT-10.0" ]]
+}
+function isMac {
+  local LOCAL_OS=$OS
+  if [ "$LOCAL_OS" == "" ]; then
+    LOCAL_OS=$(uname)
+  fi
+  [[ "$LOCAL_OS" == "Darwin" ]]
+}
+function isLinux {
+  local LOCAL_OS=$OS
+  if [ "$LOCAL_OS" == "" ]; then
+    LOCAL_OS=$(uname)
+  fi
+  [[ "$LOCAL_OS" == "Linux" ]]
+}
+
+#
 # returns 0 if the user confirmed yes, 1 otherwise
 # $1 optional prompt, default to "Continue? "
 # $2 optional default, "yes" or "no" - no default
@@ -55,6 +80,10 @@ function isValid {
   ! [[ -z "$1" ]]
 }
 
+#
+# returns true if the argument is an existing program
+# returns false otherwise
+#
 function isInstalled {
   type "$1" >/dev/null 2>&1 || { return -1; }
 }
@@ -212,7 +241,7 @@ function isRoot {
 function isSinopiaRunning {
   local SINOPIA_PID
 
-  if [ "${OS}" == "Darwin" ]; then
+  if [ isMac ]; then
     SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
   fi
   if isValid "$SINOPIA_PID"; then
@@ -229,7 +258,7 @@ function isSinopiaRunning {
 # the function does nothing on other OS.
 #
 function setTerminalTitle {
-  if [ "$OS" == "Darwin" ]; then
+  if [ isMac ]; then
     CURRENT_DIR=`basename "$PWD"`
     if [ $# -gt 0 ]
     then
@@ -267,7 +296,7 @@ function displayWelcomeBanner {
 function net_psf {
   if [ "$1" == "psf" ]; then
     local COMMAND="ps aux"
-    if [ "$OS" == "Linux" ]; then
+    if [ isLinux ]; then
       COMMAND="ps -edf"
     fi
     local USAGE="Usage: psf [-i] <string>"
@@ -304,6 +333,6 @@ function diffDirectories {
 #
 # Loading specific Mac functions
 #
-if [ "${OS}" = "Darwin" ]; then
+if [ isMac ]; then
   source "${ENVDIR}/functions/mac.sh"
 fi

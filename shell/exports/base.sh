@@ -20,7 +20,7 @@ if isValid "$ENVTOOLS_FULL"; then
   fi
 fi
 
-if [ "${OS}" = "Darwin" ]; then
+if [ isMac ]; then
   source "${ENVDIR}/exports/mac.sh"
 fi
 
@@ -34,9 +34,9 @@ if [[ $- == *i* ]]; then
 fi
 
 # Extend the max # of open files per terminal session
-if [ "${OS}" == "Darwin" ]; then
+if [ isMac ]; then
   ulimit -n 7168 >/dev/null 2>&1
 fi
-if [ "${OS}" == "MINGW32_NT-6.1" ]; then
+if [ isWindows ]; then
   ulimit -n 3072 >/dev/null 2>&1
 fi

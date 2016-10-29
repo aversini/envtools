@@ -27,7 +27,7 @@ else
     PROXY=""
   fi
 
-  # Overriding sudo for non-root users to carry the environemnt
+  # Overriding sudo for non-root users to carry the environment
   # over while sudoing.
   if [ $UID != 0 ]; then
     MYSUDO="sudo -E"
@@ -35,17 +35,19 @@ else
      MYSUDO=""
   fi
 
-  # Checking if we are in full mode, or simple bash only (no node support)
+  # Checking if we are in full mode or simple bash only (no node support)
   # isValid function has not been loaded yet, so doing it manually...
   if ! [[ -z "$ENVTOOLS_LITE" ]]; then
     unset ENVTOOLS_FULL
   fi
 
-  if [ "${OS}" == "Darwin" -o "${OS}" == "Linux" -o "${OS}" == "MINGW32_NT-6.1" -o "${OS}" == "MINGW64_NT-10.0" ]; then
+  # Load base functions no matter what
+  source "${ENVDIR}/functions/base.sh"
+
+  if [ isWindows -o isLinux -o isMac ]; then
     # Loading some functions
     source "${ENVDIR}/third/git-prompt.sh"
     source "${ENVDIR}/functions/prompt.sh"
-    source "${ENVDIR}/functions/base.sh"
     source "${ENVDIR}/functions/logs.sh"
 
     source "${ENVDIR}/functions/cmd.sh"
@@ -105,7 +107,7 @@ else
     # in case of Mac and default terminal app, to allow opening a new tab
     # in the same current folder, we need to trick the PROMPT_COMMAND a
     # little bit
-    if [ "${OS}" == "Darwin" -a "${PROMPT_COMMAND}" != "" ]; then
+    if [ isMac -a "${PROMPT_COMMAND}" != "" ]; then
       if type update_terminal_cwd > /dev/null 2>&1 ; then
         if ! [[ $PROMPT_COMMAND =~ (^|;)update_terminal_cwd($|;) ]] ; then
           export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd"
