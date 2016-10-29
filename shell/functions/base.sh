@@ -299,6 +299,9 @@ function net_psf {
     if [ isLinux ]; then
       COMMAND="ps -edf"
     fi
+    if [ isWindows ]; then
+      COMMAND="ps -eafW"
+    fi
     local USAGE="Usage: psf [-i] <string>"
     local DESC1="Lists all running processes that match the filter <string>."
     local DESC2="Use -i to ignore case."
