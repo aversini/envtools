@@ -91,7 +91,7 @@ __print_status () {
       val="ON"
       NODE_VERSION=`node -v`
       NODE_LABEL=" ($NODE_VERSION, system)"
-      if [ isMac -a "$NVM_DIR" != "" ]; then
+      if isMac && [ "$NVM_DIR" != "" ]; then
         if [ -d $NVM_DIR ]; then
           NVM_CURRENT=`nvm current`
           if [ "$NVM_CURRENT" == "system" ]; then
@@ -104,7 +104,7 @@ __print_status () {
     fi
   fi
 
-  if [ isMac -a "$TYPE" == "sinopia" ]; then
+  if isMac && [ "$TYPE" == "sinopia" ]; then
     if isSinopiaRunning; then
       SINOPIA_RUN_SIGN=" (running)"
     else
@@ -148,7 +148,7 @@ function _setPrompt {
     LABEL="$4"
   fi
 
-  if [ isMac ]; then
+  if isMac; then
     echo "$BEFORE${LABEL}\$(__print_status '$TYPE' '%s')$AFTER"
   else
     STATUS=$(__print_status "${TYPE}" '%s')
@@ -243,7 +243,7 @@ function setEnvtoolsPromptConfigurationDefault {
 }
 
 function setEnvtoolsPromptConfigurationSinopia {
-  if [ isMac ]; then
+  if isMac; then
     setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
     setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
   else
@@ -258,7 +258,7 @@ function setEnvtoolsPromptConfigurationSinopia {
 }
 
 function setEnvtoolsPromptConfigurationSinopiaAndNode {
-  if [ isMac ]; then
+  if isMac; then
     setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
     setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
   else
@@ -282,9 +282,9 @@ function setEnvtoolsLitePrompt {
   local HOST_AND_NAME_COLOR="$RAW_COLOR_BLUE"
 
   if [ "$DISTRO_NAME" == "" ]; then
-    if [ isMac ]; then
+    if isMac; then
       DISTRO_NAME="(MacOS) "
-    elif [ isLinux ]; then
+    elif isLinux; then
       if [ -f /etc/issue ]; then
         DISTRO_NAME=`head -n 1 /etc/issue | awk -F' ' '{printf("%s", $1)}'`
       fi
@@ -296,7 +296,7 @@ function setEnvtoolsLitePrompt {
     fi
   fi
 
-  if ! [ isMac ]; then
+  if ! isMac; then
     # host, name and distro are yellow when not mac
     HOST_AND_NAME_COLOR="$RAW_COLOR_YELLOW"
   fi

@@ -6,7 +6,7 @@ GLOBAL_CONTINUE=true
 # Color definitions to be used in PROMPT_COMMAND
 COLOR_RED="\[\e[0;31m\]"
 COLOR_BLUE="\[\e[0;34m\]"
-if [ isWindows ]; then
+if isWindows; then
   COLOR_BLUE="\[\e[0;36m\]"
 fi
 COLOR_GREEN="\[\e[0;32m\]"
@@ -30,7 +30,7 @@ COLOR_DEFAULT="\[\e[00m\]"
 # prompt command
 RAW_COLOR_RED="\e[0;31m"
 RAW_COLOR_BLUE="\e[0;34m"
-if [ isWindows ]; then
+if isWindows; then
   RAW_COLOR_BLUE="\e[0;36m"
 fi
 RAW_COLOR_GREEN="\e[0;32m"
@@ -256,7 +256,7 @@ function txtStatus {
     MESSAGE="$1"
     STATUS="$2"
     extractStatusAndColor "$STATUS"
-    if [ isWindows ]; then
+    if isWindows; then
       txtColor "$GLOBAL_COLOR_NAME" "$MESSAGE  [$GLOBAL_STATUS_TEXT]" "nl"
     else
       $GLOBAL_COLOR_CMD

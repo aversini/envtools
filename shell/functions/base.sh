@@ -241,7 +241,7 @@ function isRoot {
 function isSinopiaRunning {
   local SINOPIA_PID
 
-  if [ isMac ]; then
+  if isMac; then
     SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
   fi
   if isValid "$SINOPIA_PID"; then
@@ -258,7 +258,7 @@ function isSinopiaRunning {
 # the function does nothing on other OS.
 #
 function setTerminalTitle {
-  if [ isMac ]; then
+  if isMac; then
     CURRENT_DIR=`basename "$PWD"`
     if [ $# -gt 0 ]
     then
@@ -296,10 +296,10 @@ function displayWelcomeBanner {
 function net_psf {
   if [ "$1" == "psf" ]; then
     local COMMAND="ps aux"
-    if [ isLinux ]; then
+    if isLinux; then
       COMMAND="ps -edf"
     fi
-    if [ isWindows ]; then
+    if isWindows; then
       COMMAND="ps -eafW"
     fi
     local USAGE="Usage: psf [-i] <string>"
@@ -336,6 +336,6 @@ function diffDirectories {
 #
 # Loading specific Mac functions
 #
-if [ isMac ]; then
+if isMac; then
   source "${ENVDIR}/functions/mac.sh"
 fi

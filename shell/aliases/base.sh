@@ -81,9 +81,9 @@ alias ccc='compass clean && compass compile'
 alias env='env | sort'
 
 
-if [ isMac ]; then
+if isMac; then
   source "${ENVDIR}/aliases/mac.sh"
 fi
-if [ isLinux ]; then
+if isLinux; then
   source "${ENVDIR}/aliases/linux.sh"
 fi
