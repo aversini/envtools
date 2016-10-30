@@ -30,9 +30,19 @@ $(function () {
 
   // activate tab navigation
   $('.envtools-tabs a').click(function (e) {
+    var
+      stateObj,
+      tab = $(this).attr('data-id');
+
     e.preventDefault();
     $(this).tab('show');
+    if (history && history.pushState) {
+      history.pushState({
+        title: tab
+      }, tab, '?' + tab);
+    }
   });
 
-
+  // showtime
+  $('.envtools-help .content').removeClass('hidden');
 });

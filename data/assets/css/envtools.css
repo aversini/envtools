@@ -35,6 +35,10 @@ body.envtools-help {
   margin-top: 160px;
 }
 
+.envtools-help .hidden {
+  display: none;
+}
+
 .envtools-help h2 {
   color: #4078c0;
 }

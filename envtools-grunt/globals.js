@@ -13,5 +13,5 @@ module.exports = {
 
   aliasesFileMd: 'data/aliases.md',
   tmpHelpFileHTML: 'tmp/help.html',
-  helpFileHTML: 'envtools-help.html'
+  helpFileHTML: 'index.html'
 };
