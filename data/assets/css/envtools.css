@@ -3,7 +3,6 @@ html {
 }
 
 body.envtools-help {
-  width: 740px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -27,8 +26,8 @@ body.envtools-help {
 
 .envtools-help .header {
   position: fixed;
-  width: 740px;
   background-color: #FFF;
+  width: 90%;
 }
 
 .envtools-help .content {
@@ -44,7 +43,7 @@ body.envtools-help {
 }
 
 .envtools-help .envtools-logo {
-  margin: 10px 0 7px 0;
+  margin: 10px 0 20px 0;
   padding-left: 20px;
 }
 
