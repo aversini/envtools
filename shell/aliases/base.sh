@@ -56,7 +56,7 @@ fi
 
 # Open help file
 if isValid "$ENVTOOLS_FULL"; then
-  alias h='envtools help'
+  alias h='envtools help intro'
 fi
 
 if [ -f /usr/local/bin/vim -o -f /usr/bin/vim ]; then

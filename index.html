@@ -102,6 +102,54 @@
   </li>
 </ul>
 
+<h2>web</h2>
+<code>envtools web</code>
+<p>
+  Start a simple static web server that will serve the current folder. Use <code>--port [port-num]</code> to specify a different port than 8080.
+</p>
+
+<h2>lite</h2>
+<code>envtools lite</code>
+<p>
+  This command will create a compressed file under the current folder.
+</p>
+<p>
+  It contains a very limited subset of Envtools, the bare minimum to at least have a decent prompt, as well as a few core aliases (ll, etc.). It does not have any of Envtools node capabilities since the package only contains shell scripts helpers. It is usefull if you need to work in a remote server that does not have node/npm but can execute bash scripts.
+</p>
+<h3>How to use it</h3>
+<ol>
+  <li>
+    <p>
+      Copy the generated tar.gz file on the destination machine.
+    </p>
+    <p>
+      <code>$ scp envlite-x.x.xxx.tgz remoteServerName:</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Login to the remote machine and untar the file.
+    </p>
+    <p>
+      <code>$ ssh remoteServerName</code>
+    </p>
+    <p>
+      <code>$ tar xf envlite-x.x.xxx.tgz</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Add the following lines to your profile (.bashrc or .bash_profile)
+    </p>
+    <p>
+      <code>ENVTOOLS_LITE=1 && source "$HOME/envlite/load.sh"</code>
+    </p>
+  </li>
+</ol>
+<p>
+  That's it! Just reload your environment and you should have a better prompt already.
+</p>
+
       </div>
 
       <!-- aliases pane -->
