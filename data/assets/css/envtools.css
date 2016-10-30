@@ -5,6 +5,7 @@ html {
 body.envtools-help {
   margin-left: auto;
   margin-right: auto;
+  width: 740px;
 }
 
 @media screen and (max-width: 739px) {
@@ -27,7 +28,7 @@ body.envtools-help {
 .envtools-help .header {
   position: fixed;
   background-color: #FFF;
-  width: 90%;
+  width: 740px;
 }
 
 .envtools-help .content {
