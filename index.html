@@ -328,10 +328,6 @@
       <td><code>sds</code></td>
       <td>Shortcut for <code>sudo su -</code></td>
     </tr>
-    <tr>
-      <td><code>web</code></td>
-      <td>Starts a small web server on port 8080, serving files in the current folder. Use <code>--port</code> to specify another port.</td>
-    </tr>
   </tbody>
 </table>
 <h2 id="misc-helpers">Misc Helpers</h2>
@@ -354,6 +350,10 @@
     <tr>
       <td><code>psf</code></td>
       <td>List running processes matching the string passed in argument, e.g. <code>psf node</code> will list all running <code>node</code> processes.</td>
+    </tr>
+    <tr>
+      <td><code>web</code></td>
+      <td>Starts a small web server on port 8080, serving files in the current folder. Use <code>--port</code> to specify another port. Alias to <code>envtools web</code></td>
     </tr>
   </tbody>
 </table>
@@ -441,7 +441,7 @@ setCommandPromptWithGit "${COLOR_BLUE}[\t]${COLOR_DEFAULT}[\u:\w]" "\$ "</code>
 </p>
 <h2>Use case</h2>
 <p>
-  The main use case for framework developers is when we are working on node 6+ and are located behind a proxy. There is a known issue with npm that renders installations painfully slow. A workaround is to use Sinopia because it caches npmjs calls, therefore avoiding a call outside through the proxy.
+  There are many reasons you may want to use Sinopia, but one main use case is when working on node 6+ and located behind a proxy. There is a known issue with npm that renders node packages installations painfully slow. A workaround is to use Sinopia because it caches npmjs calls, therefore avoiding a call outside through the proxy.
 </p>
 <h2>How it works</h2>
 <p>
@@ -459,10 +459,6 @@ setCommandPromptWithGit "${COLOR_BLUE}[\t]${COLOR_DEFAULT}[\u:\w]" "\$ "</code>
   npm install -g sinopia</code>
   </pre>
 </p>
-<h3>Starting Sinopia</h3>
-<p>
-  This is the easy part. Just open a terminal and type <code>sinopia</code>... Just don't close that terminal window, and remember that you have to manually re-start Sinopia if you restart your machine.
-</p>
 <h3>Configuring npm to use Sinopia</h3>
 <p>
   You can use Envtools to configure npm to use Sinopia for you. The command is available in the "extra" section of Envtools. Type <code>envtools extra</code> and select the Sinopia section. On the next screen, choose to enable Sinopia. You should see something close to this:
@@ -472,6 +468,10 @@ setCommandPromptWithGit "${COLOR_BLUE}[\t]${COLOR_DEFAULT}[\u:\w]" "\$ "</code>
 <img src="data/assets/images/sinopia/envtools-extra-sinopia-done.png" />
 <p>
   That's it! Npm is now configured to use Sinopia, whether or not you are using proxies. You can now easily turn it ON or OFF with the following aliases: <code>son</code> and <code>soff</code>.
+</p>
+<h3>Starting Sinopia</h3>
+<p>
+  This is the easy part. Just open a terminal and type <code>sinopia</code>... Just don't close that terminal window, and remember that you have to manually re-start Sinopia if you restart your machine.
 </p>
 
       </div>
