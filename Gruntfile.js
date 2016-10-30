@@ -40,7 +40,7 @@ module.exports = function (grunt) {
           collapseWhitespace: true
         },
         files: { // Dictionary of files
-          'envtools-help.html': 'envtools-help.html'
+          'index.html': 'index.html'
         }
       }
     },
