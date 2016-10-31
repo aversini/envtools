@@ -18,7 +18,9 @@
     "manual": "Bootstrap your environment step by step.",
     "extra": "Install/configure extra goodies not included in the automatic/manual processes.",
     "web": "Start a simple static web server for the current folder.",
-    "lite": "Create a portable version of Envtools supporting bash only (no node)."
+    "lite": "Create a portable version of Envtools supporting bash only (no node).",
+    "decrypt": "Decrypt a file using the AES 256 encryption algorithm with CTR mode.",
+    "encrypt": "Encrypt a file using the AES 256 encryption algorithm with CTR mode."
   },
 
   "prompt": {

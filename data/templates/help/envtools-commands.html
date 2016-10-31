@@ -20,7 +20,7 @@
     Install some <code>Atom</code> core packages.
   </li>
   <li class="mac-only">
-    Install and configure Node Version Manager (<code>nvm</code>) which is a simple bash script to manage multiple active node.js versions. Please see <a href="https://github.com/creationix/nvm/blob/master/README.markdown">nvm readme</a> for more information.
+    Install and configure Node Version Manager (<code>nvm</code>) which is a simple bash script to manage multiple active node.js versions. Please see <a href="https://github.com/creationix/nvm/blob/master/README.markdown" target="_blank">nvm readme</a> for more information.
   </li>
   <li class="mac-only">
     Install a <code>Custom Terminal Theme</code>. It was built to use more subtle colors that are better suited when using a dark terminal. The background is black.
@@ -41,6 +41,22 @@
 <p>
   Start a simple static web server that will serve the current folder. Use <code>--port [port-num]</code> to specify a different port than 8080.
 </p>
+
+<h2>encrypt, decrypt</h2>
+<code>envtools encrypt</code> | <code>envtools decrypt</code>
+<p>
+  Simple command line tool that allows you to encrypt or decrypt a file with a password. The encryption algorithm used is <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES-256-CTR</a>.
+</p>
+<h4>Options</h4>
+  <pre>-f .... The input file.
+-o .... The output file.
+-p .... Optional password, will be prompted if omitted.
+</pre>
+
+<h4>Encrypt a file</h4>
+<code>$ envtools encrypt -f plain-file.txt -o encrypted-file.txt -p sekret</code>
+<h4>Decrypt a file</h4>
+<code>$ envtools decrypt -f encrypted-file.txt -o plain-file.txt -p sekret</code>
 
 <h2>lite</h2>
 <code>envtools lite</code>
