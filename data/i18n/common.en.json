@@ -20,7 +20,8 @@
     "web": "Start a simple static web server for the current folder.",
     "lite": "Create a portable version of Envtools supporting bash only (no node).",
     "decrypt": "Decrypt a file using the AES 256 encryption algorithm with CTR mode.",
-    "encrypt": "Encrypt a file using the AES 256 encryption algorithm with CTR mode."
+    "encrypt": "Encrypt a file using the AES 256 encryption algorithm with CTR mode.",
+    "timer": "Simple command line timer."
   },
 
   "prompt": {
