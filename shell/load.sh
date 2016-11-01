@@ -15,6 +15,7 @@ else
     ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   fi
   RUNTIME_DIR="${HOME}/.envtools"
+  RUNTIME_BIN_DIR="${HOME}/.envtools/bin"
   CUSTOM_ENVDIR="${RUNTIME_DIR}/custom"
   TOOLSDIR="${ENVDIR}/../lib"
   OLD_PS1="${PS1}"

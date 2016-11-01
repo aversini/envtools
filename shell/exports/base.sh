@@ -20,6 +20,10 @@ if isValid "$ENVTOOLS_FULL"; then
   fi
 fi
 
+# extra tools provided by Envtools
+echo "RUNTIME_BIN_DIR: $RUNTIME_BIN_DIR"
+export PATH=$PATH:$RUNTIME_BIN_DIR
+
 if isMac; then
   source "${ENVDIR}/exports/mac.sh"
 fi
