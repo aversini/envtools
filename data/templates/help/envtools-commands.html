@@ -42,13 +42,32 @@
   Start a simple static web server that will serve the current folder. Use <code>--port [port-num]</code> to specify a different port than 8080.
 </p>
 
+<h2>timer</h2>
+<code>envtools timer</code>
+<p>
+  Simple command line timer with notification superpowers.
+</p>
+<h4>Parameter</h4>
+Envtools timer takes only one parameter with the following format: XhYmZs, e.g. 4h2m15s or 1m42s
+
+<h4>Options</h4>
+<pre>--quiet ....... Cancel all notifications.
+--notifier .... Specify a notifier [growl|osx].
+</pre>
+<h4>Examples</h4>
+<pre>
+$ envtools timer 1m3s
+$ envtools timer 1m3s --quiet
+$ envtools timer 1m3s --notifier growl
+</pre>
+
 <h2>encrypt, decrypt</h2>
 <code>envtools encrypt</code> | <code>envtools decrypt</code>
 <p>
   Simple command line tool that allows you to encrypt or decrypt a file with a password. The encryption algorithm used is <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES-256-CTR</a>.
 </p>
 <h4>Options</h4>
-  <pre>-f .... The input file.
+<pre>-f .... The input file.
 -o .... The output file.
 -p .... Optional password, will be prompted if omitted.
 </pre>
