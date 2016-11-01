@@ -1,4 +1,34 @@
 
+__0.0.154 / 2016-10-31__
+
+- [help] crisper logo on retina displays ([89078a4](https://github.com/aversini/envtools/commit/89078a493ccdeb98a7bbcf242af35f0de7dc8fc5))
+- [help] do not start another help server if one is already up ([1b0d4e4](https://github.com/aversini/envtools/commit/1b0d4e4594434b387cba6f41962f6133818a88e4))
+- Adding `envtools notifier` to the fold ([3fcfe1b](https://github.com/aversini/envtools/commit/3fcfe1bc047646fa16512b73feac89315ddda610))
+- Moving order of commands in help ([1400a1e](https://github.com/aversini/envtools/commit/1400a1ee8303b872ed276c747480ff48c5f85728))
+- [timer] done, integrated into `envtools timer` ([6107836](https://github.com/aversini/envtools/commit/6107836f6876a2f9619dcc85b983a4daefb5e23a))
+- First pass at integrating `envtools timer` ([3684e1f](https://github.com/aversini/envtools/commit/3684e1f99d3bed14ff383c8eef61b25033997740))
+- Adding `envtools encrypt` and `envtools decrypt` to the fold ([7fa92a9](https://github.com/aversini/envtools/commit/7fa92a93f21f7ac6e1815130d14aa700e2d5a1a4))
+- [help] back to centered ([32532c2](https://github.com/aversini/envtools/commit/32532c23b6b7f94896926d5bb0f6ec2061fb55db))
+- [help] no more center, use whole page ([9933fdf](https://github.com/aversini/envtools/commit/9933fdfa43ce38fb996b721006c9db8055768b1a))
+- [help] minifying help file ([aaabe57](https://github.com/aversini/envtools/commit/aaabe577d80f022068ed843ae10ecf44a056d2b3))
+- [help] link to actual sinopia readme ([4bb6eed](https://github.com/aversini/envtools/commit/4bb6eed48b93f1628fda585e95a891eca6bed07f))
+- [help] better wording ([7507c66](https://github.com/aversini/envtools/commit/7507c66db2f37823017442ff8f6b54e2d0281dcb))
+- `envtools —help` is back.. ([4085ea1](https://github.com/aversini/envtools/commit/4085ea195f072497caa5ae4d3861ea43afaa9385))
+- [help]  add targeting help tab ([3b0769c](https://github.com/aversini/envtools/commit/3b0769c7855eb34fcb416202dfb65f4900527e25))
+- [help] remove obsolete internal help ([e85e92b](https://github.com/aversini/envtools/commit/e85e92b0c37f643c4c39536bca729b379b4ffe71))
+- [help] remove debug code ([c03e37e](https://github.com/aversini/envtools/commit/c03e37e575d05c4787d265fce54e76877f331d29))
+- Better help: ([89f87d4](https://github.com/aversini/envtools/commit/89f87d42f19d9bf9d601e98e310cca6c1fd4b61e))
+  - Possibility to open at a specific tab
+  - Less FOUC
+  
+- Better help server start/stop feedback ([10f1ca3](https://github.com/aversini/envtools/commit/10f1ca3291739572bf190506a3ff8febcdc54609))
+- spawing mini web server for help ([835dfc0](https://github.com/aversini/envtools/commit/835dfc075ba4eeea5193d9b71ff817e536364ad1))
+- Fix `psf` and `net` aliases: color + better filtering ([a9b712a](https://github.com/aversini/envtools/commit/a9b712a85f83c7fd706805390a7a7cff21c6e06f))
+- Adding some color to grep ([bcafab9](https://github.com/aversini/envtools/commit/bcafab9836e6cb7db8f42c2337b62e20afa14d79))
+- Fixing calls to isMac/isWindows/isLinux ([31557de](https://github.com/aversini/envtools/commit/31557de2557fc675d6ae519f82f041bbd5d39eff))
+- Fix psf for windows ([5094fdf](https://github.com/aversini/envtools/commit/5094fdf4566116f672bf40e30376eace25e92985))
+- Refactoring bash OS detection ([88fe469](https://github.com/aversini/envtools/commit/88fe469ae44975b78570ed3cc0524bb170e23fa5))
+
 __0.0.153 / 2016-10-28__
 
 - Fix node modules installation in auto mode ([159c342](https://github.com/aversini/envtools/commit/159c3428b0aa01f902cc208481f9f1fa3b318758))
@@ -301,7 +331,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
