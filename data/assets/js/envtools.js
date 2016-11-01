@@ -35,6 +35,7 @@ $(function () {
       tab = $(this).attr('data-id');
 
     e.preventDefault();
+    window.scrollTo(0, 0);
     $(this).tab('show');
     if (history && history.pushState) {
       history.pushState({
