@@ -91,9 +91,7 @@ function setProxies {
       reloadEnvironment
     fi
     displayProxyStatus
-    if isInstalled "envtools_notifier"; then
-      `envtools_notifier --title 'Proxy Status Changed' --message "Proxies are $1"`
-    fi
+    `envtools notifier --title 'Proxy Status Changed' --message "Proxies are $1"`
   fi
 }
 
@@ -201,9 +199,7 @@ function setSinopia {
     fi
     reloadEnvironment
   fi
-  if isInstalled "envtools_notifier"; then
-    `envtools_notifier --title 'Sinopia Proxy Status Changed' --message "Sinopia Proxy is $1"`
-  fi
+  `envtools notifier --title 'Sinopia Proxy Status Changed' --message "Sinopia Proxy is $1"`
 }
 
 function displayProxyStatus {

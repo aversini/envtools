@@ -58,6 +58,43 @@
 <h4>Decrypt a file</h4>
 <code>$ envtools decrypt -f encrypted-file.txt -o plain-file.txt -p sekret</code>
 
+<h2>notifier</h2>
+<code>envtools notifier</code>
+<p>
+  Simple command line notifier using either macOS or Growl notification mechanisms. Usefull when combined with another long running process for example.
+</p>
+<h4>Options</h4>
+<pre>
+--title "Some Title"
+  Notifications have a title and a message. This is the option to set the title.
+
+--message "Some message"
+  Notifications have a title and a message. This is the option to set the message.
+
+--type <type name>
+  Giving a type will ensure a corresponding icon will be used in the notification.
+  Available types are SUCCESS, ERROR, WARNING, INFO, QUESTION and TIMER.
+  Default type is INFO.
+
+--sound <sound name>
+  Sound only works if using macOS notifications. The list of available sounds
+  can be found in the System Preferences under Sound->Sound Effects.
+  Default sound is Purr.
+
+--notifier <growl|osx>
+  Use this flag to choose the OS notifier.
+  Available options are "growl" or "osx".
+  Default notifier is "osx".
+</pre>
+<h4>Examples</h4>
+<pre>
+$ someBuild.sh
+$ if [ "$?" != "0" ]; then
+$   envtools notifier --type ERROR --message 'Build failed...'
+$ else
+$   envtools notifier --type SUCCESS --message 'Build is done!'
+</pre>
+
 <h2>timer</h2>
 <code>envtools timer</code>
 <p>
