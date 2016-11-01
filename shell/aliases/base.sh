@@ -81,6 +81,13 @@ alias ccc='compass clean && compass compile'
 # sort environment aliases output
 alias env='env | sort'
 
+# Shortcut to some default path
+if isValid "$ENVTOOLS_FULL"; then
+  alias desk='cd $HOME/Desktop; tit "~/Desktop"'
+  alias down='cd $HOME/Downloads; tit "~/Downloads"'
+  alias dow='down'
+fi
+
 
 if isMac; then
   source "${ENVDIR}/aliases/mac.sh"
