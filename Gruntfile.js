@@ -45,6 +45,16 @@ module.exports = function (grunt) {
       }
     },
 
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      all: {
+        src: 'data/assets/css/envtools.css',
+        dest: 'data/assets/css/envtools-min.css'
+      }
+    },
+
     release: {
       options: {
         bump: true,
@@ -147,7 +157,8 @@ module.exports = function (grunt) {
     'copy',
     'markdown:rawHistory',
     'import:help',
-    'htmlmin:help'
+    'htmlmin:help',
+    'autoprefixer'
   ]);
 
   grunt.registerTask('publish', [
