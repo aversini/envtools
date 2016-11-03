@@ -10,6 +10,10 @@ function parseQueryString(query) {
   return result;
 }
 
+function absoluteOffset(elem) {
+  return elem.offsetParent && elem.offsetTop + absoluteOffset(elem.offsetParent);
+}
+
 $(function () {
   var
     search;
@@ -42,6 +46,18 @@ $(function () {
         title: tab
       }, tab, '?' + tab);
     }
+  });
+
+  $('.envtools-toc a').click(function (e) {
+    var
+      content,
+      marginTop,
+      toc = $(this).attr('data-id');
+
+    e.preventDefault();
+    content = $('.content');
+    marginTop = Number(content.css('marginTop').replace('px', ''))
+    window.scroll(0, absoluteOffset(document.getElementById(toc)) - marginTop + 10);
   });
 
   // showtime
