@@ -1,4 +1,5 @@
 /*! Envtools css */
+
 html {
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
 }
@@ -61,4 +62,46 @@ body.envtools-help {
 
 #history li p {
   margin: 0 0;
+}
+
+@media screen and (max-width: 600px) {
+  .envtools-help .envtools-toc {
+    display: none;
+  }
+}
+
+.envtools-help .envtools-toc {
+  max-width: 450px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.05)
+}
+
+.envtools-help .envtools-toc .toc-row {
+  display: flex;
+  flex: 1;
+  line-height: 2em;
+}
+
+.envtools-help .envtools-toc .toc-row:after {
+  content: "";
+  margin: 0px 4px;
+  background: radial-gradient(circle at 50% 50%, #337ab7 12%, transparent 15%);
+  background-size: 1em 1em;
+  background-position: 0 0.5em;
+  background-repeat: repeat-x;
+  flex-grow: 1;
+  order: 2;
+}
+
+.envtools-help .envtools-toc .toc-head {
+  order: 1;
+}
+
+.envtools-help .envtools-toc .toc-body {
+  order: 3;
 }

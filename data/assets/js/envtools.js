@@ -48,6 +48,8 @@ $(function () {
     }
   });
 
+  // handle toc navigation (directly to the id would fail because of the
+  // extra margin for the tabs... hence this little scrolling black magic...)
   $('.envtools-toc a').click(function (e) {
     var
       content,

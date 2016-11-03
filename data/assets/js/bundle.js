@@ -24,6 +24,10 @@ function parseQueryString(query) {
   return result;
 }
 
+function absoluteOffset(elem) {
+  return elem.offsetParent && elem.offsetTop + absoluteOffset(elem.offsetParent);
+}
+
 $(function () {
   var
     search;
@@ -56,6 +60,20 @@ $(function () {
         title: tab
       }, tab, '?' + tab);
     }
+  });
+
+  // handle toc navigation (directly to the id would fail because of the
+  // extra margin for the tabs... hence this little scrolling black magic...)
+  $('.envtools-toc a').click(function (e) {
+    var
+      content,
+      marginTop,
+      toc = $(this).attr('data-id');
+
+    e.preventDefault();
+    content = $('.content');
+    marginTop = Number(content.css('marginTop').replace('px', ''))
+    window.scroll(0, absoluteOffset(document.getElementById(toc)) - marginTop + 10);
   });
 
   // showtime
