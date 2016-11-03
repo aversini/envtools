@@ -145,7 +145,7 @@ module.exports = function (grunt) {
 
     autoprefixer: {
       options: {
-        browsers: ['last 4 versions']
+        browsers: ['last 2 versions']
       },
       all: {
         src: 'data/assets/css/envtools.css',

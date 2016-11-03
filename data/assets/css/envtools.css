@@ -87,7 +87,7 @@ body.envtools-help {
   line-height: 2em;
 }
 
-.envtools-help .envtools-toc .toc-row:after {
+.envtools-help .envtools-toc .toc-dots {
   content: "";
   margin: 0px 4px;
   background: radial-gradient(circle at 50% 50%, #337ab7 12%, transparent 15%);
