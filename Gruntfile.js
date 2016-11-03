@@ -45,34 +45,6 @@ module.exports = function (grunt) {
       }
     },
 
-    autoprefixer: {
-      options: {
-        browsers: ['last 2 versions']
-      },
-      all: {
-        src: 'data/assets/css/envtools.css',
-        dest: 'data/assets/css/envtools-min.css'
-      }
-    },
-
-    release: {
-      options: {
-        bump: true,
-        add: true,
-        commit: true,
-        tag: true,
-        push: true,
-        pushTags: true,
-        npm: true,
-        commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]',
-        beforeRelease: [
-          'bash-version',
-          'history-generate',
-          'help-generate',
-          'history-help-add-commit-push'
-        ]
-      }
-    },
     import: {
       options: {},
       help: {
@@ -80,6 +52,7 @@ module.exports = function (grunt) {
         dest: g.helpFileHTML
       }
     },
+
     copy: {
       help: {
         files: [{
@@ -117,8 +90,8 @@ module.exports = function (grunt) {
           dest: 'tmp/envtools-aliases.html'
         }]
       }
-
     },
+
     markdown: {
       rawHistory: {
         files: [{
@@ -145,6 +118,67 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+
+    concat: {
+      options: {
+        separator: ';\n'
+      },
+      css: {
+        src: [
+          'tmp/envtools-min.css',
+          'data/assets/css/bootstrap.min.css',
+          'tmp/highlight-min.css'
+        ],
+        dest: 'data/assets/css/bundle.css'
+      },
+      js: {
+        src: [
+          'data/assets/js/jquery-3.1.1.slim.min.js',
+          'data/assets/js/highlight.pack.js',
+          'data/assets/js/bootstrap.min.js',
+          'data/assets/js/envtools.js'
+        ],
+        dest: 'data/assets/js/bundle.js'
+      }
+    },
+
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      all: {
+        src: 'data/assets/css/envtools.css',
+        dest: 'tmp/envtools-with-prefixes.css'
+      }
+    },
+
+    cssmin: {
+      target: {
+        files: {
+          'tmp/envtools-min.css': ['tmp/envtools-with-prefixes.css'],
+          'tmp/highlight-min.css': ['data/assets/css/highlight/default.css']
+        }
+      }
+    },
+
+    release: {
+      options: {
+        bump: true,
+        add: true,
+        commit: true,
+        tag: true,
+        push: true,
+        pushTags: true,
+        npm: true,
+        commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]',
+        beforeRelease: [
+          'bash-version',
+          'history-generate',
+          'help-generate',
+          'history-help-add-commit-push'
+        ]
+      }
     }
 
   });
@@ -158,11 +192,14 @@ module.exports = function (grunt) {
     'markdown:rawHistory',
     'import:help',
     'htmlmin:help',
-    'autoprefixer'
+    'autoprefixer',
+    'cssmin',
+    'concat:js',
+    'concat:css'
   ]);
 
   grunt.registerTask('publish', [
-    'npm-pre-release',
+    'npm-pre-release', // checking if dirty, sinopia on/off, etc.
     'release'
   ]);
 
