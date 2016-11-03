@@ -16,6 +16,16 @@ body.envtools-help {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .envtools-help .envtools-toc {
+    display: none;
+  }
+  .envtools-help .last-tab {
+    display: none;
+  }
+}
+
+
 .envtools-logo {
   display: flex;
   align-items: center;
@@ -62,12 +72,6 @@ body.envtools-help {
 
 #history li p {
   margin: 0 0;
-}
-
-@media screen and (max-width: 600px) {
-  .envtools-help .envtools-toc {
-    display: none;
-  }
 }
 
 .envtools-help .envtools-toc {
