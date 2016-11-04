@@ -2,7 +2,7 @@ export RUNTIME_DIR
 if isValid "$ENVTOOLS_FULL"; then
   export ENVTOOLS_VERSION="$(cat "${ENVDIR}"/../version)"
 fi
-export LANG=C
+export LANG=en_US.UTF-8
 export EDITOR=vi
 export PATH=$PATH:/usr/sbin
 
