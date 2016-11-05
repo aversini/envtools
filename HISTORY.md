@@ -1,4 +1,8 @@
 
+__0.0.157 / 2016-11-05__
+
+- Fixing build/deploy process ([f3121ac](https://github.com/aversini/envtools/commit/f3121ace57ce203705b6bdec42f53d0fc6663fe8))
+
 __0.0.155 / 2016-11-04__
 
 - First pass at `envtools config` ([e4675ff](https://github.com/aversini/envtools/commit/e4675ff11abc3835adfd4ed2e1c9c0411a6112fb))
