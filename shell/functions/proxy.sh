@@ -122,26 +122,30 @@ function setEnvProxy {
 
 function setNpmProxy {
   if isValid $1; then
+    local SET_PROXY=true
     local PROXY_VALUE="${PROXY}"
     export SINOPIA_STATUS="N/A"
 
-    # Need to check if Sinopia is ON.
-    # If so, it is the proxy for NPM...
+    # Need to check if Sinopia is ON or OFF.
+    # If ON, it is the proxy for NPM, which means we need to
+    # remove the actual proxy entries in .npmrc
     if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
       local LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
       if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
-        PROXY_VALUE="http://localhost:4873/"
+        SET_PROXY=false
         export SINOPIA_STATUS="ON"
+        cmd "npm config delete proxy"
+        cmd "npm config delete https-proxy"
       fi
       if [ "$LOCAL_SINOPIA_STATUS" == "OFF" ]; then
         export SINOPIA_STATUS="OFF"
       fi
     fi
 
-    if [ "$2" == "ON" ]; then
+    if [ "$2" == "ON" -a $SET_PROXY == true ]; then
       cmd "npm config set proxy ${PROXY_VALUE}"
       cmd "npm config set https-proxy ${PROXY_VALUE}"
-    elif [ "$2" == "OFF" ]; then
+    elif [ "$2" == "OFF" -a $SET_PROXY == true ]; then
       cmd "npm config delete proxy"
       cmd "npm config delete https-proxy"
     fi
