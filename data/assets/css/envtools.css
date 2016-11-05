@@ -109,3 +109,28 @@ body.envtools-help {
 .envtools-help .envtools-toc .toc-body {
   order: 3;
 }
+
+/* a11y recommendations */
+.alert a {
+  color: rgb(39, 118, 181);
+}
+
+a.toc-row {
+  color: rgb(44, 120, 182);
+}
+
+.table tbody a {
+  color: rgb(42, 119, 181);
+}
+
+.hljs {
+  background-color: #f5f5f5 !important;
+}
+
+.bash .hljs-comment {
+  color: rgb(109, 109, 109);
+}
+
+.bash .hljs-variable {
+  color: rgb(180, 76, 76);
+}
