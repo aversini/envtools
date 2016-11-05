@@ -1,4 +1,34 @@
 
+__0.0.155 / 2016-11-04__
+
+- First pass at `envtools config` ([e4675ff](https://github.com/aversini/envtools/commit/e4675ff11abc3835adfd4ed2e1c9c0411a6112fb))
+- [help] even more help wording update ([46718ea](https://github.com/aversini/envtools/commit/46718ea75defad2c82c597dc7a46e66e3b80e2bc))
+- [help] a11y audit remediation ([01d3116](https://github.com/aversini/envtools/commit/01d3116301adc98c164904b04f8fa899fec28756))
+- Adding powered-by to `envtools web` ([9dc5e1f](https://github.com/aversini/envtools/commit/9dc5e1fda2b85f99053c0d7d0038b6a63d2a567c))
+- Fix proxy + sinopia issue: if sinopia ON, then no need for npm proxy ([6a56e29](https://github.com/aversini/envtools/commit/6a56e29f77944c956dfc9d5ea087cec715389025))
+  cipser
+  
+- [help] better wording for command tab ([2a7cf9e](https://github.com/aversini/envtools/commit/2a7cf9e21efc6ba24655d44eb570dd812fa0e2c4))
+- Update LANG to be compatible with Atom spell check ([adf9cd9](https://github.com/aversini/envtools/commit/adf9cd99de7f1c7316b2d43538673dfa328465fb))
+- [help] hide history tab on smaller bp ([c356f27](https://github.com/aversini/envtools/commit/c356f27e2afc700c5a9265aea075440b44c14ea8))
+- [help toc] still trying to fix IE11 ([ff01f6a](https://github.com/aversini/envtools/commit/ff01f6a7d2eca41381b8fbcc9eacee95cf1c851c))
+- [help toc] adding support for IE11 ([8b0126d](https://github.com/aversini/envtools/commit/8b0126d0ef27fcd8df3df3ca5f0cc0fb4392880f))
+- Adding TOC to commands tab ([22f3b2d](https://github.com/aversini/envtools/commit/22f3b2d7ffe8bbaf62387eb832a37f6e0c150bbc))
+- [help] concat + minify css and js ([2d45816](https://github.com/aversini/envtools/commit/2d45816132a4fc47cc6e543bf973f5306edd6951))
+- [help] removing unused files ([f90cf55](https://github.com/aversini/envtools/commit/f90cf55a2a099d923decd00762c81faa006e01c7))
+- [help] upgrading to bootstrap 3.3.7 ([02526d1](https://github.com/aversini/envtools/commit/02526d1533e6ada927e0bb77012682dff00f3f9c))
+- [help] better server termination ([442e6d7](https://github.com/aversini/envtools/commit/442e6d7de9420164bfa1a5932213c0ca735aaa58))
+- [help] more robust server - if crashed, restart it ([7d0bc0a](https://github.com/aversini/envtools/commit/7d0bc0aec8a63caa20207c4046d2005a21ba2fa4))
+- Adding name and version to commons ([6e32a59](https://github.com/aversini/envtools/commit/6e32a59155ed2c0e1e565f71dd700bfb6434c484))
+- [help] adding size to img tag ([63247b1](https://github.com/aversini/envtools/commit/63247b12aca44a1b87e8dcfc8662bc4d7d754191))
+- [help] removing obsolete css ([b6e33ce](https://github.com/aversini/envtools/commit/b6e33ceb5fe83c843ec72371c95e79013fdb8364))
+- Adding autoprefixer to handle css prefixes ([c661274](https://github.com/aversini/envtools/commit/c6612743cd00bca24ddba61ef0e0debb9aa11b86))
+- Update help for `envtools notifier` with more Growl information ([19323a0](https://github.com/aversini/envtools/commit/19323a0c7aa56d86e3d249f6b77e0c9151384644))
+- [growlnotify] removing debug code ([338535b](https://github.com/aversini/envtools/commit/338535b9302f20b75fd83b1f3f3f771712adf61d))
+- Installing growlnotify if needed ([cf66cb0](https://github.com/aversini/envtools/commit/cf66cb0d1f44ad17566be4dcf31204fdac827582))
+- Moving aliases `down` and `desk` to win/mac ([6c2c8a5](https://github.com/aversini/envtools/commit/6c2c8a5665d0f63262fcaa61c556ba3265474972))
+- [help] scroll back to top on tab change ([cdf405d](https://github.com/aversini/envtools/commit/cdf405d6acd3b5c00762b1e747ece294d5547f83))
+
 __0.0.154 / 2016-10-31__
 
 - [help] crisper logo on retina displays ([89078a4](https://github.com/aversini/envtools/commit/89078a493ccdeb98a7bbcf242af35f0de7dc8fc5))
@@ -331,7 +361,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
