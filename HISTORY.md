@@ -1,4 +1,8 @@
 
+__0.0.158 / 2016-11-05__
+
+- [help] adding json-data and footer to help file ([cad4bbc](https://github.com/aversini/envtools/commit/cad4bbcb9838ee26b528574bca8792c3ff7df518))
+
 __0.0.157 / 2016-11-05__
 
 - Fixing build/deploy process ([f3121ac](https://github.com/aversini/envtools/commit/f3121ace57ce203705b6bdec42f53d0fc6663fe8))
