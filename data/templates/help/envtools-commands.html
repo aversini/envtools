@@ -37,6 +37,11 @@
     <span class="toc-dots"></span>
     <span class="toc-body">Simple command line timer</span>
   </a>
+  <a class="toc-row" href="#" data-id="envtools-config">
+    <span class="toc-head">Config</span>
+    <span class="toc-dots"></span>
+    <span class="toc-body">Configure Envtools</span>
+  </a>
   <a class="toc-row" href="#" data-id="envtools-lite">
     <span class="toc-head">Lite</span>
     <span class="toc-dots"></span>
@@ -164,6 +169,39 @@ $ envtools timer 1m3s
 $ envtools timer 1m3s --quiet
 $ envtools timer 1m3s --notifier growl
 </pre>
+
+<h2 id="envtools-config">Config</h2>
+<code>envtools config</code>
+<p>
+  Use this command to configure Envtools. If you ran <code>envtools auto</code>, Envtools was bootstraped with a default configuration. You can customize that configuration here. There are several customization levels:
+</p>
+<div class="h4">Level 1</div>
+<p>
+  Choose to load Envtools automatically at each terminal session. If you disable this option, you will not be prompted for anything else. Deactivating this options means that Envtools will remove itself from your <code>.profile</code> files. Even though Envtools the node package is still installed, you will not benefit from any terminal environment customization (aliases, prompt, etc.)
+</p>
+<div class="h4">Level 2</div>
+<p>
+  If on the other hand you decided to load Envtools at each session at the previous level, you will then be asked if you want to also load Envtools custom prompt (the information displayed on the prompt just before the caret).
+</p>
+<div class="h4">Level 3</div>
+<p>
+  You will reach this option only if you agreed to Level 2. Here you are offered 3 different types of custom prompts:
+</p>
+<ul>
+  <li>
+    Prompt #1: proxy + git information
+  </li>
+  <li>
+    Prompt #2: proxy + sinopia + git information
+  </li>
+  <li>
+    Prompt #3: proxy + sinopia + node + git information
+  </li>
+</ul>
+<div class="h4">Level 4</div>
+<p>
+  This level allows you to disable the welcome banner that you see each time you open a new terminal tab or window.
+</p>
 
 <h2 id="envtools-lite">Lite</h2>
 <code>envtools lite</code>
