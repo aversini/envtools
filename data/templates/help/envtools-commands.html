@@ -52,7 +52,7 @@
 <h2 id="envtools-manual">Manual</h2>
 <code>envtools manual</code>
 <p>Use this command to bootstrap your environment manually.</p>
-<p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It is most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, new version of envtools, etc.)</p>
+<p>This command allows you to choose which step to run manually. It offers the same steps that are being executed with <code>envtools auto</code>, but with the flexibility to choose which one you need. It is most useful for an environment that has been bootstrapped before, but needs to be reconfigured one way or another after a while (fix user permissions, re-install core node packages, new version of Envtools, etc.)</p>
 
 <h2 id="envtools-extra">Extra</h2>
 <code>envtools extra</code>
@@ -98,10 +98,11 @@
 -p .... Optional password, will be prompted if omitted.
 </pre>
 
-<h4>Encrypt a file</h4>
-<code>$ envtools encrypt -f plain-file.txt -o encrypted-file.txt -p sekret</code>
-<h4>Decrypt a file</h4>
-<code>$ envtools decrypt -f encrypted-file.txt -o plain-file.txt -p sekret</code>
+<h4>Examples</h4>
+<pre>
+$ envtools encrypt -f plain-file.txt -o encrypted-file.txt -p sekret
+$ envtools decrypt -f encrypted-file.txt -o plain-file.txt -p sekret
+</pre>
 
 <h2 id="envtools-notifier">Notifier</h2>
 <code>envtools notifier</code>
