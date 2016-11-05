@@ -17,7 +17,7 @@
  var Q = require('q');
 
  module.exports = function(grunt) {
-     grunt.registerTask('release', 'Bump version, git tag, git push, npm publish', function(type) {
+     grunt.registerTask('envtools-release', 'Bump version, git tag, git push, npm publish', function(type) {
 
          function setup(file, type) {
              var pkg = grunt.file.readJSON(file);

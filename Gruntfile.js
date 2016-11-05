@@ -11,11 +11,11 @@ module.exports = function (grunt) {
 
   // project configuration
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    'pkg': grunt.file.readJSON('package.json'),
 
-    clean: ['./tmp/*'],
+    'clean': ['./tmp/*'],
 
-    mkdir: {
+    'mkdir': {
       all: {
         options: {
           create: ['tmp/local', 'tmp/registry']
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
       }
     },
 
-    coveralls: {
+    'coveralls': {
       options: {
         src: 'coverage-results/lcov.info',
         // When true, grunt-coveralls will only print a warning rather than
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
       }
     },
 
-    htmlmin: { // Task
+    'htmlmin': { // Task
       help: { // Target
         options: { // Target options
           removeComments: true,
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
       }
     },
 
-    import: {
+    'import': {
       options: {},
       help: {
         src: g.tmpHelpFileHTML,
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
       }
     },
 
-    copy: {
+    'copy': {
       help: {
         files: [{
           src: ['data/templates/help/envtools-help.html'],
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
       }
     },
 
-    markdown: {
+    'markdown': {
       rawHistory: {
         files: [{
           expand: false,
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
       }
     },
 
-    concat: {
+    'concat': {
       options: {
         separator: ';\n'
       },
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
       }
     },
 
-    autoprefixer: {
+    'autoprefixer': {
       options: {
         browsers: ['last 2 versions']
       },
@@ -159,7 +159,7 @@ module.exports = function (grunt) {
       }
     },
 
-    cssmin: {
+    'cssmin': {
       target: {
         files: {
           'tmp/envtools-min.css': ['tmp/envtools-with-prefixes.css'],
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
       }
     },
 
-    release: {
+    'envtools-release': {
       options: {
         bump: true,
         add: true,
@@ -207,7 +207,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('publish', [
     'npm-pre-release', // checking if dirty, sinopia on/off, etc.
-    'release'
+    'envtools-release'
   ]);
 
   grunt.registerTask('help', 'Display help usage', function () {
