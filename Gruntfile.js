@@ -84,6 +84,12 @@ module.exports = function (grunt) {
           dest: 'tmp/envtools-intro.html'
         }]
       },
+      footer: {
+        files: [{
+          src: ['data/templates/help/envtools-footer.html'],
+          dest: 'tmp/envtools-footer.html'
+        }]
+      },
       aliases: {
         files: [{
           src: ['data/templates/help/envtools-aliases.html'],
@@ -189,6 +195,7 @@ module.exports = function (grunt) {
   grunt.registerTask('help-generate', [
     'clean',
     'copy',
+    'help-json-data',
     'markdown:rawHistory',
     'import:help',
     'htmlmin:help',

@@ -16,5 +16,7 @@ module.exports = {
   helpFileHTML: 'index.html',
 
   bundleCSS: 'data/assets/css/bundle.css',
-  bundleJS: 'data/assets/js/bundle.js'
+  bundleJS: 'data/assets/js/bundle.js',
+
+  helpJsonDataFile: 'tmp/envtools-json-data.html'
 };

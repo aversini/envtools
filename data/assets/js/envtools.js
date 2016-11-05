@@ -16,7 +16,19 @@ function absoluteOffset(elem) {
 
 $(function () {
   var
+    data,
+    dataJson,
     search;
+
+  data = $('#envtools-data').html();
+  if (data) {
+    dataJson = JSON.parse(data);
+  }
+
+  // update version if found
+  if (dataJson && dataJson.version) {
+    $('.envtools-footer .envtools-version').html('v' + dataJson.version + ' - ');
+  }
 
   hljs.initHighlightingOnLoad();
   search = Object.keys(parseQueryString(document.location.search));

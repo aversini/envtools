@@ -25,6 +25,12 @@ body.envtools-help {
   }
 }
 
+.envtools-footer {
+  color: #767676;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
 
 .envtools-logo {
   display: flex;
