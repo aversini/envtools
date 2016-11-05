@@ -6,24 +6,25 @@ module.exports = function (grunt) {
     var
       done = this.async(),
       commitMsg = g.UPDATING_HISTORY_COMMIT_MSG + ' [skip ci]',
-      noWrite = grunt.option('no-write') || false;
+      noWrite = grunt.option('no-write') || false,
+      args = ['add',
+        g.historyFile,
+        g.bashVersionFile,
+        g.helpFileHTML,
+        g.bundleCSS,
+        g.bundleJS
+      ];
 
     if (noWrite) {
       grunt.log.writeln('history-help-add-commit-push dry run');
-      grunt.log.ok('git add ' + g.historyFile + ' ' + g.historyFileHTML +
-        ' ' + g.bashVersionFile + ' ' + g.helpFileHTML);
+      grunt.log.ok('git ' + args.join(' '));
       grunt.log.ok('git commit -m ' + commitMsg);
       grunt.log.ok('git push');
       return done();
     } else {
       grunt.util.spawn({
         cmd: 'git',
-        args: ['add',
-          g.historyFile,
-          g.historyFileHTML,
-          g.bashVersionFile,
-          g.helpFileHTML
-        ]
+        args: args
       }, function (err) {
         if (err) {
           grunt.fail.fatal('Unable to run "git add" ' + err);

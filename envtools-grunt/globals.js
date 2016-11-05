@@ -13,5 +13,8 @@ module.exports = {
 
   aliasesFileMd: 'data/aliases.md',
   tmpHelpFileHTML: 'tmp/help.html',
-  helpFileHTML: 'index.html'
+  helpFileHTML: 'index.html',
+
+  bundleCSS: 'data/assets/css/bundle.css',
+  bundleJS: 'data/assets/js/bundle.js'
 };
