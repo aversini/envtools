@@ -168,25 +168,25 @@ module.exports = function (grunt) {
       }
     },
 
-    'envtools-release': {
+    'publish': {
       options: {
+        preflightTasks: ['npm-pre-release'],
         bump: true,
         add: true,
         commit: true,
         tag: true,
-        push: true,
-        pushTags: true,
-        npm: true,
-        commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]',
-        beforeRelease: [
+        beforePush: [
           'bash-version',
           'history-generate',
           'help-generate',
           'history-help-add-commit'
-        ]
+        ],
+        push: true,
+        pushTags: true,
+        npm: true,
+        commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]'
       }
     }
-
   });
 
   // register multi-tasks aliases
@@ -205,10 +205,10 @@ module.exports = function (grunt) {
     'concat:css'
   ]);
 
-  grunt.registerTask('publish', [
-    'npm-pre-release', // checking if dirty, sinopia on/off, etc.
-    'envtools-release'
-  ]);
+  // grunt.registerTask('publish', [
+    // 'npm-pre-release', // checking if dirty, sinopia on/off, etc.
+    // 'envtools-release'
+  // ]);
 
   grunt.registerTask('help', 'Display help usage', function () {
     grunt.log.subhead('Grunt [ ' + this.name.cyan + ' ]');
