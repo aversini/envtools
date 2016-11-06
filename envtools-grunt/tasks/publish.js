@@ -40,11 +40,17 @@ module.exports = function (grunt) {
       };
     }
 
-    function ifEnabled(option, fn, callback) {
+    function ifEnabled(option, task, callback) {
       if (options[option]) {
-        return fn;
+        if (options[option] === true) {
+          // boolean, it's a built-in task
+          return task(callback);
+        } else {
+          // not a boolean, it's an in between task like preflightTasks...
+          return task(option, callback);
+        }
       } else {
-        return callback;
+        return callback();
       }
     }
 
@@ -221,14 +227,27 @@ module.exports = function (grunt) {
     options = grunt.util._.extend({
       remote: 'origin',
       preflightTasks: [],
-      bump: true,
-      add: true,
-      commit: true,
-      tag: true,
+      beforeBump: [],
+      bump: false,
+      afterBump: [],
+      beforeAdd: [],
+      add: false,
+      afterAdd: [],
+      beforeCommit: [],
+      commit: false,
+      afterCommit: [],
+      beforeTag: [],
+      tag: false,
+      afterTag: [],
       beforePush: [],
-      push: true,
-      pushTags: true,
-      publish: true
+      push: false,
+      afterPush: [],
+      beforePushTags: [],
+      pushTags: false,
+      afterPushTags: [],
+      beforePublish: [],
+      publish: false,
+      afterPublish: []
     }, (grunt.config.data[this.name] || {}).options);
 
     config = setup(PACKAGE_JSON, type);
@@ -256,34 +275,70 @@ module.exports = function (grunt) {
 
     async.waterfall([
       function (callback) {
-        ifEnabled('preflightTasks', runTasks('preflightTasks', callback), callback);
+        ifEnabled('preflightTasks', runTasks, callback);
       },
       function (callback) {
-        ifEnabled('bump', bump(callback), callback);
+        ifEnabled('beforeBump', runTasks, callback);
       },
       function (callback) {
-        ifEnabled('add', add(callback), callback);
+        ifEnabled('bump', bump, callback);
       },
       function (callback) {
-        ifEnabled('commit', commit(callback), callback);
+        ifEnabled('afterBump', runTasks, callback);
       },
       function (callback) {
-        ifEnabled('tag', tag(callback), callback);
+        ifEnabled('beforeAdd', runTasks, callback);
       },
       function (callback) {
-        ifEnabled('beforePush', runTasks('beforePush', callback), callback);
+        ifEnabled('add', add, callback);
       },
       function (callback) {
-        ifEnabled('push', push(callback), callback);
+        ifEnabled('afterAdd', runTasks, callback);
       },
       function (callback) {
-        ifEnabled('pushTags', pushTags(callback), callback);
-      },
-      function(callback) {
-        ifEnabled('npm', npmPublish(callback), callback);
+        ifEnabled('beforeCommit', runTasks, callback);
       },
       function (callback) {
-        callback();
+        ifEnabled('commit', commit, callback);
+      },
+      function (callback) {
+        ifEnabled('afterCommit', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('beforeTag', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('tag', tag, callback);
+      },
+      function (callback) {
+        ifEnabled('afterTag', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('beforePush', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('push', push, callback);
+      },
+      function (callback) {
+        ifEnabled('afterPush', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('beforePushTags', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('pushTags', pushTags, callback);
+      },
+      function (callback) {
+        ifEnabled('afterPushTags', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('beforePublish', runTasks, callback);
+      },
+      function (callback) {
+        ifEnabled('publish', npmPublish, callback);
+      },
+      function (callback) {
+        ifEnabled('afterPublish', runTasks, callback);
       }
     ], function (err) {
       done(err);
