@@ -181,9 +181,9 @@ module.exports = function (grunt) {
           'help-generate',
           'history-help-add-commit'
         ],
-        // push: true,
-        // pushTags: true,
-        // publish: true,
+        push: true,
+        pushTags: true,
+        publish: true,
         commitMessage: g.PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]'
       }
     }
