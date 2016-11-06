@@ -1,4 +1,19 @@
 
+__0.0.160 / 2016-11-06__
+
+- [build] re-enabling push (should be all fine now) ([b7f6e96](https://github.com/aversini/envtools/commit/b7f6e96320d1b8e6b7a9d3df65a569c3030616b9))
+- [build] fixing callback hell ([d9a02ef](https://github.com/aversini/envtools/commit/d9a02ef563ed31e0c7d898ae5bd346f36c560e87))
+- [build] deactivating push for a test run ([955dfd8](https://github.com/aversini/envtools/commit/955dfd8a5419aed30596a63f04a1b4f478a95300))
+- [build] adding all before and after custom tasks ([4d259bb](https://github.com/aversini/envtools/commit/4d259bbc43c4f92c8bbe5d52320b4270dfafcc0c))
+- [build] complete rewrite of publish process ([11c4878](https://github.com/aversini/envtools/commit/11c4878be2b00b63d1c9f75cc2b5737f7ba378b9))
+- Still trying to fix the build, after push maybe? ([d3adf03](https://github.com/aversini/envtools/commit/d3adf036b37db013806668fe6d6def42c842c625))
+- logging version to grunt bash task ([518228b](https://github.com/aversini/envtools/commit/518228b271199b9b76e3917cd05ed468ff3c0035))
+- updating the middle-release grunt task to not push ([6e86d70](https://github.com/aversini/envtools/commit/6e86d7099e0f1f90937a866daba6589d357289d3))
+
+__0.0.159 / 2016-11-05__
+
+- Trying to re-fix the build process... ([d6c25db](https://github.com/aversini/envtools/commit/d6c25db015b72b0e7f984b0ba28760e042cdeae4))
+
 __0.0.158 / 2016-11-05__
 
 - [help] adding json-data and footer to help file ([cad4bbc](https://github.com/aversini/envtools/commit/cad4bbcb9838ee26b528574bca8792c3ff7df518))
