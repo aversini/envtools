@@ -103,7 +103,10 @@ module.exports = function (grunt) {
         grunt.log.ok(log);
         pkg.version = config.newVersion;
         fs.writeFile(PACKAGE_JSON,
-          JSON.stringify(pkg, null, NB_SPACES_FOR_TAB) + '\n', callback);
+          JSON.stringify(pkg, null, NB_SPACES_FOR_TAB) + '\n',
+        function (err) {
+          callback(err);
+        });
       }
     }
 
@@ -119,7 +122,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'git',
           args: ['add', PACKAGE_JSON]
-        }, callback);
+        }, function (err) {
+          callback(err);
+        });
       }
     }
 
@@ -146,7 +151,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'git',
           args: ['commit', '-m', msg]
-        }, callback);
+        }, function (err) {
+          callback(err);
+        });
       }
     }
 
@@ -164,7 +171,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'git',
           args: args
-        }, callback);
+        }, function(err) {
+          callback(err);
+        });
       }
     }
 
@@ -182,7 +191,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'git',
           args: args
-        }, callback);
+        }, function(err) {
+          callback(err);
+        });
       }
     }
 
@@ -200,7 +211,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'git',
           args: args
-        }, callback);
+        }, function(err) {
+          callback(err);
+        });
       }
     }
 
@@ -217,7 +230,9 @@ module.exports = function (grunt) {
         grunt.util.spawn({
           cmd: 'npm',
           args: args
-        }, callback);
+        }, function(err) {
+          callback(err);
+        });
       }
     }
 
