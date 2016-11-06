@@ -7,7 +7,7 @@ module.exports = function (grunt) {
       done = this.async();
 
     if (noWrite) {
-      grunt.log.writeln('bash-version dry run');
+      grunt.log.writeln('bash-version dry run with version: ' + version);
     }
     if (!noWrite) {
       grunt.file.write(g.bashVersionFile, version);
