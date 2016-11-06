@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   var
     g = require('../globals');
 
-  grunt.registerTask('history-help-add-commit-push', 'Git add/commit/push ' + g.historyFile, function () {
+  grunt.registerTask('history-help-add-commit', 'Git add/commit ' + g.historyFile, function () {
     var
       done = this.async(),
       commitMsg = g.UPDATING_HISTORY_COMMIT_MSG + ' [skip ci]',
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
       ];
 
     if (noWrite) {
-      grunt.log.writeln('history-help-add-commit-push dry run');
+      grunt.log.writeln('history-help-add-commit dry run');
       grunt.log.ok('git ' + args.join(' '));
       grunt.log.ok('git commit -m ' + commitMsg);
       grunt.log.ok('git push');
@@ -37,16 +37,6 @@ module.exports = function (grunt) {
             if (err) {
               grunt.fail.fatal('Unable to run "git commit" ' + err);
               return done();
-            } else {
-              grunt.util.spawn({
-                cmd: 'git',
-                args: ['push']
-              }, function (err) {
-                if (err) {
-                  grunt.fail.fatal('Unable to run "git push" ' + err);
-                }
-                done();
-              });
             }
           });
         }

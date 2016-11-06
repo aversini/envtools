@@ -327,16 +327,15 @@
              .then(ifEnabled('beforeBump', runTasks('beforeBump')))
              .then(ifEnabled('bump', bump))
              .then(ifEnabled('afterBump', runTasks('afterBump')))
-
              .then(ifEnabled('changelog', changelog))
              .then(ifEnabled('add', add))
              .then(ifEnabled('commit', commit))
              .then(ifEnabled('tag', tag))
-             .then(ifEnabled('push', push))
-             .then(ifEnabled('pushTags', pushTags))
              // envtools update
              .then(ifEnabled('beforeRelease', runTasks('beforeRelease')))
              // envtools end of update
+             .then(ifEnabled('push', push))
+             .then(ifEnabled('pushTags', pushTags))
              .then(ifEnabled('npm', publish))
              .then(ifEnabled('github', githubRelease))
              .then(ifEnabled('afterRelease', runTasks('afterRelease')))

@@ -182,7 +182,7 @@ module.exports = function (grunt) {
           'bash-version',
           'history-generate',
           'help-generate',
-          'history-help-add-commit-push'
+          'history-help-add-commit'
         ]
       }
     }
