@@ -73,10 +73,7 @@
     "istanbul": "*",
     "load-grunt-tasks": "*",
     "mocha": "*",
-    "mocha-lcov-reporter": "*",
-    "q": "*",
-    "shelljs": "*",
-    "superagent": "*"
+    "mocha-lcov-reporter": "*"
   },
   "keywords": [
     "envtools"
