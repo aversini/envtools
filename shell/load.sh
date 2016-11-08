@@ -47,7 +47,10 @@ else
 
   if isWindows || isLinux || isMac; then
     # Loading some functions
-    source "${ENVDIR}/third/git-prompt.sh"
+    if isInstalled "git"; then
+      source "${ENVDIR}/third/git-prompt.sh"
+      source "${ENVDIR}/third/git-completion.sh"
+    fi
     source "${ENVDIR}/functions/prompt.sh"
     source "${ENVDIR}/functions/logs.sh"
 
