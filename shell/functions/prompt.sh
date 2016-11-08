@@ -214,7 +214,11 @@ function setPromptGitBranchStatusColor {
   if isValid "$1"; then
     G_COLOR="$1"
   fi
-  PROMPT_GIT="$G_COLOR\$(__git_ps1 '(git:%s) ')$COLOR_DEFAULT"
+  if isInstalled "git"; then
+    PROMPT_GIT="$G_COLOR\$(__git_ps1 '(git:%s) ')$COLOR_DEFAULT"
+  else
+    PROMPT_GIT=""
+  fi
 }
 function setPromptIndicator {
   local I_BEFORE=""
@@ -319,7 +323,11 @@ function setEnvtoolsLitePrompt {
 # arg1: what should appear before git branch status.
 # arg2: what should appear after the git branch status.
 function setCommandPromptWithGit {
-  local GIT_STATUS="$COLOR_GREEN\$(__git_ps1 '(git:%s) ')$COLOR_DEFAULT"
+  local GIT_STATUS=""
+
+  if isInstalled "git"; then
+    GIT_STATUS="$COLOR_GREEN\$(__git_ps1 '(git:%s) ')$COLOR_DEFAULT"
+  fi
 
   if isValid "$1"; then
     PS1_BEFORE="$1"

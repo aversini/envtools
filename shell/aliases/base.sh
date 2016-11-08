@@ -51,7 +51,9 @@ if isValid "$ENVTOOLS_FULL"; then
   alias fgrs='node $TOOLSDIR/fgrs.js'
   alias ff='node $TOOLSDIR/ff.js'
   alias fd='node $TOOLSDIR/ff.js --type d $@'
-  alias gith='node $TOOLSDIR/gith.js'
+  if isInstalled "git"; then
+    alias gith='node $TOOLSDIR/gith.js'
+  fi
 fi
 
 # Open help file

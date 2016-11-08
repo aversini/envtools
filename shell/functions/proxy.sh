@@ -153,13 +153,15 @@ function setNpmProxy {
 }
 
 function setGitProxy {
-  if isValid $1; then
-    if [ "$2" == "ON" ]; then
-      cmd "git config --global http.proxy ${PROXY}"
-      cmd "git config --global https.proxy ${PROXY}"
-    elif [ "$2" == "OFF" ]; then
-      cmd "git config --global --remove-section http" "ignore"
-      cmd "git config --global --remove-section https" "ignore"
+  if isInstalled "git"; then
+    if isValid $1; then
+      if [ "$2" == "ON" ]; then
+        cmd "git config --global http.proxy ${PROXY}"
+        cmd "git config --global https.proxy ${PROXY}"
+      elif [ "$2" == "OFF" ]; then
+        cmd "git config --global --remove-section http" "ignore"
+        cmd "git config --global --remove-section https" "ignore"
+      fi
     fi
   fi
 }
