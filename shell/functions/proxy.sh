@@ -121,33 +121,35 @@ function setEnvProxy {
 }
 
 function setNpmProxy {
-  if isValid $1; then
-    local SET_PROXY=true
-    local PROXY_VALUE="${PROXY}"
-    export SINOPIA_STATUS="N/A"
+  if isInstalled "npm"; then
+    if isValid $1; then
+      local SET_PROXY=true
+      local PROXY_VALUE="${PROXY}"
+      export SINOPIA_STATUS="N/A"
 
-    # Need to check if Sinopia is ON or OFF.
-    # If ON, it is the proxy for NPM, which means we need to
-    # remove the actual proxy entries in .npmrc
-    if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
-      local LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
-      if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
-        SET_PROXY=false
-        export SINOPIA_STATUS="ON"
+      # Need to check if Sinopia is ON or OFF.
+      # If ON, it is the proxy for NPM, which means we need to
+      # remove the actual proxy entries in .npmrc
+      if [ -f "${RUNTIME_DIR}/sinopia_status" ]; then
+        local LOCAL_SINOPIA_STATUS=`cat "${RUNTIME_DIR}/sinopia_status"`
+        if [ "$LOCAL_SINOPIA_STATUS" == "ON" ]; then
+          SET_PROXY=false
+          export SINOPIA_STATUS="ON"
+          cmd "npm config delete proxy"
+          cmd "npm config delete https-proxy"
+        fi
+        if [ "$LOCAL_SINOPIA_STATUS" == "OFF" ]; then
+          export SINOPIA_STATUS="OFF"
+        fi
+      fi
+
+      if [ "$2" == "ON" -a $SET_PROXY == true ]; then
+        cmd "npm config set proxy ${PROXY_VALUE}"
+        cmd "npm config set https-proxy ${PROXY_VALUE}"
+      elif [ "$2" == "OFF" -a $SET_PROXY == true ]; then
         cmd "npm config delete proxy"
         cmd "npm config delete https-proxy"
       fi
-      if [ "$LOCAL_SINOPIA_STATUS" == "OFF" ]; then
-        export SINOPIA_STATUS="OFF"
-      fi
-    fi
-
-    if [ "$2" == "ON" -a $SET_PROXY == true ]; then
-      cmd "npm config set proxy ${PROXY_VALUE}"
-      cmd "npm config set https-proxy ${PROXY_VALUE}"
-    elif [ "$2" == "OFF" -a $SET_PROXY == true ]; then
-      cmd "npm config delete proxy"
-      cmd "npm config delete https-proxy"
     fi
   fi
 }
@@ -181,31 +183,33 @@ function setAtomProxy {
 }
 
 function setSinopia {
-  if [ "$1" == "ON" ]; then
-    echo "ON" > "${RUNTIME_DIR}/sinopia_status"
-    PROXY_VALUE="http://localhost:4873/"
-    export SINOPIA_STATUS="ON"
-    cmd "npm config delete proxy"
-    cmd "npm config delete https-proxy"
-    cmd "npm config set registry ${PROXY_VALUE}"
-    reloadEnvironment
-  elif [ "$1" == "OFF" ]; then
-    cmd "npm config set registry http://registry.npmjs.org/"
-    echo "OFF" > "${RUNTIME_DIR}/sinopia_status"
-    export SINOPIA_STATUS="OFF"
-    # Here is depends if proxy is ON or OFF...
-    # If it's ON, we need to reset the npm proxy to the actual
-    # proxy value, if it's OFF we just need to remove it.
-    if [ "${PROXY_STATUS}" == "OFF" -o "${PROXY_STATUS}" == "N/A" ]; then
+  if isInstalled "npm"; then
+    if [ "$1" == "ON" ]; then
+      echo "ON" > "${RUNTIME_DIR}/sinopia_status"
+      PROXY_VALUE="http://localhost:4873/"
+      export SINOPIA_STATUS="ON"
       cmd "npm config delete proxy"
       cmd "npm config delete https-proxy"
-    else
-      cmd "npm config set proxy ${PROXY}"
-      cmd "npm config set https-proxy ${PROXY}"
+      cmd "npm config set registry ${PROXY_VALUE}"
+      reloadEnvironment
+    elif [ "$1" == "OFF" ]; then
+      cmd "npm config set registry http://registry.npmjs.org/"
+      echo "OFF" > "${RUNTIME_DIR}/sinopia_status"
+      export SINOPIA_STATUS="OFF"
+      # Here is depends if proxy is ON or OFF...
+      # If it's ON, we need to reset the npm proxy to the actual
+      # proxy value, if it's OFF we just need to remove it.
+      if [ "${PROXY_STATUS}" == "OFF" -o "${PROXY_STATUS}" == "N/A" ]; then
+        cmd "npm config delete proxy"
+        cmd "npm config delete https-proxy"
+      else
+        cmd "npm config set proxy ${PROXY}"
+        cmd "npm config set https-proxy ${PROXY}"
+      fi
+      reloadEnvironment
     fi
-    reloadEnvironment
+    `envtools notifier --title 'Sinopia Proxy Status Changed' --message "Sinopia Proxy is $1"`
   fi
-  `envtools notifier --title 'Sinopia Proxy Status Changed' --message "Sinopia Proxy is $1"`
 }
 
 function displayProxyStatus {
