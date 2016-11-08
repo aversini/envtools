@@ -1,4 +1,8 @@
 
+__0.0.162 / 2016-11-07__
+
+- Do not run git commands/prompt if git is not installed ([9be15cd](https://github.com/aversini/envtools/commit/9be15cd059f460edf50453ca1793b0c0788b3be8))
+
 __0.0.161 / 2016-11-07__
 
 - Adding git-completion support ([fd2d9b0](https://github.com/aversini/envtools/commit/fd2d9b005b6133bd9990e37e01d35e964e917553))
