@@ -1,4 +1,12 @@
 
+__0.0.163 / 2016-11-08__
+
+- Adding extra option to git to not fail in case of ssl certificate issue ([b0c4272](https://github.com/aversini/envtools/commit/b0c42728e3e1f947570c9d37845fd1981e25399d))
+- [win] update dir-colors for windows terminals ([aca1b30](https://github.com/aversini/envtools/commit/aca1b3068dc2ce90b732e33fbce52694497301ab))
+- [help] removing some introduction data when not applicable ([ba617d3](https://github.com/aversini/envtools/commit/ba617d3ed4a0dd9e1afc573443b83c12d84c6e41))
+- Adding proxy info when starting sinopia ([cf1b9f1](https://github.com/aversini/envtools/commit/cf1b9f140acbf07b35b6fe4aa0c26dcb03969bc5))
+- Do not run npm commands if npm is not installed ([66888c6](https://github.com/aversini/envtools/commit/66888c6182941f1fdef61fe19c915a6eea0fcc30))
+
 __0.0.162 / 2016-11-07__
 
 - Do not run git commands/prompt if git is not installed ([9be15cd](https://github.com/aversini/envtools/commit/9be15cd059f460edf50453ca1793b0c0788b3be8))
