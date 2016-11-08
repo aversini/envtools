@@ -1,4 +1,11 @@
 
+__0.0.161 / 2016-11-07__
+
+- Adding git-completion support ([fd2d9b0](https://github.com/aversini/envtools/commit/fd2d9b005b6133bd9990e37e01d35e964e917553))
+- Bumping grunt-import to latest version ([bec44bf](https://github.com/aversini/envtools/commit/bec44bf7bc68a1451f16234052efb0ab6eb49fe5))
+- bumping to fs-extra latest release ([16c8caa](https://github.com/aversini/envtools/commit/16c8caa2f585118538135907e00e6c7d59448b32))
+- Getting rid of old dev dependency ([0c76f19](https://github.com/aversini/envtools/commit/0c76f19e296dc5b9128ab741b3c3b911f41bb4de))
+
 __0.0.160 / 2016-11-06__
 
 - [build] re-enabling push (should be all fine now) ([b7f6e96](https://github.com/aversini/envtools/commit/b7f6e96320d1b8e6b7a9d3df65a569c3030616b9))
