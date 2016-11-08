@@ -23,10 +23,6 @@ fi
 # extra tools provided by Envtools
 export PATH=$PATH:$RUNTIME_BIN_DIR
 
-if isMac; then
-  source "${ENVDIR}/exports/mac.sh"
-fi
-
 # Improve history search with up and down keys.
 # Try typing ls
 # and then up and down arrows... joy!
@@ -36,10 +32,10 @@ if [[ $- == *i* ]]; then
   bind '"\e[B":history-search-forward'
 fi
 
-# Extend the max # of open files per terminal session
 if isMac; then
-  ulimit -n 7168 >/dev/null 2>&1
+  source "${ENVDIR}/exports/mac.sh"
 fi
+
 if isWindows; then
-  ulimit -n 3072 >/dev/null 2>&1
+  source "${ENVDIR}/exports/windows.sh"
 fi

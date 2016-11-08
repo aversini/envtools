@@ -1,3 +1,6 @@
+# Extend the max # of open files per terminal session
+ulimit -n 7168 >/dev/null 2>&1
+
 # Sublime
 if [ -f "$HOME/Library/Application Support/Sublime Text 3/Packages" ]; then
   export SUBLIME_PKG="$HOME/Library/Application Support/Sublime Text 3/Packages"
