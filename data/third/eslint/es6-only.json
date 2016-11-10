@@ -1,0 +1,37 @@
+{
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "arrow-spacing": "warn",
+    "constructor-super": "error",
+    "generator-star-spacing": "warn",
+    "no-class-assign": "error",
+    "no-confusing-arrow": "error",
+    "no-const-assign": "error",
+    "no-dupe-class-members": "error",
+    "no-duplicate-imports": "warn",
+    "no-new-symbol": "error",
+    "no-restricted-imports": "off",
+    "no-this-before-super": "error",
+    "no-useless-computed-key": "off",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "off",
+    "no-var": "warn",
+    "object-shorthand": "warn",
+    "prefer-arrow-callback": "off",
+    "prefer-const": "warn",
+    "prefer-numeric-literals": "warn",
+    "prefer-rest-params": "warn",
+    "prefer-spread": "warn",
+    "prefer-template": "warn",
+    "require-yield": "error",
+    "rest-spread-spacing": "error",
+    "sort-imports": "off",
+    "symbol-description": "off",
+    "template-curly-spacing": "error",
+    "yield-star-spacing": "off"
+  }
+}

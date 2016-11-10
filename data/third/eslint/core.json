@@ -4,8 +4,7 @@
     "builtin": true,
     "jasmine": true,
     "mocha": true,
-    "node": true,
-    "es6": true
+    "node": true
   },
   "globals": {
     "chai": false,
@@ -16,7 +15,7 @@
   "rules": {
     "accessor-pairs": "off",
     "array-bracket-spacing": "warn",
-    "array-callback-return": "off",
+    "array-callback-return": "error",
     "arrow-body-style": "off",
     "arrow-parens": "off",
     "arrow-spacing": "off",
@@ -55,6 +54,7 @@
       "error",
       "smart"
     ],
+    "func-call-spacing": "warn",
     "func-names": "off",
     "func-style": "off",
     "generator-star-spacing": "off",
@@ -131,6 +131,7 @@
     "no-fallthrough": "error",
     "no-floating-decimal": "error",
     "no-func-assign": "error",
+    "no-global-assign": "error",
     "no-implicit-coercion": "warn",
     "no-implicit-globals": "off",
     "no-implied-eval": "error",
@@ -166,7 +167,7 @@
     "no-nested-ternary": "warn",
     "no-new": "warn",
     "no-new-func": "error",
-    "no-new-object": "off",
+    "no-new-object": "warn",
     "no-new-require": "warn",
     "no-new-symbol": "off",
     "no-new-wrappers": "error",
@@ -207,6 +208,7 @@
     "no-unmodified-loop-condition": "error",
     "no-unneeded-ternary": "off",
     "no-unreachable": "error",
+    "no-unsafe-negation": "error",
     "no-unused-expressions": "off",
     "no-unused-labels": "error",
     "no-unused-vars": "error",
@@ -232,13 +234,14 @@
     ],
     "prefer-arrow-callback": "off",
     "prefer-const": "off",
+    "prefer-numeric-literals": "off",
     "prefer-reflect": "off",
     "prefer-rest-params": "off",
     "prefer-spread": "off",
     "prefer-template": "off",
     "quote-props": [
       "warn",
-      "consistent"
+      "as-needed"
     ],
     "quotes": ["warn", "single", {
       "allowTemplateLiterals": true
