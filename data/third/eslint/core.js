@@ -163,7 +163,7 @@ module.exports = {
     'no-mixed-requires': 'off',
     'no-mixed-spaces-and-tabs': 'error',
     'no-multi-spaces': 'warn',
-    'no-multi-str': 'off',
+    'no-multi-str': 'warn',
     'no-multiple-empty-lines': [
       'warn', {
         max: 2
@@ -182,7 +182,9 @@ module.exports = {
     'no-obj-calls': 'error',
     'no-octal': 'error',
     'no-octal-escape': 'error',
-    'no-param-reassign': 'off',
+    'no-param-reassign': ['error', {
+      props: false
+    }],
     'no-path-concat': 'warn',
     'no-plusplus': 'off',
     'no-process-env': 'off',
@@ -193,6 +195,7 @@ module.exports = {
     'no-restricted-globals': 'off',
     'no-restricted-imports': 'off',
     'no-restricted-modules': 'off',
+    'no-restricted-properties': 'off',
     'no-restricted-syntax': 'off',
     'no-return-assign': 'error',
     'no-script-url': 'error',
