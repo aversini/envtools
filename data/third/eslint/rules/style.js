@@ -44,7 +44,6 @@ module.exports = {
     'id-match': 'off',
     // enforce consistent indentation
     'indent': ['error', 2, {
-      SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
       FunctionDeclaration: {
