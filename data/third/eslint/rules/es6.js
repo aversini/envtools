@@ -36,13 +36,16 @@ module.exports = {
     'no-new-symbol': 'error',
     // disallow specific imports
     'no-restricted-imports': 'off',
+    // disallow template literal placeholder syntax in regular strings
+    'no-template-curly-in-string': 'error',
     // disallow to use this/super before super() calling in constructors.
     'no-this-before-super': 'error',
     // disallow useless computed property keys
     'no-useless-computed-key': 'off',
     // disallow unnecessary constructor
     'no-useless-constructor': 'error',
-    // disallow renaming import, export, and destructured assignments to the same name
+    // disallow renaming import, export, and destructured assignments
+    // to the same name
     'no-useless-rename': 'off',
     // require let or const instead of var
     'no-var': 'warn',
@@ -50,7 +53,8 @@ module.exports = {
     'object-shorthand': 'warn',
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': 'off',
-    // suggest using of const for variables that are never modified after declared
+    // suggest using of const for variables that are never modified
+    // after declared
     'prefer-const': 'warn',
     // disallow parseInt() in favor of binary, octal, and hexadecimal literals
     'prefer-numeric-literals': 'warn',
