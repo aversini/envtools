@@ -51,9 +51,6 @@
     "optimist": "~0.6.1",
     "semver": "^5.3.0"
   },
-  "optionalDependencies": {
-    "posix": "^4.0.0"
-  },
   "devDependencies": {
     "chai": "*",
     "coveralls": "*",
