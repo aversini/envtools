@@ -1,4 +1,18 @@
 
+__0.0.164 / 2016-11-12__
+
+- Optimizing `ff` for windows ([5318431](https://github.com/aversini/envtools/commit/5318431de040e5490dfb7e0509b22e619eb6287a))
+- Removing posix dependency ([316d778](https://github.com/aversini/envtools/commit/316d77887870f13d646fea4eb4dded664aa8b80d))
+- [eslint] removing js formating (only json will be supported by envtools) ([3d82e16](https://github.com/aversini/envtools/commit/3d82e1622eecb6b7a2312f6046512fc5491fd9b9))
+- [eslint] revert es6 coding since node v4 is not supporting it perfectly.. ([b1d63eb](https://github.com/aversini/envtools/commit/b1d63eb75ea509efa89364b44d4bd70be81a62e4))
+- Revert using 'let'... to continue to support node 4 ([fc6d598](https://github.com/aversini/envtools/commit/fc6d598297e256a22357e4b81a071845d8deb52e))
+- [eslint] reverting switch case indent requirement ([f9b0294](https://github.com/aversini/envtools/commit/f9b0294ee1a284ff0ed27447981dbc00d20feb89))
+- [eslint] small typo ([d1dd747](https://github.com/aversini/envtools/commit/d1dd747cb14a4300607882b7f8548babf1d49aa4))
+- [eslint] complete rewrite ([8961b09](https://github.com/aversini/envtools/commit/8961b0994e5ff2cf27df79822db11652057db73f))
+- [eslint] only style.js left ([59c6660](https://github.com/aversini/envtools/commit/59c6660c8ab20fb590b1ce9fdbb3935b86a2a500))
+- Better ESLint configuration options ([1cf9f36](https://github.com/aversini/envtools/commit/1cf9f366e5ca7d66cbc7df779d2a1cbf0ebddcea))
+- Removing duplicate routing for 'config' ([068c8eb](https://github.com/aversini/envtools/commit/068c8ebc04675ce510a6ce5ae083f8fa2da552ef))
+
 __0.0.163 / 2016-11-08__
 
 - Adding extra option to git to not fail in case of ssl certificate issue ([b0c4272](https://github.com/aversini/envtools/commit/b0c42728e3e1f947570c9d37845fd1981e25399d))
