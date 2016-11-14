@@ -223,7 +223,7 @@ function displayProxyStatus {
     export PROXY_STATUS=$LOCAL_PROXY_STATUS
     setEnvProxy "${PROXY}" "${LOCAL_PROXY_STATUS}"
     echo
-    txtStatus "Proxies are ${LOCAL_PROXY_STATUS}" "NOTICE"
+    txtStatus "Proxies are ${LOCAL_PROXY_STATUS} ($PROXY)" "NOTICE"
   else
     echo
     txtStatus "There is no proxy set" "NOTICE"
