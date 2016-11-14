@@ -3,17 +3,19 @@
 var
   res,
   latest,
+  _ = require('lodash'),
   moment = require('moment'),
   config = require('fedtools-config'),
   download = require('download'),
-  url = 'https://github.com/aversini/versions/raw/master/versions.json';
+  url = 'https://raw.githubusercontent.com/aversini/versions/master/versions.json';
 
-function _terminate () {
+function _terminate() {
   // Call process exit explicitly to terminate the child process
   // Otherwise the child process will run forever.
   process.exit();
 }
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 download(url, {
   timeout: 30000,
   retries: 0
@@ -24,10 +26,10 @@ download(url, {
       latest = res.envtools.version;
       // need to mark version as checked and push
       // the expiration date to 1 day
-      config.setKey('envtoolsVersion', {
+      config.setKey('envtoolsversion', _.extend(config.getKey('envtoolsversion'), {
         expiration: moment().add(1, 'd'),
         latest: latest
-      }, true, true);
+      }), true, true);
     }
   }
   _terminate();
