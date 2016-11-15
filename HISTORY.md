@@ -1,4 +1,15 @@
 
+__0.0.165 / 2016-11-14__
+
+- Allowing proxy to be entered full ([69ab957](https://github.com/aversini/envtools/commit/69ab9573a0477431ba7be17ea83378000c72226f))
+- Adding proxy url to `pq` ([08910f6](https://github.com/aversini/envtools/commit/08910f6b519788adb1be5779cf8ab1df5282b00a))
+- Removing smart proxy detection ([70becfb](https://github.com/aversini/envtools/commit/70becfb74e9924abdfcc020e7e3a2401b07b25b0))
+- [eslint] fixing `envtools auto` mode ([b05f0eb](https://github.com/aversini/envtools/commit/b05f0eb2789f0ae742548747d33976f43e449e9c))
+- Do not crash if the configuration file is empty... ([5dd06f2](https://github.com/aversini/envtools/commit/5dd06f26a0bd56f4c8885987c92802c21c1b3b90))
+- Better `envtools config` ([cafbce8](https://github.com/aversini/envtools/commit/cafbce81cfbd3bcfa5cb39eaad024284747638a1))
+- [envtools config] adding option to ask for version check ([3039783](https://github.com/aversini/envtools/commit/3039783c14092c083522bb0c7bd7620fde3a44b6))
+- Fixing `envtools lite` for freaking Windows ([5a706e3](https://github.com/aversini/envtools/commit/5a706e3363fa26833f2abb4f2ed27dc4f6e7c5bc))
+
 __0.0.164 / 2016-11-12__
 
 - Optimizing `ff` for windows ([5318431](https://github.com/aversini/envtools/commit/5318431de040e5490dfb7e0509b22e619eb6287a))
