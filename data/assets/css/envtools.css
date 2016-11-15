@@ -41,6 +41,9 @@ body.envtools-help {
   position: fixed;
   background-color: #FFF;
   width: 740px;
+  /* fadding bottom part of the header */
+  padding-bottom: 20px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0) 0, #fff 10%);
 }
 
 .envtools-help .content {
@@ -116,7 +119,9 @@ body.envtools-help {
   order: 3;
 }
 
+
 /* a11y recommendations */
+
 .alert a {
   color: rgb(39, 118, 181);
 }
