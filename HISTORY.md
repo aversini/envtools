@@ -1,4 +1,17 @@
 
+__0.0.167 / 2016-11-16__
+
+- [faq] adding highlighting ([433aca0](https://github.com/aversini/envtools/commit/433aca04b748a4c6d42416c47d89a8880502654f))
+- [faq] more actual content ([4259b6e](https://github.com/aversini/envtools/commit/4259b6e205395d7d6a0b17bc9e71eadffe2194e1))
+- [faq] adding support for tags ([bbc9ba9](https://github.com/aversini/envtools/commit/bbc9ba9ea2f4ba3afdfc90cddeb88abab7cf3cbc))
+- [faq] changing header titles ([091bedf](https://github.com/aversini/envtools/commit/091bedfe8de674907d4dc87dd601603d705bb46d))
+- Making sure that faqs.id are present and not duplicated ([21741d1](https://github.com/aversini/envtools/commit/21741d1609d556a4306189603bea4dfd00e34a61))
+- First commit for FAQ ([e2dde19](https://github.com/aversini/envtools/commit/e2dde19354858502d4c8b2ecae5e97b5d956a6d3))
+  - adding lunr.js to support search within the FAQ
+  - adding extra FAQ tab to help page
+  - first FAQ entry (custom prompt)
+  
+
 __0.0.166 / 2016-11-16__
 
 - Adding sds ([1b6848d](https://github.com/aversini/envtools/commit/1b6848da28da9c82ffa1827f6f214c628bb7ae9d))
