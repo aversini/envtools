@@ -148,9 +148,10 @@ module.exports = function (grunt) {
       js: {
         src: [
           'data/assets/js/jquery-3.1.1.slim.min.js',
+          'data/assets/js/jquery.highlight.js',
           'data/assets/js/highlight.pack.js',
           'data/assets/js/bootstrap.min.js',
-          'data/assets/js/lunrjs.min.js',
+          'data/assets/js/lunr.min.js',
           'data/assets/js/envtools.js'
         ],
         dest: 'data/assets/js/bundle.js'

@@ -41,6 +41,8 @@ body.envtools-help {
   position: fixed;
   background-color: #FFF;
   width: 740px;
+  /* needed to hide glyphicons from the main page */
+  z-index: 1;
   /* fadding bottom part of the header */
   padding-bottom: 20px;
   background: linear-gradient(to top, rgba(255, 255, 255, 0) 0, #fff 10%);
@@ -121,6 +123,10 @@ body.envtools-help {
 
 .envtools-help .faq-tag-badge {
   margin-right: 5px;
+}
+
+.envtools-help .faq-highlight, .envtools-help .highlight {
+  background-color: yellow;
 }
 
 

@@ -28,12 +28,17 @@ $(function () {
       res,
       query = $(self).val();
 
-    console.log('==> query: ', query);
+    // reset highlight
+    $('.faq-content p').unhighlight();
+
     res = index.search(query);
     if (res && res.length) {
+      $('.faq-content p').highlight(query);
+
       $('.faq-entry').each(function (entry, data) {
         $(data).addClass('hidden');
       });
+
       $.each(res, function (i, item) {
         $('#' + item.ref).removeClass('hidden');
       });
