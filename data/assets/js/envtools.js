@@ -101,9 +101,16 @@ $(function () {
   if (dataJson && dataJson.faqData) {
     $.each(dataJson.faqData, function (i, faq) {
       var
+        tagEl = $('<div class="faq-tags">'),
         el = $('<div id="' + faq.id + '" class="faq-entry">')
         .append($('<p class="h3 faq-title">').text(faq.title))
         .append($('<div class="faq-content">').html(faq.content));
+      if (faq.tags && faq.tags.length) {
+        tagEl.append(faq.tags.sort().map(function (tag) {
+          return $('<span class=" faq-tag-badge badge">').text(tag);
+        }));
+      }
+      el.append(tagEl);
       if (faq.group) {
         $('#' + faq.group).append(el);
       } else {

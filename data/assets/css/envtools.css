@@ -119,6 +119,10 @@ body.envtools-help {
   order: 3;
 }
 
+.envtools-help .faq-tag-badge {
+  margin-right: 5px;
+}
+
 
 /* a11y recommendations */
 
