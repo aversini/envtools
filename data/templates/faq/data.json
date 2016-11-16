@@ -1,0 +1,18 @@
+[{
+  "title": "My custom prompt disappeared, how do I get it back?",
+  "tags": ["prompt"],
+  "content": "<p>Envtools comes with a few custom bash prompts (displaying some extra information like proxy, sinopia, git or node status). If you ran <code>envtools auto</code>, Envtools is installing its default prompt (the one displaying proxy and git status). You can change this by running <code>envtools config</code> and disable the option called <em>Enable Envtools Custom Command Line Prompt.</em></p> ",
+  "id": 1,
+  "group": "faq-general"
+}, {
+  "title": "the second one",
+  "tags": ["css"],
+  "content": "the content of the second",
+  "id": "some-id"
+}, {
+  "title": "some other random question",
+  "tags": ["html", "css"],
+  "content": "the content of that other question faq",
+  "id": 3,
+  "group": "faq-misc"
+}]

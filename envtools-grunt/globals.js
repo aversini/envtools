@@ -18,5 +18,8 @@ module.exports = {
   bundleCSS: 'data/assets/css/bundle.css',
   bundleJS: 'data/assets/js/bundle.js',
 
-  helpJsonDataFile: 'tmp/envtools-json-data.html'
+  helpJsonDataFile: 'tmp/envtools-json-data.html',
+
+  faqJsonDataFile: 'data/templates/faq/data.json',
+  faqJsonIndexFile: 'tmp/index.json'
 };

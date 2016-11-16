@@ -1,3 +1,4 @@
+/* eslint no-console:0*/
 module.exports = function (grunt) {
   var
     path = require('path'),
@@ -33,13 +34,13 @@ module.exports = function (grunt) {
       }
     },
 
-    'htmlmin': { // Task
-      help: { // Target
-        options: { // Target options
+    'htmlmin': {
+      help: {
+        options: {
           removeComments: true,
           collapseWhitespace: true
         },
-        files: { // Dictionary of files
+        files: {
           'index.html': 'index.html'
         }
       }
@@ -58,6 +59,12 @@ module.exports = function (grunt) {
         files: [{
           src: ['data/templates/help/envtools-help.html'],
           dest: 'tmp/help.html'
+        }]
+      },
+      faq: {
+        files: [{
+          src: ['data/templates/help/envtools-faq.html'],
+          dest: 'tmp/envtools-faq.html'
         }]
       },
       sinopia: {
@@ -143,6 +150,7 @@ module.exports = function (grunt) {
           'data/assets/js/jquery-3.1.1.slim.min.js',
           'data/assets/js/highlight.pack.js',
           'data/assets/js/bootstrap.min.js',
+          'data/assets/js/lunrjs.min.js',
           'data/assets/js/envtools.js'
         ],
         dest: 'data/assets/js/bundle.js'
@@ -195,6 +203,7 @@ module.exports = function (grunt) {
   grunt.registerTask('help-generate', [
     'clean',
     'copy',
+    'lunrjs-index',
     'help-json-data',
     'markdown:rawHistory',
     'import:help',
@@ -204,11 +213,6 @@ module.exports = function (grunt) {
     'concat:js',
     'concat:css'
   ]);
-
-  // grunt.registerTask('publish', [
-    // 'npm-pre-release', // checking if dirty, sinopia on/off, etc.
-    // 'envtools-release'
-  // ]);
 
   grunt.registerTask('help', 'Display help usage', function () {
     grunt.log.subhead('Grunt [ ' + this.name.cyan + ' ]');
