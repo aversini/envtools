@@ -1,4 +1,10 @@
 
+__0.0.166 / 2016-11-16__
+
+- Adding sds ([1b6848d](https://github.com/aversini/envtools/commit/1b6848da28da9c82ffa1827f6f214c628bb7ae9d))
+- Fix `fedtools config` that got broken by the previous configuration optimization ([f7ab45e](https://github.com/aversini/envtools/commit/f7ab45e5d1bf351909fc71840495e9565ed99837))
+- [help] fading bottom part of header ([ddcc317](https://github.com/aversini/envtools/commit/ddcc317782ebe83101277b946c7faf830fb63b1a))
+
 __0.0.165 / 2016-11-14__
 
 - Allowing proxy to be entered full ([69ab957](https://github.com/aversini/envtools/commit/69ab9573a0477431ba7be17ea83378000c72226f))
