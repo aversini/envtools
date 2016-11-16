@@ -1,18 +1,41 @@
 [{
-  "title": "My custom prompt disappeared, how do I get it back?",
-  "tags": ["prompt"],
-  "content": "<p>Envtools comes with a few custom bash prompts (displaying some extra information like proxy, sinopia, git or node status). If you ran <code>envtools auto</code>, Envtools is installing its default prompt (the one displaying proxy and git status). You can change this by running <code>envtools config</code> and disable the option called <em>Enable Envtools Custom Command Line Prompt.</em></p> ",
-  "id": 1,
-  "group": "faq-general"
-}, {
-  "title": "the second one",
-  "tags": ["css"],
-  "content": "the content of the second",
-  "id": "some-id"
-}, {
-  "title": "some other random question",
-  "tags": ["html", "css"],
-  "content": "the content of that other question faq",
-  "id": 3,
-  "group": "faq-misc"
-}]
+    "title": "My custom prompt disappeared, how do I get it back?",
+    "tags": ["prompt", "bash"],
+    "content": "<p>Envtools comes with a few custom bash prompts (displaying some extra information like proxy, sinopia, git or node status). If you ran <code>envtools auto</code>, Envtools is installing its default prompt (the one displaying proxy and git status). You can change this by running <code>envtools config</code> and disable the option called <em>Enable Envtools Custom Command Line Prompt.</em></p> ",
+    "id": "faq-1",
+    "group": "faq-general"
+  }, {
+    "title": "Envtools asks for a proxy... Do I need a proxy?",
+    "tags": ["proxy"],
+    "content": "<p>If you're asking, probably no <span class=\"glyphicon glyphicon-heart-empty\" aria-hidden=\"true\"></span>. This is an option mostly geared towards corporate employees who have to provide a proxy in order to access the internet.</p>",
+    "id": "faq-2",
+    "group": "faq-general"
+  }, {
+    "title": "I set up a proxy with Envtools and now I cannot connect to anything...",
+    "tags": ["proxy"],
+    "content": "<p>There could be at least 3 reasons why you cannot connect to anything anymore.</p><ul><li>You setup an invalid proxy.</li><li>You setup an valid proxy but it's not enabled.</li><li>You setup an valid proxy, it's enabled, but you don't need one.</li></ul><p>You can check the state of the proxy (ON or OFF) as well as what proxy is currently configured by typing the command <code>pq</code> in a command prompt. Make sure the proxy url is valid, including the protocol (http or https) and the port.</p><p>Once you figure what is wrong you can either enable/disable the proxy by typing <code>pon</code> or <code>poff</code> respectively, or you can reconfigure the actual proxy URL/protocol/port by typing <code>envtools manual</code> and choosing the option <em>Setup/Enable/Disable a proxy.</em></p>",
+    "id": "faq-3",
+    "group": "faq-general"
+  },
+
+
+  {
+    "title": "Envtools asks for my password, why is that?",
+    "tags": ["sudo", "local", "npm", "ruby", "password"],
+    "content": "<p>There are 2 cases where Envtools may need your password to run elevated actions. To being able to install node packages as well as ruby gems without requiring sudo all the time, Envtools will ask you if you want to change the ownership of the folder <code>/usr/local</code>. Another case would be if you did not agree to changing the ownership but subsequently asked to install a core node package. In that case, you need to provide your password.</p>",
+    "id": "faq-behind-1",
+    "group": "faq-behind"
+  }, {
+    "title": "Envtools says Maven has been installed, where is it?",
+    "tags": ["maven"],
+    "content": "<p><code>envtools auto</code> and <code>envtools manual</code> offer the option to install Maven for you. The location of that installation is <code>$HOME/.envtools/apache-maven-3.3.9</code></p>",
+    "id": "faq-behind-2",
+    "group": "faq-behind"
+  }, {
+    "title": "What does Envtools do why my git information?",
+    "tags": ["git", "github", "username"],
+    "content": "<p>If you ran <code>envtools auto</code> or <code>envtools manual</code> you may have been asked to provide several personal git information (namely your full name, your email and your github id if you have one). Envtools is using this data to generate a standard git configuration file under <code>$HOME/.gitconfig</code>. This file is in turn used by git for commits, clones, etc. The options are set by running the following commands:</p> <ul> <li><code>git config --global user.name your-full-name</code></li> <li><code>git config --global user.email your-email</code></li> <li><code>git config --global color.diff auto</code></li> <li><code>git config --global color.status auto</code></li> <li><code>git config --global color.ui auto</code></li> <li><code>git config --global url.\"https://github.com/\".insteadOf \"git://github.com/\"</code></li> <li><code>git config --global alias.st status</code></li> <li><code>git config --global alias.d diff</code></li> <li><code>git config --global alias.br branch</code></li> <li><code>git config --global alias.ci commit</code></li> <li><code>git config --global alias.co checkout</code></li> <li><code>git config --global diff.tool opendiff</code> (macOS only)</li> <li><code>git config --global merge.tool opendiff</code> (macOS only)</li> <li><code>git config --global push.default simple</code></li> <li><code>git config --global http.sslVerify false</code></li> </ul>",
+    "id": "faq-behind-3",
+    "group": "faq-behind"
+  }
+]
