@@ -7,7 +7,8 @@ module.exports = function (grunt) {
       g = require('../globals'),
       questions,
       rawData,
-      index;
+      index,
+      ids = [];
 
     index = lunr(function () {
       this.ref('id');
@@ -23,12 +24,21 @@ module.exports = function (grunt) {
     rawData = grunt.file.readJSON(g.faqJsonDataFile);
 
     questions = rawData.map(function (q) {
-      return {
-        id: q.id,
-        title: q.title,
-        content: q.content,
-        tags: q.tags.join(' ')
-      };
+      if (q.id) {
+        if (ids.indexOf(q.id) < 0) {
+          ids.push(q.id);
+          return {
+            id: q.id,
+            title: q.title,
+            content: q.content,
+            tags: (q.tags) ? q.tags.join(' ') : null
+          };
+        } else {
+          return grunt.fail.fatal('duplicate id found: ' + q.id);
+        }
+      } else {
+        return grunt.fail.fatal('missing required id!');
+      }
     });
 
     questions.forEach(function (question) {
