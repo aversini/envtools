@@ -1,5 +1,6 @@
 var
-  lunr = require('lunr');
+  lunr = require('lunr'),
+  striptags = require('striptags');
 
 module.exports = function (grunt) {
   grunt.registerTask('lunrjs-index', 'Generating lunr index', function () {
@@ -30,7 +31,7 @@ module.exports = function (grunt) {
           return {
             id: q.id,
             title: q.title,
-            content: q.content,
+            content: striptags(q.content),
             tags: (q.tags) ? q.tags.join(' ') : null
           };
         } else {
