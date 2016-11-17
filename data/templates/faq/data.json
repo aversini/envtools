@@ -44,7 +44,7 @@
     "id": "faq-behind-2",
     "group": "faq-behind"
   }, {
-    "title": "What does Envtools do why my git information?",
+    "title": "What does Envtools do with my git information?",
     "tags": ["git", "github", "username"],
     "content": "<p>If you ran <code>envtools auto</code> or <code>envtools manual</code> you may have been asked to provide several personal git information (namely your full name, your email and your github id if you have one). Envtools is using this data to generate a standard git configuration file under <code>$HOME/.gitconfig</code>. This file is in turn used by git for commits, clones, etc. The options are set by running the following commands:</p> <ul> <li><code>git config --global user.name your-full-name</code></li> <li><code>git config --global user.email your-email</code></li> <li><code>git config --global color.diff auto</code></li> <li><code>git config --global color.status auto</code></li> <li><code>git config --global color.ui auto</code></li> <li><code>git config --global url.\"https://github.com/\".insteadOf \"git://github.com/\"</code></li> <li><code>git config --global alias.st status</code></li> <li><code>git config --global alias.d diff</code></li> <li><code>git config --global alias.br branch</code></li> <li><code>git config --global alias.ci commit</code></li> <li><code>git config --global alias.co checkout</code></li> <li><code>git config --global diff.tool opendiff</code> (macOS only)</li> <li><code>git config --global merge.tool opendiff</code> (macOS only)</li> <li><code>git config --global push.default simple</code></li> <li><code>git config --global http.sslVerify false</code></li> </ul>",
     "id": "faq-behind-3",
