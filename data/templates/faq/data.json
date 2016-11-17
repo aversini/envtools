@@ -1,4 +1,10 @@
 [{
+    "title": "Is there a way to recover a file Envtools may have modified?",
+    "tags": ["backup", "restore", "recover"],
+    "content": "<p>Any existing files that are being modified or removed by Envtools are backed up under <code>$HOME/.envtools/backup</code></p><p>For example if you execute a command via Envtools at precisely 4:31pm on November 5th 2016, a backup folder will be created and filled with any files that may have been changed. The folder is that case would be: <code>$HOME/.envtools/backup/11052016-16h31m/</code></p> ",
+    "id": "faq-0",
+    "group": "faq-general"
+  }, {
     "title": "My custom prompt disappeared, how do I get it back?",
     "tags": ["prompt", "bash"],
     "content": "<p>Envtools comes with a few custom bash prompts (displaying some extra information like proxy, sinopia, git or node status). If you ran <code>envtools auto</code>, Envtools is installing its default prompt (the one displaying proxy and git status). You can change this by running <code>envtools config</code> and disable the option called <em>Enable Envtools Custom Command Line Prompt.</em></p> ",
@@ -66,6 +72,12 @@
     "tags": ["nvm"],
     "content": "<p><a href=\"https://github.com/creationix/nvm\" target=\"_blank\">nvm</a> installed via <code>envtools extra</code> is located under <code>$HOME/.envtools/nvm</code>. If you use nvm to install a few different versions of node, they all can be found under <code>$HOME/.envtools/nvm/versions/node/</code></p>",
     "id": "faq-behind-5",
+    "group": "faq-behind"
+  }, {
+    "title": "There is an option to \"fix screensavers options\"... What is that?",
+    "tags": ["screensavers", "screensaver", "fix", "macOS"],
+    "content": "<p><strong>NOTE:</strong> this only applies to macOS.</p><p>Sometimes the screensaver configuration files can become corrupted or un-writable which means that no matter what changes you make in the <em>System Preferences->Desktop & Screen Saver</em>, they are not going to persist. The next time you reboot, your changes will be lost. This is where Envtools tries to fix this issue by simply wiping out the screensaver configuration files under <code>$HOME/Library/Preferences/ByHost/com.apple.screensaver*.*</code></p>",
+    "id": "faq-behind-6",
     "group": "faq-behind"
   }
 
