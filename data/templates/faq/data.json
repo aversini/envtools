@@ -55,5 +55,18 @@
     "content": "<p>If you ran <code>envtools auto</code> or <code>envtools manual</code> you may have been asked to provide several personal git information (namely your full name, your email and your github id if you have one). Envtools is using this data to generate a standard git configuration file under <code>$HOME/.gitconfig</code>. This file is in turn used by git for commits, clones, etc. The options are set by running the following commands:</p> <ul> <li><code>git config --global user.name your-full-name</code></li> <li><code>git config --global user.email your-email</code></li> <li><code>git config --global color.diff auto</code></li> <li><code>git config --global color.status auto</code></li> <li><code>git config --global color.ui auto</code></li> <li><code>git config --global url.\"https://github.com/\".insteadOf \"git://github.com/\"</code></li> <li><code>git config --global alias.st status</code></li> <li><code>git config --global alias.d diff</code></li> <li><code>git config --global alias.br branch</code></li> <li><code>git config --global alias.ci commit</code></li> <li><code>git config --global alias.co checkout</code></li> <li><code>git config --global diff.tool opendiff</code> (macOS only)</li> <li><code>git config --global merge.tool opendiff</code> (macOS only)</li> <li><code>git config --global push.default simple</code></li> <li><code>git config --global http.sslVerify false</code></li> </ul>",
     "id": "faq-behind-3",
     "group": "faq-behind"
+  }, {
+    "title": "Which version of nvm is being installed?",
+    "tags": ["nvm"],
+    "content": "<p>The version of <a href=\"https://github.com/creationix/nvm\" target=\"_blank\">nvm</a> installed via <code>envtools extra</code> is <strong>0.32.0</strong> </p>",
+    "id": "faq-behind-4",
+    "group": "faq-behind"
+  }, {
+    "title": "Envtools says nvm has been installed, where is it?",
+    "tags": ["nvm"],
+    "content": "<p><a href=\"https://github.com/creationix/nvm\" target=\"_blank\">nvm</a> installed via <code>envtools extra</code> is located under <code>$HOME/.envtools/nvm</code>. If you use nvm to install a few different versions of node, they all can be found under <code>$HOME/.envtools/nvm/versions/node/</code></p>",
+    "id": "faq-behind-5",
+    "group": "faq-behind"
   }
+
 ]
