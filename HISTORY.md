@@ -1,4 +1,14 @@
 
+__0.0.168 / 2016-11-17__
+
+- [faq] adding nvm entries ([9fcc425](https://github.com/aversini/envtools/commit/9fcc4255553f61e4e158b603feb6f0c9164e6420))
+- Better wording on Atom packages option ([b52caf5](https://github.com/aversini/envtools/commit/b52caf5c5e81d4fb695e7aaaf8397a1549dda748))
+- [faq] adding sinopia entry ([b17fe22](https://github.com/aversini/envtools/commit/b17fe229d0148f387502bdaaa27d06308c71cc60))
+- [faq] typo ([b43b910](https://github.com/aversini/envtools/commit/b43b910769db79f7aef3acb959982df746b08162))
+- [faq] adding entries for jsBeautify and core node packages ([fc2cdc0](https://github.com/aversini/envtools/commit/fc2cdc093319fc9ed6ce8215cffd022886759566))
+- [faq] removing html tags from search index ([0be241d](https://github.com/aversini/envtools/commit/0be241de6f809598bf9412f18b092053258ee9f8))
+- Better sds output ([42a7d1d](https://github.com/aversini/envtools/commit/42a7d1dba47a87d01c1dbebc5f6d54d75ad9432b))
+
 __0.0.167 / 2016-11-16__
 
 - [faq] adding highlighting ([433aca0](https://github.com/aversini/envtools/commit/433aca04b748a4c6d42416c47d89a8880502654f))
