@@ -1,4 +1,10 @@
 
+__0.0.169 / 2016-11-17__
+
+- [faq] adding entries for backup and screensaver ([418894b](https://github.com/aversini/envtools/commit/418894b09ea1d36da8a38a4793100cf37725e9f5))
+- [faq] fixing highlight on multiple keywords ([5717673](https://github.com/aversini/envtools/commit/57176738700349ef1590dba5a4cba153c0951328))
+- Fix menu alignment for npm packages list ([53718cb](https://github.com/aversini/envtools/commit/53718cb735a9081bd30be1a5eaffd86514f83736))
+
 __0.0.168 / 2016-11-17__
 
 - [faq] adding nvm entries ([9fcc425](https://github.com/aversini/envtools/commit/9fcc4255553f61e4e158b603feb6f0c9164e6420))

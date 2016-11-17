@@ -162,7 +162,9 @@ $(function () {
 
     res = index.search(query);
     if (res && res.length) {
-      $('.faq-content p').highlight(query);
+      $.each(query.split(' '), function (i, q) {
+        $('.faq-content p').highlight(q);
+      });
 
       $('.faq-entry').each(function (entry, data) {
         $(data).addClass('hidden');
