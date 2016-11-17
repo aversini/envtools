@@ -28,6 +28,12 @@
     "content": "<p>Either via <code>envtools auto</code> or <code>envtools manual</code>, you can install a few core node packages globally. Those packages are meant to be used at the command line or through an editor (e.g. Grunt, Gulp, ESLint, etc.). Note that you can pick and choose which packages you want to install. If you happen to have a proxy setup via Envtools, the command will also update your npm configuration file to reflect that proxy (the file is <code>$HOME/.npmrc</code>).</p>",
     "id": "faq-5",
     "group": "faq-general"
+  }, {
+    "title": "What's the story with Sinopia, Proxy and Node v6?",
+    "tags": ["sinopia"],
+    "content": "<p>If you are working behind a proxy and you use Node v6 or above, there is a good chance that your node package installations are taking forever... If that is your case, you are a good candidate to try out Sinopia. Sinopia is a npm registry that runs locally, in front of the public npmjs.com registry. Once installed, configured and running, any <code>npm install xyz</code> will go through your local Sinopia first, and then to npmjs.com if the package is not found. You can read more in the Sinopia tab <a href=\"/?sinopia\">here</a>.</p>",
+    "id": "faq-6",
+    "group": "faq-general"
   },
 
 
