@@ -1,5 +1,17 @@
 /*! Envtools css */
 
+@keyframes highlight {
+  0% {
+    background-color: #fff;
+  }
+  10% {
+    background-color: #fffeb6;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
 html {
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
 }
@@ -85,8 +97,11 @@ body.envtools-help {
   margin: 0 0;
 }
 
+
+/* table of content (commands and faq) */
+
 .envtools-help .envtools-toc {
-  max-width: 450px;
+  max-width: 470px;
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
@@ -121,12 +136,24 @@ body.envtools-help {
   order: 3;
 }
 
+
+/* faq */
+
 .envtools-help .faq-tag-badge {
   margin-right: 5px;
 }
 
 .envtools-help .faq-highlight, .envtools-help .highlight {
   background-color: yellow;
+}
+
+#faq .envtools-toc {
+  margin-top: 20px;
+}
+
+.envtools-help .toc-highlight {
+  animation-name: highlight;
+  animation-duration: 5s;
 }
 
 

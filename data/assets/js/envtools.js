@@ -1,8 +1,9 @@
 /* globals $, hljs, lunr */
-/* eslint no-console: 0, no-magic-numbers: 0 */
+/* eslint no-magic-numbers: 0 */
 
 $(function () {
   var
+    faqTOC,
     globalTimeout = null,
     index,
     data,
@@ -29,12 +30,12 @@ $(function () {
       query = $(self).val();
 
     // reset highlight
-    $('.faq-content p').unhighlight();
+    $('.faq-content').unhighlight();
 
     res = index.search(query);
     if (res && res.length) {
       $.each(query.split(' '), function (i, q) {
-        $('.faq-content p').highlight(q);
+        $('.faq-content').highlight(q);
       });
 
       $('.faq-entry').each(function (entry, data) {
@@ -90,22 +91,9 @@ $(function () {
     }
   });
 
-  // handle toc navigation (directly to the id would fail because of the
-  // extra margin for the tabs... hence this little scrolling black magic...)
-  $('.envtools-toc a').click(function (e) {
-    var
-      content,
-      marginTop,
-      toc = $(this).attr('data-id');
-
-    e.preventDefault();
-    content = $('.content');
-    marginTop = Number(content.css('marginTop').replace('px', ''));
-    window.scroll(0, absoluteOffset(document.getElementById(toc)) - marginTop + 10);
-  });
-
-  // populate the FAQs
+  // populate the FAQs (TOC and entries)
   if (dataJson && dataJson.faqData) {
+    faqTOC = $('#faq .envtools-toc');
     $.each(dataJson.faqData, function (i, faq) {
       var
         tagEl = $('<div class="faq-tags">'),
@@ -123,8 +111,27 @@ $(function () {
       } else {
         $('#faq-misc').append(el);
       }
+      // adding entry to TOC
+      faqTOC.append('<a class="toc-row" href="#" data-id="' + faq.id + '">' +
+        '<span class="toc-head">' + faq.title + '</span>' +
+        '</a>');
     });
   }
+
+  // handle toc navigation (directly to the id would fail because of the
+  // extra margin for the tabs... hence this little scrolling black magic...)
+  $('.envtools-toc a').click(function (e) {
+    var
+      content,
+      marginTop,
+      toc = $(this).attr('data-id');
+
+    e.preventDefault();
+    content = $('.content');
+    marginTop = Number(content.css('marginTop').replace('px', ''));
+    window.scroll(0, absoluteOffset(document.getElementById(toc)) - marginTop + 10);
+    $('#' + toc).addClass('toc-highlight');
+  });
 
   // Load the lunrjs search index (for FAQs search)
   index = lunr.Index.load(dataJson.faqIndex);
