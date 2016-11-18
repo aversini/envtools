@@ -84,6 +84,7 @@ $(function () {
     var
       tab = $(this).attr('data-id');
 
+    $('.toc-highlight').removeClass('toc-highlight');
     e.preventDefault();
     window.scrollTo(0, 0);
     $(this).tab('show');
