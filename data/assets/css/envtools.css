@@ -156,58 +156,15 @@ body.envtools-help {
   animation-duration: 5s;
 }
 
-
-/* sinopia images */
-
-.envtools-help .envtools-extra-sinopia {
-  background-image: inline('envtools-extra-sinopia.png');
-  height: 338px;
-  width: 640px;
+/* icons */
+.envtools-help .envtools-icons {
+  width: 14px;
+  height: 14px;
+  top: 1px;
+  position: relative;
 }
-
-.envtools-help .envtools-extra-sinopia-activate {
-  background-image: inline('envtools-extra-sinopia-activate.png');
-  height: 338px;
-  width: 640px;
-}
-
-.envtools-help .envtools-extra-sinopia-done {
-  background-image: inline('envtools-extra-sinopia-done.png');
-  height: 338px;
-  width: 640px;
-}
-
-
-/* custom prompt images */
-
-.envtools-help .terminal-default-standard-prompt {
-  background-image: inline('terminal-default-standard-prompt.png');
-  height: 268px;
-  width: 500px;
-}
-
-.envtools-help .terminal-default-envtools-prompt {
-  background-image: inline('terminal-default-envtools-prompt.png');
-  height: 268px;
-  width: 500px;
-}
-
-.envtools-help .terminal-hello-world {
-  background-image: inline('terminal-hello-world.png');
-  height: 268px;
-  width: 500px;
-}
-
-.envtools-help .terminal-custom {
-  background-image: inline('terminal-custom.png');
-  height: 268px;
-  width: 500px;
-}
-
-.envtools-help .terminal-custom-color {
-  background-image: inline('terminal-custom-color.png');
-  height: 254px;
-  width: 500px;
+.envtools-help .icon-warning {
+  fill: #8a6d3b;
 }
 
 

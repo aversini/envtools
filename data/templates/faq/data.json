@@ -13,7 +13,7 @@
   }, {
     "title": "Envtools asks for a proxy... Do I need a proxy?",
     "tags": ["proxy"],
-    "content": "<p>If you're asking, probably no <span class=\"glyphicon glyphicon-heart-empty\" aria-hidden=\"true\"></span>. This is an option mostly geared towards corporate employees who have to provide a proxy in order to access the internet.</p>",
+    "content": "<p>If you're asking, probably no <span class=\"icon-container\"> <svg class=\"envtools-icons icon-grin\"> <use xlink:href=\"#icon-grin\"></use> </svg> </span>. This is an option mostly geared towards corporate employees who have to provide a proxy in order to access the internet.</p>",
     "id": "faq-2",
     "group": "faq-general"
   }, {

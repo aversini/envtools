@@ -1,7 +1,6 @@
 /* eslint no-console:0*/
 module.exports = function (grunt) {
   var
-    assets = require('postcss-assets'),
     path = require('path'),
     g = require('./envtools-grunt/globals');
 
@@ -159,22 +158,6 @@ module.exports = function (grunt) {
       }
     },
 
-    'postcss': {
-      options: {
-        processors: [
-          assets({
-            loadPaths: [
-              'data/assets/images/sinopia/',
-              'data/assets/images/prompt/'
-            ]
-          })
-        ]
-      },
-      dist: {
-        src: 'tmp/envtools-with-prefixes.css'
-      }
-    },
-
     'autoprefixer': {
       options: {
         browsers: ['last 2 versions']
@@ -191,6 +174,13 @@ module.exports = function (grunt) {
           'tmp/envtools-min.css': ['tmp/envtools-with-prefixes.css'],
           'tmp/highlight-min.css': ['data/assets/css/highlight/default.css']
         }
+      }
+    },
+
+    'inline': {
+      dist: {
+        src: 'index.html',
+        dest: 'index.html'
       }
     },
 
@@ -225,11 +215,11 @@ module.exports = function (grunt) {
     'help-json-data',
     'markdown:rawHistory',
     'autoprefixer',
-    'postcss',
     'cssmin',
     'concat:js',
     'concat:css',
     'import:help',
+    'inline',
     'htmlmin:help'
   ]);
 

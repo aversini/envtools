@@ -13,8 +13,7 @@
     "bin",
     "lib",
     "data",
-    "scripts",
-    "fonts"
+    "scripts"
   ],
   "repository": {
     "type": "git",
@@ -64,16 +63,15 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-yuidoc": "*",
     "grunt-import": "^1.0.3",
+    "grunt-inline": "^0.3.6",
     "grunt-markdown": "*",
     "grunt-mkdir": "*",
-    "grunt-postcss": "^0.8.0",
     "grunt-shell": "*",
     "istanbul": "*",
     "load-grunt-tasks": "*",
     "lunr": "^0.7.2",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "postcss-assets": "^4.1.0",
     "striptags": "^2.1.1"
   },
   "keywords": [
