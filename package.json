@@ -12,7 +12,8 @@
     "shell",
     "bin",
     "lib",
-    "data",
+    "data/i18n",
+    "data/third",
     "scripts"
   ],
   "repository": {
