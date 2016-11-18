@@ -30,8 +30,8 @@
     "group": "faq-general"
   }, {
     "title": "Core node packages and npm configuration provided by Envtools",
-    "tags": ["npm", "core", "packages", "node"],
-    "content": "<p>Either via <code>envtools auto</code> or <code>envtools manual</code>, you can install a few core node packages globally. Those packages are meant to be used at the command line or through an editor (e.g. Grunt, Gulp, ESLint, etc.). Note that you can pick and choose which packages you want to install. If you happen to have a proxy setup via Envtools, the command will also update your npm configuration file to reflect that proxy (the file is <code>$HOME/.npmrc</code>).</p>",
+    "tags": ["npm", "core", "packages", "node", "prefix"],
+    "content": "<p>You can install a few essential node packages globally, either via <code>envtools auto</code> or <code>envtools manual</code>. Those packages are meant to be used at the command line or through an editor (e.g. Grunt, Gulp, ESLint, etc.). Note that you can pick and choose which packages you want to install.</p><p>On macOS, node packages are installed globally under <code>/usr/local</code> which is only accessible to root, so your admin password will be requested. On the other hand, if you do not want to use <code>sudo</code> to install npm packages, Envtools offers you the option to change the default location from <code>/usr/local</code>to <code>$HOME/npm</code>. This is highly recommended. Any subsequent installation via envtools or directly via npm will be done in that folder.</p><p>If you happen to have a proxy setup via Envtools, the command will also update your npm configuration file to reflect that proxy (the file is <code>$HOME/.npmrc</code>).</p>",
     "id": "faq-5",
     "group": "faq-general"
   }, {
@@ -46,7 +46,7 @@
   {
     "title": "Envtools asks for my password, why is that?",
     "tags": ["sudo", "local", "npm", "ruby", "password"],
-    "content": "<p>There are 2 cases where Envtools may need your password to run elevated actions. To being able to install node packages as well as ruby gems without requiring sudo all the time, Envtools will ask you if you want to change the ownership of the folder <code>/usr/local</code>. Another case would be if you did not agree to changing the ownership but subsequently asked to install a core node package. In that case, you need to provide your password.</p>",
+    "content": "<p>There are 2 cases where Envtools may need your password to run elevated actions. To being able to install node packages as well as ruby gems without requiring <code>sudo</code> all the time, Envtools will ask you if you want to change the ownership of the folder <code>/usr/local</code>. Another case would be if you did not agree to changing the ownership but subsequently asked to install a core node package in that same folder. In that case, you need to provide your password.</p>",
     "id": "faq-behind-1",
     "group": "faq-behind"
   }, {
