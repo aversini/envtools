@@ -50,6 +50,12 @@
     "id": "faq-behind-1",
     "group": "faq-behind"
   }, {
+    "title": "There is an option to load Envtools automatically. What is that?",
+    "tags": ["load", "envtools", "shell", "bash", "aliases"],
+    "content": "<p>Envtools is a node package that comes with a few node commands (auto, encrypt, timer, etc.) and with a set of shell scripts and aliases. When you installed Envtools via npm, the only thing availabe are the node commands. The commands are listed on the <a href=\"/?commands\">commands tab</a>. To actually load the shell scripts and aliases, you need to update your <code>.profile</code> or <code>.bash_profile</code> files to target those scripts explicitly. That's where the option <em>Automatically load Envtools at each session</em> comes in. Enabling this option tells Envtools to add itself to those profile files, therefore enhancing your prompt experience automatically. The shell scripts and aliases provided by Envtools are listed on the <a href=\"/?aliases\">aliases tab</a>.</p>",
+    "id": "faq-behind-1a",
+    "group": "faq-behind"
+    },{
     "title": "Envtools says Maven has been installed, where is it?",
     "tags": ["maven"],
     "content": "<p><code>envtools auto</code> and <code>envtools manual</code> offer the option to install Maven for you. The location of that installation is <code>$HOME/.envtools/apache-maven-3.3.9</code></p>",
