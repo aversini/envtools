@@ -54,6 +54,7 @@ $(function () {
     }
   }
 
+  // loading json data from html if any
   data = $('#envtools-data').html();
   if (data) {
     dataJson = JSON.parse(data);

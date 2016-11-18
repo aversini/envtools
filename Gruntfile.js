@@ -1,6 +1,7 @@
 /* eslint no-console:0*/
 module.exports = function (grunt) {
   var
+    assets = require('postcss-assets'),
     path = require('path'),
     g = require('./envtools-grunt/globals');
 
@@ -143,7 +144,7 @@ module.exports = function (grunt) {
           'data/assets/css/bootstrap.min.css',
           'tmp/highlight-min.css'
         ],
-        dest: 'data/assets/css/bundle.css'
+        dest: 'tmp/bundle.css'
       },
       js: {
         src: [
@@ -154,7 +155,23 @@ module.exports = function (grunt) {
           'data/assets/js/lunr.min.js',
           'data/assets/js/envtools.js'
         ],
-        dest: 'data/assets/js/bundle.js'
+        dest: 'tmp/bundle.js'
+      }
+    },
+
+    'postcss': {
+      options: {
+        processors: [
+          assets({
+            loadPaths: [
+              'data/assets/images/sinopia/',
+              'data/assets/images/prompt/'
+            ]
+          })
+        ]
+      },
+      dist: {
+        src: 'tmp/envtools-with-prefixes.css'
       }
     },
 
@@ -207,12 +224,13 @@ module.exports = function (grunt) {
     'lunrjs-index',
     'help-json-data',
     'markdown:rawHistory',
-    'import:help',
-    'htmlmin:help',
     'autoprefixer',
+    'postcss',
     'cssmin',
     'concat:js',
-    'concat:css'
+    'concat:css',
+    'import:help',
+    'htmlmin:help'
   ]);
 
   grunt.registerTask('help', 'Display help usage', function () {
