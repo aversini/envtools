@@ -1,4 +1,23 @@
 
+__0.0.171 / 2016-11-18__
+
+- Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
+
+__0.0.170 / 2016-11-18__
+
+- [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
+- [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
+- [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
+- [help] kill TOC highlight when navigating to another tab ([f20bb33](https://github.com/aversini/envtools/commit/f20bb33481f5e53898a8d663e961c792bc9a56f5))
+- [help] inlining most assets ([a0de121](https://github.com/aversini/envtools/commit/a0de12158c6086ec3e13adf0e4c8d3c52969b2fb))
+- [help] updating footer ([ab105ea](https://github.com/aversini/envtools/commit/ab105ea9a00289a242c2343c7fb58f7221a574f0))
+- [faq] new entry: load envtools automatically explanation ([8b619a3](https://github.com/aversini/envtools/commit/8b619a3563b496860ac5e1a404dd0a712ed13a65))
+- [faq] hiding the TOC if using the search bar ([a53ba75](https://github.com/aversini/envtools/commit/a53ba755f98d877f77a30d86e6c82920b167fe0f))
+- [help] adding introduction to alias page ([78c8283](https://github.com/aversini/envtools/commit/78c8283ee1ea37601b4728467e89085678f6e012))
+- [help] adding explanation for 'check for update' option ([28d6cd2](https://github.com/aversini/envtools/commit/28d6cd22f9fd522c611bcd42f4d417a204a79ddd))
+- [faq] adding TOC and highlight ([b53290b](https://github.com/aversini/envtools/commit/b53290bb01efce816eac4eb14d06627ba78067e2))
+- [faq] change link for js beautify options ([089fcc6](https://github.com/aversini/envtools/commit/089fcc6fcdf41733e880902f4ccf1eb37df227ef))
+
 __0.0.169 / 2016-11-17__
 
 - [faq] adding entries for backup and screensaver ([418894b](https://github.com/aversini/envtools/commit/418894b09ea1d36da8a38a4793100cf37725e9f5))
