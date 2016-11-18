@@ -21,7 +21,7 @@ if isValid "$ENVTOOLS_FULL"; then
 fi
 
 # extra tools provided by Envtools
-export PATH=$PATH:$RUNTIME_BIN_DIR
+export PATH=$PATH:$RUNTIME_BIN_DIR:$HOME/npm/bin
 
 # Improve history search with up and down keys.
 # Try typing ls
