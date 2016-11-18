@@ -10,9 +10,7 @@ module.exports = function (grunt) {
       args = ['add',
         g.historyFile,
         g.bashVersionFile,
-        g.helpFileHTML,
-        g.bundleCSS,
-        g.bundleJS
+        g.helpFileHTML
       ];
 
     if (noWrite) {
