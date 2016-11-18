@@ -34,6 +34,7 @@ $(function () {
 
     res = index.search(query);
     if (res && res.length) {
+      faqTOC.hide(true);
       $.each(query.split(' '), function (i, q) {
         $('.faq-content').highlight(q);
       });
@@ -46,6 +47,7 @@ $(function () {
         $('#' + item.ref).removeClass('hidden');
       });
     } else {
+      faqTOC.show();
       $('.faq-entry').each(function (entry, data) {
         $(data).removeClass('hidden');
       });
@@ -112,7 +114,8 @@ $(function () {
         $('#faq-misc').append(el);
       }
       // adding entry to TOC
-      faqTOC.append('<a class="toc-row" href="#" data-id="' + faq.id + '">' +
+      faqTOC.append('<a class="toc-row" href="#" data-id="' +
+        faq.id + '">' +
         '<span class="toc-head">' + faq.title + '</span>' +
         '</a>');
     });
