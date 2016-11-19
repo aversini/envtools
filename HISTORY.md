@@ -1,4 +1,11 @@
 
+__1.0.1 / 2016-11-18__
+
+- Bumping to version 1.0.0 ([62c7a70](https://github.com/aversini/envtools/commit/62c7a701b098e80e947a6f00962a65eb36a89c20))
+- [help] adding favicon :/ ([855a516](https://github.com/aversini/envtools/commit/855a516afc1f516c52efea5bfcf363315b54bc2c))
+- [help] refactoring + adding expand/collapse TOC ([92e7fc7](https://github.com/aversini/envtools/commit/92e7fc73b5792ff1d8e0889c1194a2aa1588dabb))
+- adding option to change npm prefix is destination folder is not writable ([5bee4a1](https://github.com/aversini/envtools/commit/5bee4a1ea08a65396a8dae0611a0c2082aa5bdb6))
+
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
