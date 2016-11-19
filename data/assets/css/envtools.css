@@ -136,6 +136,14 @@ body.envtools-help {
   order: 3;
 }
 
+.envtools-help .envtools-toc .toc-toggle-btn-container {
+  width: 80px;
+  display: inline-block;
+  float: right;
+  top: 5px;
+  position: relative;
+}
+
 
 /* faq */
 
@@ -156,13 +164,16 @@ body.envtools-help {
   animation-duration: 5s;
 }
 
+
 /* icons */
+
 .envtools-help .envtools-icons {
   width: 14px;
   height: 14px;
   top: 1px;
   position: relative;
 }
+
 .envtools-help .icon-warning {
   fill: #8a6d3b;
 }

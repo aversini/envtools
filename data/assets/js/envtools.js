@@ -1,15 +1,29 @@
 /* globals $, hljs, lunr */
 /* eslint no-magic-numbers: 0 */
 
+// initialize highlight (needs to be call outside of
+// jQuery DOMContentLoaded since it does the detection
+// itself.)
+hljs.initHighlightingOnLoad();
+
 $(function () {
   var
-    faqTOC,
+    version,
+    allFaqContent,
+    allFaqEntries,
+    faqTOCcontent,
+    faqTOCtoggleButton,
+    commandsTOCcontent,
     globalTimeout = null,
     index,
     data,
     dataJson,
-    search;
+    search,
 
+    TOC_TOGGLE_SHOW_LABEL = 'show',
+    TOC_TOGGLE_HIDE_LABEL = 'hide';
+
+  // -- P R I V A T E  M E T H O D S
   function parseQueryString(query) {
     var
       parser = /([^=?&]+)=?([^&]*)/g,
@@ -24,22 +38,34 @@ $(function () {
     return elem.offsetParent && elem.offsetTop + absoluteOffset(elem.offsetParent);
   }
 
+  function expandTOC(tocNode, toggleBtn) {
+    tocNode.show();
+    toggleBtn.text(TOC_TOGGLE_HIDE_LABEL);
+  }
+
+  function collapseTOC(tocNode, toggleBtn) {
+    tocNode.hide();
+    toggleBtn.text(TOC_TOGGLE_SHOW_LABEL);
+  }
+
   function applySearch(self) {
     var
       res,
       query = $(self).val();
 
     // reset highlight
-    $('.faq-content').unhighlight();
+    allFaqContent.unhighlight();
 
     res = index.search(query);
     if (res && res.length) {
-      faqTOC.hide(true);
+      // collapsing the TOC which tends to get in the way
+      // of the search results...
+      collapseTOC(faqTOCcontent, faqTOCtoggleButton);
       $.each(query.split(' '), function (i, q) {
-        $('.faq-content').highlight(q);
+        allFaqContent.highlight(q);
       });
 
-      $('.faq-entry').each(function (entry, data) {
+      allFaqEntries.each(function (entry, data) {
         $(data).addClass('hidden');
       });
 
@@ -47,26 +73,40 @@ $(function () {
         $('#' + item.ref).removeClass('hidden');
       });
     } else {
-      faqTOC.show();
-      $('.faq-entry').each(function (entry, data) {
+      allFaqEntries.each(function (entry, data) {
         $(data).removeClass('hidden');
       });
     }
   }
 
+
+  // -- D A T A  I N I T I A L I Z A T I O N
   // loading json data from html if any
   data = $('#envtools-data').html();
   if (data) {
     dataJson = JSON.parse(data);
+    version = (dataJson) ? dataJson.version : null;
   }
 
-  // update version if found
-  if (dataJson && dataJson.version) {
-    $('.envtools-footer .envtools-version').html('v' + dataJson.version + ' - ');
-  }
-
-  hljs.initHighlightingOnLoad();
+  // save the tab location from the url location if any
   search = Object.keys(parseQueryString(document.location.search));
+
+  // handles on FAQ table of content (toggle button and content)
+  faqTOCcontent = $('#faq .envtools-faq-toc-content');
+  faqTOCtoggleButton = $('.faq-toc-toggle');
+
+  // handle on commands table of content entries
+  commandsTOCcontent = $('#commands .envtools-commands-toc-content');
+
+  // Load the lunrjs search index (for FAQs search)
+  index = lunr.Index.load(dataJson.faqIndex);
+
+
+  // -- U I  I N I T I A L I Z A T I O N
+  // show version in footer if found
+  if (version) {
+    $('.envtools-footer .envtools-version').html('v' + version + ' - ');
+  }
 
   // hide content for mac if not a mac browser
   if (navigator.userAgent.match(/mac os x/i)) {
@@ -79,25 +119,14 @@ $(function () {
     $('.envtools-tabs a[href="#' + search[0] + '"]').tab('show');
   }
 
-  // activate tab navigation
-  $('.envtools-tabs a').click(function (e) {
-    var
-      tab = $(this).attr('data-id');
+  // faq toc is hidden to start with
+  faqTOCcontent.hide();
 
-    $('.toc-highlight').removeClass('toc-highlight');
-    e.preventDefault();
-    window.scrollTo(0, 0);
-    $(this).tab('show');
-    if (history && history.pushState) {
-      history.pushState({
-        title: tab
-      }, tab, '?' + tab);
-    }
-  });
+  // commands toc is also hidden to start with
+  commandsTOCcontent.hide();
 
-  // populate the FAQs (TOC and entries)
+  // populate the FAQs (TOC and entries) from json
   if (dataJson && dataJson.faqData) {
-    faqTOC = $('#faq .envtools-toc');
     $.each(dataJson.faqData, function (i, faq) {
       var
         tagEl = $('<div class="faq-tags">'),
@@ -116,12 +145,51 @@ $(function () {
         $('#faq-misc').append(el);
       }
       // adding entry to TOC
-      faqTOC.append('<a class="toc-row" href="#" data-id="' +
+      faqTOCcontent.append('<a class="toc-row" href="#" data-id="' +
         faq.id + '">' +
         '<span class="toc-head">' + faq.title + '</span>' +
         '</a>');
     });
+    // now that the DOM has all the faq, we can get a handle on them
+    allFaqContent = $('.faq-content');
+    allFaqEntries = $('.faq-entry');
   }
+
+
+  // -- U I  E V E N T  B I N D I N G S
+  // activate tab navigation
+  $('.envtools-tabs a').click(function (e) {
+    var
+      tabBtn = $(this),
+      tab = tabBtn.attr('data-id');
+
+    e.preventDefault();
+
+    $('.toc-highlight').removeClass('toc-highlight');
+    window.scrollTo(0, 0);
+    tabBtn.tab('show');
+    if (history && history.pushState) {
+      history.pushState({
+        title: tab
+      }, tab, '?' + tab);
+    }
+  });
+
+  // handle expand/collapse of TOC (both FAQ and commands)
+  $('.toc-toggle').click(function (e) {
+    var
+      toggleBtn = $(this),
+      label = toggleBtn.text(),
+      isFAQ = toggleBtn.hasClass('faq-toc-toggle');
+
+    e.preventDefault();
+
+    if (label === TOC_TOGGLE_SHOW_LABEL) {
+      expandTOC((isFAQ) ? faqTOCcontent : commandsTOCcontent, toggleBtn);
+    } else {
+      collapseTOC((isFAQ) ? faqTOCcontent : commandsTOCcontent, toggleBtn);
+    }
+  });
 
   // handle toc navigation (directly to the id would fail because of the
   // extra margin for the tabs... hence this little scrolling black magic...)
@@ -132,18 +200,17 @@ $(function () {
       toc = $(this).attr('data-id');
 
     e.preventDefault();
+
     content = $('.content');
     marginTop = Number(content.css('marginTop').replace('px', ''));
     window.scroll(0, absoluteOffset(document.getElementById(toc)) - marginTop + 10);
     $('#' + toc).addClass('toc-highlight');
   });
 
-  // Load the lunrjs search index (for FAQs search)
-  index = lunr.Index.load(dataJson.faqIndex);
-
   // Handle search on the FAQ page
   $('input#search-faq').on('keyup', function () {
-    var self = this;
+    var
+      self = this;
     if (globalTimeout !== null) {
       clearTimeout(globalTimeout);
     }
@@ -153,6 +220,7 @@ $(function () {
     }, 250);
   });
 
-  // showtime
+
+  // -- S H O W T I M E
   $('.envtools-help .content').removeClass('hidden');
 });
