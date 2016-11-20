@@ -54,6 +54,7 @@ if isValid "$ENVTOOLS_FULL"; then
   if isInstalled "git"; then
     alias gith='node $TOOLSDIR/gith.js'
   fi
+  alias i='envtools info'
 fi
 
 # Open help file

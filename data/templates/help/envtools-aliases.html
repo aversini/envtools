@@ -64,11 +64,11 @@
     </tr>
     <tr>
       <td><code>ff</code></td>
-      <td>Find files or folders matching a pattern. Takes multiple arguments. See <code>ff -h</code> for options.</td>
+      <td>Find files or folders matching a pattern. Takes multiple arguments. Type <code>ff -h</code> for list of options.</td>
     </tr>
     <tr>
       <td><code>fgrs</code></td>
-      <td>Find a string in files. Takes multiple arguments. See <code>fgrs -h</code> for options.</td>
+      <td>Find a string in files. Takes multiple arguments. Type <code>fgrs -h</code> for list of options.</td>
     </tr>
     <tr>
       <td><code>tailf</code></td>
@@ -168,8 +168,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>env</code></td>
+      <td>Same as the shell builtin, but sorted. Equivalent to <code>env | sort</code>.</td>
+    </tr>
+    <tr>
+      <td><code>i</code></td>
+      <td>Shortcut to <code>envtools info</code>. See details in the <a href="/?commands">commands</a> tab.</td>
+    </tr>
+    <tr>
       <td><code>r</code></td>
-      <td>Shortcut to reload your environment without having to restart your terminal.</td>
+      <td>Shortcut to reload your environment without having to restart your terminal. Useful if you changed your proxy in another terminal.</td>
     </tr>
     <tr>
       <td><code>sds</code></td>
@@ -198,9 +206,13 @@
       <td><code>psf</code></td>
       <td>List running processes matching the string passed in argument, e.g. <code>psf node</code> will list all running <code>node</code> processes.</td>
     </tr>
+    <tr class="mac-only">
+      <td><code>sinopia</code></td>
+      <td>Envtools wrapper for Sinopia, using a custom configuration file: <code>$HOME/.envtools/config.yaml</code>. If you need to start the non-envtools version, just type <code>\sinopia</code>.</td>
+    </tr>
     <tr>
       <td><code>web</code></td>
-      <td>Starts a small web server on port 8080, serving files in the current folder. Use <code>--port</code> to specify another port. Alias to <code>envtools web</code></td>
+      <td>Starts a small web server on port 8080, serving files in the current folder. Use <code>--port</code> to specify another port. Alias to <code>envtools web</code>. See details in the <a href="/?commands">commands</a> tab.</td>
     </tr>
   </tbody>
 </table>

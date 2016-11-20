@@ -48,6 +48,11 @@
       <span class="toc-dots"></span>
       <span class="toc-body">Configure Envtools</span>
     </a>
+    <a class="toc-row" href="#" data-id="envtools-info">
+      <span class="toc-head">Info</span>
+      <span class="toc-dots"></span>
+      <span class="toc-body">Miscellaneous system information</span>
+    </a>
     <a class="toc-row" href="#" data-id="envtools-lite">
       <span class="toc-head">Lite</span>
       <span class="toc-dots"></span>
@@ -213,6 +218,14 @@ $ envtools timer 1m3s --notifier growl
 <p>
   At this level you can allow Envtools to check periodically (once a day) if a new version is available. If a new version is available, you will see a notice in the banner (if enabled).
 </p>
+
+<h2 id="envtools-info">Info</h2>
+<code>envtools info</code>
+<p>Use this command to show some useful system information.</p>
+<p>
+  Depending on the OS, this commands displays a few data points like the total amount of time the system has been running, the type of CPU, the memory (total and free), the local and public IP addresses, as well as a few environment versions like node (along with the corresponding v8 and module number), npm and git, to name a few.
+</p>
+<img src="data/assets/images/info/envtools-info-compressed.png?__inline=true" height="407" width="703" />
 
 <h2 id="envtools-lite">Lite</h2>
 <code>envtools lite</code>
