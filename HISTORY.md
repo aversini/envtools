@@ -1,4 +1,15 @@
 
+__1.0.2 / 2016-11-20__
+
+- [info] adding help ([b514648](https://github.com/aversini/envtools/commit/b5146481fc03de1fbb417925ac4889e3091febfe))
+- [info] better display ([b201cd3](https://github.com/aversini/envtools/commit/b201cd30975ae78f78573effd1651dc18fab79ed))
+- [fix] ignore ping timeout when behind proxy ([a77c39f](https://github.com/aversini/envtools/commit/a77c39f2504e9aa4c8e5fde3c42613e3cdff2681))
+- [info] refactor + adding public ip ([87875f3](https://github.com/aversini/envtools/commit/87875f305aeebc6be658ee989b232f936a7025ac))
+- [info] total memory limit to 2 digits ([bf01e3e](https://github.com/aversini/envtools/commit/bf01e3e1cba607e50c335393d9e5f1ff03fd15c3))
+- [info] first pass at gathering system info ([d7d8f03](https://github.com/aversini/envtools/commit/d7d8f03ea43930a5531e8bda90ea9fc5e0a81afb))
+- [fix] removing unused dependency ([70a68b6](https://github.com/aversini/envtools/commit/70a68b63a6d929a883ddd764c772e56cdbdb8543))
+- [help] removing bootstrap source maps ([abe2b0d](https://github.com/aversini/envtools/commit/abe2b0d0f9e6dbcd4817598fd5d439123965c0b5))
+
 __1.0.1 / 2016-11-18__
 
 - Bumping to version 1.0.0 ([62c7a70](https://github.com/aversini/envtools/commit/62c7a701b098e80e947a6f00962a65eb36a89c20))
