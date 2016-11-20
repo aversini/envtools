@@ -7,7 +7,8 @@ var
   moment = require('moment'),
   config = require('fedtools-config'),
   download = require('download'),
-  url = 'https://raw.githubusercontent.com/aversini/versions/master/versions.json';
+  url = 'https://raw.githubusercontent.com/aversini/versions/master/versions.json',
+  DOWNLOAD_URL_TIMEOUT = 10000;
 
 function _terminate() {
   // Call process exit explicitly to terminate the child process
@@ -17,7 +18,7 @@ function _terminate() {
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 download(url, {
-  timeout: 30000,
+  timeout: (process.env.https_proxy) ? null : DOWNLOAD_URL_TIMEOUT,
   retries: 0
 }).then(function (body) {
   if (body) {
