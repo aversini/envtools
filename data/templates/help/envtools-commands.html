@@ -225,6 +225,18 @@ $ envtools timer 1m3s --notifier growl
 <p>
   Depending on the OS, this commands displays a few data points like the total amount of time the system has been running, the type of CPU, the memory (total and free), the local and public IP addresses, as well as a few environment versions like node (along with the corresponding v8 and module number), npm and git, to name a few.
 </p>
+<p>
+  By default, all data will be gathered except the public Ip since it could take some time.
+</p>
+<p>
+  Use the flag <code>--publicIp</code> to show it as well.
+</p>
+<p>
+  Available options are: <code>all, os, uptime, cpu, load, memory, hostname, localIp, publicIp,</code> and <code>disk</code>
+</p>
+<p>
+  To hide a data point, use the negation, e.g. <code>envtools info --no-uptime</code>
+</p>
 <img src="data/assets/images/info/envtools-info-compressed.png?__inline=true" height="563" width="703" />
 
 <h2 id="envtools-lite">Lite</h2>
