@@ -23,7 +23,8 @@
     "encrypt": "Encrypt a file using the AES 256 encryption algorithm with CTR mode.",
     "timer": "Simple command line timer.",
     "notifier": "Simple command line notifier.",
-    "config": "Configure Envtools."
+    "config": "Configure Envtools.",
+    "info": "Show some useful system information."
   },
 
   "prompt": {
