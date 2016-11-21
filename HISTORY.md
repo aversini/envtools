@@ -1,4 +1,8 @@
 
+__1.0.5 / 2016-11-21__
+
+- [info] forcing cache expiration if user asked for publicIp ([92573be](https://github.com/aversini/envtools/commit/92573be4243cc66f8050a61d1275a138ee8a2d3e))
+
 __1.0.4 / 2016-11-21__
 
 - [info] adding flags for all data points, publicIp OFF by default ([0a7e3f6](https://github.com/aversini/envtools/commit/0a7e3f690cedb8734e0fdaa4eb045eef79c7c0bb))
