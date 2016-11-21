@@ -1,4 +1,10 @@
 
+__1.0.4 / 2016-11-21__
+
+- [info] adding flags for all data points, publicIp OFF by default ([0a7e3f6](https://github.com/aversini/envtools/commit/0a7e3f690cedb8734e0fdaa4eb045eef79c7c0bb))
+- adding `info` to envtools help ([2d566ce](https://github.com/aversini/envtools/commit/2d566cef479a9a0d7102773ac5c683c0bb1e92b9))
+- [info] better filesystem info ([95ccc64](https://github.com/aversini/envtools/commit/95ccc64f00630b709af8bae12aff5ef0c2bd8317))
+
 __1.0.3 / 2016-11-20__
 
 - [help] updating info screenshot ([1d7a0ed](https://github.com/aversini/envtools/commit/1d7a0eddc0d98ec79c562334a25533df87b20b7e))
