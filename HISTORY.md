@@ -1,4 +1,14 @@
 
+__1.0.3 / 2016-11-20__
+
+- [help] updating info screenshot ([1d7a0ed](https://github.com/aversini/envtools/commit/1d7a0eddc0d98ec79c562334a25533df87b20b7e))
+- [info] adding OS name + version (for mac) ([aca3991](https://github.com/aversini/envtools/commit/aca39910d638c4b3cded434e5831fe56093b57bc))
+- [info] adding load average ([4cbdb36](https://github.com/aversini/envtools/commit/4cbdb364bf41fabb97cb19e485d75a14390d2322))
+- [info] simplifying ruby version + removing java home ([251b351](https://github.com/aversini/envtools/commit/251b3513e70195aab2a3031da68ce710cbbf8cf4))
+- [info] adding ruby + better versions formatting ([922a7a3](https://github.com/aversini/envtools/commit/922a7a356be8aa7d22b1597adc88d70215274398))
+- [info + fix] try to detect JAVA_HOME on Windows ([dfbc957](https://github.com/aversini/envtools/commit/dfbc957fb942a51d52186e28f450313c81c01a60))
+- [info] adding maven and java versions + locations ([6fcf02f](https://github.com/aversini/envtools/commit/6fcf02f12c0933a8f918f6212f433c7c7e63a68d))
+
 __1.0.2 / 2016-11-20__
 
 - [info] adding help ([b514648](https://github.com/aversini/envtools/commit/b5146481fc03de1fbb417925ac4889e3091febfe))
