@@ -98,3 +98,7 @@ fi
 if isLinux; then
   source "${ENVDIR}/aliases/linux.sh"
 fi
+
+if isValid "$ENVTOOLS_LITE"; then
+  alias i='envtools_info'
+fi

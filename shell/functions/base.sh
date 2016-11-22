@@ -342,3 +342,10 @@ function diffDirectories {
 if isMac; then
   source "${ENVDIR}/functions/mac.sh"
 fi
+
+#
+# Loading specific Lite functions
+#
+if isValid "$ENVTOOLS_LITE"; then
+  source "${ENVDIR}/functions/lite.sh"
+fi
