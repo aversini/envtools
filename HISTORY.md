@@ -1,4 +1,15 @@
 
+__1.0.6 / 2016-11-22__
+
+- add comment about try/catch for info ([ccad9f4](https://github.com/aversini/envtools/commit/ccad9f4f7be9081cb891d2297d8334f7cf1ebfa7))
+- [info] refactoring to speed up results a little ([1e8621e](https://github.com/aversini/envtools/commit/1e8621e8814fe5a5de9c43c68d33c1a044bc0f01))
+- Adding `isLinux` to common API ([c52f597](https://github.com/aversini/envtools/commit/c52f5978939012ca417062e575b2694c88be1f46))
+- Adding envtools info to envtools lite ([67e4755](https://github.com/aversini/envtools/commit/67e4755d0f93d66d99a1ed781575fbbb8deb20c2))
+- [info] refactoring local ip gathering ([3edca5c](https://github.com/aversini/envtools/commit/3edca5c334fbece5caabc2d331032a57a94455d5))
+- [info] fixing local ip detection ([a56e639](https://github.com/aversini/envtools/commit/a56e639d936206df7caff1948ef139a78a8eb191))
+- Adding stric-ssl=false option to both npm and apm ([96b399c](https://github.com/aversini/envtools/commit/96b399c7d11ecbb043367fb8260e6a6e89a8ec79))
+- [info] adding clue about next update ([029769c](https://github.com/aversini/envtools/commit/029769c27b1afc4027af998a8ea78a8a75d8b7f2))
+
 __1.0.5 / 2016-11-21__
 
 - [info] forcing cache expiration if user asked for publicIp ([92573be](https://github.com/aversini/envtools/commit/92573be4243cc66f8050a61d1275a138ee8a2d3e))
