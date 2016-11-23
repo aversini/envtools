@@ -1,4 +1,17 @@
 
+__1.0.7 / 2016-11-23__
+
+- [fix] sometimes prompt type could be lost ([908f628](https://github.com/aversini/envtools/commit/908f628a16bd0bac843f5be293d0a0173d9910b0))
+- Adding option to check for update in `auto` mode ([7e757c4](https://github.com/aversini/envtools/commit/7e757c4421f5ca8f41379dfaf4494af413fd6605))
+- Adding hidden `--force` option to `envtools info` to force refresh ([00f280b](https://github.com/aversini/envtools/commit/00f280b286deec6fe17fa9c0c9b1b17fd68e66c2))
+- [git] moving diff tool option to mac only ([91ec864](https://github.com/aversini/envtools/commit/91ec8640bc0a1abf55b240780faaa6fd8abdc6e4))
+- [help] more a11y recommendations (better links) ([9287957](https://github.com/aversini/envtools/commit/9287957dc0d3a49cbe5acd3402ea0ad3bd46823b))
+- [help] a11y remediation ([6f18742](https://github.com/aversini/envtools/commit/6f18742e72e501c9d5e65e3b12b3a4debf9d4e80))
+- [faq] more subtle icon search ([6833889](https://github.com/aversini/envtools/commit/6833889d6a93276d3d0d6513adfc30ffa2fb2438))
+- [faq] removing lunr stemmer to increase search results scoring ([f11851e](https://github.com/aversini/envtools/commit/f11851e28084ae11a2ea4d735cdd22ab0cc6c0a5))
+- [help] refactoring help generation ([4ad6f9d](https://github.com/aversini/envtools/commit/4ad6f9d4245268fb4e7c4c7004bc5a6f68d96898))
+- [faq] adding search icon in search field ([03a411f](https://github.com/aversini/envtools/commit/03a411f299f18e72ea893a500eb71860a569b3ef))
+
 __1.0.6 / 2016-11-22__
 
 - add comment about try/catch for info ([ccad9f4](https://github.com/aversini/envtools/commit/ccad9f4f7be9081cb891d2297d8334f7cf1ebfa7))
