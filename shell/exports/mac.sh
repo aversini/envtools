@@ -8,7 +8,9 @@ fi
 
 # Java
 if [ -f "/usr/libexec/java_home" ]; then
-  export JAVA_HOME="$(/usr/libexec/java_home)"
+  if [ "$JAVA_HOME" == "" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
+  fi
 fi
 
 # Brew, node
