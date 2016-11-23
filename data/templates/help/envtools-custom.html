@@ -11,11 +11,11 @@
 <p>
   On Mac, the default Bash command line prompt is limited. It shows the machine name, followed by a colon, the current folder, a space and the name of the current user.
 </p>
-<img src="data/assets/images/prompt/terminal-default-standard-prompt-compressed.png?__inline=true" height="268" width="500"/>
+<img src="data/assets/images/prompt/terminal-default-standard-prompt-compressed.png?__inline=true" height="268" width="500" role="presentation" />
 <p>
   Envtools enhances the command prompt with color and customization (it is enabled by default if you run the <code>envtools auto</code> mode and you can enable or disable it via the <code>envtools extra</code> mode).
 </p>
-<img src="data/assets/images/prompt/terminal-default-envtools-prompt-compressed.png?__inline=true" height="268" width="500" />
+<img src="data/assets/images/prompt/terminal-default-envtools-prompt-compressed.png?__inline=true" height="268" width="500" role="presentation" />
 <p>
   Aww, that's better! Now you can clearly see the state of your proxy, the folder is color coded and your username and machine name have been removed because really, who cares.
 </p>
@@ -30,7 +30,7 @@
   Let's create the file <code>~/.envtools/custom/exports.sh</code> and add the following line:
   <code>echo "Hello World"</code>. Reload your terminal and you should see something like this:
 </p>
-<img src="data/assets/images/prompt/terminal-hello-world-compressed.png?__inline=true" height="268" width="500" />
+<img src="data/assets/images/prompt/terminal-hello-world-compressed.png?__inline=true" height="268" width="500" role="presentation" />
 <p>
   Great! We have our first customization :) You can see that the prompt still displays the proxy status - so the default prompt is still there, we are just augmenting it.
 </p>
@@ -48,11 +48,11 @@ setCommandPromptWithGit "[\t][\u:\w]" "\$ "</code>
     </pre>
 </p>
 <p>
-  Reload your terminal and see the timestamp (keyword <code>\t</code>) has been added at the beginning. Please check the following <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">page</a> for all available keywords. </p>
-<img src="data/assets/images/prompt/terminal-custom-compressed.png?__inline=true" height="268" width="500" />
+  Reload your terminal and see the timestamp (keyword <code>\t</code>) has been added at the beginning. Please <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">check the following page</a> for all available keywords. </p>
+<img src="data/assets/images/prompt/terminal-custom-compressed.png?__inline=true" height="268" width="500" role="presentation" />
 <h4>Step 3</h4>
 <p>
-  Let's add some color to that sad custom prompt. You can use pre-defined colors available at no charge to you from Envtools or you can use the ASCII codes listed <a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html" target="_blank">here</a>. The colors provided by Envtools are <code>$COLOR_RED</code>, <code>$COLOR_GREEN</code>, <code>$COLOR_CYAN</code>, <code>$COLOR_BLUE</code>, <code>$COLOR_YELLOW</code> and <code>$COLOR_DEFAULT</code> - to reset any other color.
+  Let's add some color to that sad custom prompt. You can use pre-defined colors available at no charge to you from Envtools or you can use <a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html" target="_blank">the ASCII codes listed here</a>. The colors provided by Envtools are <code>$COLOR_RED</code>, <code>$COLOR_GREEN</code>, <code>$COLOR_CYAN</code>, <code>$COLOR_BLUE</code>, <code>$COLOR_YELLOW</code> and <code>$COLOR_DEFAULT</code> - to reset any other color.
 </p>
 <p>
   Let's use <code>$COLOR_BLUE</code> to spice up the <code>timestamp</code> part of our custom prompt:
@@ -61,7 +61,7 @@ setCommandPromptWithGit "[\t][\u:\w]" "\$ "</code>
     <code class="bash">
 setCommandPromptWithGit "${COLOR_BLUE}[\t]${COLOR_DEFAULT}[\u:\w]" "\$ "</code>
   </pre>
-<img src="data/assets/images/prompt/terminal-custom-color-compressed.png?__inline=true" height="254" width="500" />
+<img src="data/assets/images/prompt/terminal-custom-color-compressed.png?__inline=true" height="254" width="500" role="presentation" />
 <p>
   That's all folks! Enjoy Envtools and don't hesitate to report any bugs or feature requests!
 </p>
