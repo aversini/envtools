@@ -1,6 +1,7 @@
 {
   "bootstrap": {
     "configureEnvtools": "Configure Envtools.",
+    "setAutoCheck": "Enable/disable automatic version check",
     "setUsrLocal": "Enable sudo-less npm and ruby gems installations.",
     "setEnv": "Enable/disable Envtools for each session.",
     "setPrompt": "Enable/disable Envtools Custom Command Line Prompt (git info, etc.).",
