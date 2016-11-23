@@ -20,6 +20,7 @@ module.exports = function (grunt) {
         boost: 100
       });
       this.field('content');
+      this.pipeline.remove(lunr.stemmer);
     });
 
     rawData = grunt.file.readJSON(g.faqJsonDataFile);
