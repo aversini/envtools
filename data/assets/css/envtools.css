@@ -97,6 +97,10 @@ body.envtools-help {
   margin: 0 0;
 }
 
+.envtools-help .envtools-input-with-icon {
+  position: relative;
+}
+
 
 /* table of content (commands and faq) */
 
@@ -146,6 +150,18 @@ body.envtools-help {
 
 
 /* faq */
+
+#search-faq {
+  padding-left: 32px;
+}
+
+.envtools-help .envtools-input-with-icon .icon-container {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  z-index: 0;
+  padding-top: .8rem;
+}
 
 .envtools-help .faq-tag-badge {
   margin-right: 5px;
