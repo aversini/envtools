@@ -199,6 +199,10 @@ body.envtools-help {
   fill: #8a6d3b;
 }
 
+.envtools-help .icon-search {
+  fill: #666;
+}
+
 
 /* a11y recommendations */
 
