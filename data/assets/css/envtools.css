@@ -49,6 +49,11 @@ body.envtools-help {
   align-items: center;
 }
 
+.envtools-help .envtools-icons.icon-envtools-logo {
+  width: 60px;
+  height: 60px;
+}
+
 .envtools-help .header {
   position: fixed;
   background-color: #FFF;

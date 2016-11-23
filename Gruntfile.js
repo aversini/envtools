@@ -61,6 +61,12 @@ module.exports = function (grunt) {
           dest: 'tmp/help.html'
         }]
       },
+      svg: {
+        files: [{
+          src: ['data/templates/help/envtools-svg-symbols.html'],
+          dest: 'tmp/envtools-svg-symbols.html'
+        }]
+      },
       faq: {
         files: [{
           src: ['data/templates/help/envtools-faq.html'],
