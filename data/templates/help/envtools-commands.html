@@ -48,6 +48,11 @@
       <span class="toc-dots"></span>
       <span class="toc-body">Configure Envtools</span>
     </a>
+    <a class="toc-row" href="#" data-id="envtools-update">
+      <span class="toc-head">Update</span>
+      <span class="toc-dots"></span>
+      <span class="toc-body">Display update information</span>
+    </a>
     <a class="toc-row" href="#" data-id="envtools-info">
       <span class="toc-head">Info</span>
       <span class="toc-dots"></span>
@@ -216,7 +221,13 @@ $ envtools timer 1m3s --notifier growl
 </p>
 <div class="h4">Level 5</div>
 <p>
-  At this level you can allow Envtools to check periodically (once a day) if a new version is available. If a new version is available, you will see a notice in the banner (if enabled).
+  At this level you can allow Envtools to check periodically (once a day) if a new version is available. If a new version is available, a notice will be displayed once a day after executing most Envtools commands.
+</p>
+
+<h2 id="envtools-update">Update</h2>
+<code>envtools update</code>
+<p>
+  Use this command to display update information. If you configured Envtools to check for new version automatically, the result can be displayed by this command (without having to wait for Envtools to show it to you once in a while).
 </p>
 
 <h2 id="envtools-info">Info</h2>

@@ -26,10 +26,12 @@ download(url, {
     if (res && res.envtools && res.envtools.version) {
       latest = res.envtools.version;
       // need to mark version as checked and push
-      // the expiration date to 1 day
+      // the expiration date to 1 day.
+      // we also reset the 'alreadyDisplayed' flag.
       config.setKey('envtoolsversion', _.extend(config.getKey('envtoolsversion'), {
         expiration: moment().add(1, 'd'),
-        latest: latest
+        latest: latest,
+        alreadyDisplayed: false
       }), true, true);
     }
   }

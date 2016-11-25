@@ -24,7 +24,8 @@
     "timer": "Simple command line timer.",
     "notifier": "Simple command line notifier.",
     "config": "Configure Envtools.",
-    "info": "Show some useful system information."
+    "info": "Show some useful system information.",
+    "update": "Show update information."
   },
 
   "prompt": {
@@ -68,7 +69,7 @@
   },
 
   "version": {
-    "installed": "Envtools current version: ",
+    "installed": "Envtools version: ",
     "updateAvailable": "Envtools update available: %{latest} (current: %{current})",
     "runCommandToUpdate": "Run %{command} to update.",
     "changelogLink": "\nChangelog: %{link}"
