@@ -5,6 +5,14 @@
 if [ "$INIT_PARAM" != "reload" -a "$RUNTIME_DIR" != "" ]; then
   return
 else
+  # Let's do some profiling if needed
+  if [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+    echo "Profiling Envtools startup scripts..."
+    PS4='+ ~~~$(python -c "import time; print int(round(time.time() * 1000))")~~~\t'
+    exec 3>&2 2>$HOME/sample-profiling.log
+    set -x
+  fi
+
   # Setting some constants available at load time
   # and within all scripts and functions sourced here.
   ENVTOOLS_FULL=1
@@ -121,5 +129,11 @@ else
 
   else
     echo "OS not supported/recognized... ($OS)"
+  fi
+
+  # End of profiling
+  if [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+    set +x
+    exec 2>&3 3>&-
   fi
 fi

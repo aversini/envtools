@@ -1,4 +1,31 @@
 #
+# Rough attempt at parsing the sample profiling log
+# file generated if ENVTOOLS_PROFILING_STARTUP wants
+# set to true...
+#
+function parseProfilingLogs {
+  while read tim ;do
+    crt=$(echo $tim | awk -F'~~~' '{print $2}')
+    cmd=$(echo $tim | awk -F'~~~' '{print $3}')
+    diff=$((${crt}-10#0$last))
+    printf "%s %s\n" "$diff" "$cmd"
+    last=${crt}
+  done < $HOME/sample-profiling.log
+}
+
+#
+# Test if argument is a positive number
+#
+function isNumber {
+  local re='^[0-9]+([.][0-9]+)?$'
+  if ! [[ $1 =~ $re ]] ; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+#
 # Test for OS types
 #
 function isWindows {
