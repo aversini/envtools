@@ -6,7 +6,9 @@ if [ "$INIT_PARAM" != "reload" -a "$RUNTIME_DIR" != "" ]; then
   return
 else
   # Let's do some profiling if needed
-  if [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+  if [[ "$ENVTOOLS_TIMING_STARTUP" == true ]]; then
+    ENVTOOLS_TIMING_START_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
+  elif [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
     echo "Profiling Envtools startup scripts..."
     PS4='+ ~~~$(python -c "import time; print int(round(time.time() * 1000))")~~~\t'
     exec 3>&2 2>$HOME/sample-profiling.log
@@ -132,7 +134,11 @@ else
   fi
 
   # End of profiling
-  if [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+  if [[ "$ENVTOOLS_TIMING_STARTUP" == true ]]; then
+    ENVTOOLS_TIMING_STOP_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
+    ENVTOOLS_LOAD_TIME=$(($ENVTOOLS_TIMING_STOP_TIME - $ENVTOOLS_TIMING_START_TIME))
+    echo "Load time: ${ENVTOOLS_LOAD_TIME}ms"
+  elif [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
     set +x
     exec 2>&3 3>&-
   fi
