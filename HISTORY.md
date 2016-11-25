@@ -1,4 +1,8 @@
 
+__1.0.9 / 2016-11-25__
+
+- [fix] custom prompt was not set anymore when in auto mode ([f640676](https://github.com/aversini/envtools/commit/f6406765731397c2e21a10190c75c9fc82bdd95a))
+
 __1.0.8 / 2016-11-25__
 
 - No need to be cheap on the actual words ([7a67c20](https://github.com/aversini/envtools/commit/7a67c20fbdd31e8af97acb92e74ed603dbb2993f))
