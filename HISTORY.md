@@ -1,4 +1,15 @@
 
+__1.0.8 / 2016-11-25__
+
+- No need to be cheap on the actual words ([7a67c20](https://github.com/aversini/envtools/commit/7a67c20fbdd31e8af97acb92e74ed603dbb2993f))
+- Displaying update information after simple call (no commands or help) ([288d497](https://github.com/aversini/envtools/commit/288d497e1a5d66770e59a429cfd5c41dd5e14d2b))
+- Add update information - if any - after manual/extra/auto ([602aafc](https://github.com/aversini/envtools/commit/602aafcbca4324ee7844e67b96840bc768092082))
+- Removing node banner and adding `envtools update` ([dbf3444](https://github.com/aversini/envtools/commit/dbf3444c1c3461db03ff4331e03ebb0cc36ab75a))
+- Moving banner from node to bash (perf gain 750ms load time) ([e7f6a9d](https://github.com/aversini/envtools/commit/e7f6a9d456182be345ea763c4c0160b48dd52c4d))
+- [debug] adding timing and/or profiling options ([a81399d](https://github.com/aversini/envtools/commit/a81399debb57e9cc6fd518509a22abfa0a9f6fbc))
+- [debug] adding some internal profiling options ([a7d7513](https://github.com/aversini/envtools/commit/a7d7513785f9201ad1cf9d7ecb43349da84b0400))
+- [fix] do not show error if java is not installed on mac ([8534d7b](https://github.com/aversini/envtools/commit/8534d7b94728daf92ce4993ed5216da7be39e2b7))
+
 __1.0.7 / 2016-11-23__
 
 - [fix] sometimes prompt type could be lost ([908f628](https://github.com/aversini/envtools/commit/908f628a16bd0bac843f5be293d0a0173d9910b0))
