@@ -67,6 +67,7 @@ else
     source "${ENVDIR}/functions/cmd.sh"
     source "${ENVDIR}/functions/killers.sh"
     source "${ENVDIR}/functions/proxy.sh"
+    source "${ENVDIR}/functions/banner.sh"
 
     # Setting some aliases
     source "${ENVDIR}/aliases/base.sh"

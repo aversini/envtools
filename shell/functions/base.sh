@@ -304,7 +304,7 @@ function displayWelcomeBanner {
   if isValid "$ENVTOOLS_FULL"; then
     if [ "$INIT_PARAM" != "reload" ]; then
       # Display a simple help intro if user wants it
-      envtools banner
+      showBanner
       # Update the terminal tab title if needed
       setTerminalTitle
     fi
