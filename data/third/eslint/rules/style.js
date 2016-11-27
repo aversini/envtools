@@ -158,7 +158,11 @@ module.exports = {
     'object-property-newline': 'warn',
     // enforce variables to be declared either together or
     // separately in functions
-    'one-var': 'warn',
+    'one-var': ['warn', {
+      var: 'always',
+      let: 'always',
+      const: 'never'
+    }],
     // require or disallow newlines around variable declarations
     'one-var-declaration-per-line': ['warn', 'initializations'],
     // require or disallow assignment operator shorthand where possible
