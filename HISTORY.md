@@ -1,4 +1,11 @@
 
+__1.0.10 / 2016-11-27__
+
+- [eslint] more precise rule for 'one-var' (var/let/const) ([4b4993a](https://github.com/aversini/envtools/commit/4b4993a1e0cd1c089f73dbcdd0f97cd13679989e))
+- Getting rid of commander dependency ([baa4442](https://github.com/aversini/envtools/commit/baa4442ef54121600559456b74515cdbf726f521))
+- [sudo] adding correct branding (envtools vs fedtools) ([5bb1717](https://github.com/aversini/envtools/commit/5bb1717b39194a96c30f8d5238cd66db66feb269))
+- Fix scenario when version has not been checked yet ([58bc7a6](https://github.com/aversini/envtools/commit/58bc7a651c46a8ac2db40421ad834e4c94c82a2c))
+
 __1.0.9 / 2016-11-25__
 
 - [fix] custom prompt was not set anymore when in auto mode ([f640676](https://github.com/aversini/envtools/commit/f6406765731397c2e21a10190c75c9fc82bdd95a))
