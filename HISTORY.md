@@ -1,4 +1,8 @@
 
+__1.0.11 / 2016-11-27__
+
+- updating logo ([42208be](https://github.com/aversini/envtools/commit/42208bee0a50f738827dfb33818d32ac178a022e))
+
 __1.0.10 / 2016-11-27__
 
 - [eslint] more precise rule for 'one-var' (var/let/const) ([4b4993a](https://github.com/aversini/envtools/commit/4b4993a1e0cd1c089f73dbcdd0f97cd13679989e))
