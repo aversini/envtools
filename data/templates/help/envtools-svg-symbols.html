@@ -1,15 +1,44 @@
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <symbol id="icon-envtools-logo" viewBox="0 0 51 51">
+
+    <symbol id="icon-envtools-logo">
       <title>envtools logo</title>
-      <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1.0005" y1="0" x2="50.9995" y2="52" gradientTransform="matrix(1 0 0 -1 0 51)">
-        <stop offset="0" style="stop-color:#7A1315" />
-        <stop offset="0.1857" style="stop-color:#91161D" />
-        <stop offset="0.542" style="stop-color:#B91B2B" />
-        <stop offset="0.8259" style="stop-color:#D11F34" />
-        <stop offset="1" style="stop-color:#DA2037" />
-      </linearGradient>
-      <rect x="-1" y="-1" fill="url(#SVGID_1_)" width="52" height="52" />
+      <style type="text/css">
+        .prompt-cursor {
+          fill: none;
+          stroke: #FFFFFF;
+          stroke-width: 3;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-miterlimit: 10;
+        }
+        .prompt-border {
+          stroke: #FFFFFF;
+          stroke-width: 3;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-miterlimit: 10;
+        }
+      </style>
+
+        <linearGradient y2="0" x2="1" y1="1" x1="0" id="main-bg-gradient">
+          <stop stop-color="#7A1315" offset="0"/>
+          <stop stop-color="#91161D" offset="0.1857"/>
+          <stop stop-color="#B91B2B" offset="0.542"/>
+          <stop stop-color="#D11F34" offset="0.8259"/>
+          <stop stop-color="#DA2037" offset="1"/>
+        </linearGradient>
+        <linearGradient y2="0" x2="1" y1="1" x1="0" id="prompt-bg-gradient">
+          <stop offset="0" stop-color="#000"/>
+          <stop offset="1" stop-opacity="0.99219" stop-color="#8e0000"/>
+        </linearGradient>
+
+       <g>
+         <rect stroke-opacity="0.78" fill="url(#main-bg-gradient)" width="60" height="60"/>
+         <rect fill="url(#prompt-bg-gradient)" x="7.76929" y="16.13662" class="prompt-border" width="44.6" height="27.63701"/>
+         <line class="prompt-cursor" x1="36.58937" y1="37.01101" x2="26.3122" y2="37.01101"/>
+         <polyline class="prompt-cursor" points="14.5736083984375,25.318195909261703 22.065698623657227,30.410889238119125 14.5736083984375,35.46378764510155 "/>
+       </g>
     </symbol>
 
     <symbol id="icon-search" viewBox="0 0 32 32">
