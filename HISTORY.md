@@ -1,4 +1,8 @@
 
+__1.0.12 / 2016-11-28__
+
+- Flatter logo ([fc3e967](https://github.com/aversini/envtools/commit/fc3e967666426965714d57c3ae0f5c6454b131e1))
+
 __1.0.11 / 2016-11-27__
 
 - updating logo ([42208be](https://github.com/aversini/envtools/commit/42208bee0a50f738827dfb33818d32ac178a022e))
