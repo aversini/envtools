@@ -28,12 +28,46 @@ body.envtools-help {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .envtools-help .last-tab {
+    display: none;
+  }
+  .envtools-help .envtools-tabs a[data-id] {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .envtools-help .envtools-tabs a[data-id] span {
+    display: block;
+    width: 12vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .envtools-help .envtools-toc {
     display: none;
   }
   .envtools-help .last-tab {
     display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .envtools-help.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .envtools-help .envtools-tab-content img {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .envtools-help .envtools-logo {
+    padding-left: 2px !important;
   }
 }
 
