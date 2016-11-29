@@ -1,4 +1,8 @@
 
+__1.0.14 / 2016-11-28__
+
+- Better blue for the logo (matches the <headers>) ([f16d260](https://github.com/aversini/envtools/commit/f16d260aea8f3141d06ff4e769c2acabfd9ff901))
+
 __1.0.13 / 2016-11-28__
 
 - [faq] adding entry about git status in the prompt ([8bbe2c8](https://github.com/aversini/envtools/commit/8bbe2c8c1521fdc8de4a602d14178ac57610bdb2))
