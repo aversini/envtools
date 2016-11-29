@@ -1,4 +1,9 @@
 
+__1.0.15 / 2016-11-29__
+
+- Updating custom terminal colors to match iTerm more closely ([c412c4f](https://github.com/aversini/envtools/commit/c412c4f5d76b619259f625077ae6fd1cbcb9e9bf))
+- Fixing version up-to-date message appearing unexpected ([1856df5](https://github.com/aversini/envtools/commit/1856df5a6a3e7b36ab0e08f44d075952e8975197))
+
 __1.0.14 / 2016-11-28__
 
 - Better blue for the logo (matches the <headers>) ([f16d260](https://github.com/aversini/envtools/commit/f16d260aea8f3141d06ff4e769c2acabfd9ff901))
