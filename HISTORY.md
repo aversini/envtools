@@ -1,4 +1,8 @@
 
+__1.0.13 / 2016-11-28__
+
+- [faq] adding entry about git status in the prompt ([8bbe2c8](https://github.com/aversini/envtools/commit/8bbe2c8c1521fdc8de4a602d14178ac57610bdb2))
+
 __1.0.12 / 2016-11-28__
 
 - Flatter logo ([fc3e967](https://github.com/aversini/envtools/commit/fc3e967666426965714d57c3ae0f5c6454b131e1))
