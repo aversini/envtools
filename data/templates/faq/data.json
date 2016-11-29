@@ -40,6 +40,12 @@
     "content": "<p>If you are working behind a proxy and you use Node v6 or above, there is a good chance that your node package installations are taking forever... If that is your case, you are a good candidate to try out Sinopia. Sinopia is a npm registry that runs locally, in front of the public npmjs.com registry. Once installed, configured and running, any <code>npm install xyz</code> will go through your local Sinopia first, and then to npmjs.com if the package is not found. You can read more in the <a href=\"/?sinopia\">Sinopia tab here</a>.</p>",
     "id": "faq-6",
     "group": "faq-general"
+  }, {
+    "title": "Git prompt statuses explained...",
+    "tags": ["git", "status", "prompt", "branch"],
+    "content": "<p>Envtools comes with a few sets of custom prompts, each providing different level of configuration but they all have one thing in common: git repository status in your prompt. This means that if you navigate to a git repository, you will see the current branch name, usually in the following form: <code>(git:branch-name)</code>. In addition un-staged (*) and staged (+) changes will be shown next to the branch name, e.g. <code>(git:branch-1234 *)</code> or <code>(git:branch-1234 +)</code>.</p> <p>You will also see the difference between HEAD and its tracking upstream. A <code>\"-\"</code> indicates you are behind, <code>\"+\"</code> indicates you are ahead, <code>\"<>\"</code> indicates you have diverged and <code>\"=\"</code> indicates that there is no difference. You will also see the number of commits ahead/behind (+/-) upstream.</p><p class=\"h4\">Examples</p><p>Current code is up-to-date with upstream (u=) but has some un-staged (*) files</p><p><code>~/projects/sekret (git:master * u=) $</code></p><p>Current code is up-to-date with upstream (u=) but has some staged files (+) ready for commit</p><p><code>~/projects/sekret (git:master + u=) $</code></p><p>Current code is up-to-date with upstream (u=) but has some staged files ready for commit AND some un-staged files</p><p><code>~/projects/sekret (git:master *+ u=) $</code></p><p>Current code is behind upstream by 3 commits. </p><p><code>~/projects/sekret (git:master u-3) $</code></p><p>Current code is ahead upstream by 1 commit. </p><p><code>~/projects/sekret (git:master u+1) $</code></p>",
+    "id": "faq-7",
+    "group": "faq-general"
   },
 
 
