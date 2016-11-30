@@ -1,4 +1,10 @@
 
+__1.0.16 / 2016-11-29__
+
+- Refactoring yellow/cyan output ([777c6f4](https://github.com/aversini/envtools/commit/777c6f4e4dbef482a2109596c0d439ab56955603))
+- [help] responsive all the way to 320 ([25790f0](https://github.com/aversini/envtools/commit/25790f049b51334345b37e81a626e4ecb28a9cfd))
+- Change default box color from yellow to cyan ([4f94084](https://github.com/aversini/envtools/commit/4f940847143459d8530d38859efc8a4b24f75962))
+
 __1.0.15 / 2016-11-29__
 
 - Updating custom terminal colors to match iTerm more closely ([c412c4f](https://github.com/aversini/envtools/commit/c412c4f5d76b619259f625077ae6fd1cbcb9e9bf))
