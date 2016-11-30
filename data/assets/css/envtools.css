@@ -43,6 +43,10 @@ body.envtools-help {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .envtools-help .envtools-tab-content img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -58,10 +62,6 @@ body.envtools-help {
   .envtools-help.container {
     padding-left: 0;
     padding-right: 0;
-  }
-  .envtools-help .envtools-tab-content img {
-    width: 90%;
-    height: 90%;
   }
 }
 
