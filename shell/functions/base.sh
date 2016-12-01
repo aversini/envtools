@@ -112,7 +112,7 @@ function isValid {
 # returns false otherwise
 #
 function isInstalled {
-  type "$1" >/dev/null 2>&1 || { return -1; }
+  type "$1" >/dev/null 2>&1 || { return 1; }
 }
 
 #
