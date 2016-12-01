@@ -28,6 +28,11 @@
       <span class="toc-dots"></span>
       <span class="toc-body">Start a simple static web server</span>
     </a>
+    <a class="toc-row" href="#" data-id="envtools-smtp">
+      <span class="toc-head">SMTP</span>
+      <span class="toc-dots"></span>
+      <span class="toc-body">Start a simple SMTP server</span>
+    </a>
     <a class="toc-row" href="#" data-id="envtools-crypto">
       <span class="toc-head">Encrypt, decrypt</span>
       <span class="toc-dots"></span>
@@ -107,6 +112,12 @@
 <code>envtools web</code>
 <p>
   Start a simple static web server that will serve the current folder. Use <code>--port [port-num]</code> to specify a different port than 8080.
+</p>
+
+<h2 id="envtools-smtp">SMTP</h2>
+<code>envtools smtp</code>
+<p>
+  Start a simple SMTP server that will listen for incoming email requests on port 1024 by default and print them on the console. Use <code>--port [port-num]</code> to specify a different port than 1024. Use <code>--verbose</code> to add more server logs. Useful to debug email notifications without having to rely on an external email server.
 </p>
 
 <h2 id="envtools-crypto">Encrypt, decrypt</h2>
