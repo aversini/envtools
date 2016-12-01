@@ -1,4 +1,9 @@
 
+__1.0.18 / 2016-12-01__
+
+- [help] reducing logo real-estate on lower breakpoints ([2e99afc](https://github.com/aversini/envtools/commit/2e99afca584693784f28b869b101a181cb3d3ca0))
+- [help] adding proxy to the `envtools info` section ([dba477b](https://github.com/aversini/envtools/commit/dba477b890469da039a14cfd81166b8e57d4716d))
+
 __1.0.17 / 2016-11-30__
 
 - [info] adding detailed proxy info to `envtools info` ([f364044](https://github.com/aversini/envtools/commit/f36404400b36b98abdea3267cb83e88d578d8513))
