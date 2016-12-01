@@ -1,4 +1,11 @@
 
+__1.0.17 / 2016-11-30__
+
+- [info] adding detailed proxy info to `envtools info` ([f364044](https://github.com/aversini/envtools/commit/f36404400b36b98abdea3267cb83e88d578d8513))
+- [new] adding a simple SMTP server `envtools smtp` ([471ca8d](https://github.com/aversini/envtools/commit/471ca8de167891e705366e4e5c0a78f42d8d5b56))
+- [fix] do not re-append paths to $PATH on soft reload ([6237ebb](https://github.com/aversini/envtools/commit/6237ebbc4d39820b8dbbe32c43d155f48f406d1b))
+- [help] moving image responsiveness to higher breakpoint ([eb02f60](https://github.com/aversini/envtools/commit/eb02f60dab6737fa40b44ddebda87cbd73c0cfaa))
+
 __1.0.16 / 2016-11-29__
 
 - Refactoring yellow/cyan output ([777c6f4](https://github.com/aversini/envtools/commit/777c6f4e4dbef482a2109596c0d439ab56955603))
