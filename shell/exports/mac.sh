@@ -14,7 +14,9 @@ if [ -f "/usr/libexec/java_home" ]; then
 fi
 
 # Brew, node
-export PATH=$PATH:/usr/local/bin
+if [ "$INIT_PARAM" != "reload" ]; then
+  export PATH=$PATH:/usr/local/bin
+fi
 
 # Gems (sudo less)
 if [ -f "/usr/local/bin/brew" ]; then
