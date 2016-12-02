@@ -13,7 +13,7 @@
     "setNPM": "Configure npm and install a few essential global node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
     "setRuby": "Install/update Ruby and Compass.",
-    "setMaven": "Install/update and configure Maven.",
+    "setMaven": "Install/update Apache Maven.",
     "setQuicklook": "Install Quicklook plugins.",
     "fixScreensaver": "Fix screensaver not remembering your choices.",
     "installScreensaver": "Install extra screensavers.",
