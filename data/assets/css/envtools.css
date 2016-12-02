@@ -276,6 +276,14 @@ html {
   animation-duration: 5s;
 }
 
+.envtools-help .code-ellispis {
+  display: block;
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* icons */
 

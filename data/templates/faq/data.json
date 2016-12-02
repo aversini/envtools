@@ -88,7 +88,7 @@
   }, {
     "title": "There is an option to \"fix screensavers options\"... What is that?",
     "tags": ["screensavers", "screensaver", "fix", "macOS"],
-    "content": "<p><strong>NOTE:</strong> this only applies to macOS.</p><p>Sometimes the screensaver configuration files can become corrupted or un-writable which means that no matter what changes you make in the <em>System Preferences->Desktop & Screen Saver</em>, they are not going to persist. The next time you reboot, your changes will be lost. This is where Envtools tries to fix this issue by simply wiping out the screensaver configuration files under <code>$HOME/Library/Preferences/ByHost/com.apple.screensaver*.*</code></p>",
+    "content": "<p><strong>NOTE:</strong> this only applies to macOS.</p><p>Sometimes the screensaver configuration files can become corrupted or un-writable which means that no matter what changes you make in the <em>System Preferences->Desktop & Screen Saver</em>, they are not going to persist. The next time you reboot, your changes will be lost. This is where Envtools tries to fix this issue by simply wiping out the screensaver configuration files under <code class=\"code-ellispis\">$HOME/Library/Preferences/ByHost/com.apple.screensaver*.*</code></p>",
     "id": "faq-behind-6",
     "group": "faq-behind"
   }
