@@ -153,7 +153,7 @@ module.exports = function (grunt) {
       },
       js: {
         src: [
-          'data/assets/js/jquery-3.1.1.slim.min.js',
+          'data/assets/js/jquery-3.1.1.min.js',
           'data/assets/js/jquery.highlight.js',
           'data/assets/js/highlight.pack.js',
           'data/assets/js/bootstrap.min.js',
