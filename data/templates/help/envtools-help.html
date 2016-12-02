@@ -11,88 +11,98 @@
   <link rel="stylesheet" type="text/css" href="tmp/bundle.css?__inline=true">
 </head>
 
-<body class="envtools-help  container">
+<body class="envtools-help">
+
   @import "envtools-svg-symbols.html"
 
-  <div class="header">
-    <div class="envtools-logo">
-      <span class="icon-container">
+  <div class="loading"></div>
+
+  <div class="container" style="display:none;">
+
+    <div class="header">
+      <div class="envtools-logo">
+        <span class="icon-container">
         <svg class="envtools-icons icon-envtools-logo">
           <use xlink:href="#icon-envtools-logo"></use>
         </svg>
       </span>
 
-      <div class="envtools-txt">
-        <img src="data/assets/images/envtools-retina.png?__inline=true" width="365" height="58" alt="Envtools logo" />
+        <div class="envtools-txt">
+          <img src="data/assets/images/envtools-retina.png?__inline=true" width="365" height="58" alt="Envtools logo" />
+        </div>
       </div>
+      <!-- Tab controls -->
+      <ul class="envtools-tabs nav nav-tabs">
+        <li role="presentation" class="active">
+          <a data-id="intro" href="#intro"><span>Introduction</span></a>
+        </li>
+        <li role="presentation">
+          <a data-id="commands" href="#commands"><span>Commands</span></a>
+        </li>
+        <li role="presentation">
+          <a data-id="aliases" href="#aliases"><span>Aliases</span></a>
+        </li>
+        <li role="presentation">
+          <a data-id="customization" href="#customization"><span>Customization</span></a>
+        </li>
+        <li role="presentation">
+          <a data-id="sinopia" href="#sinopia"><span>Sinopia</span></a>
+        </li>
+        <li role="presentation">
+          <a data-id="faq" href="#faq"><span>FAQ</span></a>
+        </li>
+        <li class="last-tab" role="presentation">
+          <a data-id="history" href="#history"><span>History</span></a>
+        </li>
+      </ul>
     </div>
-    <!-- Tab controls -->
-    <ul class="envtools-tabs nav nav-tabs">
-      <li role="presentation" class="active">
-        <a data-id="intro" href="#intro"><span>Introduction</span></a>
-      </li>
-      <li role="presentation">
-        <a data-id="commands" href="#commands"><span>Commands</span></a>
-        </li>
-      <li role="presentation">
-        <a data-id="aliases" href="#aliases"><span>Aliases</span></a>
-        </li>
-      <li role="presentation">
-        <a data-id="customization" href="#customization"><span>Customization</span></a>
-      </li>
-      <li role="presentation">
-        <a data-id="sinopia" href="#sinopia"><span>Sinopia</span></a>
-      </li>
-      <li role="presentation">
-        <a data-id="faq" href="#faq"><span>FAQ</span></a>
-      </li>
-      <li class="last-tab" role="presentation">
-        <a data-id="history" href="#history"><span>History</span></a>
-      </li>
-    </ul>
-  </div>
 
-  <div class="content hidden">
-    <!-- Tab panes -->
-    <div class="envtools-tab-content tab-content">
+    <div class="content">
+      <!-- Tab panes -->
+      <div class="envtools-tab-content tab-content">
 
-      <!-- introduction pane -->
-      <div role="tabpanel" class="tab-pane active" id="intro">
-        @import "envtools-intro.html"
+        <!-- introduction pane -->
+        <div role="tabpanel" class="tab-pane active" id="intro">
+          @import "envtools-intro.html"
+        </div>
+
+        <!-- commands pane -->
+        <div role="tabpanel" class="tab-pane" id="commands">
+          @import "envtools-commands.html"
+        </div>
+
+        <!-- aliases pane -->
+        <div role="tabpanel" class="tab-pane" id="aliases">
+          @import "envtools-aliases.html"
+        </div>
+
+        <!-- customization pane -->
+        <div role="tabpanel" class="tab-pane" id="customization">
+          @import "envtools-custom.html"
+        </div>
+
+        <!-- FAQ pane -->
+        <div role="tabpanel" class="tab-pane" id="faq">
+          @import "envtools-faq.html"
+        </div>
+
+        <!-- Sinopia pane -->
+        <div role="tabpanel" class="tab-pane" id="sinopia">
+          @import "envtools-sinopia.html"
+        </div>
+
+        <!-- history pane -->
+        <div role="tabpanel" class="tab-pane" id="history">
+          <h1>History</h1>
+          <span>
+            @import "history-raw.html"
+          </span>
+
+        </div>
+
+        @import "envtools-footer.html"
       </div>
 
-      <!-- commands pane -->
-      <div role="tabpanel" class="tab-pane" id="commands">
-        @import "envtools-commands.html"
-      </div>
-
-      <!-- aliases pane -->
-      <div role="tabpanel" class="tab-pane" id="aliases">
-        @import "envtools-aliases.html"
-      </div>
-
-      <!-- customization pane -->
-      <div role="tabpanel" class="tab-pane" id="customization">
-        @import "envtools-custom.html"
-      </div>
-
-      <!-- FAQ pane -->
-      <div role="tabpanel" class="tab-pane" id="faq">
-        @import "envtools-faq.html"
-      </div>
-
-      <!-- Sinopia pane -->
-      <div role="tabpanel" class="tab-pane" id="sinopia">
-        @import "envtools-sinopia.html"
-      </div>
-
-      <!-- history pane -->
-      <div role="tabpanel" class="tab-pane" id="history">
-        <h1>History</h1>
-        @import "history-raw.html"
-      </div>
-
-      @import "envtools-footer.html"
     </div>
 
   </div>

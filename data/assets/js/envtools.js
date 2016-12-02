@@ -222,5 +222,6 @@ $(function () {
 
 
   // -- S H O W T I M E
-  $('.envtools-help .content').removeClass('hidden');
+  $('.loading').fadeOut();
+  $('.container').fadeIn();
 });

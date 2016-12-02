@@ -12,18 +12,69 @@
   }
 }
 
+@keyframes active {
+  0% {
+    transform: scale(.1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(5);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingLoading {
+  0% {
+    background-color: #fff
+  }
+  50% {
+    background-color: #fff
+  }
+  100% {
+    background-color: rgb(64, 120, 192);
+  }
+}
+
 html {
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
 }
 
-body.envtools-help {
+.envtools-help .container {
   margin-left: auto;
   margin-right: auto;
   width: 740px;
 }
 
+.envtools-help .loading {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  background-color: rgb(64, 120, 192);
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation-name: loadingLoading;
+  animation-duration: 1s;
+}
+
+.envtools-help .loading:before {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  left: 0;
+  top: 0;
+  background-color: rgb(64, 120, 192);
+  border-radius: 50%;
+  animation: active 2s infinite linear;
+}
+
 @media screen and (max-width: 739px) {
-  body.envtools-help {
+  .envtools-help .container {
     width: auto;
   }
 }
@@ -65,7 +116,7 @@ body.envtools-help {
 }
 
 @media screen and (max-width: 420px) {
-  .envtools-help.container {
+  .envtools-help .container {
     padding-left: 0;
     padding-right: 0;
   }
