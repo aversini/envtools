@@ -46,10 +46,10 @@ function getLocalIpAddress {
 }
 function getDiskSpace {
   if isMac; then
-    echo "$(df -PlH)"
+    echo "$(df -PlH 2> /dev/null)"
   fi
   if isLinux; then
-    echo "$(df -Plh)"
+    echo "$(df -Plh 2> /dev/null)"
   fi
 }
 function getNodeVersion {
