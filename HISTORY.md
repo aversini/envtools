@@ -1,4 +1,12 @@
 
+__1.0.19 / 2016-12-02__
+
+- [faq] adding ellipsis to long code line ([05df7b7](https://github.com/aversini/envtools/commit/05df7b78a93ae8951645ba215e4784b76d41aaa3))
+- [help] adding a little animation on loading for slow connections ([cc7ef00](https://github.com/aversini/envtools/commit/cc7ef00230af18e163442b39de5dbbb22a405d10))
+- Using full jQuery instead of slim ([483ef5c](https://github.com/aversini/envtools/commit/483ef5caa37df6c06eb07dc2cabb3a145af3c93a))
+- [lite] ignore `df` access denied messages ([be90c62](https://github.com/aversini/envtools/commit/be90c621ed25dfe253c88f69a288f1d688a5fbec))
+- Fixing bash return (-1 is not a valid error on some distro) ([0e3dbae](https://github.com/aversini/envtools/commit/0e3dbaef026b60fcebc59eeb76cf79785c6a2f47))
+
 __1.0.18 / 2016-12-01__
 
 - [help] reducing logo real-estate on lower breakpoints ([2e99afc](https://github.com/aversini/envtools/commit/2e99afca584693784f28b869b101a181cb3d3ca0))
