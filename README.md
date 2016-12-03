@@ -1,7 +1,9 @@
-Environment Helper Tools
-==================
-
-[![npm version](https://badge.fury.io/js/envtools.svg)](http://badge.fury.io/js/envtools) 
+<p align="center">
+  <a href="http://aversini.github.io/envtools/">
+    <img height="59" width="312"
+    src="https://raw.githubusercontent.com/aversini/envtools/master/data/assets/images/envtools-2x.png">
+  </a>
+</p>
 
 ## Installation
 
