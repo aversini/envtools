@@ -38,6 +38,29 @@
   }
 }
 
+@keyframes pulsing {
+  0% {
+    transform: scale(0);
+    opacity: 0.0;
+  }
+  25% {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(0.1);
+    opacity: 0.3;
+  }
+  75% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.0;
+  }
+}
+
 html {
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", "Lucida Grande";
 }
@@ -50,27 +73,37 @@ html {
 
 .envtools-help .loading {
   position: absolute;
-  top: 20%;
-  left: 50%;
-  background-color: rgb(64, 120, 192);
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  animation-name: loadingLoading;
-  animation-duration: 1s;
+  top: 15%;
+  left: 47%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.envtools-help .loading:before {
+.envtools-help .loading .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  background-color: rgb(64, 120, 192);
+  animation-name: loadingLoading;
+  animation-duration: 2s;
+}
+
+.envtools-help .loading .dot:before {
   position: absolute;
   content: "";
-  height: 1em;
-  width: 1em;
+  height: 50px;
+  width: 50px;
   left: 0;
   top: 0;
   background-color: rgb(64, 120, 192);
   border-radius: 50%;
-  animation: active 2s infinite linear;
+  animation-name: pulsing;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @media screen and (max-width: 739px) {
