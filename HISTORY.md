@@ -1,4 +1,8 @@
 
+__1.0.21 / 2016-12-03__
+
+- [help] better quality pulsing dot while waiting on safari ([1116bbf](https://github.com/aversini/envtools/commit/1116bbf4b22239a9429ebf967e2cb2da9eb3bdd0))
+
 __1.0.20 / 2016-12-02__
 
 - Adding logo to README + License ([c7a91af](https://github.com/aversini/envtools/commit/c7a91af9ebc4d852528a0e754f78acfb84e109cd))
