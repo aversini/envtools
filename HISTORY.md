@@ -1,4 +1,10 @@
 
+__1.0.20 / 2016-12-02__
+
+- Adding logo to README + License ([c7a91af](https://github.com/aversini/envtools/commit/c7a91af9ebc4d852528a0e754f78acfb84e109cd))
+- Adding logo for README ([60e9161](https://github.com/aversini/envtools/commit/60e9161245674dc20323960a84091c4874be3408))
+- Removing maven settings from repo ([7644a54](https://github.com/aversini/envtools/commit/7644a5453e2bbd29de675e7fb63615e62721cb9c))
+
 __1.0.19 / 2016-12-02__
 
 - [faq] adding ellipsis to long code line ([05df7b7](https://github.com/aversini/envtools/commit/05df7b78a93ae8951645ba215e4784b76d41aaa3))
