@@ -1,4 +1,9 @@
 
+__1.0.22 / 2016-12-06__
+
+- First pass at removing help ([8771aa4](https://github.com/aversini/envtools/commit/8771aa423d156a325eb295bfe42e5c1f55d41553))
+- [help] updating footer to link to github ([8d2c31b](https://github.com/aversini/envtools/commit/8d2c31ba34b8de73e0cc9eeefbb6c1144623c5ea))
+
 __1.0.21 / 2016-12-03__
 
 - [help] better quality pulsing dot while waiting on safari ([1116bbf](https://github.com/aversini/envtools/commit/1116bbf4b22239a9429ebf967e2cb2da9eb3bdd0))
