@@ -2,15 +2,14 @@ module.exports = function (grunt) {
   var
     g = require('../globals');
 
-  grunt.registerTask('history-help-add-commit', 'Git add/commit ' + g.historyFile, function () {
+  grunt.registerTask('history-add-commit', 'Git add/commit ' + g.historyFile, function () {
     var
       done = this.async(),
       commitMsg = g.UPDATING_HISTORY_COMMIT_MSG + ' [skip ci]',
       noWrite = grunt.option('no-write') || false,
       args = ['add',
         g.historyFile,
-        g.bashVersionFile,
-        g.helpFileHTML
+        g.bashVersionFile
       ];
 
     if (noWrite) {

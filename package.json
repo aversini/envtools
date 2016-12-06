@@ -7,15 +7,12 @@
     "envtools": "./bin/envtools.js"
   },
   "files": [
-    "index.html",
-    "favicon.ico",
     "version",
     "shell",
     "bin",
     "lib",
     "data/i18n",
-    "data/third",
-    "scripts"
+    "data/third"
   ],
   "repository": {
     "type": "git",
@@ -23,10 +20,6 @@
   },
   "bugs": {
     "url": "https://github.com/aversini/envtools/issues"
-  },
-  "scripts": {
-    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
-    "ci": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
     "node": ">=4.2.4"
@@ -54,28 +47,9 @@
     "semver": "^5.3.0"
   },
   "devDependencies": {
-    "chai": "*",
-    "coveralls": "*",
     "grunt": "*",
-    "grunt-autoprefixer": "^3.0.4",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-htmlmin": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-yuidoc": "*",
-    "grunt-import": "^1.0.3",
-    "grunt-inline": "^0.3.6",
-    "grunt-markdown": "*",
-    "grunt-mkdir": "*",
-    "grunt-shell": "*",
-    "istanbul": "*",
-    "load-grunt-tasks": "*",
-    "lunr": "^0.7.2",
-    "mocha": "*",
-    "mocha-lcov-reporter": "*",
-    "striptags": "^2.1.1"
+    "load-grunt-tasks": "*"
   },
   "keywords": [
     "envtools"
