@@ -1,4 +1,8 @@
 
+__1.0.23 / 2016-12-06__
+
+- Moving proxy before sudo-less for `envtools auto` ([27dedcb](https://github.com/aversini/envtools/commit/27dedcb225b564e62181712239642a102cc788ef))
+
 __1.0.22 / 2016-12-06__
 
 - First pass at removing help ([8771aa4](https://github.com/aversini/envtools/commit/8771aa423d156a325eb295bfe42e5c1f55d41553))
