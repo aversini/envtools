@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://aversini.github.io/envtools-help/">
+  <a href="http://envtools.surge.sh">
     <img height="59" width="312"
     src="https://raw.githubusercontent.com/aversini/envtools-help/master/docs/data/assets/images/envtools-2x.png">
 
