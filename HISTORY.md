@@ -1,4 +1,8 @@
 
+__1.0.24 / 2016-12-20__
+
+- Changing help location ([652c6e5](https://github.com/aversini/envtools/commit/652c6e5100da93b6d3f0b3e55b6e6f73120cfea5))
+
 __1.0.23 / 2016-12-06__
 
 - Moving proxy before sudo-less for `envtools auto` ([27dedcb](https://github.com/aversini/envtools/commit/27dedcb225b564e62181712239642a102cc788ef))
