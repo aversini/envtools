@@ -1,4 +1,14 @@
 
+__1.0.25 / 2016-12-31__
+
+- typo ([5e5edcf](https://github.com/aversini/envtools/commit/5e5edcfce205ffed412b0da3e74fc17987ef3ddc))
+- ESLint: removing config installation in auto mode ([d86d86e](https://github.com/aversini/envtools/commit/d86d86e9a96c82af91f9b8b09e4e627c77195a03))
+- ESLint: Better phrasing ([9df278c](https://github.com/aversini/envtools/commit/9df278c630cbb98554099f430abdbc7909e1bc7c))
+- ESLint: tweaking react rules a bit ([76f3e3b](https://github.com/aversini/envtools/commit/76f3e3b1600d28ead55e040275f428840ee019a7))
+- Adding atom react plugin ([2e405f4](https://github.com/aversini/envtools/commit/2e405f41f06e137c5090d90e2dc4f79fb95de0fd))
+- ESLint: updating ES6 for module and adding React support ([963f6c3](https://github.com/aversini/envtools/commit/963f6c37052c02f48b0089096401522c94505d10))
+- Adding extra ESLint plugins if ESLint is required ([8f8117a](https://github.com/aversini/envtools/commit/8f8117ae7a732834edcc17e9fa532e58e67beddb))
+
 __1.0.24 / 2016-12-20__
 
 - Changing help location ([652c6e5](https://github.com/aversini/envtools/commit/652c6e5100da93b6d3f0b3e55b6e6f73120cfea5))
@@ -156,9 +166,6 @@ __1.0.1 / 2016-11-18__
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
-
-__0.0.170 / 2016-11-18__
-
 - [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
 - [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
 - [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
@@ -636,7 +643,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.109 / 2016-06-17__
+__0.0.108 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
