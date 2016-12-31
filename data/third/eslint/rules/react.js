@@ -14,6 +14,12 @@ module.exports = {
     'react'
   ],
   rules: {
+    // enforce consistent spacing inside braces
+    'object-curly-spacing': 'off',
+    // require or disallow semicolons instead of ASI
+    'semi': 'off',
+
+    // specific react rules
     'react/display-name': 'error',
     'react/jsx-no-duplicate-props': 'error',
     'react/jsx-no-undef': 'error',
