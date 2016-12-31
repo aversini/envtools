@@ -2,6 +2,10 @@ module.exports = {
   env: {
     es6: true
   },
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module'
+  },
   rules: {
     // enforces no braces where they can be omitted
     'arrow-body-style': ['error', 'as-needed', {
