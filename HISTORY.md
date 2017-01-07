@@ -1,4 +1,10 @@
 
+__1.0.26 / 2017-01-07__
+
+- Using new log API to center message ([c5a7679](https://github.com/aversini/envtools/commit/c5a76798e9948288308bfed9e58db4a6bc452ac4))
+- Warning user if trying to run `auto` again ([b27cb4a](https://github.com/aversini/envtools/commit/b27cb4a5d81d2d47096cd15f1dffe22a5c4b85a6))
+- Adding linter to project ([a7901ba](https://github.com/aversini/envtools/commit/a7901baf9adc52774bef7b7e2427890d622d86ec))
+
 __1.0.25 / 2016-12-31__
 
 - typo ([5e5edcf](https://github.com/aversini/envtools/commit/5e5edcfce205ffed412b0da3e74fc17987ef3ddc))
