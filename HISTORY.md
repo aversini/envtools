@@ -1,4 +1,9 @@
 
+__1.0.27 / 2017-01-08__
+
+- adding terminal plugin to atom plugins list ([4c95928](https://github.com/aversini/envtools/commit/4c9592894184168a86e3e07f03970003ed59d2ba))
+- Adding support for terminal within Atom ([dbacd5f](https://github.com/aversini/envtools/commit/dbacd5fa1326bf0b78c8b67e4347e7ec2db357ab))
+
 __1.0.26 / 2017-01-07__
 
 - Using new log API to center message ([c5a7679](https://github.com/aversini/envtools/commit/c5a76798e9948288308bfed9e58db4a6bc452ac4))
