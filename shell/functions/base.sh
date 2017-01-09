@@ -302,11 +302,13 @@ function setTerminalTitle {
 #
 function displayWelcomeBanner {
   if isValid "$ENVTOOLS_FULL"; then
-    if [ "$INIT_PARAM" != "reload" ]; then
-      # Display a simple help intro if user wants it
-      showBanner
-      # Update the terminal tab title if needed
-      setTerminalTitle
+    if [ "$ATOM_TERMINAL" == "" ]; then
+      if [ "$INIT_PARAM" != "reload" ]; then
+        # Display a simple help intro if user wants it
+        showBanner
+        # Update the terminal tab title if needed
+        setTerminalTitle
+      fi
     fi
   fi
 }
