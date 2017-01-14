@@ -1,4 +1,15 @@
 
+__1.0.28 / 2017-01-13__
+
+- Better Atom packages installation procedure ([38fc724](https://github.com/aversini/envtools/commit/38fc7244285041e44d9724ad83e0969a599337b0))
+- Adding/updating git aliases: ([4852a7a](https://github.com/aversini/envtools/commit/4852a7a1cfb1550bd93b4b65f4403e5d97256b36))
+  `git st` has been improved to should a simpler `git status`
+  `git l` is a new alias to show a better formatted `git log`
+  
+- Removing webpack from list of core node packages ([525cf90](https://github.com/aversini/envtools/commit/525cf90377bab8385775c8820c31174c8224e9e6))
+  Rationale:  better to use webpack locally to each projects
+  
+
 __1.0.27 / 2017-01-08__
 
 - adding terminal plugin to atom plugins list ([4c95928](https://github.com/aversini/envtools/commit/4c9592894184168a86e3e07f03970003ed59d2ba))
