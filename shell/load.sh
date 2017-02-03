@@ -90,13 +90,7 @@ if isWindows || isLinux || isMac; then
     # Set the envtools custom prompt if the user asked for it
     if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
       CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
-      if [ "$CUSTOM_PROMPT_TYPE" == "3" ]; then
-        setEnvtoolsPromptConfigurationSinopiaAndNode
-      elif [ "$CUSTOM_PROMPT_TYPE" == "2" ]; then
-        setEnvtoolsPromptConfigurationSinopia
-      else
-        setEnvtoolsPromptConfigurationDefault
-      fi
+      setEnvtoolsPromptConfiguration $CUSTOM_PROMPT_TYPE
       PROMPT_COMMAND=setEnvtoolsPrompt
     fi
   else

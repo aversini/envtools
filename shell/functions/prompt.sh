@@ -245,6 +245,21 @@ function setEnvtoolsPromptConfigurationSinopia {
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
+function setEnvtoolsPromptConfigurationNode {
+  if isMac; then
+    setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
+    setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
+  else
+    setPromptOFFSymbol "off"
+    setPromptONSymbol "on"
+  fi
+  setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
+  setPromptNode "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "node    : "
+  setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
+  setPromptGitBranchStatusColor "$COLOR_GREEN"
+  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
+}
+
 function setEnvtoolsPromptConfigurationSinopiaAndNode {
   if isMac; then
     setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
@@ -259,6 +274,31 @@ function setEnvtoolsPromptConfigurationSinopiaAndNode {
   setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
   setPromptGitBranchStatusColor "$COLOR_GREEN"
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
+}
+
+function setEnvtoolsPromptConfiguration {
+  # See corresponding JS definitions in common.js
+  local CUSTOM_PROMPT_DEFAULT="1";
+  local CUSTOM_PROMPT_WITH_SINOPIA="2";
+  local CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE="3";
+  local CUSTOM_PROMPT_WITH_NODE="4";
+
+  case "$1" in
+    $CUSTOM_PROMPT_DEFAULT)
+      setEnvtoolsPromptConfigurationDefault
+      ;;
+    $CUSTOM_PROMPT_WITH_SINOPIA)
+      setEnvtoolsPromptConfigurationSinopia
+      ;;
+    $CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE)
+      setEnvtoolsPromptConfigurationSinopiaAndNode
+      ;;
+    $CUSTOM_PROMPT_WITH_NODE)
+      setEnvtoolsPromptConfigurationNode
+      ;;
+    *)
+    setEnvtoolsPromptConfigurationDefault
+  esac
 }
 
 function setEnvtoolsPrompt {
