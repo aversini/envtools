@@ -1,4 +1,9 @@
 
+__1.0.30 / 2017-02-14__
+
+- Better way to handle dependencies for node packages ([5c874b3](https://github.com/aversini/envtools/commit/5c874b36d370d49562d77e9bd9cb832a5da0d3d0))
+- Adding split-diff to the list of nice atom plugins ([5eb6cb2](https://github.com/aversini/envtools/commit/5eb6cb2f66ad2c37c5579e809bb7d3cdd6270fb6))
+
 __1.0.29 / 2017-02-09__
 
 - Updating `envtools info` to include yarn ([aa43a47](https://github.com/aversini/envtools/commit/aa43a47dc8e5120bbfce8896e2f4150425450655))
@@ -201,9 +206,6 @@ __1.0.1 / 2016-11-18__
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
-
-__0.0.170 / 2016-11-18__
-
 - [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
 - [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
 - [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
@@ -681,7 +683,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.109 / 2016-06-17__
+__0.0.108 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
