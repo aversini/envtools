@@ -1,4 +1,9 @@
 
+__1.0.31 / 2017-02-14__
+
+- Better phrasing between yarn and npm choice ([22f8663](https://github.com/aversini/envtools/commit/22f86634777e5d641e1a233baab89ed69c56f837))
+- Before installing npm packages, set yarn configuration ([7afd541](https://github.com/aversini/envtools/commit/7afd541e7b1ff68bbfdffdc1fb6761a0f97382b0))
+
 __1.0.30 / 2017-02-14__
 
 - Better way to handle dependencies for node packages ([5c874b3](https://github.com/aversini/envtools/commit/5c874b36d370d49562d77e9bd9cb832a5da0d3d0))
