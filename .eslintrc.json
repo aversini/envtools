@@ -43,7 +43,7 @@
     "comma-style": "error",
     "complexity": [
       "error",
-      10
+      20
     ],
     "computed-property-spacing": "error",
     "consistent-return": "off",

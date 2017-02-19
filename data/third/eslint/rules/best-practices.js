@@ -10,7 +10,7 @@ module.exports = {
     // enforce that class methods utilize this
     'class-methods-use-this': 'off',
     // enforce a maximum cyclomatic complexity allowed in a program
-    'complexity': ['error', 10],
+    'complexity': ['error', 20],
     // require return statements to either always or never specify values
     'consistent-return': 'off',
     // enforce consistent brace style for all control statements
