@@ -1,4 +1,9 @@
 
+__1.0.32 / 2017-02-19__
+
+- Relaxing eslint complexity rule ([bed770b](https://github.com/aversini/envtools/commit/bed770b13e2fccaf39abf5e71a4bf9d907d4365a))
+- Replacing fedtools-notifier with node-notifier ([b29b53e](https://github.com/aversini/envtools/commit/b29b53ef5720caf3ba7ffbd477c403d024db8fb0))
+
 __1.0.31 / 2017-02-14__
 
 - Better phrasing between yarn and npm choice ([22f8663](https://github.com/aversini/envtools/commit/22f86634777e5d641e1a233baab89ed69c56f837))
