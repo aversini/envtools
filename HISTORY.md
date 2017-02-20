@@ -1,4 +1,8 @@
 
+__1.0.33 / 2017-02-19__
+
+- Fixing `fgrs` to allow number as a pattern to search ([e7f4c76](https://github.com/aversini/envtools/commit/e7f4c76dcf888a1ad9537511cfdf3fd465eeba70))
+
 __1.0.32 / 2017-02-19__
 
 - Relaxing eslint complexity rule ([bed770b](https://github.com/aversini/envtools/commit/bed770b13e2fccaf39abf5e71a4bf9d907d4365a))
