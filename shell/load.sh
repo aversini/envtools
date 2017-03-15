@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Experimental: trying to figure out if running in Atom or not...
-if [ "$ELECTRON_RUN_AS_NODE" != "" ]; then
+if [ "$ELECTRON_RUN_AS_NODE" != "" -o "$TERM_PROGRAM" == "platformio-ide-terminal" ]; then
   ATOM_TERMINAL=1
 fi
 
