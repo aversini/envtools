@@ -1,4 +1,9 @@
 
+__1.0.34 / 2017-03-19__
+
+- Updating atom linter package dependencies ([38b3f79](https://github.com/aversini/envtools/commit/38b3f79440987950d827ad081adf51532a362b05))
+- Hacky way to detect terminal while in Atom... ([68c7475](https://github.com/aversini/envtools/commit/68c7475738a82421af751830ad6ca2bcaedaf592))
+
 __1.0.33 / 2017-02-19__
 
 - Fixing `fgrs` to allow number as a pattern to search ([e7f4c76](https://github.com/aversini/envtools/commit/e7f4c76dcf888a1ad9537511cfdf3fd465eeba70))
