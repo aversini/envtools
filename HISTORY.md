@@ -1,4 +1,10 @@
 
+__1.0.35 / 2017-03-21__
+
+- Not trying to install yarn on Windows… ([ef01f7d](https://github.com/aversini/envtools/commit/ef01f7d41da6e0c67a617a46e99924bb964a248f))
+- Installing yarn automatically if not there ([c0f1610](https://github.com/aversini/envtools/commit/c0f16101872984c23c6511462a9b00e9d268c257))
+- moving git alias “l” to mac only ([a7295ee](https://github.com/aversini/envtools/commit/a7295ee0c921a29941deaccffcf277c9cc0e74ef))
+
 __1.0.34 / 2017-03-19__
 
 - Updating atom linter package dependencies ([38b3f79](https://github.com/aversini/envtools/commit/38b3f79440987950d827ad081adf51532a362b05))
