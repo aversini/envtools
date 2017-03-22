@@ -36,6 +36,11 @@ if [ "$INIT_PARAM" != "reload" ]; then
   export PATH=$PATH:$RUNTIME_BIN_DIR:$HOME/npm/bin
 fi
 
+# if yarn is installed, add it to the PATH
+if [ -d "$HOME/.yarn/bin" ]; then
+  export PATH=$PATH:$HOME/.yarn/bin
+fi
+
 # Improve history search with up and down keys.
 # Try typing ls
 # and then up and down arrows... joy!
