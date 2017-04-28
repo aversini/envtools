@@ -22,6 +22,7 @@
     "setSinopia": "Enable/disable npm package local caching via Sinopia.",
     "terminalProfile": "Install Envtools custom Terminal profile.",
     "installNVM": "Install/update and configure Node Version Manager (nvm).",
+    "installYarn": "Install/update and configure Yarn (another node package manager)",
 
     "intro": {
       "setup": "Welcome to Envtools - Interactive setup",
