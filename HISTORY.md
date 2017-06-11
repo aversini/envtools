@@ -1,4 +1,12 @@
 
+__1.0.40 / 2017-06-11__
+
+- Adding support for setting a "special" npm registry via env ([207f6ec](https://github.com/aversini/envtools/commit/207f6ec80ff57e742f16ba07edbb5b2bedb9af45))
+  - set CUSTOM_NPM_REGISTRY and it will be taken into account for both npm and yarn instead of the standard registries
+  - set CUSTOM_NPM_REGISTRY_PROXY to off to prevent npm proxies from being set (in .npmrc), but still supporting proxies at the env and git level.
+  
+- Adding a few Atom packages (simple-panes, svg, prettier) ([19c47d2](https://github.com/aversini/envtools/commit/19c47d28dcebf9be1f8b2d130a8cdaacb0f3f5bb))
+
 __1.0.39 / 2017-05-28__
 
 - Bumping yarn to 0.25.3 ([815a94e](https://github.com/aversini/envtools/commit/815a94e9af174db481865934339057a477931a05))
@@ -253,6 +261,9 @@ __1.0.1 / 2016-11-18__
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
+
+__0.0.170 / 2016-11-18__
+
 - [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
 - [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
 - [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
@@ -730,7 +741,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
