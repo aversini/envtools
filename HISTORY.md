@@ -1,4 +1,9 @@
 
+__1.0.44 / 2017-06-11__
+
+- adding npm and yarn registry data to `envtools info` ([9c54755](https://github.com/aversini/envtools/commit/9c547553da7484b9099611a795ea44ea8bc38aea))
+- fix: even with CUSTOM_NPM_REGISTRY_PROXY=off, do not prevent removing proxies ([83c1281](https://github.com/aversini/envtools/commit/83c1281656dae6b30ca391cc56326c715dc28bae))
+
 __1.0.43 / 2017-06-11__
 
 - Atom: replacing pane-manager with layout-control ([3f0eb8c](https://github.com/aversini/envtools/commit/3f0eb8cdcbfb396fc32d09f14691eb8bc097f0dc))
