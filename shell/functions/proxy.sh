@@ -109,7 +109,10 @@ function setEnvProxy {
       export ALL_PROXY=$http_proxy
       export HTTP_PROXY=$http_proxy
       export HTTPS_PROXY=$http_proxy
-      export no_proxy=localhost,127.0.0.1
+      if [ "$no_proxy" == "" ]; then
+        export no_proxy=localhost,127.0.0.1
+      fi
+      export NO_PROXY=$no_proxy
     elif [ "$2" == "OFF" ]; then
       unset http_proxy
       unset https_proxy
