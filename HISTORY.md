@@ -1,4 +1,8 @@
 
+__1.0.45 / 2017-06-12__
+
+- fix: do not override no_proxy if it's already set ([a8ebccc](https://github.com/aversini/envtools/commit/a8ebccce232fc4c65c4de3e3cc68b9d2b5a02eef))
+
 __1.0.44 / 2017-06-11__
 
 - adding npm and yarn registry data to `envtools info` ([9c54755](https://github.com/aversini/envtools/commit/9c547553da7484b9099611a795ea44ea8bc38aea))
