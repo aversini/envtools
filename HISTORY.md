@@ -1,4 +1,9 @@
 
+__1.0.43 / 2017-06-11__
+
+- Atom: replacing pane-manager with layout-control ([3f0eb8c](https://github.com/aversini/envtools/commit/3f0eb8cdcbfb396fc32d09f14691eb8bc097f0dc))
+- bumping nvm from 0.32.0 to [0.33.2](https://github.com/creationix/nvm/releases/tag/v0.33.2) ([e904056](https://github.com/aversini/envtools/commit/e90405606df4bd1a008338385eaecab394ce5444))
+
 __1.0.40 / 2017-06-11__
 
 - Adding support for setting a "special" npm registry via env ([207f6ec](https://github.com/aversini/envtools/commit/207f6ec80ff57e742f16ba07edbb5b2bedb9af45))
