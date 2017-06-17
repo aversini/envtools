@@ -24,6 +24,9 @@ alias t=tit
 alias diffd='diffDirectories'
 alias c='clear'
 alias grep='grep --color'
+if isValid "$ENVTOOLS_FULL"; then
+  alias reg='envtools registry'
+fi
 
 # alias for setting/un-setting the proxies
 alias pon='setProxies ON'
