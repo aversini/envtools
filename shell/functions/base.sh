@@ -93,6 +93,7 @@ function confirm () {
         elif [ "$default" == "yes" ]; then
           return 0
         else
+          echo
           txtRed "Yes or no?" "nl"
         fi
     esac

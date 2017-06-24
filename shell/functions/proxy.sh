@@ -147,15 +147,18 @@ function setNpmProxy {
       fi
 
       if [ "$2" == "ON" -a $SET_PROXY == true ]; then
-        if [ "$CUSTOM_NPM_REGISTRY_PROXY" != "off" ]; then
-          cmd "npm config set proxy ${PROXY_VALUE}"
-          cmd "npm config set https-proxy ${PROXY_VALUE}"
-        fi
+        confirm "Do you need a proxy to access the npm registry?"
+        case $? in
+          0)
+            cmd "npm config set proxy ${PROXY_VALUE}"
+            cmd "npm config set https-proxy ${PROXY_VALUE}"
+          ;;
+        esac
       elif [ "$2" == "OFF" -a $SET_PROXY == true ]; then
         cmd "npm config delete proxy"
         cmd "npm config delete https-proxy"
       fi
-
+n
     fi
   fi
 }
