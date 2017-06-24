@@ -158,7 +158,6 @@ function setNpmProxy {
         cmd "npm config delete proxy"
         cmd "npm config delete https-proxy"
       fi
-n
     fi
   fi
 }
