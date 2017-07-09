@@ -7,7 +7,6 @@
     "setPrompt": "Enable/disable Envtools Custom Command Line Prompt (git info, etc.).",
     "setBanner": "Enable/disable Envtools Welcome Banner.",
     "setProxy": "Setup/Enable/Disable a proxy.",
-    "setJsBeautifyConfig": "Install recommended jsBeautify configuration.",
     "setGitCfg": "Bootstrap your git configuration.",
     "setNPM": "Configure npm and install a few essential global node packages.",
     "setBrew": "Install/update Homebrew (Mac Package Manager).",
