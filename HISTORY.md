@@ -1,4 +1,12 @@
 
+__1.0.47 / 2017-07-08__
+
+- chore: update dependencies ([0c33eaa](https://github.com/aversini/envtools/commit/0c33eaa9e74141fb8c32b69c78d5cdb4064f38bd))
+- chore: updating to the latest Yarn (v0.27.5) ([6ae846c](https://github.com/aversini/envtools/commit/6ae846c81e03bb576966245d73762b98dedd92a9))
+- chore: remove jsBeautify config (prefer local prettier + eslint) ([4c201e1](https://github.com/aversini/envtools/commit/4c201e15b9b6e841d6857448d670dba20d041484))
+- chore: removing ESLint installation (prefer local) ([88a2e60](https://github.com/aversini/envtools/commit/88a2e60ae452248b9bf7d3f5a0bb6352d267fa5c))
+- adding postcss language support for Atom ([6272d8e](https://github.com/aversini/envtools/commit/6272d8e0ab1cc3e25023f854c31d4975646d1317))
+
 __1.0.46 / 2017-06-24__
 
 - oops, not sure when this lil guy sneaked in! ([182afef](https://github.com/aversini/envtools/commit/182afefb97f6a8549ab87d04b247ec2066c54609))
@@ -283,9 +291,6 @@ __1.0.1 / 2016-11-18__
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
-
-__0.0.170 / 2016-11-18__
-
 - [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
 - [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
 - [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
@@ -763,7 +768,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.109 / 2016-06-17__
+__0.0.108 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
