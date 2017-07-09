@@ -457,9 +457,9 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-fedtools-commands@~0.0.31, fedtools-commands@~0.0.6:
+fedtools-commands@^0.0.54, fedtools-commands@~0.0.6:
   version "0.0.54"
-  resolved "https://registry.yarnpkg.com/fedtools-commands/-/fedtools-commands-0.0.54.tgz#1e076caff8b86411b691e37f09a21616a5a00d5b"
+  resolved "https://registry.npmjs.org/fedtools-commands/-/fedtools-commands-0.0.54.tgz#1e076caff8b86411b691e37f09a21616a5a00d5b"
   dependencies:
     fedtools-logs "~0.1.1"
     lodash "^4.15.0"
@@ -467,7 +467,15 @@ fedtools-commands@~0.0.31, fedtools-commands@~0.0.6:
     ssh2 "~0.5.0"
     sudo-prompt "^6.2.0"
 
-fedtools-config@~0.0.15, fedtools-config@~0.0.18:
+fedtools-config@^0.0.47:
+  version "0.0.47"
+  resolved "https://registry.npmjs.org/fedtools-config/-/fedtools-config-0.0.47.tgz#96fcd3ba14a5e2d53497435bea5c8bfe158c01d2"
+  dependencies:
+    fedtools-i18n "~0.0.7"
+    fedtools-logs "~0.1.20"
+    lodash "^4.15.0"
+
+fedtools-config@~0.0.15:
   version "0.0.44"
   resolved "https://registry.yarnpkg.com/fedtools-config/-/fedtools-config-0.0.44.tgz#f2b737d4bb7867516b986ed204aa95cb0b5a9f13"
   dependencies:
@@ -475,12 +483,19 @@ fedtools-config@~0.0.15, fedtools-config@~0.0.18:
     fedtools-logs "~0.1.20"
     lodash "^4.15.0"
 
-fedtools-i18n@~0.0.5, fedtools-i18n@~0.0.7:
+fedtools-i18n@^0.0.17, fedtools-i18n@~0.0.7:
   version "0.0.17"
-  resolved "https://registry.yarnpkg.com/fedtools-i18n/-/fedtools-i18n-0.0.17.tgz#011f7462c5c7f1cf0692090cd62af33ef3cd6e1e"
+  resolved "https://registry.npmjs.org/fedtools-i18n/-/fedtools-i18n-0.0.17.tgz#011f7462c5c7f1cf0692090cd62af33ef3cd6e1e"
   dependencies:
     lodash "^4.15.0"
     node-polyglot "^2.0.0"
+
+fedtools-logs@^0.1.42:
+  version "0.1.42"
+  resolved "https://registry.npmjs.org/fedtools-logs/-/fedtools-logs-0.1.42.tgz#51290b242ad83ef1d6685c591a4cf1c82efee0ff"
+  dependencies:
+    cli-color "^1.1.0"
+    lodash "^4.15.0"
 
 fedtools-logs@~0.1.1, fedtools-logs@~0.1.20:
   version "0.1.42"
@@ -489,9 +504,9 @@ fedtools-logs@~0.1.1, fedtools-logs@~0.1.20:
     cli-color "^1.1.0"
     lodash "^4.15.0"
 
-fedtools-utilities@^1.0.0:
-  version "1.0.42"
-  resolved "https://registry.yarnpkg.com/fedtools-utilities/-/fedtools-utilities-1.0.42.tgz#ecc6ca70c5f54164160240683e246e53f5aec1c1"
+fedtools-utilities@^1.0.44:
+  version "1.0.44"
+  resolved "https://registry.npmjs.org/fedtools-utilities/-/fedtools-utilities-1.0.44.tgz#07f9b0fdda931c2049302cd5040ac95405147e52"
   dependencies:
     async "^2.0.1"
     ecstatic "^2.1.0"
