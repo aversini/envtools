@@ -1,4 +1,8 @@
 
+__1.0.48 / 2017-07-12__
+
+- chore: allowing win7 64 bits ([57b1e40](https://github.com/aversini/envtools/commit/57b1e40cc608715b02458df45327c5d6824c0520))
+
 __1.0.47 / 2017-07-08__
 
 - chore: update dependencies ([0c33eaa](https://github.com/aversini/envtools/commit/0c33eaa9e74141fb8c32b69c78d5cdb4064f38bd))
