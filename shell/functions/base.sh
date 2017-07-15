@@ -94,7 +94,7 @@ function confirm () {
       txtBoldWhite "$prompt"
       read -n 1 resp
     fi
-    echo "resp: ($resp)"
+
     case "$resp" in
       [nN][oO]|[nN])
         echo && return 1
