@@ -147,7 +147,7 @@ function setNpmProxy {
       fi
 
       if [ "$2" == "ON" -a $SET_PROXY == true ]; then
-        confirm "Do you need a proxy to access the npm registry?"
+        confirm "Do you need a proxy to access the npm registry?" "no"
         case $? in
           0)
             cmd "npm config set proxy ${PROXY_VALUE}"
