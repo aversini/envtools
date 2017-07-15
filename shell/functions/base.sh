@@ -76,14 +76,14 @@ function confirm () {
   case "$2" in
     [nN][oO]|[nN])
       default="no"
-      prompt="$prompt [y|N] "
+      prompt="$prompt [yes|No] "
       ;;
     [yY][eE][sS]|[yY])
       default="yes"
-      prompt="$prompt [Y|n] "
+      prompt="$prompt [Yes|no] "
       ;;
     *)
-      prompt="$prompt [y|n] "
+      prompt="$prompt [yes|no] "
       ;;
   esac
 
@@ -94,22 +94,26 @@ function confirm () {
       txtBoldWhite "$prompt"
       read -n 1 resp
     fi
+    echo "resp: ($resp)"
     case "$resp" in
-      [nN])
+      [nN][oO]|[nN])
         echo && return 1
         ;;
-      [yY])
+      [yY][eE][sS]|[yY])
         echo && return 0
         ;;
-      *)
+      "")
+        # it's empty, user just pressed enter
         if [ "$default" == "no" ]; then
           return 1
         elif [ "$default" == "yes" ]; then
           return 0
         else
-          echo
           txtRed "Yes or no?" "nl"
         fi
+        ;;
+      *)
+        txtRed "Yes or no?" "nl"
     esac
   done
 }
