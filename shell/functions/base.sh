@@ -97,10 +97,10 @@ function confirm () {
 
     case "$resp" in
       [nN][oO]|[nN])
-        echo && return 1
+        return 1
         ;;
       [yY][eE][sS]|[yY])
-        echo && return 0
+        return 0
         ;;
       "")
         # it's empty, user just pressed enter
