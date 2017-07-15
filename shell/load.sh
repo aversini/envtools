@@ -103,11 +103,14 @@ if isWindows || isLinux || isMac; then
   setProxyAtLoadTime
 
   if isValid "$ENVTOOLS_FULL"; then
-    # Set the envtools custom prompt if the user asked for it
+    # Set the envtools custom prompt if the user asked for it,
+    # but only for Bash
     if [ -f "${RUNTIME_DIR}/envtools-prompt" ]; then
-      CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
-      setEnvtoolsPromptConfiguration $CUSTOM_PROMPT_TYPE
-      PROMPT_COMMAND=setEnvtoolsPrompt
+      if isBash; then
+        CUSTOM_PROMPT_TYPE=`cat "${RUNTIME_DIR}/envtools-prompt"`
+        setEnvtoolsPromptConfiguration $CUSTOM_PROMPT_TYPE
+        PROMPT_COMMAND=setEnvtoolsPrompt
+      fi
     fi
   else
     setEnvtoolsPromptConfigurationDefault
