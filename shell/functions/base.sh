@@ -51,6 +51,16 @@ function isLinux {
 }
 
 #
+# Test for shell types
+#
+function isBash {
+  [[ "$SHELL" == *"bash"* ]]
+}
+function isZsh {
+  [[ "$SHELL" == *"zsh"* ]]
+}
+
+#
 # returns 0 if the user confirmed yes, 1 otherwise
 # $1 optional prompt, default to "Continue? "
 # $2 optional default, "yes" or "no" - no default
@@ -78,8 +88,12 @@ function confirm () {
   esac
 
   while true; do
-    txtBoldWhite "$prompt"
-    read -n 1 resp
+    if isZsh; then
+      read resp\?"$prompt"
+    else
+      txtBoldWhite "$prompt"
+      read -n 1 resp
+    fi
     case "$resp" in
       [nN])
         echo && return 1
@@ -232,7 +246,9 @@ function isSvn {
 function reloadEnvironment {
   export PS1="$OLD_PS1"
   export INIT_PARAM="reload"
-  unsetDefaultPrompt
+  if isBash; then
+    unsetDefaultPrompt
+  fi
   if [ "$NVM_DIR" != "" ]; then
     if [ -f $NVM_DIR/nvm.sh ]; then
       source "$NVM_DIR/nvm.sh"

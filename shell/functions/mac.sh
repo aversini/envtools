@@ -52,3 +52,10 @@ function hddPerf {
   echo "Read  : $READ"
   echo
 }
+
+# in case of Mac and default terminal app, to allow opening a new tab
+# in the same current folder, we need to trick the PROMPT_COMMAND a
+# little bit
+if isValid "$BASH_ENV"; then
+  source "${ENVDIR}/functions/mac_terminal_tab.sh"
+fi

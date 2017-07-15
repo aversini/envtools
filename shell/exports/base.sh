@@ -45,9 +45,12 @@ fi
 # Try typing ls
 # and then up and down arrows... joy!
 # (not binding when not interactive shell (scp for ex))
-if [[ $- == *i* ]]; then
-  bind '"\e[A":history-search-backward'
-  bind '"\e[B":history-search-forward'
+# and not binding for zsh
+if isBash; then
+  if [[ $- == *i* ]]; then
+    bind '"\e[A":history-search-backward'
+    bind '"\e[B":history-search-forward'
+  fi
 fi
 
 if isMac; then

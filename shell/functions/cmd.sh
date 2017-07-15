@@ -1,18 +1,23 @@
 #
 # This function executes a command provided as a parameter
 # The function then displays if the command succeeded or not.
+# If the command is printing anything, it will be hidden,
+# unless the command fails.
 #
 function cmd {
-  COMMAND="$1"
-  LOG_FILE="/tmp/cmd.log"
+  local COMMAND
+  local COMMAND_TEXT="$1"
+  local LOG_FILE="/tmp/cmd.log"
 
-  txtDefault "Running: ${COMMAND:0:59}..." "nl"
+  txtDefault "Running: ${COMMAND_TEXT:0:59}..." "nl"
 
   if [ "$2" == "log" ]; then
     CMD_RESULT="Logs are available there: $LOG_FILE"
-    `$COMMAND >$LOG_FILE 2>&1`
+    COMMAND="$1 >$LOG_FILE 2>&1"
+    eval ${COMMAND}
   else
-    CMD_RESULT=`$COMMAND 2>&1`
+    COMMAND="$1 2>&1"
+    CMD_RESULT=$(eval ${COMMAND})
   fi
   ERROR="$?"
 
@@ -20,9 +25,11 @@ function cmd {
     ERROR=0
   fi
 
-  MSG="Command: ${COMMAND:0:59}..."
+  local MSG="Command: ${COMMAND_TEXT:0:59}..."
 
   if shouldLog; then
+    # move cursor one line up to override the 'running'
+    # message with success or failure
     tput cuu1
   fi
 

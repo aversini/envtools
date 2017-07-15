@@ -23,15 +23,27 @@ elif [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
   set -x
 fi
 
+if [[ "$SHELL" == *"bash"* ]]; then
+  BASH_ENV=true
+elif [[ "$SHELL" == *"zsh"* ]]; then
+  ZSH_ENV=true
+else
+  echo "Unknown shell ($SHELL), no Envtools..."
+  return
+fi
+
 # Setting some constants available at load time
 # and within all scripts and functions sourced here.
 ENVTOOLS_FULL=1
 OS=$(uname)
 if [ "$ENVTOOLS_ENVDIR" != "" ]; then
   ENVDIR=${ENVTOOLS_ENVDIR}
-else
+elif [ "$BASH_ENV" == "true" ]; then
   ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+elif [ "$ZSH_ENV" == "true" ]; then
+  ENVDIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
 fi
+
 RUNTIME_DIR="${HOME}/.envtools"
 RUNTIME_BIN_DIR="${HOME}/.envtools/bin"
 CUSTOM_ENVDIR="${RUNTIME_DIR}/custom"
@@ -66,12 +78,16 @@ source "${ENVDIR}/functions/base.sh"
 if isWindows || isLinux || isMac; then
   # Loading some functions
   if isInstalled "git"; then
-    source "${ENVDIR}/third/git-prompt.sh"
-    source "${ENVDIR}/third/git-completion.sh"
+    if isBash; then
+      source "${ENVDIR}/third/git-prompt.sh"
+      source "${ENVDIR}/third/git-completion.sh"
+    fi
   fi
-  source "${ENVDIR}/functions/prompt.sh"
-  source "${ENVDIR}/functions/logs.sh"
+  if isBash; then
+    source "${ENVDIR}/functions/prompt.sh"
+  fi
 
+  source "${ENVDIR}/functions/logs.sh"
   source "${ENVDIR}/functions/cmd.sh"
   source "${ENVDIR}/functions/killers.sh"
   source "${ENVDIR}/functions/proxy.sh"
@@ -119,17 +135,6 @@ if isWindows || isLinux || isMac; then
   # Loading custom exports
   if [ -f "${RUNTIME_DIR}/custom/exports.sh" ]; then
     source "${RUNTIME_DIR}/custom/exports.sh"
-  fi
-
-  # in case of Mac and default terminal app, to allow opening a new tab
-  # in the same current folder, we need to trick the PROMPT_COMMAND a
-  # little bit
-  if isMac && [ "${PROMPT_COMMAND}" != "" ]; then
-    if type update_terminal_cwd > /dev/null 2>&1 ; then
-      if ! [[ $PROMPT_COMMAND =~ (^|;)update_terminal_cwd($|;) ]] ; then
-        export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd"
-      fi
-    fi
   fi
 
 else
