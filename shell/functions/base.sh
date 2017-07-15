@@ -92,7 +92,7 @@ function confirm () {
       read resp\?"$prompt"
     else
       txtBoldWhite "$prompt"
-      read -n 1 resp
+      read resp
     fi
 
     case "$resp" in
