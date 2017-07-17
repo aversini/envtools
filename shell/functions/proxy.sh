@@ -1,7 +1,7 @@
 #
 # $PROXY should have been set at load time from
 # the file "${RUNTIME_DIR}/proxy".
-# If it's set, we assume we the know the proxy.
+# If it's set, we assume we know the proxy.
 #
 function isProxyKnown {
   if isValid "$PROXY"; then
@@ -44,6 +44,9 @@ function setProxyAtLoadTime {
 }
 
 function setProxyStatusOnFile {
+  if isZsh; then
+    setopt clobber
+  fi
   if isValid "$1"; then
     export PROXY_STATUS="$1"
     echo $PROXY_STATUS > "${RUNTIME_DIR}/proxy_status"
