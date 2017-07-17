@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Experimental: trying to figure out if running in Atom or not...
 if [ "$ELECTRON_RUN_AS_NODE" != "" -o "$TERM_PROGRAM" == "platformio-ide-terminal" ]; then
@@ -113,8 +113,10 @@ if isWindows || isLinux || isMac; then
       fi
     fi
   else
-    setEnvtoolsPromptConfigurationDefault
-    setEnvtoolsLitePrompt
+    if isBash; then
+      setEnvtoolsPromptConfigurationDefault
+      setEnvtoolsLitePrompt
+    fi
   fi
 
   # Bid thee welcome
