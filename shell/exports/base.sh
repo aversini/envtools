@@ -40,6 +40,10 @@ fi
 if [ -d "$HOME/.yarn/bin" ]; then
   export PATH=$PATH:$HOME/.yarn/bin
 fi
+# if yarn global bins are found, add them to the PATH
+if [ -d "$HOME/.config/yarn/global/node_modules/.bin/" ]; then
+  export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin/
+fi
 
 # Improve history search with up and down keys.
 # Try typing ls
