@@ -45,7 +45,7 @@ fi
 # Try typing ls
 # and then up and down arrows... joy!
 # (not binding when not interactive shell (scp for ex))
-if [[ $- == *i* ]]; then
+if [[ $- = *i* ]]; then
   if isBash; then
     bind '"\e[A":history-search-backward'
     bind '"\e[B":history-search-forward'

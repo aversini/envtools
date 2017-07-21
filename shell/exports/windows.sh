@@ -8,7 +8,7 @@ eval `dircolors ${ENVDIR}/third/win32-dircolors`
 if [[ ! -n "$JAVA_HOME" ]]; then
   # JAVA_HOME is no set
   type -p java >/dev/null 2>&1
-  if [ "$?" == "0" ]; then
+  if [ "$?" = "0" ]; then
     # But java is in the path! Let's extract the version
     JAVA_VERSION=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
     if [ -d "/c/Program Files/Java/jre$JAVA_VERSION" ]; then

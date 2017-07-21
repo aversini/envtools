@@ -30,34 +30,34 @@ function isNumber {
 #
 function isWindows {
   local LOCAL_OS=$OS
-  if [ "$LOCAL_OS" == "" ]; then
+  if [ "$LOCAL_OS" = "" ]; then
     LOCAL_OS=$(uname)
   fi
-  [[ "$LOCAL_OS" == "MINGW32_NT-6.1" || "$LOCAL_OS" == "MINGW64_NT-6.1" || "$LOCAL_OS" == "MINGW64_NT-10.0" ]]
+  [[ "$LOCAL_OS" = "MINGW32_NT-6.1" || "$LOCAL_OS" = "MINGW64_NT-6.1" || "$LOCAL_OS" = "MINGW64_NT-10.0" ]]
 }
 function isMac {
   local LOCAL_OS=$OS
-  if [ "$LOCAL_OS" == "" ]; then
+  if [ "$LOCAL_OS" = "" ]; then
     LOCAL_OS=$(uname)
   fi
-  [[ "$LOCAL_OS" == "Darwin" ]]
+  [[ "$LOCAL_OS" = "Darwin" ]]
 }
 function isLinux {
   local LOCAL_OS=$OS
-  if [ "$LOCAL_OS" == "" ]; then
+  if [ "$LOCAL_OS" = "" ]; then
     LOCAL_OS=$(uname)
   fi
-  [[ "$LOCAL_OS" == "Linux" ]]
+  [[ "$LOCAL_OS" = "Linux" ]]
 }
 
 #
 # Test for shell types
 #
 function isBash {
-  [[ "$SHELL" == *"bash"* ]]
+  [[ "$SHELL" = *"bash"* ]]
 }
 function isZsh {
-  [[ "$SHELL" == *"zsh"* ]]
+  [[ "$SHELL" = *"zsh"* ]]
 }
 
 #
@@ -104,9 +104,9 @@ function confirm () {
         ;;
       "")
         # it's empty, user just pressed enter
-        if [ "$default" == "no" ]; then
+        if [ "$default" = "no" ]; then
           return 1
-        elif [ "$default" == "yes" ]; then
+        elif [ "$default" = "yes" ]; then
           return 0
         else
           txtRed "Yes or no?" "nl"
@@ -143,7 +143,7 @@ function shouldContinue {
   local flag=$GLOBAL_CONTINUE
 
   if isValid "$1"; then
-    if [ $1 == 0 ]; then
+    if [ $1 = 0 ]; then
       flag=true
     else
       flag=false
@@ -151,7 +151,7 @@ function shouldContinue {
   fi
 
   if isValid $flag; then
-    if $flag == true; then
+    if $flag = true; then
       return 0
     else
       return 1
@@ -167,7 +167,7 @@ function shouldContinue {
 #
 function shouldLog {
   if isValid $GLOBAL_LOG_VERBOSE; then
-    if $GLOBAL_LOG_VERBOSE == true; then
+    if $GLOBAL_LOG_VERBOSE = true; then
       return 0
     else
       return 1
@@ -193,7 +193,7 @@ function forceAdminAccess {
 #
 function isOffice {
   if isValid $SETTINGS_TYPE; then
-    if [ "$SETTINGS_TYPE" == "office" ]; then
+    if [ "$SETTINGS_TYPE" = "office" ]; then
       return 0
     else
       return 1
@@ -224,7 +224,7 @@ function isDirtyGit {
     return 1
   else
     local DIRTY="$(git describe --dirty)"
-    if [[ $DIRTY == *"dirty"* ]]; then
+    if [[ $DIRTY = *"dirty"* ]]; then
       return 0
     else
       return 1
@@ -323,7 +323,7 @@ function setTerminalTitle {
 #
 function displayWelcomeBanner {
   if isValid "$ENVTOOLS_FULL"; then
-    if [ "$ATOM_TERMINAL" == "" ]; then
+    if [ "$ATOM_TERMINAL" = "" ]; then
       if [ "$INIT_PARAM" != "reload" ]; then
         # Display a simple help intro if user wants it
         showBanner
@@ -347,7 +347,7 @@ function net_psf {
   local COMMAND=""
   local DESC2="Use -i to ignore case."
 
-  if [ "$1" == "psf" ]; then
+  if [ "$1" = "psf" ]; then
     if isMac; then
       COMMAND="ps aux"
     fi
@@ -365,9 +365,9 @@ function net_psf {
     local DESC1="Lists all TCP connections that match the filter <string>."
   fi
 
-  if [ "$#" == "2" ]; then
+  if [ "$#" = "2" ]; then
     $COMMAND | grep --color=auto $2
-  elif [ "$#" == "3" -a "$2" == "-i" ]
+  elif [ "$#" = "3" -a "$2" = "-i" ]
   then
     $COMMAND | grep --color=auto -i $3
   else

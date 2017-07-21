@@ -75,7 +75,7 @@ function txtBoldWhite {
 function txtColor {
   if shouldLog; then
     printf "$1%s$RAW_COLOR_DEFAULT" "$2"
-    if [ $# -eq 3 -a "$3" == "nl" ]; then
+    if [ $# -eq 3 ] && [ "$3" = "nl" ]; then
       echo
     fi
   fi

@@ -8,7 +8,7 @@ fi
 
 # Java
 if [ -f "/usr/libexec/java_home" ]; then
-  if [ "$JAVA_HOME" == "" ]; then
+  if [ "$JAVA_HOME" = "" ]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
   fi
 fi

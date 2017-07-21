@@ -21,7 +21,7 @@ function fixFinderIconsAssociations {
   fi
 
   echo
-  if [ $DONE_AND_DUSTED == false ]; then
+  if [ $DONE_AND_DUSTED = false ]; then
     txtStatus "Something went wrong... sorry about that..." "nl"
   else
     txtYellow "Icon associations in Finder have been reset!" "nl"

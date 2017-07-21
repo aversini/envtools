@@ -11,7 +11,7 @@ function cmd {
 
   txtDefault "Running: ${COMMAND_TEXT:0:59}..." "nl"
 
-  if [ "$2" == "log" ]; then
+  if [ "$2" = "log" ]; then
     CMD_RESULT="Logs are available there: $LOG_FILE"
     COMMAND="$1 >$LOG_FILE 2>&1"
     eval ${COMMAND}
@@ -21,7 +21,7 @@ function cmd {
   fi
   ERROR="$?"
 
-  if [ "$2" == "ignore" ]; then
+  if [ "$2" = "ignore" ]; then
     ERROR=0
   fi
 
@@ -33,10 +33,10 @@ function cmd {
     tput cuu1
   fi
 
-  if [ "$ERROR" == "0" ]; then
+  if [ "$ERROR" = "0" ]; then
     if shouldLog; then
       txtStatus "$MSG" "SUCCESS"
-      if [ "$GLOBAL_DEBUG" == true ]; then
+      if [ "$GLOBAL_DEBUG" = true ]; then
         txtDefault "$CMD_RESULT" "nl"
       fi
     fi

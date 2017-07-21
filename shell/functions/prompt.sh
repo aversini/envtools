@@ -62,15 +62,15 @@ __print_status () {
   local NODE_LABEL=""
   local NVM_CURRENT
 
-  if [ "$TYPE" == "proxy" -a "$PROXY" ]; then
+  if [ "$TYPE" = "proxy" ] && [ "$PROXY" ]; then
     STATUS_FILE=${RUNTIME_DIR}/proxy_status
     val=$PROXY_STATUS
-  elif [ "$TYPE" == "sinopia" ]; then
+  elif [ "$TYPE" = "sinopia" ]; then
     STATUS_FILE=${RUNTIME_DIR}/sinopia_status
     if [ -f $STATUS_FILE ]; then
       val=`cat ${STATUS_FILE}`
     fi
-  elif [ "$TYPE" == "node" ]; then
+  elif [ "$TYPE" = "node" ]; then
     if isInstalled "node"; then
       val="ON"
       NODE_VERSION=`node -v`
@@ -78,7 +78,7 @@ __print_status () {
       if isMac && [ "$NVM_DIR" != "" ]; then
         if [ -d $NVM_DIR ]; then
           NVM_CURRENT=`nvm current`
-          if [ "$NVM_CURRENT" == "system" ]; then
+          if [ "$NVM_CURRENT" = "system" ]; then
             NODE_LABEL=" ($NODE_VERSION, system via nvm)"
           else
             NODE_LABEL=" ($NODE_VERSION, nvm)"
@@ -88,7 +88,7 @@ __print_status () {
     fi
   fi
 
-  if isMac && [ "$TYPE" == "sinopia" ]; then
+  if isMac && [ "$TYPE" = "sinopia" ]; then
     if isSinopiaRunning; then
       SINOPIA_RUN_SIGN=" (running)"
     else
@@ -96,11 +96,11 @@ __print_status () {
     fi
   fi
 
-  if [ "$val" == "ON" ]; then
+  if [ "$val" = "ON" ]; then
     STATUS="${PROMPT_ON_SYMBOL}"
     STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
     STATUS_AFTER="${PROMPT_ON_SYMBOL_AFTER}"
-  elif [ "$val" == "OFF" ]; then
+  elif [ "$val" = "OFF" ]; then
     STATUS="${PROMPT_OFF_SYMBOL}"
     STATUS_BEFORE="${PROMPT_OFF_SYMBOL_BEFORE}"
     STATUS_AFTER="${PROMPT_OFF_SYMBOL_AFTER}"
@@ -309,7 +309,7 @@ function setEnvtoolsLitePrompt {
   local HOST_AND_NAME=""
   local HOST_AND_NAME_COLOR="$RAW_COLOR_BLUE"
 
-  if [ "$DISTRO_NAME" == "" ]; then
+  if [ "$DISTRO_NAME" = "" ]; then
     if isMac; then
       DISTRO_NAME="(MacOS) "
     elif isLinux; then
@@ -328,7 +328,7 @@ function setEnvtoolsLitePrompt {
     # host, name and distro are yellow when not mac
     HOST_AND_NAME_COLOR="$RAW_COLOR_YELLOW"
   fi
-  if [ "$USER" == "root" ]; then
+  if [ "$USER" = "root" ]; then
     # No matter what, host, name and distro are red for root
     HOST_AND_NAME_COLOR="$RAW_COLOR_RED"
   fi

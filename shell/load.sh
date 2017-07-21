@@ -1,31 +1,31 @@
 #!/bin/sh
 
 # Experimental: trying to figure out if running in Atom or not...
-if [ "$ELECTRON_RUN_AS_NODE" != "" -o "$TERM_PROGRAM" == "platformio-ide-terminal" ]; then
+if [ "$ELECTRON_RUN_AS_NODE" != "" ] || [ "$TERM_PROGRAM" = "platformio-ide-terminal" ]; then
   ATOM_TERMINAL=1
 fi
 
 # If not Atom, or already loaded and it's not a manual reload, get
 # out of here quietly...
-if [ "$INIT_PARAM" != "reload" -a "$RUNTIME_DIR" != "" ]; then
-  if [ "$ATOM_TERMINAL" == "" ]; then
+if [ "$INIT_PARAM" != "reload" ] && [ "$RUNTIME_DIR" != "" ]; then
+  if [ "$ATOM_TERMINAL" = "" ]; then
     return
   fi
 fi
 
 # Let's do some profiling if needed
-if [[ "$ENVTOOLS_TIMING_STARTUP" == true ]]; then
+if [ "$ENVTOOLS_TIMING_STARTUP" = true ]; then
   ENVTOOLS_TIMING_START_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
-elif [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+elif [ "$ENVTOOLS_PROFILING_STARTUP" = true ]; then
   echo "Profiling Envtools startup scripts..."
   PS4='+ ~~~$(python -c "import time; print int(round(time.time() * 1000))")~~~\t'
   exec 3>&2 2>$HOME/sample-profiling.log
   set -x
 fi
 
-if [[ "$SHELL" == *"bash"* ]]; then
+if [[ "$SHELL" = *"bash"* ]]; then
   BASH_ENV=true
-elif [[ "$SHELL" == *"zsh"* ]]; then
+elif [[ "$SHELL" = *"zsh"* ]]; then
   ZSH_ENV=true
 else
   echo "Unknown shell ($SHELL), no Envtools..."
@@ -38,9 +38,9 @@ ENVTOOLS_FULL=1
 OS=$(uname)
 if [ "$ENVTOOLS_ENVDIR" != "" ]; then
   ENVDIR=${ENVTOOLS_ENVDIR}
-elif [ "$BASH_ENV" == "true" ]; then
+elif [ "$BASH_ENV" = "true" ]; then
   ENVDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-elif [ "$ZSH_ENV" == "true" ]; then
+elif [ "$ZSH_ENV" = "true" ]; then
   ENVDIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
 fi
 
@@ -147,11 +147,11 @@ else
 fi
 
 # End of profiling
-if [[ "$ENVTOOLS_TIMING_STARTUP" == true ]]; then
+if [[ "$ENVTOOLS_TIMING_STARTUP" = true ]]; then
   ENVTOOLS_TIMING_STOP_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
   ENVTOOLS_LOAD_TIME=$(($ENVTOOLS_TIMING_STOP_TIME - $ENVTOOLS_TIMING_START_TIME))
   echo "Load time: ${ENVTOOLS_LOAD_TIME}ms"
-elif [[ "$ENVTOOLS_PROFILING_STARTUP" == true ]]; then
+elif [[ "$ENVTOOLS_PROFILING_STARTUP" = true ]]; then
   set +x
   exec 2>&3 3>&-
 fi
