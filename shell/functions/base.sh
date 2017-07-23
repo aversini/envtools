@@ -366,10 +366,10 @@ function net_psf {
   fi
 
   if [ "$#" = "2" ]; then
-    $COMMAND | grep --color=auto $2
+    eval ${COMMAND} | grep --color=auto $2
   elif [ "$#" = "3" -a "$2" = "-i" ]
   then
-    $COMMAND | grep --color=auto -i $3
+    eval ${COMMAND} | grep --color=auto -i $3
   else
     echo $USAGE
     echo $DESC1
