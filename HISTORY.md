@@ -1,4 +1,20 @@
 
+__1.0.49 / 2017-07-23__
+
+- Fix psf/netsf command in Zsh/Bash ([7243ba2](https://github.com/aversini/envtools/commit/7243ba2723b01aaf4f54d5d12bd32161d2a04e80))
+- adding global yarn bin folder to PATH if it exists ([7c5465b](https://github.com/aversini/envtools/commit/7c5465b750b39e7042764f179db48ee929bcad48))
+- Fix all conditionals to be POSIX compliant ([15a9bc3](https://github.com/aversini/envtools/commit/15a9bc31211ac073a67f9db44e775e4d9e663501))
+- adding support for up/down history search in Zsh ([afbcd49](https://github.com/aversini/envtools/commit/afbcd491404d794bc1ec5d5a0229c2c7cfc854fc))
+- Set prompt (even lite) on Bash only ([2ae8d8a](https://github.com/aversini/envtools/commit/2ae8d8a2ce9d73959543b13a26dc028b69058534))
+- Fix clobber warning if Zsh ([3844f90](https://github.com/aversini/envtools/commit/3844f90f64bcc51a12a635671e44b22330985162))
+- adding support for loading Envtools with Zsh ([70b0614](https://github.com/aversini/envtools/commit/70b0614939303a760110ee08652ebbcdb3d87d23))
+- `confirm` should not echo anything besides questions ([fe7f67e](https://github.com/aversini/envtools/commit/fe7f67e30130b5d475a21018879387a2fa1eb33e))
+- Updating default to "no" for proxy+registry ([5dcb333](https://github.com/aversini/envtools/commit/5dcb33366582afaa3c2444cf350b5ee63bec7bdd))
+- removing auto-submit for `confirm` in Bash ([3e5b92d](https://github.com/aversini/envtools/commit/3e5b92d91e97d4b478e6501002f206104024825d))
+- removing debug statement ([6a7532b](https://github.com/aversini/envtools/commit/6a7532b977c171303c684b2516748463f79f8d30))
+- Fixing `confirm` for Zsh ([ff6b567](https://github.com/aversini/envtools/commit/ff6b567e9b41218815301ad95c826ad294458fcc))
+- First pass at trying to support Zsh ([a4ba64f](https://github.com/aversini/envtools/commit/a4ba64fc5e887d72ad17c0ef7462f4eea352a7e3))
+
 __1.0.48 / 2017-07-12__
 
 - chore: allowing win7 64 bits ([57b1e40](https://github.com/aversini/envtools/commit/57b1e40cc608715b02458df45327c5d6824c0520))
