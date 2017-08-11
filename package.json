@@ -29,7 +29,7 @@
   "dependencies": {
     "async": "^2.5.0",
     "decompress": "^4.2.0",
-    "download": "^5.0.2",
+    "download": "^6.2.5",
     "fedtools-commands": "^0.0.54",
     "fedtools-config": "^0.0.47",
     "fedtools-i18n": "^0.0.17",
