@@ -27,7 +27,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "dependencies": {
-    "async": "^2.0.1",
+    "async": "^2.5.0",
     "decompress": "^4.0.0",
     "download": "^5.0.2",
     "fedtools-commands": "^0.0.54",

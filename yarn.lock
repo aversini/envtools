@@ -64,6 +64,12 @@ async@^2.0.1:
   dependencies:
     lodash "^4.14.0"
 
+async@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.npmjs.org/async/-/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
+  dependencies:
+    lodash "^4.14.0"
+
 balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
@@ -490,16 +496,9 @@ fedtools-i18n@^0.0.17, fedtools-i18n@~0.0.7:
     lodash "^4.15.0"
     node-polyglot "^2.0.0"
 
-fedtools-logs@^0.1.42:
+fedtools-logs@^0.1.42, fedtools-logs@~0.1.1, fedtools-logs@~0.1.20:
   version "0.1.42"
   resolved "https://registry.npmjs.org/fedtools-logs/-/fedtools-logs-0.1.42.tgz#51290b242ad83ef1d6685c591a4cf1c82efee0ff"
-  dependencies:
-    cli-color "^1.1.0"
-    lodash "^4.15.0"
-
-fedtools-logs@~0.1.1, fedtools-logs@~0.1.20:
-  version "0.1.42"
-  resolved "https://registry.yarnpkg.com/fedtools-logs/-/fedtools-logs-0.1.42.tgz#51290b242ad83ef1d6685c591a4cf1c82efee0ff"
   dependencies:
     cli-color "^1.1.0"
     lodash "^4.15.0"
