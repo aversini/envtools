@@ -792,9 +792,9 @@ grunt-cli@~1.2.0:
     nopt "~3.0.6"
     resolve "~1.1.0"
 
-grunt-contrib-clean@*:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-clean/-/grunt-contrib-clean-1.0.0.tgz#6b2ed94117e2c7ffe32ee04578c96fe4625a9b6d"
+grunt-contrib-clean@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/grunt-contrib-clean/-/grunt-contrib-clean-1.1.0.tgz#564abf2d0378a983a15b9e3f30ee75b738c40638"
   dependencies:
     async "^1.5.2"
     rimraf "^2.5.1"
@@ -832,9 +832,9 @@ grunt-legacy-util@~1.0.0:
     underscore.string "~3.2.3"
     which "~1.2.1"
 
-grunt@*:
+grunt@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/grunt/-/grunt-1.0.1.tgz#e8778764e944b18f32bb0f10b9078475c9dfb56b"
+  resolved "https://registry.npmjs.org/grunt/-/grunt-1.0.1.tgz#e8778764e944b18f32bb0f10b9078475c9dfb56b"
   dependencies:
     coffee-script "~1.10.0"
     dateformat "~1.0.12"
@@ -1135,9 +1135,9 @@ libqp@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/libqp/-/libqp-1.1.0.tgz#f5e6e06ad74b794fb5b5b66988bf728ef1dedbe8"
 
-load-grunt-tasks@*:
+load-grunt-tasks@^3.5.2:
   version "3.5.2"
-  resolved "https://registry.yarnpkg.com/load-grunt-tasks/-/load-grunt-tasks-3.5.2.tgz#0728561180fd20ff8a6927505852fc58aaea0c88"
+  resolved "https://registry.npmjs.org/load-grunt-tasks/-/load-grunt-tasks-3.5.2.tgz#0728561180fd20ff8a6927505852fc58aaea0c88"
   dependencies:
     arrify "^1.0.0"
     multimatch "^2.0.0"
