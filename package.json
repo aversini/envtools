@@ -39,7 +39,7 @@
     "glob": "^7.1.2",
     "inquirer": "^3.2.1",
     "lodash": "^4.15.0",
-    "macos-release": "^1.0.0",
+    "macos-release": "^1.1.0",
     "moment": "^2.10.2",
     "node-notifier": "^5.0.2",
     "optimist": "~0.6.1",

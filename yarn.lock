@@ -1193,6 +1193,10 @@ macos-release@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-1.0.0.tgz#e168ce8f4d934399ab1acb92a6c309273072eb1b"
 
+macos-release@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/macos-release/-/macos-release-1.1.0.tgz#831945e29365b470aa8724b0ab36c8f8959d10fb"
+
 mailcomposer@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/mailcomposer/-/mailcomposer-2.1.0.tgz#a6531822899614fee899c92226d81e2b9cbb183d"
