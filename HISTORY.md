@@ -1,4 +1,18 @@
 
+__1.0.50 / 2017-09-07__
+
+- chore: updating to latest Yarn (1.0.1) ([2c02d27](https://github.com/aversini/envtools/commit/2c02d27c898b6f2361e9f621ccda945f5ec5d35e))
+- chore: bump dev dependencies ([099a395](https://github.com/aversini/envtools/commit/099a39595be855c4237032494f624b8bea480e74))
+- chore: bump semver dependencies ([49152c2](https://github.com/aversini/envtools/commit/49152c29f5012c2d6dd87ec0c93d7d2085cd4481))
+- chore: bump moment and node-notifier dependencies ([d864e88](https://github.com/aversini/envtools/commit/d864e881f9e0fbb6a492e3857e7933920a999731))
+- chore: bump macos-release dependencies ([b797cb0](https://github.com/aversini/envtools/commit/b797cb0b880920ec9ff4f4f34420f69ffa4ce6b8))
+- chore: bump inquirer dependencies ([0470e27](https://github.com/aversini/envtools/commit/0470e279f5d344d697821ac1f4e9223f938a153f))
+- chore: bump glob dependencies ([0e1e062](https://github.com/aversini/envtools/commit/0e1e0620897d8399c8e0c88c5f3673181e930c6c))
+- chore: bump fs-extra dependencies ([24e6f3f](https://github.com/aversini/envtools/commit/24e6f3fbc1054d252b12aba9c5b3b0a2b1a1ff44))
+- chore: bump download dependencies ([3ade1e5](https://github.com/aversini/envtools/commit/3ade1e529d7094802a33ca332b5701f02c4fc4fb))
+- chore: bump decompress dependencies ([6c72ae2](https://github.com/aversini/envtools/commit/6c72ae2558bc42c9110cdad05172ef8bbd46e310))
+- chore: bump async dependencies ([af10734](https://github.com/aversini/envtools/commit/af1073487f8a22c11be850b4e8c22510904a4c56))
+
 __1.0.49 / 2017-07-23__
 
 - Fix psf/netsf command in Zsh/Bash ([7243ba2](https://github.com/aversini/envtools/commit/7243ba2723b01aaf4f54d5d12bd32161d2a04e80))
