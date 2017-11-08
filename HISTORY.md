@@ -1,4 +1,8 @@
 
+__1.0.52 / 2017-11-07__
+
+- Update Yarn to 1.3.2 ([284559d](https://github.com/aversini/envtools/commit/284559dd8ecf0133bd24ada02a8c7f9c525efb5c))
+
 __1.0.51 / 2017-10-26__
 
 - Update Yarn to 1.2.1 ([ec69539](https://github.com/aversini/envtools/commit/ec695396e311f1e77eb458c810f90c7edef3fc58))
