@@ -78,7 +78,7 @@ async@^2.0.1:
   dependencies:
     lodash "^4.14.0"
 
-async@^2.5.0:
+async@^2.6.0:
   version "2.6.0"
   resolved "https://registry.npmjs.org/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
   dependencies:
