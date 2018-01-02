@@ -1,4 +1,24 @@
 
+__1.0.54 / 2018-01-01__
+
+- Revert "chore: updating inquirer to latest and drop support for node < 6" ([0ec824e](https://github.com/aversini/envtools/commit/0ec824e46cc4ff9efcf27ba59e4347c7e384524d))
+  This reverts commit f98be464b696d88ecef7e6099e05042cef2b5792.
+  
+- chore: updating inquirer to latest and drop support for node < 6 ([f98be46](https://github.com/aversini/envtools/commit/f98be464b696d88ecef7e6099e05042cef2b5792))
+- fix: corrupted lock file ([1015727](https://github.com/aversini/envtools/commit/10157274deaf5a77ed83718789542a1023916576))
+- refactor: taking advantage of async sub modules ([b9b786a](https://github.com/aversini/envtools/commit/b9b786acda9c953d858181965bef835dd039b2b9))
+- chore: bump async to latest ([443af54](https://github.com/aversini/envtools/commit/443af5439a9d9005d370491edac2a2a9d5352d37))
+- chore: upgrade to latest fs-extra ([885f660](https://github.com/aversini/envtools/commit/885f6605a5b3fd56bec77fa5665de3797ad3631e))
+- fix: am / pm not displayed correctly on 'info' ([f4f4e7d](https://github.com/aversini/envtools/commit/f4f4e7d1ab54b897f25155d94d64313180be7818))
+- chore: fix lint allignemnt error ([36eba64](https://github.com/aversini/envtools/commit/36eba6408ea78f767651aa55805e9f05b5021a6d))
+- chore: update moment to latest (fix security issue) ([44536f4](https://github.com/aversini/envtools/commit/44536f4b443caa3639b2ac66383b4352e9f52f46))
+
+__1.0.53 / 2017-11-14__
+
+- fix: replacing shifter with serve ([2ef8a81](https://github.com/aversini/envtools/commit/2ef8a8167d3f913e6313bf588acc8865ad795977))
+- fix: adding nvm option for linux ([c8a8313](https://github.com/aversini/envtools/commit/c8a8313f99b858c92ca66ef70fd59035ea076fed))
+- fix: resetting prefix when using nvm ([9dd35a5](https://github.com/aversini/envtools/commit/9dd35a5a3728a5a75bd019ddf60ec587efdc5c73))
+
 __1.0.52 / 2017-11-07__
 
 - Update Yarn to 1.3.2 ([284559d](https://github.com/aversini/envtools/commit/284559dd8ecf0133bd24ada02a8c7f9c525efb5c))
