@@ -1,6 +1,6 @@
 {
   "name": "envtools",
-  "version": "1.0.53",
+  "version": "2.0.0",
   "description": "Set of env tools for Mac/Linux",
   "author": "Arno Versini",
   "bin": {
@@ -22,7 +22,7 @@
     "url": "https://github.com/aversini/envtools/issues"
   },
   "engines": {
-    "node": ">=4.2.4"
+    "node": ">=6.0.0"
   },
   "license": "MIT",
   "preferGlobal": true,
@@ -37,7 +37,7 @@
     "fedtools-utilities": "^1.0.44",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
-    "inquirer": "^3.2.1",
+    "inquirer": "^4.0.1",
     "lodash": "^4.15.0",
     "macos-release": "^1.1.0",
     "moment": "^2.20.1",
