@@ -1,4 +1,10 @@
 
+__1.0.56 / 2018-01-06__
+
+- feat: adding npmrc profile management to ‘envtools registry’ ([61d7fe3](https://github.com/aversini/envtools/commit/61d7fe380e37c566e0f2f1263dd2aedab8c2c5ec))
+  You can save the current npm/yarn configuration in a “profile” and re-activate any saved profiles on demand. Handy when having to switch from one public or local registry all the time.
+  
+
 __1.0.54 / 2018-01-01__
 
 - Revert "chore: updating inquirer to latest and drop support for node < 6" ([0ec824e](https://github.com/aversini/envtools/commit/0ec824e46cc4ff9efcf27ba59e4347c7e384524d))
@@ -353,6 +359,9 @@ __1.0.1 / 2016-11-18__
 __0.0.171 / 2016-11-18__
 
 - Fix post publish task (no more committing built js/css files) ([ad9bef2](https://github.com/aversini/envtools/commit/ad9bef26880b46f641a1026bc53fec49c10bbe09))
+
+__0.0.170 / 2016-11-18__
+
 - [npm] Ignoring assets and templates ([b364eb6](https://github.com/aversini/envtools/commit/b364eb60da9c7cf6732a6d0140f8b0893a45d43e))
 - [help] different inlining approach + getting rid of bootstrap glyphicons ([4e46185](https://github.com/aversini/envtools/commit/4e46185d87730f18a046468f0b4a874bda0b1f3a))
 - [help] adding timeout to kill help server if too slow to stop ([30a9b46](https://github.com/aversini/envtools/commit/30a9b46259bca098d8a595bc1d395c164f02717e))
