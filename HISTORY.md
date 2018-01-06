@@ -1,4 +1,8 @@
 
+__1.0.57 / 2018-01-06__
+
+- feat: adding the option to create a profile if none exists ([6dbeb21](https://github.com/aversini/envtools/commit/6dbeb21d8e91b349b313e45dc5ce9022056531e2))
+
 __1.0.56 / 2018-01-06__
 
 - feat: adding npmrc profile management to ‘envtools registry’ ([61d7fe3](https://github.com/aversini/envtools/commit/61d7fe380e37c566e0f2f1263dd2aedab8c2c5ec))
