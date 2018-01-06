@@ -13,8 +13,8 @@
   },
 
   "commands": {
-    "help": "Display extra help about a specific command in your default browser.",
     "auto": "Bootstrap your environment automatically.",
+    "help": "Display extra help about a specific command in your default browser.",
     "manual": "Bootstrap your environment step by step.",
     "extra": "Install/configure extra goodies not included in the automatic/manual processes.",
     "web": "Start a simple static web server for the current folder.",
@@ -26,7 +26,8 @@
     "smtp": "Start a simple SMTP server on port 1024.",
     "config": "Configure Envtools.",
     "info": "Show some useful system information.",
-    "update": "Show update information."
+    "update": "Show update information.",
+    "registry": "npmrc / yarnrc registry manager."
   },
 
   "prompt": {
