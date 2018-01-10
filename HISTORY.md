@@ -1,4 +1,8 @@
 
+__1.0.58 / 2018-01-09__
+
+- fix: do not update npm/yarn registry in auto/manual anymore ([3af0bb1](https://github.com/aversini/envtools/commit/3af0bb1d5e5f6a2457393fb86b83bc194430242c))
+
 __1.0.57 / 2018-01-06__
 
 - feat: adding the option to create a profile if none exists ([6dbeb21](https://github.com/aversini/envtools/commit/6dbeb21d8e91b349b313e45dc5ce9022056531e2))
