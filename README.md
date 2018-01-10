@@ -24,6 +24,14 @@ envtools extra
 envtools help
 ```
 
+## Help
+
+```
+envtools help
+```
+
+You can also check out a more extensive [online help over here, including FAQs, shortcuts, alias, etc.](http://envtools.surge.sh)
+
 ## License
 
 MIT © [Arno V]()
