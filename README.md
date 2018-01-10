@@ -30,7 +30,7 @@ envtools help
 envtools help
 ```
 
-You can also check out a more extensive [online help over here, including FAQs, shortcuts, alias, etc.](http://envtools.surge.sh)
+You can also check out a more extensive [online help hosted over here](http://envtools.surge.sh), including FAQs, shortcuts, alias, etc.
 
 ## License
 
