@@ -1,4 +1,22 @@
 
+__1.0.59 / 2018-01-12__
+
+- feat: adding fuzzy search to npm profile switch ([f4e7dc0](https://github.com/aversini/envtools/commit/f4e7dc078dd986a92106c09d7c54f23d9df3fd9c))
+- chore: adding fuse.js to dependencies ([c2ffe91](https://github.com/aversini/envtools/commit/c2ffe917f876cee5fc803f60f577d0679256ade5))
+- refactor: minor refactor for registry ([13ffa65](https://github.com/aversini/envtools/commit/13ffa65ccddea223ae3d2c23b64ce37e49077253))
+  This is to get prepared to handle switching to fuzzy profiles
+  
+- Update README.md ([c513a24](https://github.com/aversini/envtools/commit/c513a242c085ff9fb56d2e48498fbb7d1825f90c))
+- Update README.md ([802daed](https://github.com/aversini/envtools/commit/802daedb519b1e57b20ef02d8ada41644d9c038f))
+- Update README.md ([3b45960](https://github.com/aversini/envtools/commit/3b4596048b8f529bae945c29f1889dba32474049))
+- Update README.md ([87de72a](https://github.com/aversini/envtools/commit/87de72a091014000069e30aa32bf05cbd8538a92))
+- Update README.md ([3eb3026](https://github.com/aversini/envtools/commit/3eb3026dbad5726e3157c84b3b38f57a5eb865a5))
+- Update README.md ([c7fca24](https://github.com/aversini/envtools/commit/c7fca24a46a0773962f83c916eaff9c7f43784c3))
+- Update README.md ([f611b20](https://github.com/aversini/envtools/commit/f611b208a18fc5ed77185498f9d65a1cfc0f0653))
+- chore: moving badges down ([c0aa1cd](https://github.com/aversini/envtools/commit/c0aa1cd56a6e29f38f87ba02f2802a489e9614d8))
+- chore: adding badges to README ([29afc66](https://github.com/aversini/envtools/commit/29afc66e798f7f0c930215a4fc053c0e041d09b8))
+- chore: updating license date ([dbd4698](https://github.com/aversini/envtools/commit/dbd469856695c3e2c3b6a8c259bc82b10f1146b9))
+
 __1.0.58 / 2018-01-09__
 
 - fix: do not update npm/yarn registry in auto/manual anymore ([3af0bb1](https://github.com/aversini/envtools/commit/3af0bb1d5e5f6a2457393fb86b83bc194430242c))
