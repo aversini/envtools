@@ -47,7 +47,7 @@ fi
 RUNTIME_DIR="${HOME}/.envtools"
 RUNTIME_BIN_DIR="${HOME}/.envtools/bin"
 CUSTOM_ENVDIR="${RUNTIME_DIR}/custom"
-TOOLSDIR="${ENVDIR}/../lib"
+TOOLSDIR="${ENVDIR}/../dist"
 OLD_PS1="${PS1}"
 # The proxy value should be saved
 # in the file "${RUNTIME_DIR}/proxy".
