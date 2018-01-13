@@ -1,10 +1,10 @@
 <div align="center">
-  
+
 <img height="59" width="312" src="https://raw.githubusercontent.com/aversini/envtools-help/master/docs/data/assets/images/envtools-2x.png" alt="Envtools logo">
 
 **Command line helper for software developers**
 
-[![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 </div>
 
