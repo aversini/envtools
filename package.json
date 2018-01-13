@@ -29,7 +29,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:lib": "BABEL_ENV=production NODE_ENV=production babel lib --out-dir dist",
-    "build": "npm-run-all --serial clean build:lib"
+    "build": "npm-run-all --serial clean build:lib",
+    "lint": "eslint lib --ext .js",
+    "prettier": "prettier-eslint --write \"lib/**/*.js\""
   },
   "dependencies": {
     "async": "^2.6.0",
