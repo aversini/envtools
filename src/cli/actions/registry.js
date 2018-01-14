@@ -1,4 +1,4 @@
-const cmd = require('fedtools-commands');
+const execa = require('execa');
 const log = require('fedtools-logs');
 const config = require('fedtools-config');
 const waterfall = require('async/waterfall');
@@ -22,15 +22,19 @@ function getEnvProxyStatus() {
 function runCommand(command, callback) {
   let data = NA;
 
-  cmd.run(command, {status: false}, function (err, stderr, stdout) {
-    if (!err && stdout) {
-      data = stdout.replace(/\n$/, '');
-    }
-    if (!data || data === 'undefined' || data === 'null') {
-      data = NA;
-    }
-    return callback(null, data);
-  });
+  const args = command.trim().split(' ');
+  const bin = args[0];
+  args.shift();
+
+  execa(bin, args)
+    .then((results) => {
+      data = results.stdout;
+      if (!data || data === 'undefined' || data === 'null') {
+        data = NA;
+      }
+      return callback(null, data);
+    })
+    .catch(err => callback(err, data));
 }
 
 function displayStatus(callback) {
@@ -157,22 +161,14 @@ function updateRegistry(registry, callback) {
   waterfall(
     [
       function (done) {
-        cmd.run(
-          `npm config set registry ${registry}`,
-          {
-            status: false
-          },
+        runCommand(`npm config set registry ${registry}`,
           function () {
             done(null);
           }
         );
       },
       function (done) {
-        cmd.run(
-          `yarn config set registry ${registry}`,
-          {
-            status: false
-          },
+        runCommand(`yarn config set registry ${registry}`,
           function () {
             done(null);
           }
@@ -195,15 +191,9 @@ function setRegistryProxies(flag, http, https, callback) {
 
   const fcts = _.map(NPM_CMDS, function (command) {
     return function (cb) {
-      cmd.run(
-        command,
-        {
-          status: true
-        },
-        function () {
-          cb(null);
-        }
-      );
+      runCommand(command, function () {
+        cb(null);
+      });
     };
   });
 
@@ -217,8 +207,7 @@ function setRegistryProxies(flag, http, https, callback) {
 module.exports = function () {
   const newProfileActivation = 666;
 
-  let registries,
-    currentSetting;
+  let registries, currentSetting;
 
   waterfall(
     [
@@ -368,9 +357,9 @@ module.exports = function () {
       },
       function (done) {
         const httpProxy =
-            currentSetting.envProxies.http || currentSetting.npmHttpProxy;
+          currentSetting.envProxies.http || currentSetting.npmHttpProxy;
         const httpsProxy =
-            currentSetting.envProxies.https || currentSetting.npmHttpsProxy;
+          currentSetting.envProxies.https || currentSetting.npmHttpsProxy;
         if (
           httpProxy &&
           httpsProxy &&
