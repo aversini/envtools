@@ -28,11 +28,11 @@
   "preferGlobal": true,
   "scripts": {
     "clean": "rimraf dist",
-    "build:lib": "BABEL_ENV=production NODE_ENV=production babel lib --out-dir dist",
-    "build": "npm-run-all --serial clean lint build:lib",
-    "dev": "watch \"npm run build:lib\" lib",
-    "lint": "eslint lib --ext .js",
-    "prettier": "prettier-eslint --write \"lib/**/*.js\"",
+    "build:dist": "BABEL_ENV=production NODE_ENV=production babel src --out-dir dist",
+    "build": "npm-run-all --serial clean lint build:dist",
+    "dev": "watch \"npm run build:dist\" src",
+    "lint": "eslint src --ext .js",
+    "prettier": "prettier-eslint --write \"src/**/*.js\"",
     "prettier:file": "prettier-eslint --write"
   },
   "dependencies": {
