@@ -30,6 +30,7 @@
     "clean": "rimraf dist",
     "build:lib": "BABEL_ENV=production NODE_ENV=production babel lib --out-dir dist",
     "build": "npm-run-all --serial clean lint build:lib",
+    "dev": "watch \"npm run build:lib\" lib",
     "lint": "eslint lib --ext .js",
     "prettier": "prettier-eslint --write \"lib/**/*.js\"",
     "prettier:file": "prettier-eslint --write"
@@ -69,7 +70,8 @@
     "load-grunt-tasks": "^3.5.2",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "watch": "^1.0.2"
   },
   "keywords": [
     "envtools"
