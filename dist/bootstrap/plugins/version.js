@@ -1,1 +1,1 @@
-'use strict';var common=require('../../common');module.exports=function(a,b){a.version.setAutoCheck(a.toggleOptions[common.ENVTOOLS.CFG_AUTOCHECK]),b()};
+'use strict';const common=require('../../common');module.exports=function(a,b){a.version.setAutoCheck(a.toggleOptions[common.ENVTOOLS.CFG_AUTOCHECK]),b()};
