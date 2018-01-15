@@ -42,7 +42,7 @@ module.exports = function (options, callback) {
           const questions = {
             type: 'input',
             name: 'fullname',
-            message: 'Enter your full name',
+            message: '[git] Enter your full name',
             validate(val) {
               if (!val) {
                 return 'Your full name cannot be empty...';
@@ -73,7 +73,7 @@ module.exports = function (options, callback) {
           const questions = {
             type: 'input',
             name: 'email',
-            message: 'Enter your email address',
+            message: '[git] Enter your email address',
             validate(val) {
               if (!val) {
                 return 'Your email address cannot be empty...';
@@ -105,7 +105,7 @@ module.exports = function (options, callback) {
             {
               type: 'input',
               name: 'github',
-              message: 'Enter your external github username (if you have one)'
+              message: '[git] Enter your external github username (if you have one)'
             }
           ];
 
