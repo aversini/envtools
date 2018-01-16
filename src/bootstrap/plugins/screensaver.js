@@ -71,6 +71,7 @@ function _installScreensavers(options, callback) {
     function (err) {
       if (!err) {
         log.success('Extra screensavers have been successfully installed!');
+        log.echo('You can find them under\nSystem Prefernces -> Desktop & Screen Saver -> Screen Saver...');
         err = common.USER_IGNORE;
       }
       callback(err, options);

@@ -131,6 +131,14 @@ function _buildOptions(options, callback) {
     restrictOs: ['darwin']
   });
   _addChoice({
+    name: options.i18n.t('bootstrap.installScreensaver'),
+    short: 'Install Apple Watch screensaver',
+    value: requestIndex++,
+    type: [common.TYPE_EXTRA],
+    fct: plugins.installScreensaver,
+    restrictOs: ['darwin']
+  });
+  _addChoice({
     name: options.i18n.t('bootstrap.setAtom'),
     short: 'Configure Atom',
     value: requestIndex++,
