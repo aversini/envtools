@@ -146,14 +146,6 @@ function _buildOptions(options, callback) {
     fct: plugins.bootstrapAtom
   });
   _addChoice({
-    name: options.i18n.t('bootstrap.enablePowerChime'),
-    short: 'Enable Power Chime',
-    value: requestIndex++,
-    type: [common.TYPE_EXTRA],
-    fct: plugins.togglePowerChimeSound,
-    restrictOs: ['darwin']
-  });
-  _addChoice({
     name: options.i18n.t('bootstrap.setSinopia'),
     short: 'Enable/disable sinopia',
     value: requestIndex++,
