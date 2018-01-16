@@ -456,9 +456,6 @@ function _fuzzySearch(search, data, opts) {
 }
 
 function _switchToNpmrcProfile(profileName, callback) {
-  const profileDir = path.join(ENVTOOLS.NPMRC_PROFILES, profileName);
-  const npmProfileConfigFile = path.join(profileDir, NPMRC_PROFILE_FILE);
-  const yarnProfileConfigFile = path.join(profileDir, YARNRC_PROFILE_FILE);
   const data = _getExistingNpmrcProfiles();
   let searchRes;
 
@@ -474,7 +471,9 @@ function _switchToNpmrcProfile(profileName, callback) {
         if (_.isString(searchRes)) {
           _displayConfirmation(
             `About to switch to profile "${searchRes}", continue?`,
-            done
+            function () {
+              done(null, searchRes);
+            }
           );
         } else {
           log.warning(`\nProfile "${profileName}" does not exists...`);
@@ -482,16 +481,23 @@ function _switchToNpmrcProfile(profileName, callback) {
         }
       }
     ],
-    function (err) {
+    function (err, name) {
       if (!err) {
-        _updateProfileConfigurationData(data, profileName);
+        const profileDir = path.join(ENVTOOLS.NPMRC_PROFILES, name);
+        const npmProfileConfigFile = path.join(profileDir, NPMRC_PROFILE_FILE);
+        const yarnProfileConfigFile = path.join(
+          profileDir,
+          YARNRC_PROFILE_FILE
+        );
+
+        _updateProfileConfigurationData(data, name);
 
         fs.ensureDirSync(profileDir);
         fs.copySync(npmProfileConfigFile, NPM_CONFIG);
         fs.copySync(yarnProfileConfigFile, YARN_CONFIG);
-        return callback(err, profileName);
+        return callback(err, name);
       } else {
-        return callback(err, profileName);
+        return callback(err, name);
       }
     }
   );
