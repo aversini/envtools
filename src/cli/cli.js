@@ -1,4 +1,4 @@
-/* eslint complexity: 0 */
+/* eslint complexity: 0, no-magic-numbers: 0 */
 
 const common = require('../common');
 const util = require('util');
@@ -57,7 +57,11 @@ EnvtoolsCLI.prototype._runCommand = function (program, command, optimist) {
         break;
 
       case 'registry':
-        require('./actions/registry')(self, program);
+        if (program._.length === 2) {
+          require('./actions/npmrc')(self, program);
+        } else {
+          require('./actions/registry')(self, program);
+        }
         break;
 
       case 'smtp':
