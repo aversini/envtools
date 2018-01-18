@@ -34,7 +34,7 @@ You can also check out a more extensive [online help hosted over here](http://en
 
 ## License
 
-MIT © [Arno V]()
+MIT © Arno V
 
 
 [npm-image]: https://badge.fury.io/js/envtools.svg
