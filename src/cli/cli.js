@@ -123,10 +123,6 @@ EnvtoolsCLI.prototype._runCommand = function (program, command, optimist) {
         self.version.printUpgradeIfAny(true);
         break;
 
-      case 'sinopia':
-        require('./actions/sinopia')(self, program);
-        break;
-
       case 'auto':
       case 'automatic':
       case 'boot':

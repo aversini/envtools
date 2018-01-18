@@ -145,13 +145,6 @@ function _buildOptions(options, callback) {
     type: [common.TYPE_EXTRA],
     fct: plugins.bootstrapAtom
   });
-  _addChoice({
-    name: options.i18n.t('bootstrap.setSinopia'),
-    short: 'Enable/disable sinopia',
-    value: requestIndex++,
-    type: [common.TYPE_EXTRA],
-    fct: plugins.bootstrapSinopia
-  });
 
   callback(null, choices);
 }

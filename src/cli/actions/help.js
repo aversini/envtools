@@ -48,10 +48,6 @@ const TAB_MAPPING = [
     keywords: ['custom', 'customization', 'prompt']
   },
   {
-    tab: 'sinopia',
-    keywords: ['sinopia', 'npm']
-  },
-  {
     tab: 'history',
     keywords: ['history']
   }

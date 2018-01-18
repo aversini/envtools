@@ -127,7 +127,6 @@ function getDiskSpace(callback) {
 function getProxyStatus(callback) {
   const localProxyStatus = process.env.PROXY_STATUS === common.ON;
   let proxy = common.NA,
-    sinopiaStatus = false,
     globalProxyStatus = false,
     npmRegistry,
     yarnRegistry;
@@ -142,42 +141,35 @@ function getProxyStatus(callback) {
         data = data.toString().replace(/\n$/, '');
         proxy = data;
       }
-      fs.readFile(common.ENVTOOLS.SINOPIA_STATUS, function (err, data) {
-        if (!err && data) {
-          data = data.toString().replace(/\n$/, '');
-          sinopiaStatus = data === common.ON;
-        }
-        cmd.run(
-          'npm config get registry',
-          {
-            status: false
-          },
-          function (err, stderr, stdout) {
-            if (!err && stdout) {
-              npmRegistry = stdout.replace(/\n$/, '');
-            }
-            cmd.run(
-              'yarn config get registry',
-              {
-                status: false
-              },
-              function (err, stderr, stdout) {
-                if (!err && stdout) {
-                  yarnRegistry = stdout.replace(/\n$/, '');
-                }
-                return callback(null, {
-                  proxy,
-                  sinopiaStatus,
-                  localProxyStatus,
-                  globalProxyStatus,
-                  npmRegistry,
-                  yarnRegistry
-                });
-              }
-            );
+      cmd.run(
+        'npm config get registry',
+        {
+          status: false
+        },
+        function (err, stderr, stdout) {
+          if (!err && stdout) {
+            npmRegistry = stdout.replace(/\n$/, '');
           }
-        );
-      });
+          cmd.run(
+            'yarn config get registry',
+            {
+              status: false
+            },
+            function (err, stderr, stdout) {
+              if (!err && stdout) {
+                yarnRegistry = stdout.replace(/\n$/, '');
+              }
+              return callback(null, {
+                proxy,
+                localProxyStatus,
+                globalProxyStatus,
+                npmRegistry,
+                yarnRegistry
+              });
+            }
+          );
+        }
+      );
     });
   });
 }
@@ -468,11 +460,8 @@ function displayResults(data) {
     if (data.proxyData.proxy !== common.NA) {
       msg.push(`Proxy status      : ${status}`);
     }
-    if (data.proxyData.sinopiaStatus) {
-      status = 'proxied through sinopia';
-    } else {
-      status = 'direct to registry';
-    }
+
+    status = 'direct to registry';
     msg.push(`Npm               : ${status}`);
     if (data.proxyData.npmRegistry) {
       msg.push(`Npm registry      : ${data.proxyData.npmRegistry}`);

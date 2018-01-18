@@ -56,11 +56,6 @@ const NPM_PACKAGES = [
     name: '[serve]  ...... Static server.'
   },
   {
-    value: 'sinopia',
-    short: 'sinopia',
-    name: '[sinopia] ..... Private npm repository server.'
-  },
-  {
     value: 'surge',
     short: 'surge',
     name: '[surge] ....... Static web publishing.'
@@ -93,45 +88,6 @@ let
   isYarn = utilities.isAppInstalled({
     name: 'yarn'
   });
-
-function _displayNodeWarningWithProxy(done) {
-  const isProxy = fs.existsSync(common.ENVTOOLS.PROXY_FILE);
-  const isNode = semver.gte(process.version, '6.0.0');
-  const isSinopia =
-    process.env.SINOPIA_STATUS === common.ON ||
-    process.env.SINOPIA_STATUS === common.OFF;
-  const msg = [];
-
-  if (isProxy && isNode && !isSinopia && !isYarn) {
-    msg.push(log.strToColor('red', '                         W A R N I N G\n'));
-    msg.push(
-      'It seems that you have a proxy and are using Node v5 or higher...'
-    );
-    msg.push(
-      `There is a known issue that may render your ${
-        log.strToColor('cyan', 'npm install')
-      } commands`
-    );
-    msg.push(
-      `extremelly slow... It is recommended that you ${
-        log.strToColor('red', 'do not install')
-      } any`
-    );
-    msg.push(
-      `node packages before installing ${
-        log.strToColor('cyan', 'yarn')
-      } (a replacement for npm).`
-    );
-    msg.push('');
-    msg.push('Please see installation guides for your OS here: ');
-    msg.push(log.strToColor('cyan', 'https://yarnpkg.com/en/docs/install'));
-    msg.push('');
-    msg.push('Thanks!');
-    log.printMessagesInBox(msg);
-    return done(1);
-  }
-  return done();
-}
 
 module.exports = function (options, callback) {
   backup([NPM_CONFIG, YARN_CONFIG]);
@@ -237,28 +193,6 @@ module.exports = function (options, callback) {
         } else {
           return done();
         }
-      },
-      function (done) {
-        const questions = {
-          type: 'confirm',
-          name: 'goForIt',
-          message: 'Continue?',
-          default: false
-        };
-        _displayNodeWarningWithProxy(function (err) {
-          if (!options.auto && err) {
-            // need to ask a simple 'continue?' in manual mode
-            inquirer.prompt(questions).then(function (answers) {
-              if (answers.goForIt) {
-                return done();
-              } else {
-                return done(common.USER_INTERRUPT);
-              }
-            });
-          } else {
-            return done();
-          }
-        });
       },
       function (done) {
         const questions = {

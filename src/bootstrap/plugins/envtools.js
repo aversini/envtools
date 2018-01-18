@@ -89,16 +89,6 @@ module.exports = function (options, callback) {
           value: common.CUSTOM_PROMPT_DEFAULT
         },
         {
-          name: 'Prompt with Proxy, Git and Sinopia information',
-          short: 'Proxy, Git and Sinopia',
-          value: common.CUSTOM_PROMPT_WITH_SINOPIA
-        },
-        {
-          name: 'Prompt with Proxy, Git, Node and Sinopia information',
-          short: 'Proxy, Git, Node and Sinopia',
-          value: common.CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE
-        },
-        {
           name: 'Prompt with Proxy, Git and Node information',
           short: 'Proxy, Git and Node',
           value: common.CUSTOM_PROMPT_WITH_NODE

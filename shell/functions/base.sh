@@ -286,19 +286,6 @@ function isRoot {
   fi
 }
 
-function isSinopiaRunning {
-  local SINOPIA_PID
-
-  if isMac; then
-    SINOPIA_PID=`ps aux | grep sinopia | grep -v grep`
-  fi
-  if isValid "$SINOPIA_PID"; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 #
 # Write text to terminal tab.
 # Only works on Mac, but because it's used

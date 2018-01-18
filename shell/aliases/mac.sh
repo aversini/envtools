@@ -38,9 +38,6 @@ alias axdiff='$TOOLSDIR/diff.js -a'
 alias hdd='hddPerf'
 alias ssd=hdd
 
-# wrapper for sinopia
-alias sinopia='envtools sinopia'
-
 # kill the dock quickly
 alias kdock='confirm "Restart the Dock?" "y" && killall Dock && echo "done!" || echo "Bye then..."'
 alias kdoc=kdock

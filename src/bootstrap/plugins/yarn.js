@@ -133,12 +133,7 @@ module.exports = function (options, callback) {
             [
               function (fini) {
                 let cmdline;
-                if (
-                  process.env.SINOPIA_STATUS &&
-                  process.env.SINOPIA_STATUS === common.ON
-                ) {
-                  cmdline = 'npm config set registry http://localhost:4873/';
-                } else if (npmRegistry === NA) {
+                if (npmRegistry === NA) {
                   cmdline = `npm config set registry=${NPM_REGISTRY}`;
                 } else {
                   cmdline = null;

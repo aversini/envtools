@@ -52,7 +52,6 @@ const ENVTOOLS = {
   SHELLDIR: path.join(__dirname, '..', 'shell'),
   PROXY_FILE: path.join(RUNTIME_DIR, 'proxy'),
   PROXY_STATUS_FILE: path.join(RUNTIME_DIR, 'proxy_status'),
-  SINOPIA_STATUS: path.join(RUNTIME_DIR, 'sinopia_status'),
   HELP_STATUS: path.join(RUNTIME_DIR, 'help_status.json'),
   RESUME_AUTO: path.join(RUNTIME_DIR, 'resume_auto'),
   SYSTEM_INFO: path.join(RUNTIME_DIR, 'info.json'),
@@ -518,8 +517,6 @@ exports.USER_WARNING = USER_WARNING;
 exports.USER_FATAL = USER_FATAL;
 exports.USER_IGNORE = USER_IGNORE;
 exports.CUSTOM_PROMPT_DEFAULT = 1;
-exports.CUSTOM_PROMPT_WITH_SINOPIA = 2;
-exports.CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE = 3;
 exports.CUSTOM_PROMPT_WITH_NODE = 4;
 exports.LOG_COLORS = {
   SUCCESS: 'green',

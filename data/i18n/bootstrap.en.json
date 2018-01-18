@@ -16,7 +16,6 @@
     "fixScreensaver": "Fix screensaver not remembering your choices.",
     "installScreensaver": "Install extra screensavers.",
     "setAtom": "Configure and install a few essential Atom packages.",
-    "setSinopia": "Enable/disable npm package local caching via Sinopia.",
     "terminalProfile": "Install Envtools custom Terminal profile.",
     "installNVM": "Install/update and configure Node Version Manager (nvm).",
     "installYarn": "Install/update and configure Yarn (another node package manager)",

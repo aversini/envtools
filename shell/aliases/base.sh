@@ -33,11 +33,6 @@ alias pon='setProxies ON'
 alias poff='setProxies OFF'
 alias pq='displayProxyStatus && reloadEnvironment'
 
-# alias for enabling/disabling sinopia
-alias son='setSinopia ON'
-alias soff='setSinopia OFF'
-alias sq='displaySinopiaStatus && reloadEnvironment'
-
 # killing norton, jamf, lync, etc.
 alias knot=killNorton
 alias kout=killOutlook

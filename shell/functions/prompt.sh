@@ -8,7 +8,6 @@ function unsetDefaultPrompt {
   unset PROMPT_ON_SYMBOL_AFTER
 
   unset PROMPT_PROXY
-  unset PROMPT_SINOPIA
   unset PROMPT_NODE
 
   unset PROMPT_LOCATION
@@ -55,7 +54,6 @@ __print_status () {
   local STATUS
   local STATUS_BEFORE
   local STATUS_AFTER
-  local SINOPIA_RUN_SIGN=""
   local TYPE="$1"
   local STATUS_FILE
   local NODE_VERSION
@@ -65,11 +63,6 @@ __print_status () {
   if [ "$TYPE" = "proxy" ] && [ "$PROXY" ]; then
     STATUS_FILE=${RUNTIME_DIR}/proxy_status
     val=$PROXY_STATUS
-  elif [ "$TYPE" = "sinopia" ]; then
-    STATUS_FILE=${RUNTIME_DIR}/sinopia_status
-    if [ -f $STATUS_FILE ]; then
-      val=`cat ${STATUS_FILE}`
-    fi
   elif [ "$TYPE" = "node" ]; then
     if isInstalled "node"; then
       val="ON"
@@ -88,14 +81,6 @@ __print_status () {
     fi
   fi
 
-  if isMac && [ "$TYPE" = "sinopia" ]; then
-    if isSinopiaRunning; then
-      SINOPIA_RUN_SIGN=" (running)"
-    else
-      SINOPIA_RUN_SIGN=" ${RAW_COLOR_YELLOW}(stopped)"
-    fi
-  fi
-
   if [ "$val" = "ON" ]; then
     STATUS="${PROMPT_ON_SYMBOL}"
     STATUS_BEFORE="${PROMPT_ON_SYMBOL_BEFORE}"
@@ -108,7 +93,7 @@ __print_status () {
     STATUS="N/A"
   fi
 
-  printf -- "$STATUS_BEFORE$2$STATUS_AFTER$SINOPIA_RUN_SIGN$NODE_LABEL" "$STATUS"
+  printf -- "$STATUS_BEFORE$2$STATUS_AFTER$NODE_LABEL" "$STATUS"
   return $exit
 }
 function _setPrompt {
@@ -141,9 +126,6 @@ function _setPrompt {
 }
 function setPromptProxy {
   PROMPT_PROXY=`_setPrompt "proxy" "$@"`
-}
-function setPromptSinopia {
-  PROMPT_SINOPIA=`_setPrompt "sinopia" "$@"`
 }
 function setPromptNode {
   PROMPT_NODE=`_setPrompt "node" "$@"`
@@ -230,21 +212,6 @@ function setEnvtoolsPromptConfigurationDefault {
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
-function setEnvtoolsPromptConfigurationSinopia {
-  if isMac; then
-    setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
-    setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
-  else
-    setPromptOFFSymbol "off"
-    setPromptONSymbol "on"
-  fi
-  setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
-  setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
-  setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
-  setPromptGitBranchStatusColor "$COLOR_GREEN"
-  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
-}
-
 function setEnvtoolsPromptConfigurationNode {
   if isMac; then
     setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
@@ -260,38 +227,14 @@ function setEnvtoolsPromptConfigurationNode {
   setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
 }
 
-function setEnvtoolsPromptConfigurationSinopiaAndNode {
-  if isMac; then
-    setPromptOFFSymbol "✘" "$RAW_COLOR_RED" "$RAW_COLOR_BLUE"
-    setPromptONSymbol "✔︎" "$RAW_COLOR_GREEN" "$RAW_COLOR_BLUE"
-  else
-    setPromptOFFSymbol "off"
-    setPromptONSymbol "on"
-  fi
-  setPromptProxy "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "proxy   : "
-  setPromptSinopia "$COLOR_BLUE" "$COLOR_DEFAULT\n"  "sinopia : "
-  setPromptNode "$COLOR_BLUE" "$COLOR_DEFAULT\n"    "node    : "
-  setPromptLocation "$COLOR_CYAN" "$COLOR_DEFAULT " "\w"
-  setPromptGitBranchStatusColor "$COLOR_GREEN"
-  setPromptIndicator "$COLOR_CYAN" "$COLOR_DEFAULT " "\$"
-}
-
 function setEnvtoolsPromptConfiguration {
   # See corresponding JS definitions in common.js
   local CUSTOM_PROMPT_DEFAULT="1";
-  local CUSTOM_PROMPT_WITH_SINOPIA="2";
-  local CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE="3";
   local CUSTOM_PROMPT_WITH_NODE="4";
 
   case "$1" in
     $CUSTOM_PROMPT_DEFAULT)
       setEnvtoolsPromptConfigurationDefault
-      ;;
-    $CUSTOM_PROMPT_WITH_SINOPIA)
-      setEnvtoolsPromptConfigurationSinopia
-      ;;
-    $CUSTOM_PROMPT_WITH_SINOPIA_AND_NODE)
-      setEnvtoolsPromptConfigurationSinopiaAndNode
       ;;
     $CUSTOM_PROMPT_WITH_NODE)
       setEnvtoolsPromptConfigurationNode
@@ -302,7 +245,7 @@ function setEnvtoolsPromptConfiguration {
 }
 
 function setEnvtoolsPrompt {
-  export PS1="${PROMPT_PROXY}${PROMPT_SINOPIA}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
+  export PS1="${PROMPT_PROXY}${PROMPT_NODE}${PROMPT_LOCATION}${PROMPT_GIT}${PROMPT_INDICATOR}"
 }
 
 function setEnvtoolsLitePrompt {
