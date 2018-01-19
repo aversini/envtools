@@ -4,7 +4,6 @@ const path = require('path');
 const waterfall = require('async/waterfall');
 const inquirer = require('inquirer');
 const cmd = require('fedtools-commands');
-const semver = require('semver');
 const log = require('fedtools-logs');
 const utilities = require('fedtools-utilities');
 const backup = require('../../backup');
