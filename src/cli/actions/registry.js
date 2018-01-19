@@ -141,7 +141,7 @@ function displayStatus(callback) {
         msg.push(`Available profiles : ${availableNpmProfiles.join(', ')}`);
       }
 
-      log.printMessagesInBox(msg);
+      log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
       return callback(null, {
         npmRegistry,
         npmHttpProxy,
