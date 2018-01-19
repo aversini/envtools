@@ -25,4 +25,4 @@ if [ -f "/usr/local/bin/brew" ]; then
 fi
 
 # Araxis
-export ARAXIS_CLI="${TOOLSDIR}/third/compare"
+export ARAXIS_CLI="${ENVDIR}/third/compare"
