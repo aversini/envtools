@@ -14,34 +14,19 @@ const BYTES_IN_GIGABYTES =
 
 // -- P R I V A T E  M E T H O D S
 
-function getDefaultRoute() {
-  let res;
+const getInternalIp = async (callback) => {
   if (common.isMac()) {
-    res = cmd.run('route -n get default | grep interface | awk \'{print $2}\'', {
-      status: false
-    });
-    if (res && res.stdout) {
-      res = res.stdout.replace(/\n$/, '');
-    }
+    const {stdout: route} = await execa.shell(
+      'route -n get default | grep interface | awk \'{print $2}\''
+    );
+    const {stdout: ip} = await execa.shell(
+      `ifconfig ${route} inet | grep inet | awk '{print $2}'`
+    );
+    return callback(null, ip);
+  } else {
+    return callback();
   }
-  return res;
-}
-
-function getInternalIp() {
-  let route, res;
-  if (common.isMac()) {
-    route = getDefaultRoute();
-    if (route) {
-      res = cmd.run(`ifconfig ${route} inet | grep inet | awk '{print $2}'`, {
-        status: false
-      });
-      if (res && res.stdout) {
-        res = res.stdout.replace(/\n$/, '');
-      }
-    }
-  }
-  return res;
-}
+};
 
 function getPublicIp(callback) {
   const download = require('download');
@@ -248,12 +233,12 @@ function getSystemInfo(self, options, callback) {
   parallel(
     [
       function (done) {
-        if (options.localIp) {
-          localIp = getInternalIp();
-          return done();
-        } else {
-          return done();
-        }
+        getInternalIp(function (err, data) {
+          if (!err && data) {
+            localIp = data;
+          }
+          return done(err);
+        });
       },
       function (done) {
         if (options.publicIp) {
