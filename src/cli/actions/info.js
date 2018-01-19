@@ -1,5 +1,6 @@
 /* eslint no-console:0, complexity:0 */
 const _ = require('lodash');
+const execa = require('execa');
 const moment = require('moment');
 const fs = require('fs-extra');
 const cmd = require('fedtools-commands');
@@ -9,7 +10,7 @@ const MAX_DIGITS = 2;
 const MILLISECONDS_IN_SECOND = 1000;
 const BYTES_IN_MEGABYTES = 1024;
 const BYTES_IN_GIGABYTES =
-    BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES;
+  BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES;
 
 // -- P R I V A T E  M E T H O D S
 
@@ -31,12 +32,9 @@ function getInternalIp() {
   if (common.isMac()) {
     route = getDefaultRoute();
     if (route) {
-      res = cmd.run(
-        `ifconfig ${route} inet | grep inet | awk '{print $2}'`,
-        {
-          status: false
-        }
-      );
+      res = cmd.run(`ifconfig ${route} inet | grep inet | awk '{print $2}'`, {
+        status: false
+      });
       if (res && res.stdout) {
         res = res.stdout.replace(/\n$/, '');
       }
@@ -174,13 +172,33 @@ function getProxyStatus(callback) {
   });
 }
 
+const getRegistryInfo = async (callback) => {
+  try {
+    const {stdout: npmRegistry} = await execa('npm', [
+      'config',
+      'get',
+      'registry'
+    ]);
+    const {stdout: yarnRegistry} = await execa('yarn', [
+      'config',
+      'get',
+      'registry'
+    ]);
+    return callback(null, {
+      npmRegistry,
+      yarnRegistry
+    });
+  } catch (err) {
+    return callback(err);
+  }
+};
+
 function getSystemInfo(self, options, callback) {
   const os = require('os');
   const osName = require('os-name');
   const parallel = require('async/parallel');
   const utilities = require('fedtools-utilities');
-  let
-    osVersion,
+  let osVersion,
     uptime,
     cpuModel,
     loadAverage,
@@ -191,6 +209,7 @@ function getSystemInfo(self, options, callback) {
     publicIp,
     diskSpace,
     proxyData,
+    registryData,
     npmVersion,
     npmGlobalRootLocation,
     yarnVersion,
@@ -259,6 +278,14 @@ function getSystemInfo(self, options, callback) {
         } else {
           return done();
         }
+      },
+      function (done) {
+        getRegistryInfo(function (err, data) {
+          if (!err) {
+            registryData = data;
+          }
+          done();
+        });
       },
       function (done) {
         if (options.disk) {
@@ -371,6 +398,7 @@ function getSystemInfo(self, options, callback) {
         publicIp,
         diskSpace,
         proxyData,
+        registryData,
         nodeVersions,
         npmVersion,
         npmGlobalRootLocation,
@@ -387,16 +415,13 @@ function getSystemInfo(self, options, callback) {
 function displayResults(data) {
   const log = require('fedtools-logs');
   const msg = [];
-  let status,
-    nextUpdate;
+  let status, nextUpdate;
 
   msg.push('');
   msg.push(log.strToColor('yellow', 'S Y S T E M'));
   if (data.osName) {
     if (data.osVersion) {
-      msg.push(
-        `Operating System  : ${data.osName} (${data.osVersion})`
-      );
+      msg.push(`Operating System  : ${data.osName} (${data.osVersion})`);
     } else {
       msg.push(`Operating System  : ${data.osName}`);
     }
@@ -408,9 +433,7 @@ function displayResults(data) {
     msg.push(`Processor         : ${data.cpuModel}`);
   }
   if (data.totalMemory >= 0) {
-    msg.push(
-      `Memory            : ${data.totalMemory.toFixed(MAX_DIGITS)} GB`
-    );
+    msg.push(`Memory            : ${data.totalMemory.toFixed(MAX_DIGITS)} GB`);
   }
 
   msg.push('');
@@ -420,21 +443,18 @@ function displayResults(data) {
   }
   if (data.loadAverage) {
     msg.push(
-      `Load average      : ${
-        data.loadAverage
-          .map(function (item) {
-            return item.toFixed(MAX_DIGITS);
-          })
-          .join(', ')}`
+      `Load average      : ${data.loadAverage
+        .map(function (item) {
+          return item.toFixed(MAX_DIGITS);
+        })
+        .join(', ')}`
     );
   }
   if (data.freeMemory >= 0) {
     msg.push(
-      `Memory used       : ${
-        (data.totalMemory - data.freeMemory).toFixed(MAX_DIGITS)
-      } GB (${
-        data.freeMemory.toFixed(MAX_DIGITS)
-      } GB free)`
+      `Memory used       : ${(data.totalMemory - data.freeMemory).toFixed(
+        MAX_DIGITS
+      )} GB (${data.freeMemory.toFixed(MAX_DIGITS)} GB free)`
     );
   }
   if (data.localIp) {
@@ -460,13 +480,15 @@ function displayResults(data) {
     if (data.proxyData.proxy !== common.NA) {
       msg.push(`Proxy status      : ${status}`);
     }
+  }
 
-    status = 'direct to registry';
-    msg.push(`Npm               : ${status}`);
-    if (data.proxyData.npmRegistry) {
+  if (data.registryData) {
+    msg.push('');
+    msg.push(log.strToColor('yellow', 'N P M  R E G I S T R Y'));
+    if (data.registryData.npmRegistry) {
       msg.push(`Npm registry      : ${data.proxyData.npmRegistry}`);
     }
-    if (data.proxyData.yarnRegistry) {
+    if (data.registryData.yarnRegistry) {
       msg.push(`Yarn registry     : ${data.proxyData.yarnRegistry}`);
     }
   }
@@ -480,15 +502,9 @@ function displayResults(data) {
   msg.push('');
   msg.push(log.strToColor('yellow', 'V E R S I O N S'));
   msg.push(
-    `Node              : ${
-      data.nodeVersions.node
-    } (${
+    `Node              : ${data.nodeVersions.node} (${
       data.nodeVersions.arch
-    }, v8 ${
-      data.nodeVersions.v8
-    }, module ${
-      data.nodeVersions.modules
-    })`
+    }, v8 ${data.nodeVersions.v8}, module ${data.nodeVersions.modules})`
   );
   msg.push(`Npm               : ${data.npmVersion}`);
   if (data.yarnVersion) {
@@ -496,23 +512,24 @@ function displayResults(data) {
   }
   if (data.gitVersion) {
     msg.push(
-      `Git               : ${
-        data.gitVersion.replace('git version ', '').trim()}`
+      `Git               : ${data.gitVersion
+        .replace('git version ', '')
+        .trim()}`
     );
   }
   if (data.rubyVersion) {
     msg.push(
-      `Ruby              : ${
-        data.rubyVersion
-          .slice(0, data.rubyVersion.indexOf(' ['))
-          .replace('ruby', '')
-          .trim()}`
+      `Ruby              : ${data.rubyVersion
+        .slice(0, data.rubyVersion.indexOf(' ['))
+        .replace('ruby', '')
+        .trim()}`
     );
   }
   if (data.mavenData && data.mavenData.mavenVersion) {
     msg.push(
-      `Maven             : ${
-        data.mavenData.mavenVersion.replace('Apache Maven', '').trim()}`
+      `Maven             : ${data.mavenData.mavenVersion
+        .replace('Apache Maven', '')
+        .trim()}`
     );
   }
   if (data.mavenData && data.mavenData.javaVersion) {
@@ -524,14 +541,18 @@ function displayResults(data) {
   msg.push(log.strToColor('yellow', 'L O C A T I O N S'));
   if (data.npmGlobalRootLocation) {
     msg.push(
-      `Npm root location : ${
-        data.npmGlobalRootLocation.replace(process.env.HOME, '~')}`
+      `Npm root location : ${data.npmGlobalRootLocation.replace(
+        process.env.HOME,
+        '~'
+      )}`
     );
   }
   if (data.mavenData && data.mavenData.mavenHome) {
     msg.push(
-      `Maven location    : ${
-        data.mavenData.mavenHome.replace(process.env.HOME, '~')}`
+      `Maven location    : ${data.mavenData.mavenHome.replace(
+        process.env.HOME,
+        '~'
+      )}`
     );
   }
 
@@ -543,11 +564,9 @@ function displayResults(data) {
     log.printMessagesInBox(
       msg,
       common.LOG_COLORS.DEFAULT_BOX,
-      `Last update: ${
-        moment(data.lastUpdate).format('hh:mm:ssa')
-      } (next update in ${
-        nextUpdate.toFixed(0)
-      }s)`
+      `Last update: ${moment(data.lastUpdate).format(
+        'hh:mm:ssa'
+      )} (next update in ${nextUpdate.toFixed(0)}s)`
     );
   } else {
     log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
