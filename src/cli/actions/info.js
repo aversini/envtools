@@ -12,7 +12,203 @@ const BYTES_IN_MEGABYTES = 1024;
 const BYTES_IN_GIGABYTES =
   BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES * BYTES_IN_MEGABYTES;
 
-// -- P R I V A T E  M E T H O D S
+// -- S Y N C  M E T H O D S
+
+function parseMavenInformation(data) {
+  const res = {};
+
+  _.forEach(data.split('\n'), function (line) {
+    if (line.match('Apache Maven ')) {
+      res.mavenVersion = line.slice(0, line.indexOf(' (')).trim();
+    }
+    if (line.match('Maven home:')) {
+      res.mavenHome = line.replace('Maven home:', '').trim();
+    }
+    if (line.match('Java version:')) {
+      res.javaVersion = line.replace('Java version:', '').trim();
+    }
+    if (line.match('Java home:')) {
+      res.javaHome = line.replace('Java home:', '').trim();
+    }
+  });
+  return res;
+}
+
+function getMacVersion(release) {
+  const semver = require('semver');
+  const macRelease = require('macos-release');
+  const major = macRelease().version;
+  const minor = semver.minor(release);
+
+  if (minor) {
+    return `${major}.${minor}`;
+  } else {
+    return major;
+  }
+}
+
+function displayResults(data) {
+  const log = require('fedtools-logs');
+  const msg = [];
+  let status, nextUpdate;
+
+  msg.push('');
+  msg.push(log.strToColor('yellow', 'S Y S T E M'));
+  if (data.osName) {
+    if (data.osVersion) {
+      msg.push(`Operating System  : ${data.osName} (${data.osVersion})`);
+    } else {
+      msg.push(`Operating System  : ${data.osName}`);
+    }
+  }
+  if (data.hostname) {
+    msg.push(`Hostname          : ${data.hostname}`);
+  }
+  if (data.cpuModel) {
+    msg.push(`Processor         : ${data.cpuModel}`);
+  }
+  if (data.totalMemory >= 0) {
+    msg.push(`Memory            : ${data.totalMemory.toFixed(MAX_DIGITS)} GB`);
+  }
+
+  msg.push('');
+  msg.push(log.strToColor('yellow', 'E N V I R O N M E N T'));
+  if (data.uptime) {
+    msg.push(`Uptime            : ${data.uptime}`);
+  }
+  if (data.loadAverage) {
+    msg.push(
+      `Load average      : ${data.loadAverage
+        .map(function (item) {
+          return item.toFixed(MAX_DIGITS);
+        })
+        .join(', ')}`
+    );
+  }
+  if (data.freeMemory >= 0) {
+    msg.push(
+      `Memory used       : ${(data.totalMemory - data.freeMemory).toFixed(
+        MAX_DIGITS
+      )} GB (${data.freeMemory.toFixed(MAX_DIGITS)} GB free)`
+    );
+  }
+  if (data.localIp) {
+    msg.push(`Local IP address  : ${data.localIp}`);
+  }
+  if (data.publicIp) {
+    msg.push(`Public IP address : ${data.publicIp}`);
+  } else {
+    msg.push('Public IP address : use --publicIp flag to show');
+  }
+
+  if (data.proxyData) {
+    msg.push('');
+    msg.push(log.strToColor('yellow', 'P R O X Y'));
+    if (data.proxyData.localProxyStatus === data.proxyData.globalProxyStatus) {
+      status = data.proxyData.localProxyStatus ? 'enabled' : 'disabled';
+    } else {
+      status = data.proxyData.localProxyStatus
+        ? 'enabled, but only in current window'
+        : 'disabled, but only in current window';
+    }
+    msg.push(`Proxy             : ${data.proxyData.proxy}`);
+    if (data.proxyData.proxy !== common.NA) {
+      msg.push(`Proxy status      : ${status}`);
+    }
+  }
+
+  if (data.registryData) {
+    msg.push('');
+    msg.push(log.strToColor('yellow', 'N P M  R E G I S T R Y'));
+    if (data.registryData.npmRegistry) {
+      msg.push(`Npm registry      : ${data.registryData.npmRegistry}`);
+    }
+    if (data.registryData.yarnRegistry) {
+      msg.push(`Yarn registry     : ${data.registryData.yarnRegistry}`);
+    }
+  }
+
+  if (common.isMac() && data.diskSpace) {
+    msg.push('');
+    msg.push(log.strToColor('yellow', 'F I L E  S Y S T E M'));
+    msg.push(data.diskSpace);
+  }
+
+  msg.push('');
+  msg.push(log.strToColor('yellow', 'V E R S I O N S'));
+  msg.push(
+    `Node              : ${data.nodeVersions.node} (${
+      data.nodeVersions.arch
+    }, v8 ${data.nodeVersions.v8}, module ${data.nodeVersions.modules})`
+  );
+  msg.push(`Npm               : ${data.npmVersion}`);
+  if (data.yarnVersion) {
+    msg.push(`Yarn              : ${data.yarnVersion}`);
+  }
+  if (data.gitVersion) {
+    msg.push(
+      `Git               : ${data.gitVersion
+        .replace('git version ', '')
+        .trim()}`
+    );
+  }
+  if (data.rubyVersion) {
+    msg.push(
+      `Ruby              : ${data.rubyVersion
+        .slice(0, data.rubyVersion.indexOf(' ['))
+        .replace('ruby', '')
+        .trim()}`
+    );
+  }
+  if (data.mavenData && data.mavenData.mavenVersion) {
+    msg.push(
+      `Maven             : ${data.mavenData.mavenVersion
+        .replace('Apache Maven', '')
+        .trim()}`
+    );
+  }
+  if (data.mavenData && data.mavenData.javaVersion) {
+    msg.push(`Java              : ${data.mavenData.javaVersion}`);
+  }
+  msg.push(`Envtools          : ${data.envtoolsVersion}`);
+
+  msg.push('');
+  msg.push(log.strToColor('yellow', 'L O C A T I O N S'));
+  if (data.npmGlobalRootLocation) {
+    msg.push(
+      `Npm root location : ${data.npmGlobalRootLocation.replace(
+        process.env.HOME,
+        '~'
+      )}`
+    );
+  }
+  if (data.mavenData && data.mavenData.mavenHome) {
+    msg.push(
+      `Maven location    : ${data.mavenData.mavenHome.replace(
+        process.env.HOME,
+        '~'
+      )}`
+    );
+  }
+
+  msg.push('');
+  if (data.expiration) {
+    nextUpdate =
+      moment(data.expiration).diff(moment()) / MILLISECONDS_IN_SECOND;
+    msg.push('');
+    log.printMessagesInBox(
+      msg,
+      common.LOG_COLORS.DEFAULT_BOX,
+      `Last update: ${moment(data.lastUpdate).format(
+        'hh:mm:ssa'
+      )} (next update in ${nextUpdate.toFixed(0)}s)`
+    );
+  } else {
+    log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
+  }
+}
+
+// -- A S Y N C  M E T H O D S
 
 const getInternalIp = async (callback) => {
   if (common.isMac()) {
@@ -49,70 +245,29 @@ function getPublicIp(callback) {
     });
 }
 
-function parseMavenInformation(data) {
-  const res = {};
-
-  _.forEach(data.split('\n'), function (line) {
-    if (line.match('Apache Maven ')) {
-      res.mavenVersion = line.slice(0, line.indexOf(' (')).trim();
-    }
-    if (line.match('Maven home:')) {
-      res.mavenHome = line.replace('Maven home:', '').trim();
-    }
-    if (line.match('Java version:')) {
-      res.javaVersion = line.replace('Java version:', '').trim();
-    }
-    if (line.match('Java home:')) {
-      res.javaHome = line.replace('Java home:', '').trim();
-    }
-  });
-  return res;
-}
-
-function getMacVersion(release) {
-  const semver = require('semver');
-  const macRelease = require('macos-release');
-  const major = macRelease().version;
-  const minor = semver.minor(release);
-
-  if (minor) {
-    return `${major}.${minor}`;
-  } else {
-    return major;
-  }
-}
-
-function getDiskSpace(callback) {
-  let cmdline;
+const getDiskSpace = async (callback) => {
+  const bin = 'df';
+  let args;
 
   if (common.isMac()) {
-    cmdline = 'df -PlH';
+    args = ['-PlH'];
   }
   if (common.isLinux()) {
-    cmdline = 'df -Plh';
+    args = ['-Plh'];
   }
 
-  if (cmdline) {
-    cmd.run(
-      cmdline,
-      {
-        status: false
-      },
-      function (err, stderr, stdout) {
-        callback(err, stdout ? stdout.replace(/\n$/, '') : null);
-      }
-    );
+  if (args) {
+    const {stdout, stderr} = await execa(bin, args);
+    return callback(stderr, stdout);
   } else {
     return callback(1);
   }
-}
+};
 
 function getProxyStatus(callback) {
   const localProxyStatus = process.env.PROXY_STATUS === common.ON;
   let proxy = common.NA,
-    globalProxyStatus = false,
-    npmRegistry,
-    yarnRegistry;
+    globalProxyStatus = false;
 
   fs.readFile(common.ENVTOOLS.PROXY_STATUS_FILE, function (err, data) {
     if (!err && data) {
@@ -124,35 +279,11 @@ function getProxyStatus(callback) {
         data = data.toString().replace(/\n$/, '');
         proxy = data;
       }
-      cmd.run(
-        'npm config get registry',
-        {
-          status: false
-        },
-        function (err, stderr, stdout) {
-          if (!err && stdout) {
-            npmRegistry = stdout.replace(/\n$/, '');
-          }
-          cmd.run(
-            'yarn config get registry',
-            {
-              status: false
-            },
-            function (err, stderr, stdout) {
-              if (!err && stdout) {
-                yarnRegistry = stdout.replace(/\n$/, '');
-              }
-              return callback(null, {
-                proxy,
-                localProxyStatus,
-                globalProxyStatus,
-                npmRegistry,
-                yarnRegistry
-              });
-            }
-          );
-        }
-      );
+      return callback(null, {
+        proxy,
+        localProxyStatus,
+        globalProxyStatus
+      });
     });
   });
 }
@@ -395,167 +526,6 @@ function getSystemInfo(self, options, callback) {
       });
     }
   );
-}
-
-function displayResults(data) {
-  const log = require('fedtools-logs');
-  const msg = [];
-  let status, nextUpdate;
-
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'S Y S T E M'));
-  if (data.osName) {
-    if (data.osVersion) {
-      msg.push(`Operating System  : ${data.osName} (${data.osVersion})`);
-    } else {
-      msg.push(`Operating System  : ${data.osName}`);
-    }
-  }
-  if (data.hostname) {
-    msg.push(`Hostname          : ${data.hostname}`);
-  }
-  if (data.cpuModel) {
-    msg.push(`Processor         : ${data.cpuModel}`);
-  }
-  if (data.totalMemory >= 0) {
-    msg.push(`Memory            : ${data.totalMemory.toFixed(MAX_DIGITS)} GB`);
-  }
-
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'E N V I R O N M E N T'));
-  if (data.uptime) {
-    msg.push(`Uptime            : ${data.uptime}`);
-  }
-  if (data.loadAverage) {
-    msg.push(
-      `Load average      : ${data.loadAverage
-        .map(function (item) {
-          return item.toFixed(MAX_DIGITS);
-        })
-        .join(', ')}`
-    );
-  }
-  if (data.freeMemory >= 0) {
-    msg.push(
-      `Memory used       : ${(data.totalMemory - data.freeMemory).toFixed(
-        MAX_DIGITS
-      )} GB (${data.freeMemory.toFixed(MAX_DIGITS)} GB free)`
-    );
-  }
-  if (data.localIp) {
-    msg.push(`Local IP address  : ${data.localIp}`);
-  }
-  if (data.publicIp) {
-    msg.push(`Public IP address : ${data.publicIp}`);
-  } else {
-    msg.push('Public IP address : use --publicIp flag to show');
-  }
-
-  if (data.proxyData) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'P R O X Y'));
-    if (data.proxyData.localProxyStatus === data.proxyData.globalProxyStatus) {
-      status = data.proxyData.localProxyStatus ? 'enabled' : 'disabled';
-    } else {
-      status = data.proxyData.localProxyStatus
-        ? 'enabled, but only in current window'
-        : 'disabled, but only in current window';
-    }
-    msg.push(`Proxy             : ${data.proxyData.proxy}`);
-    if (data.proxyData.proxy !== common.NA) {
-      msg.push(`Proxy status      : ${status}`);
-    }
-  }
-
-  if (data.registryData) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'N P M  R E G I S T R Y'));
-    if (data.registryData.npmRegistry) {
-      msg.push(`Npm registry      : ${data.proxyData.npmRegistry}`);
-    }
-    if (data.registryData.yarnRegistry) {
-      msg.push(`Yarn registry     : ${data.proxyData.yarnRegistry}`);
-    }
-  }
-
-  if (common.isMac() && data.diskSpace) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'F I L E  S Y S T E M'));
-    msg.push(data.diskSpace);
-  }
-
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'V E R S I O N S'));
-  msg.push(
-    `Node              : ${data.nodeVersions.node} (${
-      data.nodeVersions.arch
-    }, v8 ${data.nodeVersions.v8}, module ${data.nodeVersions.modules})`
-  );
-  msg.push(`Npm               : ${data.npmVersion}`);
-  if (data.yarnVersion) {
-    msg.push(`Yarn              : ${data.yarnVersion}`);
-  }
-  if (data.gitVersion) {
-    msg.push(
-      `Git               : ${data.gitVersion
-        .replace('git version ', '')
-        .trim()}`
-    );
-  }
-  if (data.rubyVersion) {
-    msg.push(
-      `Ruby              : ${data.rubyVersion
-        .slice(0, data.rubyVersion.indexOf(' ['))
-        .replace('ruby', '')
-        .trim()}`
-    );
-  }
-  if (data.mavenData && data.mavenData.mavenVersion) {
-    msg.push(
-      `Maven             : ${data.mavenData.mavenVersion
-        .replace('Apache Maven', '')
-        .trim()}`
-    );
-  }
-  if (data.mavenData && data.mavenData.javaVersion) {
-    msg.push(`Java              : ${data.mavenData.javaVersion}`);
-  }
-  msg.push(`Envtools          : ${data.envtoolsVersion}`);
-
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'L O C A T I O N S'));
-  if (data.npmGlobalRootLocation) {
-    msg.push(
-      `Npm root location : ${data.npmGlobalRootLocation.replace(
-        process.env.HOME,
-        '~'
-      )}`
-    );
-  }
-  if (data.mavenData && data.mavenData.mavenHome) {
-    msg.push(
-      `Maven location    : ${data.mavenData.mavenHome.replace(
-        process.env.HOME,
-        '~'
-      )}`
-    );
-  }
-
-  msg.push('');
-  if (data.expiration) {
-    nextUpdate =
-      moment(data.expiration).diff(moment()) / MILLISECONDS_IN_SECOND;
-    msg.push('');
-    log.printMessagesInBox(
-      msg,
-      common.LOG_COLORS.DEFAULT_BOX,
-      `Last update: ${moment(data.lastUpdate).format(
-        'hh:mm:ssa'
-      )} (next update in ${nextUpdate.toFixed(0)}s)`
-    );
-  } else {
-    log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
-  }
 }
 
 // -- E X P O R T S
