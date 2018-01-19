@@ -33,6 +33,7 @@
     "lint": "eslint src --ext .js",
     "prettier": "prettier-eslint --write \"src/**/*.js\"",
     "prettier:file": "prettier-eslint --write",
+    "test": "npm-run-all lint build:dist",
     "watch": "npm run build:dist -- --watch"
   },
   "dependencies": {
