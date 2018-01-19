@@ -8,15 +8,10 @@ const log = require('fedtools-logs');
 const common = require('../../common');
 const MAVEN_VERSION = '3.3.9';
 const MAVEN_DEST_DIR = path.join(
-    common.RUNTIME_DIR,
-    `apache-maven-${MAVEN_VERSION}`
-  );
-const MAVEN_BIN_URL =
-    `http://archive.apache.org/dist/maven/maven-3/${
-    MAVEN_VERSION
-    }/binaries/apache-maven-${
-    MAVEN_VERSION
-  }-bin.zip`;
+  common.RUNTIME_DIR,
+  `apache-maven-${MAVEN_VERSION}`
+);
+const MAVEN_BIN_URL = `http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.zip`;
 const MAVEN_USER_SETTINGS_DST = path.join(process.env.HOME, '.m2');
 
 module.exports = function (options, callback) {
@@ -32,8 +27,10 @@ module.exports = function (options, callback) {
     if (process.env.ENVTOOLS_VERSION) {
       msg.push('');
       msg.push(
-        `${log.strToColor('cyan', 'Hint:')
-          } type r ENTER or just restart your terminal...`
+        `${log.strToColor(
+          'cyan',
+          'Hint:'
+        )} type r ENTER or just restart your terminal...`
       );
     }
     log.echo();

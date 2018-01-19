@@ -4,7 +4,7 @@
 //   path = require('path'),
 //   utilities = require('fedtools-utilities');
 
-module.exports = function () {
+module.exports = function() {
   // var
   //   envdir = path.join(__dirname, '..', '..', '..', 'shell'),
   //   file = 'dot.profile',

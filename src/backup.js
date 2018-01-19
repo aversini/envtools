@@ -20,7 +20,10 @@ const BACKUPDIR = path.join(process.env.HOME, '.envtools', 'backups');
  */
 module.exports = function (backups, verbose) {
   let backupStr;
-  const backupDir = path.join(BACKUPDIR, moment().format('MMDDYYYY-HH[h]mm[m]'));
+  const backupDir = path.join(
+    BACKUPDIR,
+    moment().format('MMDDYYYY-HH[h]mm[m]')
+  );
 
   verbose = verbose || false;
 

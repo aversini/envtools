@@ -86,8 +86,16 @@ function _isZsh() {
 }
 
 function _createRuntimeDir(callback) {
-  const bin1Src = path.join(ENVTOOLS.THIRDDIR, 'growlnotify', 'growlnotify.exe');
-  const bin2Src = path.join(ENVTOOLS.THIRDDIR, 'growlnotify', 'growlnotify.com');
+  const bin1Src = path.join(
+    ENVTOOLS.THIRDDIR,
+    'growlnotify',
+    'growlnotify.exe'
+  );
+  const bin2Src = path.join(
+    ENVTOOLS.THIRDDIR,
+    'growlnotify',
+    'growlnotify.com'
+  );
   const bin1Dest = path.join(RUNTIME_BIN_DIR, 'growlnotify.exe');
   const bin2Dest = path.join(RUNTIME_BIN_DIR, 'growlnotify.com');
 

@@ -241,8 +241,10 @@ exports.routeCLIRequest = function (type, options, done) {
         );
         if (process.env.ENVTOOLS_VERSION && options.restartShortcutHint) {
           msg.push(
-            `${log.strToColor('cyan', 'Hint:')
-            } type r + ENTER or just restart your terminal...`
+            `${log.strToColor(
+              'cyan',
+              'Hint:'
+            )} type r + ENTER or just restart your terminal...`
           );
         }
         log.printMessagesInBox(msg, {

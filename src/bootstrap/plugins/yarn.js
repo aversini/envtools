@@ -10,15 +10,18 @@ const common = require('../../common');
 const NPM_CONFIG = path.join(process.env.HOME, '.npmrc');
 const YARN_CONFIG = path.join(process.env.HOME, '.yarnrc');
 const YARN_DEST = path.join(process.env.HOME, '.yarn');
-const YARN_TAR_GZ = path.join(common.ENVTOOLS.THIRDDIR, 'yarn', 'latest.tar.gz');
+const YARN_TAR_GZ = path.join(
+  common.ENVTOOLS.THIRDDIR,
+  'yarn',
+  'latest.tar.gz'
+);
 const NA = 'N/A';
 const NPM_REGISTRY =
-    process.env.CUSTOM_NPM_REGISTRY || 'http://registry.npmjs.org/';
+  process.env.CUSTOM_NPM_REGISTRY || 'http://registry.npmjs.org/';
 const YARN_REGISTRY =
-    process.env.CUSTOM_NPM_REGISTRY || 'http://registry.yarnpkg.com';
+  process.env.CUSTOM_NPM_REGISTRY || 'http://registry.yarnpkg.com';
 
-let
-  YARN_BIN = 'yarn',
+let YARN_BIN = 'yarn',
   promptForRestart = false;
 
 module.exports = function (options, callback) {
@@ -36,8 +39,10 @@ module.exports = function (options, callback) {
     if (process.env.ENVTOOLS_VERSION) {
       msg.push('');
       msg.push(
-        `${log.strToColor('cyan', 'Hint:')
-        } type r ENTER or just restart your terminal...`
+        `${log.strToColor(
+          'cyan',
+          'Hint:'
+        )} type r ENTER or just restart your terminal...`
       );
     }
     log.echo();

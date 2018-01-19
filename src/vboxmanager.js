@@ -7,8 +7,7 @@ const vb = require('./vb');
 const START_COMMAND = 'start';
 const STOP_COMMAND = 'stop';
 
-let optimist,
-  program;
+let optimist, program;
 
 // -- C O N S T R U C T O R
 
@@ -40,9 +39,7 @@ VirtualBoxManager.prototype._runCommand = function (vmName, done) {
   function _logFeedback(err) {
     const headlessMsg = self.headless ? ' (headless mode)' : '';
     const msg =
-        self.qualifiedCommand === STOP_COMMAND
-          ? ' was stopped'
-          : ' was started';
+      self.qualifiedCommand === STOP_COMMAND ? ' was stopped' : ' was started';
     log.success(`Virtual machine ${vmName}${msg}${headlessMsg}`);
     done(err);
   }

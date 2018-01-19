@@ -79,8 +79,7 @@ module.exports = function (options, callback) {
     inquirer.prompt(questions).then(function (answers) {
       const urlCfg = url.parse(answers.url);
 
-      let
-        hostname = answers.url,
+      let hostname = answers.url,
         protocol = `${answers.protocol}://`,
         port = answers.port !== '' ? `:${answers.port}` : null;
 
@@ -114,16 +113,22 @@ module.exports = function (options, callback) {
         if (process.env.ENVTOOLS_VERSION) {
           msg.push('');
           msg.push(
-            `${log.strToColor('cyan', 'Hint #1:')
-            } type r ENTER or just restart your terminal...`
+            `${log.strToColor(
+              'cyan',
+              'Hint #1:'
+            )} type r ENTER or just restart your terminal...`
           );
           msg.push(
-            `${log.strToColor('cyan', 'Hint #2:')
-            } type pon ENTER to turn the proxy ON.`
+            `${log.strToColor(
+              'cyan',
+              'Hint #2:'
+            )} type pon ENTER to turn the proxy ON.`
           );
           msg.push(
-            `${log.strToColor('cyan', 'Hint #3:')
-            } type poff ENTER to turn the proxy OFF.`
+            `${log.strToColor(
+              'cyan',
+              'Hint #3:'
+            )} type poff ENTER to turn the proxy OFF.`
           );
         }
         if (options.auto) {

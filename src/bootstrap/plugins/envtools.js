@@ -22,7 +22,6 @@ module.exports = function (options, callback) {
   const currentAutoCheck = options.version.getAutoCheck();
   const mainQuestions = [];
 
-
   let questions;
 
   // we always ask if user wants to load Envtools

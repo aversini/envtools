@@ -73,9 +73,7 @@ module.exports = function (self) {
                   );
                   msg.push('2) login to the remote machine and untar the file');
                   msg.push(log.strToColor('blue', ' $ ssh remoteServerName'));
-                  msg.push(
-                    log.strToColor('blue', ` $ tar xf ${shortName}\n`)
-                  );
+                  msg.push(log.strToColor('blue', ` $ tar xf ${shortName}\n`));
                   msg.push(
                     '3) Add the following lines to your profile (.bashrc or .bash_profile)'
                   );

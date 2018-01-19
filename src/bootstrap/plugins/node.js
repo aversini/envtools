@@ -11,7 +11,11 @@ const common = require('../../common');
 const NPM_CONFIG = path.join(process.env.HOME, '.npmrc');
 const YARN_CONFIG = path.join(process.env.HOME, '.yarnrc');
 const YARN_DEST = path.join(process.env.HOME, '.yarn');
-const YARN_TAR_GZ = path.join(common.ENVTOOLS.THIRDDIR, 'yarn', 'latest.tar.gz');
+const YARN_TAR_GZ = path.join(
+  common.ENVTOOLS.THIRDDIR,
+  'yarn',
+  'latest.tar.gz'
+);
 const NPM_PACKAGES = [
   {
     value: ['eslint', 'eslint-plugin-react'],
@@ -81,8 +85,7 @@ const NPM_PACKAGES = [
   }
 ];
 
-let
-  promptForRestart = false,
+let promptForRestart = false,
   YARN_BIN = 'yarn',
   isYarn = utilities.isAppInstalled({
     name: 'yarn'
@@ -102,8 +105,10 @@ module.exports = function (options, callback) {
     if (process.env.ENVTOOLS_VERSION) {
       msg.push('');
       msg.push(
-        `${log.strToColor('cyan', 'Hint:')
-        } type r ENTER or just restart your terminal...`
+        `${log.strToColor(
+          'cyan',
+          'Hint:'
+        )} type r ENTER or just restart your terminal...`
       );
     }
     log.echo();

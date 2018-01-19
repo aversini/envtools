@@ -98,13 +98,11 @@ EnvtoolsHelp.prototype.printLongUsage = function (intro) {
     }
     cmdtmplen = cmdtmp.length;
 
-    buffer =
-      `${log.strToColor('cyan', cmdtmp) +
+    buffer = `${log.strToColor('cyan', cmdtmp) +
       log.strToColor(
         'white',
         new Array(this.CMD_MAX_LEN - cmdtmplen).join('.')
-      )
-      } `;
+      )} `;
     descArray = utilities.wordWrap(cmdd, this.CMD_DESC_MAX);
 
     log.echo();

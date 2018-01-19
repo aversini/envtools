@@ -13,7 +13,6 @@ const cwd = process.cwd();
 const fileBlacklist = /\.pyc|\.class|\.java~|\.tar|\.gif|\.jpg|\.jpeg|\.pdf|\.png|\.tgz|\.doc|\.xls|\.tar\.gz|\.swp|\.zip|\.dmg|\.jar|\.svg|\.eot|\.ttf|\.woff|\.icns|\.hds|\.a|\.so/gi;
 const dirBlacklist = /node_modules|(^|\/)\.[^\/\.]/gi;
 
-
 let totalOccurrences = 0,
   totalFilesMatched = 0,
   reFlag,
@@ -124,8 +123,7 @@ function scanFiles(files, done) {
   each(
     files,
     function (strPath, cb) {
-      let o,
-        sOut;
+      let o, sOut;
       const lines = [];
 
       function _scanFile(err, buffer) {
@@ -286,8 +284,9 @@ findFiles(cwd, function (err, files) {
         perf = utilities.performance.getEntriesByName('totalTime');
         if (perf && perf[0].duration) {
           console.log(
-            `  Elapsed time              : ${
-              utilities.formatMillisecondsToHuman(perf[0].duration)}`
+            `  Elapsed time              : ${utilities.formatMillisecondsToHuman(
+              perf[0].duration
+            )}`
           );
         }
         if (debug) {
@@ -295,8 +294,9 @@ findFiles(cwd, function (err, files) {
           perf = utilities.performance.getEntriesByName('findFiles');
           if (perf && perf[0].duration) {
             console.log(
-              `  Elapsed time in findFiles : ${
-                utilities.formatMillisecondsToHuman(perf[0].duration)}`
+              `  Elapsed time in findFiles : ${utilities.formatMillisecondsToHuman(
+                perf[0].duration
+              )}`
             );
           }
 
@@ -304,8 +304,9 @@ findFiles(cwd, function (err, files) {
           perf = utilities.performance.getEntriesByName('scanFiles');
           if (perf && perf[0].duration) {
             console.log(
-              `  Elapsed time in scanFiles : ${
-                utilities.formatMillisecondsToHuman(perf[0].duration)}`
+              `  Elapsed time in scanFiles : ${utilities.formatMillisecondsToHuman(
+                perf[0].duration
+              )}`
             );
           }
         }
@@ -323,8 +324,9 @@ findFiles(cwd, function (err, files) {
     perf = utilities.performance.getEntriesByName('totalTime');
     if (perf && perf[0].duration) {
       console.log(
-        `  Elapsed time              : ${
-          utilities.formatMillisecondsToHuman(perf[0].duration)}`
+        `  Elapsed time              : ${utilities.formatMillisecondsToHuman(
+          perf[0].duration
+        )}`
       );
     }
     console.log('');

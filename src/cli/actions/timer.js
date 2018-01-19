@@ -34,14 +34,8 @@ function _timer(options) {
     } else {
       elapsed = parseInt((Date.now() - startTime) / 1000, 10);
       duration = moment.duration((timerDurationSeconds - elapsed) * 1000);
-      msg2 =
-        `${log.strToColor('yellow', 'Remaining time: ') +
-        duration.hours()
-        }h ${
-          duration.minutes()
-        }m ${
-          duration.seconds()
-        }s`;
+      msg2 = `${log.strToColor('yellow', 'Remaining time: ') +
+        duration.hours()}h ${duration.minutes()}m ${duration.seconds()}s`;
     }
     log.printMessagesInBox([msg1, msg2], common.LOG_COLORS.DEFAULT_BOX);
   }

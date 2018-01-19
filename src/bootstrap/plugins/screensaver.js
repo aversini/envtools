@@ -71,7 +71,9 @@ function _installScreensavers(options, callback) {
     function (err) {
       if (!err) {
         log.success('Extra screensavers have been successfully installed!');
-        log.echo('You can find them under\nSystem Prefernces -> Desktop & Screen Saver -> Screen Saver...');
+        log.echo(
+          'You can find them under\nSystem Prefernces -> Desktop & Screen Saver -> Screen Saver...'
+        );
         err = common.USER_IGNORE;
       }
       callback(err, options);
@@ -81,10 +83,14 @@ function _installScreensavers(options, callback) {
 
 function _fixScreensaverSettings(options, callback) {
   const msg = [];
-  const ssFolder = path.join(process.env.HOME, 'Library', 'Preferences', 'ByHost');
+  const ssFolder = path.join(
+    process.env.HOME,
+    'Library',
+    'Preferences',
+    'ByHost'
+  );
 
-  let i,
-    len;
+  let i, len;
 
   waterfall(
     [

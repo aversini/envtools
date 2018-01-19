@@ -38,7 +38,6 @@ let rePattern,
   ignoreBlacklists = false,
   perf;
 
-
 const optimist = require('optimist')
   .usage(
     '\nDescription:\n' +
@@ -194,9 +193,7 @@ function ignoreFolders(dir) {
 
 function findNodes(dirs, options) {
   dirs.forEach(function (strPath) {
-    let res,
-      files,
-      shortname;
+    let res, files, shortname;
     const stat = fs.lstatSync(strPath);
 
     if (stat.isDirectory() && !ignoreFolders(strPath)) {
@@ -440,8 +437,9 @@ if (stats) {
     perf = utilities.performance.getEntriesByName('dir-list');
     if (perf && perf[0].duration) {
       log.echo(
-        `  Elapsed time            : ${
-          utilities.formatMillisecondsToHuman(perf[0].duration)}`
+        `  Elapsed time            : ${utilities.formatMillisecondsToHuman(
+          perf[0].duration
+        )}`
       );
     }
   }
@@ -452,8 +450,9 @@ if (stats) {
     perf = utilities.performance.getEntriesByName('file-list');
     if (perf && perf[0].duration) {
       log.echo(
-        `  Elapsed time            : ${
-          utilities.formatMillisecondsToHuman(perf[0].duration)}`
+        `  Elapsed time            : ${utilities.formatMillisecondsToHuman(
+          perf[0].duration
+        )}`
       );
     }
   }

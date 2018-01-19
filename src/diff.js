@@ -21,9 +21,7 @@ const diffTool = {
 };
 const MAX_ARGS = 2;
 
-let
-  diffLeft,
-  diffRight;
+let diffLeft, diffRight;
 
 const optimist = require('optimist')
   .usage(

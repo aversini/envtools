@@ -161,18 +161,14 @@ function updateRegistry(registry, callback) {
   waterfall(
     [
       function (done) {
-        runCommand(`npm config set registry ${registry}`,
-          function () {
-            done(null);
-          }
-        );
+        runCommand(`npm config set registry ${registry}`, function () {
+          done(null);
+        });
       },
       function (done) {
-        runCommand(`yarn config set registry ${registry}`,
-          function () {
-            done(null);
-          }
-        );
+        runCommand(`yarn config set registry ${registry}`, function () {
+          done(null);
+        });
       }
     ],
     function () {

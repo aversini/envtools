@@ -57,8 +57,9 @@ module.exports = function (options, callback) {
           }).output;
           if (_.isString(fullname)) {
             questions.default = fullname.replace('\n', '');
-            questions.message =
-              `${questions.message} or press ENTER for default`;
+            questions.message = `${
+              questions.message
+            } or press ENTER for default`;
           }
 
           inquirer.prompt(questions).then(function (answers) {
@@ -88,8 +89,9 @@ module.exports = function (options, callback) {
           }).output;
           if (_.isString(email)) {
             questions.default = email.replace('\n', '');
-            questions.message =
-              `${questions.message} or press ENTER for default`;
+            questions.message = `${
+              questions.message
+            } or press ENTER for default`;
           }
 
           inquirer.prompt(questions).then(function (answers) {
@@ -105,7 +107,8 @@ module.exports = function (options, callback) {
             {
               type: 'input',
               name: 'github',
-              message: '[git] Enter your external github username (if you have one)'
+              message:
+                '[git] Enter your external github username (if you have one)'
             }
           ];
 

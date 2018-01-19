@@ -10,27 +10,26 @@ const log = require('fedtools-logs');
 const utilities = require('fedtools-utilities');
 const cmd = require('fedtools-commands');
 const STR_NO_TAGS = 'No tags found in the current repository';
-let parameter,
-  prop;
+let parameter, prop;
 const cwd = process.cwd();
 const commandList = [];
 const gitCommands = {
-    info: {
-      description:
-        ' .............. Extract some information about the current repository.'
-    },
-    addTag: {
-      description: ' ............ Add a tag to the current commit.'
-    },
-    removeTag: {
-      description: ' ......... Remove the most recent tag from the repository.'
-    },
-    listTag: {
-      description:
-        ' ........... List the current tag (if any) of the current commit.\n' +
-        '                     Use --all to list all tags in chronological order.'
-    }
-  };
+  info: {
+    description:
+      ' .............. Extract some information about the current repository.'
+  },
+  addTag: {
+    description: ' ............ Add a tag to the current commit.'
+  },
+  removeTag: {
+    description: ' ......... Remove the most recent tag from the repository.'
+  },
+  listTag: {
+    description:
+      ' ........... List the current tag (if any) of the current commit.\n' +
+      '                     Use --all to list all tags in chronological order.'
+  }
+};
 
 for (prop in gitCommands) {
   if (gitCommands.hasOwnProperty(prop) && prop) {
@@ -67,9 +66,9 @@ function showHelp() {
   const len = commandList.length;
   for (i = 0; i < len; i += 1) {
     log.rainbow(
-      ` ${
-        log.strToColor('yellow', commandList[i])
-        }${gitCommands[commandList[i]].description}`
+      ` ${log.strToColor('yellow', commandList[i])}${
+        gitCommands[commandList[i]].description
+      }`
     );
   }
   log.echo('');

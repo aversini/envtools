@@ -33,7 +33,11 @@ module.exports = function (options, callback) {
         const msg = [];
         const filename = 'Envtools.terminal';
         const destFile = path.join(process.env.HOME, 'Desktop', filename);
-        const srcFile = path.join(common.ENVTOOLS.THIRDDIR, 'terminal', filename);
+        const srcFile = path.join(
+          common.ENVTOOLS.THIRDDIR,
+          'terminal',
+          filename
+        );
 
         let cmdline = `open ${srcFile}`;
 
@@ -66,27 +70,29 @@ module.exports = function (options, callback) {
                   'Open the Terminal, hit <CMD ,> (or just open the Preferences).\n'
                 );
                 msg.push(
-                  `Click on the tab called ${
-                    log.strToColor('yellow', '"Profiles"')
-                  }. At the bottom left, there is a`
+                  `Click on the tab called ${log.strToColor(
+                    'yellow',
+                    '"Profiles"'
+                  )}. At the bottom left, there is a`
                 );
                 msg.push(
                   'cog icon next to a + and - icons. Click on it and choose'
                 );
                 msg.push(
-                  `${log.strToColor('yellow', '"Import..."')
-                  }. Choose the Envtools Theme file on your desktop: the`
+                  `${log.strToColor(
+                    'yellow',
+                    '"Import..."'
+                  )}. Choose the Envtools Theme file on your desktop: the`
                 );
-                msg.push(
-                  `file name is ${log.strToColor('cyan', filename)}.\n`
-                );
+                msg.push(`file name is ${log.strToColor('cyan', filename)}.\n`);
                 msg.push(
                   'Scroll to the top of the list of profiles and select Envtools. Click'
                 );
                 msg.push(
-                  `on ${
-                    log.strToColor('yellow', '"Default"')
-                  } - next to the previous cog button, and you are set!\n`
+                  `on ${log.strToColor(
+                    'yellow',
+                    '"Default"'
+                  )} - next to the previous cog button, and you are set!\n`
                 );
                 msg.push('Open a new terminal window and enjoy!');
                 log.printMessagesInBox(msg);
@@ -121,17 +127,19 @@ module.exports = function (options, callback) {
                       'installed. To make it a default is a very simple process.\n'
                     );
                     msg.push(
-                      `Open the Terminal preferences and click on the tab called ${
-                        log.strToColor('yellow', '"Profiles"')
-                      }.\n`
+                      `Open the Terminal preferences and click on the tab called ${log.strToColor(
+                        'yellow',
+                        '"Profiles"'
+                      )}.\n`
                     );
                     msg.push(
                       'Scroll to the top of the list of profiles and select Envtools. Click'
                     );
                     msg.push(
-                      `on ${
-                        log.strToColor('yellow', '"Default"')
-                      } - next to the bottom left cog button, and you are set!\n`
+                      `on ${log.strToColor(
+                        'yellow',
+                        '"Default"'
+                      )} - next to the bottom left cog button, and you are set!\n`
                     );
                     msg.push('Open a new terminal window and enjoy!');
                     log.printMessagesInBox(msg);
