@@ -33,5 +33,5 @@ module.exports = (subDir, rootDir) => {
     tmpDir = path.join(tmpDir, subDir);
   }
   fs.ensureDirSync(tmpDir);
-  return tmpDir;
+  return tmpDir
 };
