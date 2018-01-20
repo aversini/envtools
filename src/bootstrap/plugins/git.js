@@ -5,7 +5,7 @@ const path = require('path');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
 const isAppInstalled = require('../../utilities/isAppInstalled');
-const backup = require('../../backup');
+const backup = require('../../utilities/backup');
 const common = require('../../common');
 const DOT_GIT_CONFIG = path.join(process.env.HOME, '.gitconfig');
 

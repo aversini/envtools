@@ -2,7 +2,7 @@ const waterfall = require('async/waterfall');
 const path = require('path');
 const fs = require('fs-extra');
 const utilities = require('fedtools-utilities');
-const backup = require('../../backup');
+const backup = require('../../utilities/backup');
 const common = require('../../common');
 const DOT_HUSHLOGIN = path.join(process.env.HOME, '.hushlogin');
 

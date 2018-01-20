@@ -4,7 +4,7 @@ const path = require('path');
 const glob = require('glob');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
-const backup = require('../../backup');
+const backup = require('../../utilities/backup');
 const common = require('../../common');
 
 module.exports = function (options, callback) {

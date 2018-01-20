@@ -6,7 +6,7 @@ const each = require('async/each');
 const path = require('path');
 const log = require('fedtools-logs');
 const decompress = require('decompress');
-const backup = require('../../backup');
+const backup = require('../../utilities/backup');
 const common = require('../../common');
 
 function _installScreensavers(options, callback) {
