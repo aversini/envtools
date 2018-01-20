@@ -1,12 +1,11 @@
 /**
- * Finds and create a temporary folder based on the OS. If /repo exists,
- * it will be used on Linux/Mac.
+ * Finds and create a temporary folder based on the OS.
+ * /tmp it will be used on Linux/Mac unless rootDir is provided.
  *
  * @method getTemporaryDir
  * @param {String} subDir Optional: an extra sub folder to append to the
  *                        provided temporary folder.
- * @param {String} rootDir Optional: force the root path (instead of /tmp or
- *                         /repo or whatever the system is providing)
+ * @param {String} rootDir Optional: force the root path (instead of /tmp or whatever the system is providing)
  * @return {String} Path to a temporary folder.
  */
 
@@ -22,8 +21,8 @@ module.exports = (subDir, rootDir) => {
   if (_.isString(rootDir) && fs.existsSync(rootDir)) {
     osTmpDir = path.resolve(rootDir);
   } else if (common.isLinux() || common.isMac()) {
-    // forcing /repo or /tmp on linux and mac
-    osTmpDir = fs.existsSync('/repo') ? '/repo' : '/tmp';
+    // forcing /tmp on linux and mac
+    osTmpDir = '/tmp';
   } else {
     osTmpDir = os.tmpdir();
   }

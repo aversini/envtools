@@ -27,14 +27,14 @@
   "license": "MIT",
   "preferGlobal": true,
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist coverage",
     "build:dist": "cross-env BABEL_ENV=production NODE_ENV=production babel src --out-dir dist --ignore \"src/__tests__\"",
     "build": "npm-run-all --serial clean lint build:dist",
     "lint": "eslint src --ext .js",
     "prettier": "prettier-eslint --write \"src/**/*.js\"",
     "prettier:file": "prettier-eslint --write",
     "test": "cross-env BABEL_DISABLE_CACHE=1 BABEL_ENV=test NODE_ENV=test jest",
-    "test:coverage": "npm-run-all \"test -- --coverage --no-cache\"",
+    "test:coverage": "npm-run-all \"test -- --coverage\"",
     "test:watch": "npm-run-all \"test -- --watch\"",
     "watch": "npm run build:dist -- --watch"
   },
