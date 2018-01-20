@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
-const utilities = require('fedtools-utilities');
+const getTemporaryDir = require('../../utilities/temporaryDir');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
 const common = require('../../common');
@@ -11,7 +11,7 @@ module.exports = function (self) {
   const destFile = `envlite-${version}.tgz`;
   const shortName = path.basename(destFile);
 
-  const tmpDir = utilities.getTemporaryDir(`envlite-${version}`);
+  const tmpDir = getTemporaryDir(`envlite-${version}`);
   const destDir = path.join(tmpDir, 'envlite');
   fs.ensureDirSync(destDir);
   fs.copy(common.ENVTOOLS.SHELLDIR, destDir, function (err) {

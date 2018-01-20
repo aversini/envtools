@@ -55,9 +55,11 @@
     "macos-release": "^1.1.0",
     "moment": "^2.20.1",
     "node-notifier": "^5.1.2",
+    "opn": "^5.2.0",
     "optimist": "~0.6.1",
     "os-name": "^2.0.1",
-    "semver": "^5.4.1"
+    "semver": "^5.4.1",
+    "shelljs": "^0.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -3,17 +3,14 @@ const waterfall = require('async/waterfall');
 const inquirer = require('inquirer');
 const path = require('path');
 const cmd = require('fedtools-commands');
-const utilities = require('fedtools-utilities');
+const log = require('fedtools-logs');
+const isAppInstalled = require('../../utilities/isAppInstalled');
 const backup = require('../../backup');
 const common = require('../../common');
 const DOT_GIT_CONFIG = path.join(process.env.HOME, '.gitconfig');
 
 module.exports = function (options, callback) {
-  const res = utilities.isAppInstalled({
-    name: 'git',
-    error: 'Git is not installed on this machine...'
-  });
-  if (res) {
+  if (isAppInstalled('git')) {
     backup(DOT_GIT_CONFIG);
     waterfall(
       [
@@ -176,6 +173,7 @@ module.exports = function (options, callback) {
       }
     );
   } else {
+    log.error('Git is not installed on this machine...');
     return callback(null, options);
   }
 };

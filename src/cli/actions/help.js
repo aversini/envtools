@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const log = require('fedtools-logs');
-const utilities = require('fedtools-utilities');
+const opn = require('opn');
 const TAB_MAPPING = [
   {
     tab: 'intro',
@@ -73,8 +73,7 @@ module.exports = function (self, type) {
     url = helpUrl;
   }
   log.echo('Opening Envtools Help in your default browser...');
-  utilities.openInBrowser({
-    confirm: false,
-    url
+  opn(url, {
+    wait: false
   });
 };

@@ -1,0 +1,1 @@
+'use strict';module.exports=(a)=>{const b=require('shelljs').which(a);return null!==b};

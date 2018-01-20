@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const inquirer = require('inquirer');
 const waterfall = require('async/waterfall');
-const utilities = require('fedtools-utilities');
+const isAppInstalled = require('../../utilities/isAppInstalled');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
 const common = require('../../common');
@@ -131,13 +131,11 @@ module.exports = function (options, callback) {
     [
       function (done) {
         // need to check for apm package manager first...
-        const res = utilities.isAppInstalled({
-          name: 'apm',
-          error: 'Atom package manager is not installed on this machine...'
-        });
+        const res = isAppInstalled('aapm');
         if (res === true) {
           return done();
         } else {
+          log.error('Atom package manager is not installed on this machine...');
           return done(common.USER_FATAL);
         }
       },

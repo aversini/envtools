@@ -5,7 +5,7 @@ const waterfall = require('async/waterfall');
 const inquirer = require('inquirer');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
-const utilities = require('fedtools-utilities');
+const isAppInstalled = require('../../utilities/isAppInstalled');
 const backup = require('../../backup');
 const common = require('../../common');
 const NPM_CONFIG = path.join(process.env.HOME, '.npmrc');
@@ -87,9 +87,7 @@ const NPM_PACKAGES = [
 
 let promptForRestart = false,
   YARN_BIN = 'yarn',
-  isYarn = utilities.isAppInstalled({
-    name: 'yarn'
-  });
+  isYarn = isAppInstalled('yarn');
 
 module.exports = function (options, callback) {
   backup([NPM_CONFIG, YARN_CONFIG]);

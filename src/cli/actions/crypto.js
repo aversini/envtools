@@ -2,7 +2,7 @@ const _ = require('lodash');
 const path = require('path');
 const fs = require('fs-extra');
 const log = require('fedtools-logs');
-const utilities = require('fedtools-utilities');
+const cryptographer = require('../../utilities/cryptographer');
 const common = require('../../common');
 
 module.exports = function (self, program) {
@@ -43,7 +43,7 @@ module.exports = function (self, program) {
     file = path.resolve(file);
   }
 
-  utilities.cryptographer(
+  cryptographer.prompt(
     {
       file,
       output,
