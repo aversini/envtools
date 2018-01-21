@@ -6,6 +6,7 @@ const parallel = require('async/parallel');
 const _ = require('lodash');
 const inquirer = require('inquirer');
 const common = require('../../common');
+const prompts = require('../../utilities/prompts');
 const NA = 'N/A';
 const DEFAULT_NPM_REGISTRY = 'http://registry.npmjs.org/';
 const DEFAULT_YARN_REGISTRY = 'http://registry.yarnpkg.com';
@@ -224,13 +225,13 @@ module.exports = function () {
       },
       function (done) {
         if (currentSetting && !_.isEmpty(currentSetting.availableNpmProfiles)) {
-          common.displayConfirmation(
+          prompts.displayConfirmation(
             'Do you want to activate an existing Profile?',
             function (err) {
               if (err) {
                 return done();
               } else {
-                common.displayListOfOptions(
+                prompts.displayListOfOptions(
                   'Please choose one of the following options:',
                   currentSetting.availableNpmProfiles,
                   function (err, profileName) {
@@ -259,20 +260,20 @@ module.exports = function () {
         }
       },
       function (done) {
-        common.displayConfirmation(
+        prompts.displayConfirmation(
           'Do you want to update the current registry?',
           function (err) {
             if (err) {
               waterfall(
                 [
                   function (done) {
-                    common.displayConfirmation(
+                    prompts.displayConfirmation(
                       'Do you want to save this configuration in a profile?',
                       done
                     );
                   },
                   function (done) {
-                    common.displayPromptWithInput(
+                    prompts.displayPromptWithInput(
                       'Please type a profile name:',
                       function (err, profileName) {
                         if (!err) {
@@ -362,7 +363,7 @@ module.exports = function () {
           httpProxy !== common.NA &&
           httpsProxy !== common.NA
         ) {
-          common.displayConfirmation(
+          prompts.displayConfirmation(
             'Do you need to enable proxies for this registry?',
             function (err) {
               if (err) {
@@ -377,13 +378,13 @@ module.exports = function () {
         }
       },
       function (done) {
-        common.displayConfirmation(
+        prompts.displayConfirmation(
           'Do you want to save this configuration in a profile?',
           done
         );
       },
       function (done) {
-        common.displayPromptWithInput('Please type a profile name:', function (
+        prompts.displayPromptWithInput('Please type a profile name:', function (
           err,
           profileName
         ) {

@@ -9,6 +9,8 @@ const log = require('fedtools-logs');
 const config = require('fedtools-config');
 const utilities = require('fedtools-utilities');
 const Fuse = require('fuse.js');
+const prompts = require('./utilities/prompts');
+
 const isMac = process.platform === 'darwin';
 const isWindows = process.platform === 'win32';
 const isLinux =
@@ -320,50 +322,6 @@ function _sortObject(src, comparator) {
   return src;
 }
 
-function _displayConfirmation(msg, done) {
-  const questions = {
-    type: 'confirm',
-    name: 'goodToGo',
-    message: msg,
-    default: true
-  };
-  log.echo();
-  inquirer.prompt(questions).then(function (answers) {
-    done(!answers.goodToGo);
-  });
-}
-
-function _displayPromptWithInput(msg, done) {
-  const questions = {
-    type: 'input',
-    name: 'input',
-    message: msg,
-    validate(val) {
-      if (!val) {
-        return 'Entry cannot be empty...';
-      }
-      return true;
-    }
-  };
-  log.echo();
-  inquirer.prompt(questions).then(function (answers) {
-    done(null, answers.input);
-  });
-}
-
-function _displayListOfOptions(msg, options, done) {
-  const questions = {
-    type: 'list',
-    name: 'selection',
-    message: msg
-  };
-  questions.choices = options;
-  log.echo();
-  inquirer.prompt(questions).then(function (answers) {
-    done(null, answers.selection);
-  });
-}
-
 function _getExistingNpmrcProfiles() {
   try {
     // try/catch is not only trapping a missing file, but also
@@ -414,7 +372,7 @@ function _createNpmrcProfile(profileName, callback) {
           data.available.indexOf(profileName) > -1
         ) {
           log.warning(`\nProfile "${profileName}" already exists...`);
-          _displayConfirmation('Do you want to overide it?', done);
+          prompts.displayConfirmation('Do you want to overide it?', done);
         } else {
           return done();
         }
@@ -476,7 +434,7 @@ function _switchToNpmrcProfile(profileName, callback) {
           });
         }
         if (_.isString(searchRes)) {
-          _displayConfirmation(
+          prompts.displayConfirmation(
             `About to switch to profile "${searchRes}", continue?`,
             function () {
               done(null, searchRes);
@@ -549,9 +507,6 @@ exports.createRuntimeDir = _createRuntimeDir;
 exports.chownFolder = _chownFolder;
 exports.installNpmPackages = _installNpmPackages;
 exports.sortObject = _sortObject;
-exports.displayConfirmation = _displayConfirmation;
-exports.displayPromptWithInput = _displayPromptWithInput;
-exports.displayListOfOptions = _displayListOfOptions;
 exports.getExistingNpmrcProfiles = _getExistingNpmrcProfiles;
 exports.unsetActiveNpmrcProfile = _unsetActiveNpmrcProfile;
 exports.updateProfileConfigurationData = _updateProfileConfigurationData;
