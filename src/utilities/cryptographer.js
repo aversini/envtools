@@ -1,144 +1,69 @@
-/**
- * Method that encrypt or decrypt a given file.
- *
- * @method  cryptographer
- * @async
- * @param  {Object}   options           Configuration object.
- * @param  {String}   options.file      The file to encrypt/decrypt.
- * @param  {String}   options.output    The output file - if not provided, writes to stdout.
- * @param  {Boolean}  options.status    Flag to show command status or not.
- * @param  {Boolean}  options.encrypt   True to encrypt, false to decrypt.
- * @param  {String}   options.password  The password used to encrypt/decrypt the file.
- *                                      If not provided, it will be prompted on the CLI.
- * @return  {Promise} done              Promise fulfilled.
- */
-
-const inquirer = require('inquirer');
-const fs = require('fs-extra');
-const path = require('path');
 const crypto = require('crypto');
-const log = require('fedtools-logs');
+
 const CRYPTO_ALGO = 'aes-256-ctr';
+const BYTES_FOR_IV = 16;
+const HEX = 'hex';
+const UTF8 = 'utf8';
 
-function _encrypt(password, buffer) {
-  const cipher = crypto.createCipher(CRYPTO_ALGO, password);
-  const crypted = Buffer.concat([cipher.update(buffer), cipher.final()]);
-  return crypted;
-}
+/**
+ * Create an hexadecimal hash from a given string. The default
+ * algorithm is md5 but it can be changed to anything that
+ * crypto.createHash allows.
+ * @param  {String} string            the string to hash
+ * @param  {String} [algorithm='md5'] the algorithm to use or hashing
+ * @return {String}                   the hashed string in hexa format
+ */
+const _createHash = (string, algorithm = 'md5') =>
+  crypto
+    .createHash(algorithm)
+    .update(string, 'utf8')
+    .digest(HEX);
 
-function _decrypt(password, buffer) {
-  const decipher = crypto.createDecipher(CRYPTO_ALGO, password);
-  const dec = Buffer.concat([decipher.update(buffer), decipher.final()]);
-  return dec;
-}
-
-function _getPassword(password, msg, cb) {
-  const questions = {
-    type: 'password',
-    name: 'password',
-    message: msg || 'Enter password:',
-    validate(val) {
-      if (!val) {
-        return 'Password cannot be empty...';
-      }
-      return true;
-    }
-  };
-  if (!password) {
-    inquirer.prompt(questions).then(function (answers) {
-      cb(null, answers.password);
-    });
-  } else {
-    return cb(null, password);
-  }
-}
-
-const _prompt = (options) => {
-  let file, promptMsg;
-
-  if (!options.file || !fs.existsSync(options.file)) {
-    throw 'Invalid argument, file is missing';
-  } else {
-    file = path.resolve(options.file);
-  }
-  if (!options.output) {
-    // no output, let's use stdout and disable status logging.
-    options.status = false;
-  }
-  if (options.encrypt) {
-    promptMsg = 'Enter password to encrypt file:';
-  } else {
-    promptMsg = 'Enter password to decrypt file:';
-  }
-
-  _getPassword(options.password, promptMsg, function (err, pass) {
-    if (err) {
-      throw err;
-    }
-    if (options.encrypt) {
-      if (options.status) {
-        log.info('Encrypting file...');
-      }
-      fs.readFile(file, function (err, data) {
-        if (err) {
-          throw err;
-        }
-        if (!options.output) {
-          process.stdout.write(_encrypt(pass, data));
-          // return done(null, options);
-          return new Promise((resolve) => {
-            resolve(options);
-          });
-        } else {
-          fs.writeFile(options.output, _encrypt(pass, data), function (err) {
-            if (err) {
-              throw err;
-            }
-            if (options.status) {
-              log.success(`${path.basename(file)} was successfully encrypted.`);
-              log.echo('Encrypted file is ', options.output);
-            }
-            // return done(null, options);
-            return new Promise((resolve) => {
-              resolve(options);
-            });
-          });
-        }
-      });
-    } else {
-      if (options.status) {
-        log.info('Decrypting file...');
-      }
-      fs.readFile(file, function (err, data) {
-        if (err) {
-          throw err;
-        }
-        if (!options.output) {
-          process.stdout.write(_decrypt(pass, data));
-          // return done(null, options);
-          return new Promise((resolve) => {
-            resolve(options);
-          });
-        } else {
-          fs.writeFile(options.output, _decrypt(pass, data), function (err) {
-            if (err) {
-              throw err;
-            }
-            if (options.status) {
-              log.success(`${path.basename(file)} was successfully decrypted.`);
-              log.echo('Decrypted file is ', options.output);
-            }
-            // return done(null, options);
-            return new Promise((resolve) => {
-              resolve(options);
-            });
-          });
-        }
-      });
-    }
-  });
+/**
+ * Encrypts a string or a buffer using AES-256-CTR algorithm.
+ * @param  {String}        password a unique password
+ * @param  {String|Buffer} data     a string or a buffer to encrypt
+ * @return {String|Buffer} the encrypted data in hexa encoding, followed
+ *                         by a dollar sign ($) and by a unique
+ *                         random initialization vector used
+ */
+const _encrypt = (password, data) => {
+  // Ensure that the initialization vector (IV) is random.
+  const iv = new Buffer(crypto.randomBytes(BYTES_FOR_IV));
+  // Hash the given password (result should always be the same).
+  const key = _createHash(password);
+  // Create a cipher.
+  const cipher = crypto.createCipheriv(CRYPTO_ALGO, key, iv);
+  // Encrypt the data using the newly created cipher.
+  const crypted = cipher.update(data, 'utf8', HEX) + cipher.final(HEX);
+  // Append the IV at the end of the encrypted data to reuse it for
+  // decryption (IV is not a key, it can be public).
+  return `${crypted}$${iv.toString(HEX)}`;
 };
 
-exports.prompt = _prompt;
+/**
+ * Decrypts a string or a buffer that was encrypted using
+ * AES-256-CRT algorithm. It expects the encrypted string|buffer to
+ * have the corresponding initialization vector appended at the
+ * end, after a dollar sign ($) - which is done via the
+ * `encrypt` method.
+ * @param  {String}        password a unique password
+ * @param  {String|Buffer} data     a string or buffer to decrypt
+ * @return {String|Buffer}          the decrypted data
+ */
+const _decrypt = (password, data) => {
+  // Extract encrypted data and initialization vector (IV).
+  const [crypted, ivHex] = data.split('$');
+  // Create a buffer out of the raw hex IV
+  const iv = new Buffer(ivHex, HEX);
+  // Hash the given password (result should always be the same).
+  const hash = _createHash(password);
+  // Create a cipher.
+  const decryptor = crypto.createDecipheriv(CRYPTO_ALGO, hash, iv);
+  // Return the decrypted data using the newly created cipher.
+  return decryptor.update(crypted, HEX, UTF8) + decryptor.final('utf8');
+};
+
 exports.encrypt = _encrypt;
 exports.decrypt = _decrypt;
+exports.createHash = _createHash;

@@ -4,6 +4,111 @@ const fs = require('fs-extra');
 const log = require('fedtools-logs');
 const cryptographer = require('../../utilities/cryptographer');
 const common = require('../../common');
+const prompts = require('../../utilities/prompts');
+
+const FILE_ENCODING = 'utf8';
+
+const _getPassword = (password, msg, cb) => {
+  if (!password) {
+    prompts.displayPromptWithPassword(msg, cb);
+  } else {
+    return cb(null, password);
+  }
+};
+
+const _prompt = (options, done) => {
+  let file;
+
+  if (!options.file || !fs.existsSync(options.file)) {
+    throw 'Invalid argument, file is missing';
+  } else {
+    file = path.resolve(options.file);
+  }
+  if (!options.output) {
+    // no output, let's use stdout and disable status logging.
+    options.status = false;
+  }
+
+  const promptMsg = options.encrypt
+    ? 'Enter password to encrypt file:'
+    : 'Enter password to decrypt file:';
+
+  _getPassword(options.password, promptMsg, function (err, pass) {
+    if (err) {
+      throw err;
+    }
+    if (options.encrypt) {
+      if (options.status) {
+        log.info('Encrypting file...');
+      }
+      fs.readFile(file, FILE_ENCODING, function (err, data) {
+        if (err) {
+          throw err;
+        }
+        if (!options.output) {
+          process.stdout.write(cryptographer.encrypt(pass, data));
+          return done(null, options);
+          // return new Promise((resolve) => {
+          //   resolve(options);
+          // });
+        } else {
+          fs.writeFile(options.output, cryptographer.encrypt(pass, data), 'utf8', function (
+            err
+          ) {
+            if (err) {
+              throw err;
+            }
+            if (options.status) {
+              log.success(`${path.basename(file)} was successfully encrypted.`);
+              log.echo('Encrypted file is ', options.output);
+            }
+            return done(null, options);
+            // return new Promise((resolve) => {
+            //   resolve(options);
+            // });
+          });
+        }
+      });
+    } else {
+      if (options.status) {
+        log.info('Decrypting file...');
+      }
+      fs.readFile(file, FILE_ENCODING, function (err, data) {
+        if (err) {
+          throw err;
+        }
+        if (!options.output) {
+          process.stdout.write(cryptographer.decrypt(pass, data));
+          return done(null, options);
+          // return new Promise((resolve) => {
+          //   resolve(options);
+          // });
+        } else {
+          fs.writeFile(
+            options.output,
+            cryptographer.decrypt(pass, data),
+            FILE_ENCODING,
+            function (err) {
+              if (err) {
+                throw err;
+              }
+              if (options.status) {
+                log.success(
+                  `${path.basename(file)} was successfully decrypted.`
+                );
+                log.echo('Decrypted file is ', options.output);
+              }
+              return done(null, options);
+              // return new Promise((resolve) => {
+              //   resolve(options);
+              // });
+            }
+          );
+        }
+      });
+    }
+  });
+};
 
 module.exports = function (self, program) {
   const status = _.isBoolean(program.status) ? program.status : true;
@@ -43,7 +148,8 @@ module.exports = function (self, program) {
     file = path.resolve(file);
   }
 
-  cryptographer.prompt(
+
+  _prompt(
     {
       file,
       output,
