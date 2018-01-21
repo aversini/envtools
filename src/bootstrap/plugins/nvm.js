@@ -87,7 +87,9 @@ module.exports = function (options, callback) {
             {
               status: true
             },
-            done
+            function () {
+              done();
+            }
           );
         } else {
           return done();
