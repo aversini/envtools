@@ -32,7 +32,7 @@ envtools help
 
 You can also check out a more extensive [online help hosted over here](http://envtools.surge.sh), including FAQs, shortcuts, alias, etc.
 
-**NOTE:** version 2.x only supports Node 6 and over. For Node 4 support please use [version 1.x](https://github.com/aversini/envtools/tree/v1.0.59)
+**NOTE:** version 2.x only supports Node 6 and over. For Node 4 support please use [version 1.x](https://github.com/aversini/envtools/tree/1.0.59)
 
 ## License
 
