@@ -1,7 +1,7 @@
 const log = require('fedtools-logs');
 const inquirer = require('inquirer');
 
-function _displayConfirmation(msg, done) {
+const _displayConfirmation = (msg, done) => {
   const questions = {
     type: 'confirm',
     name: 'goodToGo',
@@ -12,9 +12,9 @@ function _displayConfirmation(msg, done) {
   inquirer.prompt(questions).then(function (answers) {
     done(!answers.goodToGo);
   });
-}
+};
 
-function _displayPromptWithInput(msg, done) {
+const _displayPromptWithInput = (msg, done) => {
   const questions = {
     type: 'input',
     name: 'input',
@@ -30,9 +30,27 @@ function _displayPromptWithInput(msg, done) {
   inquirer.prompt(questions).then(function (answers) {
     done(null, answers.input);
   });
-}
+};
 
-function _displayListOfOptions(msg, options, done) {
+const _displayPromptWithPassword = (msg, done) => {
+  const questions = {
+    type: 'password',
+    name: 'password',
+    message: msg,
+    validate(val) {
+      if (!val) {
+        return 'Password cannot be empty...';
+      }
+      return true;
+    }
+  };
+  log.echo();
+  inquirer.prompt(questions).then(function (answers) {
+    done(null, answers.password);
+  });
+};
+
+const _displayListOfOptions = (msg, options, done) => {
   const questions = {
     type: 'list',
     name: 'selection',
@@ -43,8 +61,9 @@ function _displayListOfOptions(msg, options, done) {
   inquirer.prompt(questions).then(function (answers) {
     done(null, answers.selection);
   });
-}
+};
 
 exports.displayConfirmation = _displayConfirmation;
 exports.displayPromptWithInput = _displayPromptWithInput;
+exports.displayPromptWithPassword = _displayPromptWithPassword;
 exports.displayListOfOptions = _displayListOfOptions;
