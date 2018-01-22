@@ -1,4 +1,4 @@
-const isAppInstalled = require('../utilities/isAppInstalled');
+const isAppInstalled = require('../../utilities/isAppInstalled');
 
 test('node is installed', () => {
   expect(isAppInstalled('node')).toBeTruthy();

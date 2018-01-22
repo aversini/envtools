@@ -1,9 +1,9 @@
 // const fs = require('fs-extra');
 // const path = require('path');
-const cryptographer = require('../utilities/cryptographer');
+const cryptographer = require('../../utilities/cryptographer');
 
-// const encryptedFile = path.join(__dirname, 'mockdata', 'crypto', 'file1-e.txt');
-// const rawFile = path.join(__dirname, 'mockdata', 'crypto', 'file1-r.txt');
+// const encryptedFile = path.join(__dirname, '..', 'mockdata', 'crypto', 'file1-e.txt');
+// const rawFile = path.join(__dirname, '..', 'mockdata', 'crypto', 'file1-r.txt');
 // const outputDir = path.join(__dirname, 'tmp', 'mocka');
 const PASSWORD = 'cgu4]wPJyCc8g';
 
