@@ -1,4 +1,70 @@
 
+__2.0.1 / 2018-01-21__
+
+- refactor: moving test files for utilities under utilities ([13367a9](https://github.com/aversini/envtools/commit/13367a90f29844b86692cbfdb215fe0a77b7dc1d))
+- chore: adding test + coverage for backup utility ([c75af8f](https://github.com/aversini/envtools/commit/c75af8f8d7091ca7106782cbea6d737017bd2c39))
+- fix: typo in README ([b70cfde](https://github.com/aversini/envtools/commit/b70cfdedaf8ff1d1c5f05efcde76836231694d97))
+- fix: installation of nvm over an existing one ([decfe58](https://github.com/aversini/envtools/commit/decfe581d4c9e11ab396047f39c7aeb3884997d1))
+- refactor: minor update to remove lodash dep for getTemporaryDir ([ef72ad6](https://github.com/aversini/envtools/commit/ef72ad649ff4fab6c93a9aaef2dfdb2cca134efc))
+- chore: full build ([a61392e](https://github.com/aversini/envtools/commit/a61392e9d157189ace3694aff7b5b034d7f2896e))
+- docs: warning on deprecating node v4 in envtools v1 ([14f4097](https://github.com/aversini/envtools/commit/14f4097b38e66109dc0846e2e0c5fdce32901d52))
+- chore: moving lint from travis to pretest ([455e6e1](https://github.com/aversini/envtools/commit/455e6e1ca1d3707c24412282c36b86024e8d2e2f))
+- refactor: better cryptography + separation of concerns ([b14a43e](https://github.com/aversini/envtools/commit/b14a43e98e4eb727d2bdb02e601ac46f3662b76a))
+  - utlities is only dealing with encrypting
+  - handling files is not moved to the CLI
+  - BREAKING: using better encryption with initialization vector, which means anything encrypted with envtools v1 will not be compatible with envtools v2.
+  
+- refactor: better prompts + password type ([f668283](https://github.com/aversini/envtools/commit/f66828326649c86c5af76d96bc6cf83531e27b13))
+- refactor: moving prompts from common to utilities ([826f389](https://github.com/aversini/envtools/commit/826f389f22136cb3ac32452ce5b093120dd1a924))
+- test: adding test+coverage for temporaryDir ([bf468df](https://github.com/aversini/envtools/commit/bf468df413f52b90b6d33b4198a4d2029bf8f9c1))
+- chore: it worked, Travis will fail on tests or lint ([9605f19](https://github.com/aversini/envtools/commit/9605f19833a34db19898be5f40acf58bd5aa1f91))
+- chore: trying to break lint on Travis ([61fbdf3](https://github.com/aversini/envtools/commit/61fbdf3c998365857c9a3577f28acd3c354c0e90))
+- chore: trying to lint + test on Travis ([c0f3cfa](https://github.com/aversini/envtools/commit/c0f3cfa6fe1303fd2d2d37a7fd133b27c7c28889))
+- feat: first pass at using Jest for tests ([2a54aad](https://github.com/aversini/envtools/commit/2a54aadbf447229ee1972b33a882be537e1cf358))
+- chore: removing duplicate file (due to folder move) ([bb57ca8](https://github.com/aversini/envtools/commit/bb57ca85e61db809b11a0fff8ec08bc27b009175))
+- refactor: moving backup.js to utilities folder ([2a045b3](https://github.com/aversini/envtools/commit/2a045b3627480addead248a576ac1f2e13379735))
+- feat: upgrading nvm to latest (0.33.8) ([379ebca](https://github.com/aversini/envtools/commit/379ebcaffe6c137846ad4d8f6157c3b9af36093f))
+- chore: trying to replace fedtool-utilities with own utilities ([b39d99a](https://github.com/aversini/envtools/commit/b39d99a9e3964bb0874ebc84f71af1616f038d61))
+- refactor: move methods around + more async ([fd67dec](https://github.com/aversini/envtools/commit/fd67dec413cd2548f36a1dca51f34e344b458526))
+- refactor: getInternalIp using async/await ([96f33ae](https://github.com/aversini/envtools/commit/96f33ae7e45c84dbaee345338a5ebe9d58b0c01c))
+- chore: running prettier on all files ([06f8fef](https://github.com/aversini/envtools/commit/06f8feff7ae4344b4e3e106442a7a3df4b27b329))
+- fix: extracting registry info from proxy in `envtools info` ([d833f6a](https://github.com/aversini/envtools/commit/d833f6a55fff7b19a88aaba47769b2eeda169c4b))
+- fix: registry info should be a blue box (not yellow) ([db8da44](https://github.com/aversini/envtools/commit/db8da442d1c543b652789931786021c855406697))
+- fix: build error because semver is not used anymore ([375505a](https://github.com/aversini/envtools/commit/375505abcf3ff289f324b779f013a5c4c5c269e3))
+- chore: adding build script ([c47c5fd](https://github.com/aversini/envtools/commit/c47c5fd1e08ae33abcfbc0d839999f12806079fd))
+- fix: moving compare (araxis) from src to shell ([2068ce6](https://github.com/aversini/envtools/commit/2068ce60cbc7e1c685961888a8848ffff455b93a))
+- fix: moving third/json.js to shell/third since it for terminal ([a05f989](https://github.com/aversini/envtools/commit/a05f989d9ec9058d4f765f27f57eee0bc8d4c0b8))
+- Update README.md ([727332c](https://github.com/aversini/envtools/commit/727332c4ceec9b7371796662a0a5e669ab3daafc))
+- chore: removing support for sinopia ([13fbe67](https://github.com/aversini/envtools/commit/13fbe671a3a5f73cea48b59616c9f4a49c7ef9da))
+- fix: removing ‘powerchime’ since it’s now default in Sierra ([59d47e6](https://github.com/aversini/envtools/commit/59d47e6e25d729d07a40da461130a32b0e0bd6a4))
+- fix: re-enabling extra screen saver option in ‘extra’ ([f74bb58](https://github.com/aversini/envtools/commit/f74bb58388bf5433b3867210f8966adebd9186a7))
+- fix: activating fuzzy profile was broken ([b2f387a](https://github.com/aversini/envtools/commit/b2f387a476e354f3040daae2d0d89f8b03ce68d2))
+- feat: adding small alias for fast npmrc profile switch ([7e66b9a](https://github.com/aversini/envtools/commit/7e66b9a2dde0ffca1d686c76e0bdc0d0da95d033))
+  Use `envtools registry` with a parameter:
+  `envtools registry some-profile` and it will switch to that profile instead of showing the whole thing.
+  
+- docs: adding prefix [git] when asking q for git ([be5d7d4](https://github.com/aversini/envtools/commit/be5d7d46ac5824a95a774b21db7d1b798ffb0b10))
+- chore: remove `watch` dep and use babel own watch ([8dbc045](https://github.com/aversini/envtools/commit/8dbc045dc6aefe3726d90a647b6d3853091dca1b))
+- chore: trying `execa` instead of `fedtools-commands` ([07e64f3](https://github.com/aversini/envtools/commit/07e64f3c0f811849755d26517fe14b771923abaa))
+- chore: bump inquirer to latest (breaking node v4) ([d9ed1fc](https://github.com/aversini/envtools/commit/d9ed1fc1a296953f20fa9aeed9b41f15262e67f7))
+- chore: move source files from `lib` to `src` ([e6dd475](https://github.com/aversini/envtools/commit/e6dd475f9dbd6f0d97bb07c18f27fa8e677373f7))
+- chore: adding watch (`yarn dev`) to build if files change ([9b95665](https://github.com/aversini/envtools/commit/9b95665bcb06246b3eb49400e9ede65eee01bcab))
+- chore: fine tuning babel to target node >= 6 ([bd5ef94](https://github.com/aversini/envtools/commit/bd5ef94d8d2c747bea0ea981b5a0b0f7174c5fde))
+- chore: adding build badge ([2a5375f](https://github.com/aversini/envtools/commit/2a5375fba8a64f1ad8c688729569457cecb50ff8))
+- chore: adding travis configuration ([54ca919](https://github.com/aversini/envtools/commit/54ca9191f598bc505ab141d4fb4b9754905adda5))
+- chore: bump version to 2 ([55890f2](https://github.com/aversini/envtools/commit/55890f2c3691b414f82ff46ea1d4268ce2f6db8d))
+  breaking changes: not compatible with node < 6
+  
+- fix: manual lint fix ([cde47f5](https://github.com/aversini/envtools/commit/cde47f5f74e74d75103231082d895fe3efb80009))
+- chore: let prettier do its thing ([51fab3c](https://github.com/aversini/envtools/commit/51fab3cf80e32392fc35c39e1c5e189342a82cde))
+- chore: adding lint and prettier to scripts ([e6921dc](https://github.com/aversini/envtools/commit/e6921dc532b89e9a78b45a17597926f1e380151a))
+- chore: using eslint config (versini sauce) ([2a993ed](https://github.com/aversini/envtools/commit/2a993edb0342d7171db1b7487df26611ebbd3fe0))
+- feat: migrating to ES6 ([eed12f7](https://github.com/aversini/envtools/commit/eed12f712022b2b8b4f5b7d5059377f6cfed2115))
+  - using babel compilation
+  - raised support to only node 6 and higher
+  
+- doc: small typo ([634a6a1](https://github.com/aversini/envtools/commit/634a6a18c0486f4939f17706717a9f6b85803d53))
+
 __1.0.59 / 2018-01-12__
 
 - feat: adding fuzzy search to npm profile switch ([f4e7dc0](https://github.com/aversini/envtools/commit/f4e7dc078dd986a92106c09d7c54f23d9df3fd9c))
