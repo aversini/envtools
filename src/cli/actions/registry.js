@@ -41,6 +41,7 @@ function runCommand(command, callback) {
 function displayStatus(callback) {
   const msg = [];
   let npmRegistry,
+    npmScopedRegistry,
     yarnRegistry,
     npmHttpProxy,
     npmHttpsProxy,
@@ -73,6 +74,12 @@ function displayStatus(callback) {
       function (done) {
         runCommand('npm config get registry', function (err, data) {
           npmRegistry = data;
+          done(err);
+        });
+      },
+      function (done) {
+        runCommand('npm config get @wf:registry', function (err, data) {
+          npmScopedRegistry = data;
           done(err);
         });
       },
@@ -122,6 +129,9 @@ function displayStatus(callback) {
 
       msg.push(log.strToColor('yellow', 'NPM Configuration'));
       msg.push(`registry    : ${npmRegistry}`);
+      if (npmScopedRegistry) {
+        msg.push(`scope @wf   : ${npmScopedRegistry}`);
+      }
       msg.push(`http proxy  : ${npmHttpProxy}`);
       msg.push(`https proxy : ${npmHttpsProxy}`);
       msg.push('');
@@ -145,6 +155,7 @@ function displayStatus(callback) {
       log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
       return callback(null, {
         npmRegistry,
+        npmScopedRegistry,
         npmHttpProxy,
         npmHttpsProxy,
         yarnRegistry,
