@@ -1,4 +1,8 @@
 
+__2.0.2 / 2018-01-24__
+
+- feat: adding scoped registry if any ([b950c72](https://github.com/aversini/envtools/commit/b950c7299f673c1ae179cfde877a8edfb8423e37))
+
 __2.0.1 / 2018-01-21__
 
 - refactor: moving test files for utilities under utilities ([13367a9](https://github.com/aversini/envtools/commit/13367a90f29844b86692cbfdb215fe0a77b7dc1d))
