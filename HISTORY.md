@@ -1,4 +1,8 @@
 
+__2.0.3 / 2018-01-25__
+
+- fix: only display scope registry if it exists ([ff0b835](https://github.com/aversini/envtools/commit/ff0b83508a669e153579957855cb286d265686cd))
+
 __2.0.2 / 2018-01-24__
 
 - feat: adding scoped registry if any ([b950c72](https://github.com/aversini/envtools/commit/b950c7299f673c1ae179cfde877a8edfb8423e37))
