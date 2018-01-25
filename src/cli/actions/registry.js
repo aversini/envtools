@@ -129,7 +129,7 @@ function displayStatus(callback) {
 
       msg.push(log.strToColor('yellow', 'NPM Configuration'));
       msg.push(`registry    : ${npmRegistry}`);
-      if (npmScopedRegistry) {
+      if (npmScopedRegistry !== NA) {
         msg.push(`scope @wf   : ${npmScopedRegistry}`);
       }
       msg.push(`http proxy  : ${npmHttpProxy}`);
