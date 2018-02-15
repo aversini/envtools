@@ -5,10 +5,10 @@ if [ "$ELECTRON_RUN_AS_NODE" != "" ] || [ "$TERM_PROGRAM" = "platformio-ide-term
   ATOM_TERMINAL=1
 fi
 
-# If not Atom, or already loaded and it's not a manual reload, get
+# If not Atom / VSCode, or already loaded and it's not a manual reload, get
 # out of here quietly...
 if [ "$INIT_PARAM" != "reload" ] && [ "$RUNTIME_DIR" != "" ]; then
-  if [ "$ATOM_TERMINAL" = "" ]; then
+  if [ "$ATOM_TERMINAL" = "" ] && [ "$VSCODE_CLI" = "" ]; then
     return
   fi
 fi
