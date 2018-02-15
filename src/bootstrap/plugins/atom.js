@@ -37,6 +37,11 @@ const ATOM_PACKAGES = [
     name: '[layout-control] ... Layout pane manager.'
   },
   {
+    value: 'language-babel',
+    short: 'language-babel',
+    name: '[language-babel] ... React (JSX) language support, indentation, snippets, auto completion, reformatting.'
+  },
+  {
     value: 'language-postcss',
     short: 'language-postcss',
     name: '[language-postcss] ..... PostCSS language support.'
@@ -97,12 +102,6 @@ const ATOM_PACKAGES = [
     short: 'project-manager',
     name:
       '[project-manager] .. Project Manager for easy access and switching between projects.'
-  },
-  {
-    value: 'react',
-    short: 'react',
-    name:
-      '[react] ............ React (JSX) language support, indentation, snippets, auto completion, reformatting.'
   },
   {
     value: 'simple-panes',
