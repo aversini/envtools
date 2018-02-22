@@ -30,6 +30,10 @@ module.exports = (backups) => {
   } else {
     backupStr = backups;
   }
-  execa.shellSync(`cp -Rf "${backupStr}"  "${backupDir}"`);
+  try {
+    execa.shellSync(`cp -Rf "${backupStr}"  "${backupDir}"`);
+  } catch (e) {
+    // nothing to declare
+  }
   return backupDir;
 };
