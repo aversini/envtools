@@ -1,4 +1,11 @@
 
+__2.0.5 / 2018-02-22__
+
+- chore: commiting built assets ([5adebaa](https://github.com/aversini/envtools/commit/5adebaa1e3d68442ee36b3e5fc30950c5911cd0f))
+- fix: registry was not retreived correctly ([c1b8882](https://github.com/aversini/envtools/commit/c1b888264d6865b8ac2566dbda9f6c2803e87c86))
+  - problem with execa promise and callback wrapper
+  
+
 __2.0.4 / 2018-02-21__
 
 - fix: ignoring backup error if file does not exist ([fe63370](https://github.com/aversini/envtools/commit/fe63370aba2625412fc157645bbf98273c7e27a1))
