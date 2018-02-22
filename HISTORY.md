@@ -1,4 +1,10 @@
 
+__2.0.4 / 2018-02-21__
+
+- fix: ignoring backup error if file does not exist ([fe63370](https://github.com/aversini/envtools/commit/fe63370aba2625412fc157645bbf98273c7e27a1))
+- fix: replace Atom package react with language-babel ([4593ad6](https://github.com/aversini/envtools/commit/4593ad63e11e2b3b6ca0b9b255f28d5c98a2c3ab))
+- fix: allowing VisualCode terminal to load Envtools ([fc224ab](https://github.com/aversini/envtools/commit/fc224ab8058e05e92a738e05f41e09fe102d0f8c))
+
 __2.0.3 / 2018-01-25__
 
 - fix: only display scope registry if it exists ([ff0b835](https://github.com/aversini/envtools/commit/ff0b83508a669e153579957855cb286d265686cd))
@@ -939,7 +945,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.109 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
