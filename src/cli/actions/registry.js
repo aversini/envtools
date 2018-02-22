@@ -2,7 +2,6 @@ const execa = require('execa');
 const log = require('fedtools-logs');
 const config = require('fedtools-config');
 const waterfall = require('async/waterfall');
-const parallel = require('async/parallel');
 const _ = require('lodash');
 const inquirer = require('inquirer');
 const common = require('../../common');
@@ -51,7 +50,7 @@ function displayStatus(callback) {
     currentNpmProfile,
     availableNpmProfiles;
 
-  parallel(
+  waterfall(
     [
       function (done) {
         const data = common.getExistingNpmrcProfiles();
