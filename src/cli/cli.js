@@ -51,6 +51,10 @@ EnvtoolsCLI.prototype._runCommand = function (program, command, optimist) {
     }
   } else {
     switch (command) {
+      case 'md2html':
+        require('./actions/md2html')(self, program);
+        break;
+
       case 'npmrc':
       case 'yarnrc':
         require('./actions/npmrc')(self, program);
