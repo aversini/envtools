@@ -1,4 +1,10 @@
 
+__2.0.6 / 2018-05-07__
+
+- feat: adding `envtools md2html` ([e6253a3](https://github.com/aversini/envtools/commit/e6253a365b58306eb41b195c0988530dde5db7b8))
+- chore: update to latest Yarn (1.6.0) ([79e4c48](https://github.com/aversini/envtools/commit/79e4c48616d7c185b48d7110579ebebd971fed15))
+- chore: updating Yarn to 1.5.1 ([79ddc9c](https://github.com/aversini/envtools/commit/79ddc9caa9cc1fe9796d97484e74ef015068a992))
+
 __2.0.5 / 2018-02-22__
 
 - chore: commiting built assets ([5adebaa](https://github.com/aversini/envtools/commit/5adebaa1e3d68442ee36b3e5fc30950c5911cd0f))
