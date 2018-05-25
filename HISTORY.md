@@ -1,4 +1,8 @@
 
+__2.0.9 / 2018-05-25__
+
+- update to latest Yarn (1.7.0) ([938078f](https://github.com/aversini/envtools/commit/938078f7198787fffe815495c8d4b40feabc4877))
+
 __2.0.6 / 2018-05-07__
 
 - feat: adding `envtools md2html` ([e6253a3](https://github.com/aversini/envtools/commit/e6253a365b58306eb41b195c0988530dde5db7b8))
@@ -958,7 +962,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.109 / 2016-06-17__
+__0.0.108 / 2016-06-17__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
