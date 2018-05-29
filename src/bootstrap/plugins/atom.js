@@ -130,7 +130,7 @@ module.exports = function (options, callback) {
     [
       function (done) {
         // need to check for apm package manager first...
-        const res = isAppInstalled('aapm');
+        const res = isAppInstalled('apm');
         if (res === true) {
           return done();
         } else {
