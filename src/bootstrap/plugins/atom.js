@@ -57,11 +57,6 @@ const ATOM_PACKAGES = [
     name: '[language-svg] ..... SVG language support.'
   },
   {
-    value: 'language-vue',
-    short: 'language-vue',
-    name: '[language-vue] ..... Vue component support.'
-  },
-  {
     value: [
       'linter',
       'linter-eslint',
@@ -71,11 +66,6 @@ const ATOM_PACKAGES = [
     ],
     short: 'linter-eslint',
     name: '[linter-eslint] .... Lint JavaScript on the fly, using ESLint.'
-  },
-  {
-    value: 'merge-conflicts',
-    short: 'merge-conflicts',
-    name: '[merge-conflicts] .. Resolve git conflicts within Atom.'
   },
   {
     value: 'minimap',
@@ -96,22 +86,6 @@ const ATOM_PACKAGES = [
     value: 'prettier-atom',
     short: 'prettier',
     name: '[prettier] ......... Another code beautifier (better for js, jsx).'
-  },
-  {
-    value: 'project-manager',
-    short: 'project-manager',
-    name:
-      '[project-manager] .. Project Manager for easy access and switching between projects.'
-  },
-  {
-    value: 'simple-panes',
-    short: 'simple-panes',
-    name: '[simple-panes] ..... Atom pane layout manager.'
-  },
-  {
-    value: ['split-diff', 'minimap-split-diff'],
-    short: 'split-diff',
-    name: '[split-diff] ....... Diffs text between two split panes.'
   },
   {
     value: 'Sublime-Style-Column-Selection',
@@ -137,23 +111,6 @@ module.exports = function (options, callback) {
           log.error('Atom package manager is not installed on this machine...');
           return done(common.USER_FATAL);
         }
-      },
-      function (done) {
-        const questions = {
-          type: 'confirm',
-          name: 'goForIt',
-          message: 'About to update Atom configuration for ssl, continue?',
-          default: true
-        };
-        inquirer.prompt(questions).then(function (answers) {
-          options.actionsPending++;
-          if (answers.goForIt) {
-            options.actionsDone++;
-            return done(null, 1);
-          } else {
-            return done(null, 0);
-          }
-        });
       },
       function (goForIt, done) {
         if (goForIt) {
