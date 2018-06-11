@@ -1,7 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
 const waterfall = require('async/waterfall');
-const parallel = require('async/parallel');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
 const backup = require('../../utilities/backup');
@@ -14,7 +13,6 @@ const YARN_TAR_GZ = path.join(
   'yarn',
   'latest.tar.gz'
 );
-
 
 let YARN_BIN = 'yarn',
   promptForRestart = false;
@@ -76,39 +74,37 @@ module.exports = function (options, callback) {
         }
       },
 
-      function (goForIt, done) {
-        if (goForIt) {
-          parallel(
-            [
-              function (fini) {
-                cmd.run(
-                  'npm config set strict-ssl false',
-                  {
-                    status: !options.auto
-                  },
-                  function () {
-                    fini();
-                  }
-                );
-              },
-              function (fini) {
-                const cmdline = `${YARN_BIN} config set strict-ssl false`;
-                cmd.run(
-                  cmdline,
-                  {
-                    status: !options.auto
-                  },
-                  function () {
-                    fini();
-                  }
-                );
-              }
-            ],
-            function (err) {
-              done(err);
+      function (done) {
+        waterfall(
+          [
+            function (fini) {
+              cmd.run(
+                'npm config set strict-ssl false',
+                {
+                  status: !options.auto
+                },
+                function () {
+                  fini();
+                }
+              );
+            },
+            function (fini) {
+              const cmdline = `${YARN_BIN} config set strict-ssl false`;
+              cmd.run(
+                cmdline,
+                {
+                  status: !options.auto
+                },
+                function () {
+                  fini();
+                }
+              );
             }
-          );
-        }
+          ],
+          function (err) {
+            done(err);
+          }
+        );
       }
     ],
     function (err) {
