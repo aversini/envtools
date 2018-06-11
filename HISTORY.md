@@ -1,4 +1,10 @@
 
+__2.0.11 / 2018-06-10__
+
+- fix yarn installation ([cb02d7c](https://github.com/aversini/envtools/commit/cb02d7c70e40ec10619f6ba9c897c626a3bd6838))
+- simplifying Yarn installation ([5b34476](https://github.com/aversini/envtools/commit/5b34476e5b811d4cb44b19c08ecf22e65459d865))
+- removing a few Atom packages ([61198ec](https://github.com/aversini/envtools/commit/61198ec496b12af59bef579967dd462d83407acf))
+
 __2.0.10 / 2018-05-29__
 
 - fix: invalid Atom installer ([6ba2602](https://github.com/aversini/envtools/commit/6ba2602397678e9a88ed30e960f5e720cfaaf057))
