@@ -2,7 +2,6 @@ const fs = require('fs-extra');
 const path = require('path');
 const waterfall = require('async/waterfall');
 const parallel = require('async/parallel');
-const inquirer = require('inquirer');
 const cmd = require('fedtools-commands');
 const log = require('fedtools-logs');
 const backup = require('../../utilities/backup');
@@ -15,17 +14,12 @@ const YARN_TAR_GZ = path.join(
   'yarn',
   'latest.tar.gz'
 );
-const NA = 'N/A';
-const NPM_REGISTRY =
-  process.env.CUSTOM_NPM_REGISTRY || 'http://registry.npmjs.org/';
-const YARN_REGISTRY =
-  process.env.CUSTOM_NPM_REGISTRY || 'http://registry.yarnpkg.com';
+
 
 let YARN_BIN = 'yarn',
   promptForRestart = false;
 
 module.exports = function (options, callback) {
-  let npmRegistry, yarnRegistry;
   backup([NPM_CONFIG, YARN_CONFIG]);
 
   function _displayRestartInfo(lines, boxColor) {
@@ -34,7 +28,7 @@ module.exports = function (options, callback) {
       msg = lines;
     } else {
       msg.push('Yarn has been automatically installed for you.');
-      msg.push('You need to restart your session to use it.');
+      msg.push('You need to restart your session to use it');
     }
     if (process.env.ENVTOOLS_VERSION) {
       msg.push('');
@@ -47,20 +41,6 @@ module.exports = function (options, callback) {
     }
     log.echo();
     log.printMessagesInBox(msg, boxColor ? boxColor : common.LOG_COLORS.NOTICE);
-  }
-
-  function runCommand(command, callback) {
-    let data = NA;
-
-    cmd.run(command, {status: false}, function (err, stderr, stdout) {
-      if (!err && stdout) {
-        data = stdout.replace(/\n$/, '');
-      }
-      if (!data || data === 'undefined' || data === 'null') {
-        data = NA;
-      }
-      return callback(null, data);
-    });
   }
 
   waterfall(
@@ -95,85 +75,11 @@ module.exports = function (options, callback) {
           return done(null);
         }
       },
-      function (done) {
-        const questions = {
-          type: 'confirm',
-          name: 'goForIt',
-          message: 'About to update npm and yarn configuration, continue?',
-          default: true
-        };
-        inquirer.prompt(questions).then(function (answers) {
-          options.actionsPending++;
-          if (answers.goForIt) {
-            options.actionsDone++;
-            return done(null, 1);
-          } else {
-            return done(null, 0);
-          }
-        });
-      },
-      function (goForIt, done) {
-        if (goForIt) {
-          runCommand('yarn config get registry', function (err, data) {
-            yarnRegistry = data;
-            done(err, goForIt);
-          });
-        } else {
-          return done(null, goForIt);
-        }
-      },
-      function (goForIt, done) {
-        if (goForIt) {
-          runCommand('npm config get registry', function (err, data) {
-            npmRegistry = data;
-            done(err, goForIt);
-          });
-        } else {
-          return done(null, goForIt);
-        }
-      },
+
       function (goForIt, done) {
         if (goForIt) {
           parallel(
             [
-              function (fini) {
-                let cmdline;
-                if (npmRegistry === NA) {
-                  cmdline = `npm config set registry=${NPM_REGISTRY}`;
-                } else {
-                  cmdline = null;
-                }
-                if (cmdline) {
-                  cmd.run(
-                    cmdline,
-                    {
-                      status: !options.auto
-                    },
-                    fini
-                  );
-                } else {
-                  fini();
-                }
-              },
-              function (fini) {
-                let cmdline;
-                if (yarnRegistry === NA) {
-                  cmdline = `${YARN_BIN} config set registry ${YARN_REGISTRY}`;
-                } else {
-                  cmdline = null;
-                }
-                if (cmdline) {
-                  cmd.run(
-                    cmdline,
-                    {
-                      status: !options.auto
-                    },
-                    fini
-                  );
-                } else {
-                  fini();
-                }
-              },
               function (fini) {
                 cmd.run(
                   'npm config set strict-ssl false',
