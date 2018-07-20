@@ -58,6 +58,7 @@
     "macos-release": "^1.1.0",
     "moment": "^2.20.1",
     "node-notifier": "^5.1.2",
+    "onecolor": "^3.0.5",
     "opn": "^5.2.0",
     "optimist": "~0.6.1",
     "os-name": "^2.0.1",

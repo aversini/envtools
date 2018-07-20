@@ -51,6 +51,13 @@ EnvtoolsCLI.prototype._runCommand = function (program, command, optimist) {
     }
   } else {
     switch (command) {
+      case 'color':
+      case 'colors':
+      case 'colour':
+      case 'colours':
+        require('./actions/colors')(self, program);
+        break;
+
       case 'md2html':
         require('./actions/md2html')(self, program);
         break;
