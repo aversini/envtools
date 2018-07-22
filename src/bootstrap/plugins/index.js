@@ -12,6 +12,7 @@ module.exports = {
   fixScreensaver: require('./screensaver').fix,
   installScreensaver: require('./screensaver').install,
   bootstrapAtom: require('./atom'),
+  bootstrapVSCode: require('./vscode'),
   terminalProfile: require('./terminalProfile'),
   installNVM: require('./nvm'),
   installYarn: require('./yarn')

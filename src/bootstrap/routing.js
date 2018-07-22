@@ -145,6 +145,13 @@ function _buildOptions(options, callback) {
     type: [common.TYPE_EXTRA],
     fct: plugins.bootstrapAtom
   });
+  _addChoice({
+    name: options.i18n.t('bootstrap.setVSCode'),
+    short: 'Configure VS Code',
+    value: requestIndex++,
+    type: [common.TYPE_EXTRA],
+    fct: plugins.bootstrapVSCode
+  });
 
   callback(null, choices);
 }
