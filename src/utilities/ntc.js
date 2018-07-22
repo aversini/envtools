@@ -34,7 +34,7 @@ const ntc = {
   init() {
     let color, rgb, hsl;
     for (let i = 0; i < ntc.names.length; i++) {
-      color = `#${ntc.names[i][0]}`;
+      color = `#${ntc.names[i][0].toUpperCase()}`;
       rgb = ntc.rgb(color);
       hsl = ntc.hsl(color);
       ntc.names[i].push(rgb[0], rgb[1], rgb[2], hsl[0], hsl[1], hsl[2]);
@@ -42,7 +42,6 @@ const ntc = {
   },
 
   name(color) {
-    color = color.toUpperCase();
     if (color.length < 3 || color.length > 7) {
       return ['#000000', `Invalid Color: ${color}`, false];
     }
