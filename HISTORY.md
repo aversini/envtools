@@ -1,4 +1,8 @@
 
+__2.0.13 / 2018-07-22__
+
+- fix: color were always "approximate" ([e46bdbf](https://github.com/aversini/envtools/commit/e46bdbff5048f62a03a0a11a018f13afbc3015ce))
+
 __2.0.12 / 2018-07-22__
 
 - chore: removing support to node 7 and adding to 10 ([db9bc01](https://github.com/aversini/envtools/commit/db9bc01fd6b9f2a99c77aa0600ee2430dfdf35ce))
