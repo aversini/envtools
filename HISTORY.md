@@ -1,4 +1,12 @@
 
+__2.0.12 / 2018-07-22__
+
+- chore: removing support to node 7 and adding to 10 ([db9bc01](https://github.com/aversini/envtools/commit/db9bc01fd6b9f2a99c77aa0600ee2430dfdf35ce))
+- chore: bump and fix all prod dependencies ([798b520](https://github.com/aversini/envtools/commit/798b52036c6dea05e19b2a5456001e249a0a9bc5))
+- feat: adding support for vs code ([36162ee](https://github.com/aversini/envtools/commit/36162eee0845ae4640a250fe653af45b887c9cb3))
+- adding envtools colors ([c61eb6c](https://github.com/aversini/envtools/commit/c61eb6c39f417efc6465f06b0309cfc48a1d70bb))
+- chore: bumping nvm version ([bedb678](https://github.com/aversini/envtools/commit/bedb678119ccaefca1f6e25214523763dc12b762))
+
 __2.0.11 / 2018-06-10__
 
 - fix yarn installation ([cb02d7c](https://github.com/aversini/envtools/commit/cb02d7c70e40ec10619f6ba9c897c626a3bd6838))
