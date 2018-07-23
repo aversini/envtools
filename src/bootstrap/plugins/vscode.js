@@ -49,12 +49,6 @@ const VSCODE_PACKAGES = [
     name: '[Prettier-Code] ............ VS Code plugin for prettier/prettier.'
   },
   {
-    value: 'erikphansen.vscode-toggle-column-selection',
-    short: 'Toggle Column Selection',
-    name:
-      '[Toggle Column Selection] .. Turn a selection in a column selection à la TextMate.'
-  },
-  {
     value: 'mrmlnc.vscode-duplicate',
     short: 'Duplicate action',
     name:
