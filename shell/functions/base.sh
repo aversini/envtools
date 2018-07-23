@@ -310,7 +310,7 @@ function setTerminalTitle {
 #
 function displayWelcomeBanner {
   if isValid "$ENVTOOLS_FULL"; then
-    if [ "$ATOM_TERMINAL" = "" ]; then
+    if [ "$ATOM_TERMINAL" = "" ] || [ "$VSCODE_CLI" = "" ]; then
       if [ "$INIT_PARAM" != "reload" ]; then
         # Display a simple help intro if user wants it
         showBanner
