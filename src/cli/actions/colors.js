@@ -21,8 +21,7 @@ module.exports = function (self, program) {
 
   try {
     colorObj = {
-      hexa: color(colorArg).hex(),
-      rgba: color(colorArg).cssa()
+      hexa: color(colorArg).hex()
     };
   } catch (e) {
     log.echo();
@@ -31,21 +30,22 @@ module.exports = function (self, program) {
   }
 
   ntc.init();
-  const colorData = ntc.name(colorObj.hexa);
-  const colorName = colorData[1];
-  const colorSASSName = `$color-${_.kebabCase(colorName)}`;
-  const colorPrecision = colorData[2]
-    ? 'Exact'
-    : `Approximate for ${colorData[0]}`;
+  const [hexa, name, exact] = ntc.name(colorObj.hexa);
+  const rgb = `rgba(${ntc.rgb(hexa).join(', ')}, 1)`;
+  const intro = `Color data for ${chalk.cyan(colorObj.hexa)}`;
+  const extra = exact ? '(exact match)' : chalk.yellow('(closest match)');
+  const CSSVariable = `--color-${_.kebabCase(name)}`;
 
   log.echo();
-  log.rainbow(`Color name       : ${chalk.cyan(colorName)}`);
-  log.rainbow(`Color hexa code  : ${chalk.cyan(colorObj.hexa)}`);
-  log.rainbow(`Color RGBA code  : ${chalk.cyan(colorObj.rgba)}`);
+  log.rainbow(`${intro} ${extra}:`);
+  log.echo();
+
+  log.rainbow(`Color name      : ${chalk.cyan(name)}`);
+  log.rainbow(`Color hexa code : ${chalk.cyan(hexa)}`);
+  log.rainbow(`Color rgba code : ${chalk.cyan(rgb)}`);
   log.rainbow(
-    `SASS definition  : ${chalk.cyan(colorSASSName)}: ${chalk.cyan(
-      colorObj.hexa
+    `CSS variable    : ${chalk.cyan(CSSVariable)}: ${chalk.cyan(
+      hexa.toLowerCase()
     )};`
   );
-  log.rainbow(`Color precision  : ${chalk.cyan(colorPrecision)}`);
 };
