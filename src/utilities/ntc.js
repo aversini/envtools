@@ -84,6 +84,7 @@ const ntc = {
         Math.pow(l - ntc.names[i][7], 2);
 
       ndf = ndf1 + ndf2 * 2;
+
       if (df < 0 || df > ndf) {
         df = ndf;
         cl = i;
@@ -221,7 +222,7 @@ const ntc = {
     ['fffff0', 'Ivory'],
     ['f0e68c', 'Khaki'],
     ['e6e6fa', 'Lavender'],
-    ['fff0f5', ':avenderBlush'],
+    ['fff0f5', 'LavenderBlush'],
     ['7cfc00', 'LawnGreen'],
     ['fffacd', 'LemonChiffon'],
     ['add8e6', 'LightBlue'],
@@ -294,7 +295,5 @@ const ntc = {
     ['663399', 'RebeccaPurple']
   ]
 };
-
-ntc.init();
 
 module.exports = ntc;

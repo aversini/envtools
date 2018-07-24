@@ -30,15 +30,22 @@ module.exports = function (self, program) {
     return;
   }
 
+  ntc.init();
   const colorData = ntc.name(colorObj.hexa);
   const colorName = colorData[1];
   const colorSASSName = `$color-${_.kebabCase(colorName)}`;
-  const colorPrecision = colorData[2] ? 'Exact' : 'Approximate';
+  const colorPrecision = colorData[2]
+    ? 'Exact'
+    : `Approximate for ${colorData[0]}`;
 
   log.echo();
   log.rainbow(`Color name       : ${chalk.cyan(colorName)}`);
   log.rainbow(`Color hexa code  : ${chalk.cyan(colorObj.hexa)}`);
   log.rainbow(`Color RGBA code  : ${chalk.cyan(colorObj.rgba)}`);
-  log.rainbow(`SASS definition  : ${chalk.cyan(colorSASSName)}: ${chalk.cyan(colorObj.hexa)};`);
+  log.rainbow(
+    `SASS definition  : ${chalk.cyan(colorSASSName)}: ${chalk.cyan(
+      colorObj.hexa
+    )};`
+  );
   log.rainbow(`Color precision  : ${chalk.cyan(colorPrecision)}`);
 };
