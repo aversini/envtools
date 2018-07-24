@@ -53,11 +53,6 @@ const VSCODE_PACKAGES = [
     short: 'Duplicate action',
     name:
       '[Duplicate action] ......... Ability to duplicate files and folders in VS Code.'
-  },
-  {
-    value: 'vscjava.vscode-java-pack',
-    short: 'Java Extension Pack',
-    name: '[Java Extension Pack] ...... VS Code extensions for Java development.'
   }
 ];
 
