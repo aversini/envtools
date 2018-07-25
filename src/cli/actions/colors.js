@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const color = require('onecolor');
 const log = require('fedtools-logs');
 const ntc = require('../../utilities/ntc');
+const isHTMLColor = require('../../utilities/colorUtils').isHTMLColor;
 
 module.exports = function (self, program) {
   let colorObj,
@@ -35,6 +36,7 @@ module.exports = function (self, program) {
   const intro = `Color data for ${chalk.cyan(colorObj.hexa)}`;
   const extra = exact ? '(exact match)' : chalk.yellow('(closest match)');
   const CSSVariable = `--color-${_.kebabCase(name)}`;
+  const isHTML = isHTMLColor(hexa) ? 'yes' : 'no';
 
   log.echo();
   log.rainbow(`${intro} ${extra}:`);
@@ -48,4 +50,5 @@ module.exports = function (self, program) {
       hexa.toLowerCase()
     )};`
   );
+  log.rainbow(`HTML color      : ${chalk.cyan(isHTML)}`);
 };

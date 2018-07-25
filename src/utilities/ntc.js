@@ -30,6 +30,7 @@ Sample Usage:
   </script>
 
 */
+var names = require('./colorUtils').allColors;
 
 var ntc = {
   init: function() {
@@ -136,7 +137,7 @@ var ntc = {
     ];
   },
 
-  names: require('./colorNames')
+  names: names
 };
 
 module.exports = ntc;
