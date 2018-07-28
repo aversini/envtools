@@ -9,52 +9,53 @@ const ATOM_PACKAGES = [
   {
     value: 'atom-beautify',
     short: 'atom-beautify',
-    name: '[atom-beautify] .... Code beautifier (better for html, css, svg).'
+    name: ' [atom-beautify] .... Code beautifier (better for html, css, svg).'
   },
   {
     value: 'autoclose-html',
     short: 'autoclose-html',
-    name: '[autoclose-html] ... Automates closing of HTML Tags.'
+    name: ' [autoclose-html] ... Automates closing of HTML Tags.'
   },
   {
     value: 'docblockr',
     short: 'docblockr',
-    name: '[docblockr] ........ A helper package for writing documentation.'
+    name: ' [docblockr] ........ A helper package for writing documentation.'
   },
   {
     value: 'highlight-line',
     short: 'highlight-line',
-    name: '[highlight-line] ... Highlights the current line in the editor.'
+    name: ' [highlight-line] ... Highlights the current line in the editor.'
   },
   {
     value: 'file-icons',
     short: 'file-icons',
-    name: '[file-icons] ....... Assign file extension icons and colors.'
+    name: ' [file-icons] ....... Assign file extension icons and colors.'
   },
   {
     value: 'layout-control',
     short: 'layout-control',
-    name: '[layout-control] ... Layout pane manager.'
+    name: ' [layout-control] ... Layout pane manager.'
   },
   {
     value: 'language-babel',
     short: 'language-babel',
-    name: '[language-babel] ... React (JSX) language support, indentation, snippets, auto completion, reformatting.'
+    name:
+      ' [language-babel] ... React (JSX) language support, indentation, snippets, auto completion, reformatting.'
   },
   {
     value: 'language-postcss',
     short: 'language-postcss',
-    name: '[language-postcss] ..... PostCSS language support.'
+    name: ' [language-postcss] ..... PostCSS language support.'
   },
   {
     value: 'language-soy',
     short: 'language-soy',
-    name: '[language-soy] ..... Soy Template language support.'
+    name: ' [language-soy] ..... Soy Template language support.'
   },
   {
     value: 'language-svg',
     short: 'language-svg',
-    name: '[language-svg] ..... SVG language support.'
+    name: ' [language-svg] ..... SVG language support.'
   },
   {
     value: [
@@ -65,37 +66,37 @@ const ATOM_PACKAGES = [
       'intentions'
     ],
     short: 'linter-eslint',
-    name: '[linter-eslint] .... Lint JavaScript on the fly, using ESLint.'
+    name: ' [linter-eslint] .... Lint JavaScript on the fly, using ESLint.'
   },
   {
     value: 'minimap',
     short: 'minimap',
-    name: '[minimap] .......... A preview of the full source code.'
+    name: ' [minimap] .......... A preview of the full source code.'
   },
   {
     value: 'minimap-linter',
     short: 'minimap-linter',
-    name: '[minimap-linter] ... Display linter markers in the minimap.'
+    name: ' [minimap-linter] ... Display linter markers in the minimap.'
   },
   {
     value: 'open-in-browser',
     short: 'open-in-browser',
-    name: '[open-in-browser] .. Open file in default Browser.'
+    name: ' [open-in-browser] .. Open file in default Browser.'
   },
   {
     value: 'prettier-atom',
     short: 'prettier',
-    name: '[prettier] ......... Another code beautifier (better for js, jsx).'
+    name: ' [prettier] ......... Another code beautifier (better for js, jsx).'
   },
   {
     value: 'Sublime-Style-Column-Selection',
     short: 'sublime-col',
-    name: '[sublime-col] ...... Enable Sublime style \'Column Selection\'.'
+    name: ' [sublime-col] ...... Enable Sublime style \'Column Selection\'.'
   },
   {
     value: 'platformio-ide-terminal',
     short: 'platformio-ide-terminal',
-    name: '[terminal] ......... Terminal emulation within Atom.'
+    name: ' [terminal] ......... Terminal emulation within Atom.'
   }
 ];
 
@@ -112,20 +113,16 @@ module.exports = function (options, callback) {
           return done(common.USER_FATAL);
         }
       },
-      function (goForIt, done) {
-        if (goForIt) {
-          cmd.run(
-            'apm config set strict-ssl false',
-            {
-              status: !options.auto
-            },
-            function () {
-              done();
-            }
-          );
-        } else {
-          return done();
-        }
+      function (done) {
+        cmd.run(
+          'apm config set strict-ssl false',
+          {
+            status: !options.auto
+          },
+          function () {
+            done();
+          }
+        );
       },
       function (done) {
         if (!options.auto) {
