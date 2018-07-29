@@ -1,4 +1,22 @@
 
+__2.0.14 / 2018-07-28__
+
+- vscode: adding Bash Beautify ([03f9878](https://github.com/aversini/envtools/commit/03f9878f2e4b03b27053feb9c1c3aa79906d62c9))
+- fix: Atom installation helper build error ([1e413cf](https://github.com/aversini/envtools/commit/1e413cf081ad5befd2bf93e3c9cf37c1d6234e12))
+- chore: bumping yarn to 1.9.2 ([098afe1](https://github.com/aversini/envtools/commit/098afe17ae3a0f706beb9eacd9cff48188bc8082))
+- fix: envtools color - better and stronger ([f337f2c](https://github.com/aversini/envtools/commit/f337f2c9df9c5f4c935d4762d4fbce51dd07c7ad))
+- refactor: better envtools color ([9203d5b](https://github.com/aversini/envtools/commit/9203d5b51755d830be16b412364b5d11db922c36))
+- feat: adding exact color to approximate result ([dfdc41a](https://github.com/aversini/envtools/commit/dfdc41afcd7085aab71325e1691babc7ef8a6ce1))
+- nevermind, removing java monstrosity ([5b7eaa6](https://github.com/aversini/envtools/commit/5b7eaa6f26fab76ca9ae5eaa2d62be5c181221c7))
+- feat: adding vscode extension for Java ([7910155](https://github.com/aversini/envtools/commit/7910155a6fab27fafff8733bb10a0281a77b9d05))
+- chore: updating the right araxis binary ([78d339b](https://github.com/aversini/envtools/commit/78d339bdeda7e5041d8c41aa620da801792ae43c))
+- chore: adding new Araxis binaries ([e95205c](https://github.com/aversini/envtools/commit/e95205c8e1ec3e407086e8bfb701c411e04ed059))
+- vscode: removing Toggle Column Selection (it's built-in) ([e4946a1](https://github.com/aversini/envtools/commit/e4946a1da9bf4745da2adda898b0e4d6d1098cee))
+- Do not reload terminal twice in vscode ([f52becb](https://github.com/aversini/envtools/commit/f52becb2a497e9581fb3803d58952d900b2fba9e))
+- more data to ignore with prettier ([69485de](https://github.com/aversini/envtools/commit/69485decbabc67be82035a4db0be6bf9287f9882))
+- bump to latest envtools version ([9120e28](https://github.com/aversini/envtools/commit/9120e28c0b053d88b26c6de8a4b2f7cefb0a77e1))
+- Adding .prettierignore file ([3f97a1e](https://github.com/aversini/envtools/commit/3f97a1ea875b68646030c294bef0167fce3f5f43))
+
 __2.0.13 / 2018-07-22__
 
 - fix: color were always "approximate" ([e46bdbf](https://github.com/aversini/envtools/commit/e46bdbff5048f62a03a0a11a018f13afbc3015ce))
