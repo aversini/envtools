@@ -34,9 +34,9 @@ const VSCODE_PACKAGES = [
       ' [file-icons] ............... File-specific icons in VSCode for improved visual grepping.'
   },
   {
-    value: 'cpylua.language-postcss',
-    short: 'language-postcss',
-    name: ' [language-postcss] ......... PostCSS language support.'
+    value: 'mhmadhamster.postcss-language',
+    short: 'postcss-sugarss',
+    name: ' [postcss-sugarss] ......... PostCSS language support.'
   },
   {
     value: 'bierner.markdown-preview-github-styles',
@@ -59,6 +59,11 @@ const VSCODE_PACKAGES = [
     short: 'Bash Beautify',
     name:
       ' [Bash Beautify] ............ Format / Beautify bash and shell scripts.'
+  },
+  {
+    value: 'mrmlnc.vscode-stylefmt',
+    short: 'StyleFMT',
+    name: ' [Style FMT] ............... Modern CSS Formatter.'
   }
 ];
 
