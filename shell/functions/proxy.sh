@@ -48,45 +48,69 @@ function setProxyStatusOnFile {
 function setProxies {
   local LOCAL_PROXY_STATUS=""
   local RELOAD=false
+  local ACTION="$1"
+  local TARGET="$2"
 
   if isProxyKnown; then
     if [ -f "${RUNTIME_DIR}/proxy_status" ]; then
       LOCAL_PROXY_STATUS=`cat "${RUNTIME_DIR}/proxy_status"`
     fi
-    if [ "$1" = "OFF" ]; then
+    if [ "$ACTION" = "OFF" ]; then
       # User wants to turn proxy off
       # If proxy_status is set and is already OFF,
       # we just need to set the enviroment. Otherwise,
       # set the whole thing (env, npm, git, etc.)
       # and update the status on file.
-      setEnvProxy "$PROXY" "OFF"
-      if [ "$LOCAL_PROXY_STATUS" = "ON" ]; then
-        setNpmProxy "$PROXY" "OFF"
-        setGitProxy "$PROXY" "OFF"
-        setAtomProxy "$PROXY" "OFF"
-        RELOAD=true
+      if [ "$TARGET" = "" ]; then
+        setEnvProxy "$PROXY" "OFF"
+        setProxyStatusOnFile "OFF"
       fi
-      setProxyStatusOnFile "OFF"
-    elif [ "$1" = "ON" ]; then
+
+      if [ "$TARGET" = "" ]; then
+        if [ "$LOCAL_PROXY_STATUS" = "ON" ]; then
+          setNpmProxy "$PROXY" "OFF"
+          setGitProxy "$PROXY" "OFF"
+          RELOAD=true
+        fi
+      elif [ "$TARGET" = "npm" ]; then
+        setNpmProxy "$PROXY" "OFF"
+      elif [ "$TARGET" = "git" ]; then
+        setGitProxy "$PROXY" "OFF"
+      fi
+
+    elif [ "$ACTION" = "ON" ]; then
       # User wants to turn proxy on
       # If proxy_status is set and is already ON,
       # we just need to set the enviroment. Otherwise,
       # set the whole thing (env, npm, git, etc.)
       # and update the status on file.
-      setEnvProxy "$PROXY" "ON"
-      if [ "$LOCAL_PROXY_STATUS" = "OFF" ]; then
-        setNpmProxy "$PROXY" "ON"
-        setGitProxy "$PROXY" "ON"
-        setAtomProxy "$PROXY" "ON"
-        RELOAD=true
+      if [ "$TARGET" = "" ]; then
+        setEnvProxy "$PROXY" "ON"
+        setProxyStatusOnFile "ON"
       fi
-      setProxyStatusOnFile "ON"
+
+      if [ "$TARGET" = "" ]; then
+        if [ "$LOCAL_PROXY_STATUS" = "OFF" ]; then
+          setNpmProxy "$PROXY" "ON"
+          setGitProxy "$PROXY" "ON"
+          RELOAD=true
+        fi
+      elif [ "$TARGET" = "npm" ]; then
+        setNpmProxy "$PROXY" "ON"
+      elif [ "$TARGET" = "git" ]; then
+        setGitProxy "$PROXY" "ON"
+      fi
     fi
+
     if [ $RELOAD = true ]; then
       reloadEnvironment
     fi
-    displayProxyStatus
-    `envtools notifier --title 'Proxy Status Changed' --message "Proxies are $1"`
+    if [ "$TARGET" = "" ]; then
+      displayProxyStatus
+      envtools notifier --title "Proxy status changed" --message "Proxies are $ACTION"
+    else
+      envtools notifier --title "Proxy status changed for $TARGET" --message "Proxies are $ACTION"
+    fi
   fi
 }
 
