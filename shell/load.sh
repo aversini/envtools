@@ -15,10 +15,10 @@ fi
 
 # Let's do some profiling if needed
 if [ "$ENVTOOLS_TIMING_STARTUP" = true ]; then
-  ENVTOOLS_TIMING_START_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
+  ENVTOOLS_TIMING_START_TIME=$(/usr/bin/python -c "import time; print int(round(time.time() * 1000))")
 elif [ "$ENVTOOLS_PROFILING_STARTUP" = true ]; then
   echo "Profiling Envtools startup scripts..."
-  PS4='+ ~~~$(python -c "import time; print int(round(time.time() * 1000))")~~~\t'
+  PS4='+ ~~~$(/usr/bin/python -c "import time; print int(round(time.time() * 1000))")~~~\t'
   exec 3>&2 2>$HOME/sample-profiling.log
   set -x
 fi
@@ -148,7 +148,7 @@ fi
 
 # End of profiling
 if [[ "$ENVTOOLS_TIMING_STARTUP" = true ]]; then
-  ENVTOOLS_TIMING_STOP_TIME=$(python -c "import time; print int(round(time.time() * 1000))")
+  ENVTOOLS_TIMING_STOP_TIME=$(/usr/bin/python -c "import time; print int(round(time.time() * 1000))")
   ENVTOOLS_LOAD_TIME=$(($ENVTOOLS_TIMING_STOP_TIME - $ENVTOOLS_TIMING_START_TIME))
   echo "Load time: ${ENVTOOLS_LOAD_TIME}ms"
 elif [[ "$ENVTOOLS_PROFILING_STARTUP" = true ]]; then

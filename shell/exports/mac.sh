@@ -15,7 +15,7 @@ fi
 
 # Brew, node
 if [ "$INIT_PARAM" != "reload" ]; then
-  export PATH=$PATH:/usr/local/bin
+  export PATH=/usr/local/bin:$PATH
 fi
 
 # Gems (sudo less)
