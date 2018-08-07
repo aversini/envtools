@@ -93,6 +93,10 @@ if isWindows || isLinux || isMac; then
   source "${ENVDIR}/functions/proxy.sh"
   source "${ENVDIR}/functions/banner.sh"
 
+  if isZsh; then
+    source "${ENVDIR}/functions/zsh.sh"
+  fi
+
   # Setting some aliases
   source "${ENVDIR}/aliases/base.sh"
 
