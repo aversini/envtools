@@ -131,7 +131,7 @@ module.exports = function (options, callback) {
             'git config --global alias.co checkout',
             'git config --global push.default simple',
             'git config --global http.sslVerify false',
-            'git config --global credential.helper \'cache --timeout 2628000\''
+            'git config --global credential.helper \'cache --timeout 1209600\''
           ];
 
           if (github) {
