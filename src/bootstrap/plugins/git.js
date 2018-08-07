@@ -130,7 +130,8 @@ module.exports = function (options, callback) {
             'git config --global alias.ci commit',
             'git config --global alias.co checkout',
             'git config --global push.default simple',
-            'git config --global http.sslVerify false'
+            'git config --global http.sslVerify false',
+            'git config --global credential.helper \'cache --timeout 2628000\''
           ];
 
           if (github) {
@@ -142,7 +143,6 @@ module.exports = function (options, callback) {
             );
             cmdline.push('git config --global diff.tool opendiff');
             cmdline.push('git config --global merge.tool opendiff');
-            cmdline.push('git config --global credential.helper osxkeychain');
           }
 
           cmd.run(cmdline, {
