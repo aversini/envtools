@@ -130,19 +130,22 @@ module.exports = function (options, callback) {
             'git config --global alias.ci commit',
             'git config --global alias.co checkout',
             'git config --global push.default simple',
-            'git config --global http.sslVerify false',
-            'git config --global credential.helper \'cache --timeout 1209600\''
+            'git config --global http.sslVerify false'
           ];
 
           if (github) {
             cmdline.push(`git config --global github.user ${github}`);
           }
+
           if (common.isMac()) {
             cmdline.push(
               'git config --global alias.l \'log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"\''
             );
             cmdline.push('git config --global diff.tool opendiff');
             cmdline.push('git config --global merge.tool opendiff');
+            cmdline.push('git config --global credential.helper osxkeychain');
+          } else {
+            cmdline.push('git config --global credential.helper \'cache --timeout 1209600\'');
           }
 
           cmd.run(cmdline, {
