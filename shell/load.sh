@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Experimental: trying to figure out if running in Atom or not...
 if [ "$ELECTRON_RUN_AS_NODE" != "" ] || [ "$TERM_PROGRAM" = "platformio-ide-terminal" ]; then
   ATOM_TERMINAL=1
@@ -8,7 +7,7 @@ fi
 # If not Atom / VSCode, or already loaded and it's not a manual reload, get
 # out of here quietly...
 if [ "$INIT_PARAM" != "reload" ] && [ "$RUNTIME_DIR" != "" ]; then
-  if [ "$ATOM_TERMINAL" = "" ] && [ "$VSCODE_CLI" = "" ]; then
+  if [ "$ATOM_TERMINAL" = "" ] && [ "$VSCODE_CLI" = "" ] && [ "$VSCODE_TERMINAL" = "" ]; then
     return
   fi
 fi
