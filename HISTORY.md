@@ -1,4 +1,27 @@
 
+__2.0.15 / 2018-11-02__
+
+- chore: bump merge package version ([6b6a41e](https://github.com/aversini/envtools/commit/6b6a41e91cbd15494a1d4a4a690212b0f4e0c787))
+  [CVE-2018-16469](https://nvd.nist.gov/vuln/detail/CVE-2018-16469)
+  
+  Vulnerable versions: < 1.2.1
+  Patched version: 1.2.1
+  
+  The merge.recursive function in the merge package in versions before 1.2.1 can be tricked into adding or modifying properties of the Object prototype. These properties will be present on all objects allowing for a denial of service attack.
+  
+- chore: PATH before /usr/local ([934fadf](https://github.com/aversini/envtools/commit/934fadfcc5ceb9eb44a1d37713a0c78f0611faea))
+- add extra identification for VSCODE integrated terminal ([3b59e32](https://github.com/aversini/envtools/commit/3b59e32a8357c05b5a9faa9be4d9f12320c0ddbc))
+- fix: git cache is different on OSX and others ([b103f1f](https://github.com/aversini/envtools/commit/b103f1fd2e498629c95b288d15ebab963bef69a1))
+- fix: reduce git cache to 2 weeks ([6ad251a](https://github.com/aversini/envtools/commit/6ad251a62baa589759b50e76e062d2c72dcbf771))
+- Changing git cache configuration ([18b6838](https://github.com/aversini/envtools/commit/18b6838b2d690945332f269ead85d79625b5400a))
+- fix: zsh scp completion is broken ([e5a7653](https://github.com/aversini/envtools/commit/e5a765330a972e0ace6e7555e009f99a7a1ae739))
+- fix: making sure /usr/local/bin is before /usr/bin ([169eacf](https://github.com/aversini/envtools/commit/169eacf7f6ccac33885b8dda5749cdb2a4f86fd1))
+- feat: 'pon' and 'poff' can now be called with an argument ([cd31d04](https://github.com/aversini/envtools/commit/cd31d04df0e9d0e474fecaeaacaceee2cbb77ce6))
+  - argument can be 'git' or 'npm'
+  - `pon git` will only turn proxy ON for git
+  
+- vscode: adding 2 new plugins (postcss and css formatter) ([b27b926](https://github.com/aversini/envtools/commit/b27b92682c3f293d7051913591a1b2f4e16b5932))
+
 __2.0.14 / 2018-07-28__
 
 - vscode: adding Bash Beautify ([03f9878](https://github.com/aversini/envtools/commit/03f9878f2e4b03b27053feb9c1c3aa79906d62c9))
