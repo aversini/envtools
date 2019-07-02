@@ -33,8 +33,7 @@ alias pon='setProxies ON'
 alias poff='setProxies OFF'
 alias pq='displayProxyStatus && reloadEnvironment'
 
-# killing norton, jamf, lync, etc.
-alias knot=killNorton
+# killing jamf, lync, etc.
 alias kout=killOutlook
 alias klync=killLync
 alias kjamf=killJamf

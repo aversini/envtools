@@ -1,6 +1,3 @@
-function killNorton {
-  killProcess "symdaemon" "$1"
-}
 
 function killOutlook {
   killProcess "outlook" "$1"
@@ -41,12 +38,6 @@ function killProcess {
       txtStatus "No process matches $1..." "INFO"
     fi
   fi
-}
-
-function startNorton {
-  forceAdminAccess
-  txtBlue "Starting norton..." "nl"
-  cmd "$MYSUDO /Library/Application Support/Symantec/Daemon/SymDaemon.bundle/Contents/MacOS/SymDaemon &"
 }
 
 function killJamf {
