@@ -7,7 +7,7 @@ fi
 # If not Atom / VSCode, or already loaded and it's not a manual reload, get
 # out of here quietly...
 if [ "$INIT_PARAM" != "reload" ] && [ "$RUNTIME_DIR" != "" ]; then
-  if [ "$ATOM_TERMINAL" = "" ] && [ "$VSCODE_CLI" = "" ] && [ "$VSCODE_TERMINAL" = "" ]; then
+  if [ "$ATOM_TERMINAL" = "" ] && [ "$VSCODE_CLI" = "" ] && [ "$VSC_TERMINAL" = "" ]; then
     return
   fi
 fi
