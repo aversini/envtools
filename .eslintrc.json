@@ -1,7 +1,0 @@
-{
-  "extends": [
-    "versini",
-    "versini/rules/react/off",
-    "versini/rules/react-a11y/off"
-  ]
-}
