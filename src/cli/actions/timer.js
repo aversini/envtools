@@ -1,21 +1,21 @@
 /* eslint no-magic-numbers:0, no-useless-escape: 0 */
 
-const _ = require('lodash');
-const moment = require('moment');
-const notifier = require('./notifier');
-const log = require('fedtools-logs');
-const common = require('../../common');
+const _ = require("lodash");
+const moment = require("moment");
+const notifier = require("./notifier");
+const log = require("fedtools-logs");
+const common = require("../../common");
 
 function _timer(options) {
   const startTime = Date.now();
   const config = {
-    title: 'Envtools Notification',
-    type: 'TIMER',
-    message: 'Time is up!',
-    sound: 'Purr'
+    title: "Envtools Notification",
+    type: "TIMER",
+    message: "Time is up!",
+    sound: "Purr"
   };
-  let msg1 = log.strToColor('cyan', 'Timer: '),
-    msg2 = `${log.strToColor('yellow', 'Remaining time: ')}***`,
+  let msg1 = log.strToColor("cyan", "Timer: "),
+    msg2 = `${log.strToColor("yellow", "Remaining time: ")}***`,
     timerDurationSeconds,
     totalMicroseconds = 0,
     groups,
@@ -30,11 +30,11 @@ function _timer(options) {
     log.clearPreviousLine();
     log.clearPreviousLine();
     if (time) {
-      msg2 = `${log.strToColor('yellow', 'Remaining time: ')}expired`;
+      msg2 = `${log.strToColor("yellow", "Remaining time: ")}expired`;
     } else {
       elapsed = parseInt((Date.now() - startTime) / 1000, 10);
       duration = moment.duration((timerDurationSeconds - elapsed) * 1000);
-      msg2 = `${log.strToColor('yellow', 'Remaining time: ') +
+      msg2 = `${log.strToColor("yellow", "Remaining time: ") +
         duration.hours()}h ${duration.minutes()}m ${duration.seconds()}s`;
     }
     log.printMessagesInBox([msg1, msg2], common.LOG_COLORS.DEFAULT_BOX);
@@ -62,7 +62,7 @@ function _timer(options) {
       groups = strings.toLowerCase().match(/[-+]?[0-9\.]+[a-z]+/g);
 
       if (groups !== null) {
-        groups.forEach(function (g) {
+        groups.forEach(function(g) {
           const value = g.match(/[0-9\.]+/g)[0];
           const unit = g.match(/[a-z]+/g)[0];
           totalMicroseconds += _getMicroseconds(value, unit);
@@ -83,7 +83,7 @@ function _timer(options) {
     log.echo();
     log.printMessagesInBox([msg1, msg2], common.LOG_COLORS.DEFAULT_BOX);
     timer = setInterval(_updateRemainingTime, 1000);
-    setTimeout(function () {
+    setTimeout(function() {
       clearInterval(timer);
       _updateRemainingTime(timerDurationSeconds);
       log.echo();
@@ -97,7 +97,7 @@ function _timer(options) {
   return -1;
 }
 
-module.exports = function (self, program) {
+module.exports = function(self, program) {
   const msg = [];
   const notification = _.isBoolean(program.quiet) ? !program.quiet : true;
 
@@ -108,18 +108,18 @@ module.exports = function (self, program) {
 
   if (result === -1) {
     log.echo();
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'Description:'));
-    msg.push('Envtools timer is a simple command line timer');
-    msg.push('with notification superpowers.');
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'Parameter:'));
-    msg.push('Envtools timer only takes one parameter with the');
-    msg.push('following format: XhYmZs, e.g. 4h2m15s or 1m42s');
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'Usage:'));
-    msg.push('$ envtools timer 1m3s');
-    msg.push('');
+    msg.push("");
+    msg.push(log.strToColor("yellow", "Description:"));
+    msg.push("Envtools timer is a simple command line timer");
+    msg.push("with notification superpowers.");
+    msg.push("");
+    msg.push(log.strToColor("yellow", "Parameter:"));
+    msg.push("Envtools timer only takes one parameter with the");
+    msg.push("following format: XhYmZs, e.g. 4h2m15s or 1m42s");
+    msg.push("");
+    msg.push(log.strToColor("yellow", "Usage:"));
+    msg.push("$ envtools timer 1m3s");
+    msg.push("");
     log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
     log.echo();
   }

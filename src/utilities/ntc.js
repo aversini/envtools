@@ -30,13 +30,13 @@ Sample Usage:
   </script>
 
 */
-var names = require('./colorUtils').allColors;
+var names = require("./colorUtils").allColors;
 
 var ntc = {
   init: function() {
     var color, rgb, hsl;
     for (var i = 0; i < ntc.names.length; i++) {
-      color = '#' + ntc.names[i][0];
+      color = "#" + ntc.names[i][0];
       rgb = ntc.rgb(color);
       hsl = ntc.hsl(color);
       ntc.names[i].push(rgb[0], rgb[1], rgb[2], hsl[0], hsl[1], hsl[2]);
@@ -46,11 +46,11 @@ var ntc = {
   name: function(color) {
     color = color.toUpperCase();
     if (color.length < 3 || color.length > 7)
-      return ['#000000', 'Invalid Color: ' + color, false];
-    if (color.length % 3 == 0) color = '#' + color;
+      return ["#000000", "Invalid Color: " + color, false];
+    if (color.length % 3 == 0) color = "#" + color;
     if (color.length == 4)
       color =
-        '#' +
+        "#" +
         color.substr(1, 1) +
         color.substr(1, 1) +
         color.substr(2, 1) +
@@ -73,8 +73,8 @@ var ntc = {
       df = -1;
 
     for (var i = 0; i < ntc.names.length; i++) {
-      if (color == '#' + ntc.names[i][0])
-        return ['#' + ntc.names[i][0], ntc.names[i][1], true];
+      if (color == "#" + ntc.names[i][0])
+        return ["#" + ntc.names[i][0], ntc.names[i][1], true];
 
       ndf1 =
         Math.pow(r - ntc.names[i][2], 2) +
@@ -92,17 +92,17 @@ var ntc = {
     }
 
     return cl < 0
-      ? ['#000000', 'Invalid Color: ' + color, false]
-      : ['#' + ntc.names[cl][0], ntc.names[cl][1], false];
+      ? ["#000000", "Invalid Color: " + color, false]
+      : ["#" + ntc.names[cl][0], ntc.names[cl][1], false];
   },
 
   // adopted from: Farbtastic 1.2
   // http://acko.net/dev/farbtastic
   hsl: function(color) {
     var rgb = [
-      parseInt('0x' + color.substring(1, 3)) / 255,
-      parseInt('0x' + color.substring(3, 5)) / 255,
-      parseInt('0x' + color.substring(5, 7)) / 255
+      parseInt("0x" + color.substring(1, 3)) / 255,
+      parseInt("0x" + color.substring(3, 5)) / 255,
+      parseInt("0x" + color.substring(5, 7)) / 255
     ];
     var min, max, delta, h, s, l;
     var r = rgb[0],
@@ -131,9 +131,9 @@ var ntc = {
   // http://acko.net/dev/farbtastic
   rgb: function(color) {
     return [
-      parseInt('0x' + color.substring(1, 3)),
-      parseInt('0x' + color.substring(3, 5)),
-      parseInt('0x' + color.substring(5, 7))
+      parseInt("0x" + color.substring(1, 3)),
+      parseInt("0x" + color.substring(3, 5)),
+      parseInt("0x" + color.substring(5, 7))
     ];
   },
 

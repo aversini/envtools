@@ -1,20 +1,20 @@
-const fs = require('fs-extra');
-const waterfall = require('async/waterfall');
-const path = require('path');
-const inquirer = require('inquirer');
-const cmd = require('fedtools-commands');
-const utilities = require('fedtools-utilities');
+const fs = require("fs-extra");
+const waterfall = require("async/waterfall");
+const path = require("path");
+const inquirer = require("inquirer");
+const cmd = require("fedtools-commands");
+const utilities = require("fedtools-utilities");
 const gith = utilities.git;
-const log = require('fedtools-logs');
-const backup = require('../../utilities/backup');
-const common = require('../../common');
-const DOT_PROFILE_COMMENT = '### Added by Envtools (custom nvm loader)';
-const NVM_VERSION = 'v0.33.11';
-const NVM_DIR = 'nvm';
+const log = require("fedtools-logs");
+const backup = require("../../utilities/backup");
+const common = require("../../common");
+const DOT_PROFILE_COMMENT = "### Added by Envtools (custom nvm loader)";
+const NVM_VERSION = "v0.33.11";
+const NVM_DIR = "nvm";
 const NVM_DEST_DIR = path.join(common.RUNTIME_DIR, NVM_DIR);
-const NVM_URL = 'https://github.com/creationix/nvm.git';
+const NVM_URL = "https://github.com/creationix/nvm.git";
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   const lines = [DOT_PROFILE_COMMENT];
   const alreadyInstalled = fs.existsSync(NVM_DEST_DIR);
 
@@ -30,7 +30,7 @@ module.exports = function (options, callback) {
   lines.push(
     '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm'
   );
-  lines.push('[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion');
+  lines.push("[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion");
 
   function _writeDotProfile(file, load, done) {
     backup(file);
@@ -41,7 +41,7 @@ module.exports = function (options, callback) {
           lines,
           file
         },
-        function (err) {
+        function(err) {
           done(err);
         }
       );
@@ -51,7 +51,7 @@ module.exports = function (options, callback) {
           lines,
           file
         },
-        function (err) {
+        function(err) {
           done(err);
         }
       );
@@ -60,17 +60,17 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const questions = {
           message: alreadyInstalled
-            ? 'About to update nvm, continue?'
-            : 'About to install nvm, continue?',
-          type: 'confirm',
-          name: 'goForIt',
+            ? "About to update nvm, continue?"
+            : "About to install nvm, continue?",
+          type: "confirm",
+          name: "goForIt",
           default: true
         };
 
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           if (answers.goForIt) {
             skipInstall = false;
           } else {
@@ -79,15 +79,15 @@ module.exports = function (options, callback) {
           done();
         });
       },
-      function (done) {
+      function(done) {
         if (alreadyInstalled && !skipInstall) {
           // nvm is not compatible with npm config "prefix"
           cmd.run(
-            'npm config delete prefix',
+            "npm config delete prefix",
             {
               status: true
             },
-            function () {
+            function() {
               done();
             }
           );
@@ -95,7 +95,7 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         if (alreadyInstalled && !skipInstall) {
           gith.checkoutBranch(
             {
@@ -103,7 +103,7 @@ module.exports = function (options, callback) {
               branch: NVM_VERSION,
               silent: true
             },
-            function (err, res) {
+            function(err, res) {
               if (err && res.stderr) {
                 log.error(res.stderr);
               }
@@ -114,7 +114,7 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         if (!alreadyInstalled && !skipInstall) {
           gith.cloneGitRepository(
             {
@@ -125,7 +125,7 @@ module.exports = function (options, callback) {
               silent: true,
               url: NVM_URL
             },
-            function (err, res) {
+            function(err, res) {
               if (err && res.stderr) {
                 log.error(res.stderr);
               }
@@ -136,24 +136,24 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         const questions = [
           {
-            type: 'list',
-            name: 'load',
-            message: 'Please choose one of the following options',
+            type: "list",
+            name: "load",
+            message: "Please choose one of the following options",
             when() {
               return !options.auto;
             },
             choices: [
               {
-                name: 'Automatically load nvm at each session',
-                short: 'Load nvm',
+                name: "Automatically load nvm at each session",
+                short: "Load nvm",
                 value: common.ON
               },
               {
-                name: 'Do not load nvm automatically',
-                short: 'Do not load nvm',
+                name: "Do not load nvm automatically",
+                short: "Do not load nvm",
                 value: common.OFF
               }
             ]
@@ -162,7 +162,7 @@ module.exports = function (options, callback) {
 
         // only ask to load nvm if it is installed
         if (alreadyInstalled || !skipInstall) {
-          inquirer.prompt(questions).then(function (answers) {
+          inquirer.prompt(questions).then(function(answers) {
             if (answers.load === common.ON) {
               loadNvmAutomatically = true;
             } else {
@@ -174,20 +174,20 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         _writeDotProfile(common.DOT_PROFILE, loadNvmAutomatically, done);
       },
-      function (done) {
+      function(done) {
         _writeDotProfile(common.DOT_BASH_PROFILE, loadNvmAutomatically, done);
       },
-      function (done) {
+      function(done) {
         const installType = alreadyInstalled
           ? `updated to ${NVM_VERSION}`
-          : 'installed';
-        let name = '\nNode Version Manager (nvm)';
+          : "installed";
+        let name = "\nNode Version Manager (nvm)";
         if (!skipInstall) {
           log.success(`${name} has been ${installType}`);
-          name = 'nvm';
+          name = "nvm";
         }
         if (alreadyInstalled || !skipInstall) {
           if (loadNvmAutomatically) {
@@ -202,7 +202,7 @@ module.exports = function (options, callback) {
         done();
       }
     ],
-    function (err) {
+    function(err) {
       // we cannot reload the session via "r" since
       // .profile files have been updated. User needs
       // to restart the full terminal (tab or new)...

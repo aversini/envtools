@@ -1,10 +1,10 @@
 /* eslint no-console:0, complexity:0 */
-const _ = require('lodash');
-const execa = require('execa');
-const moment = require('moment');
-const fs = require('fs-extra');
-const cmd = require('fedtools-commands');
-const common = require('../../common');
+const _ = require("lodash");
+const execa = require("execa");
+const moment = require("moment");
+const fs = require("fs-extra");
+const cmd = require("fedtools-commands");
+const common = require("../../common");
 const DOWNLOAD_URL_TIMEOUT = 3000;
 const MAX_DIGITS = 2;
 const MILLISECONDS_IN_SECOND = 1000;
@@ -17,26 +17,26 @@ const BYTES_IN_GIGABYTES =
 function parseMavenInformation(data) {
   const res = {};
 
-  _.forEach(data.split('\n'), function (line) {
-    if (line.match('Apache Maven ')) {
-      res.mavenVersion = line.slice(0, line.indexOf(' (')).trim();
+  _.forEach(data.split("\n"), function(line) {
+    if (line.match("Apache Maven ")) {
+      res.mavenVersion = line.slice(0, line.indexOf(" (")).trim();
     }
-    if (line.match('Maven home:')) {
-      res.mavenHome = line.replace('Maven home:', '').trim();
+    if (line.match("Maven home:")) {
+      res.mavenHome = line.replace("Maven home:", "").trim();
     }
-    if (line.match('Java version:')) {
-      res.javaVersion = line.replace('Java version:', '').trim();
+    if (line.match("Java version:")) {
+      res.javaVersion = line.replace("Java version:", "").trim();
     }
-    if (line.match('Java home:')) {
-      res.javaHome = line.replace('Java home:', '').trim();
+    if (line.match("Java home:")) {
+      res.javaHome = line.replace("Java home:", "").trim();
     }
   });
   return res;
 }
 
 function getMacVersion(release) {
-  const semver = require('semver');
-  const macRelease = require('macos-release');
+  const semver = require("semver");
+  const macRelease = require("macos-release");
   const major = macRelease().version;
   const minor = semver.minor(release);
 
@@ -48,12 +48,12 @@ function getMacVersion(release) {
 }
 
 function displayResults(data) {
-  const log = require('fedtools-logs');
+  const log = require("fedtools-logs");
   const msg = [];
   let status, nextUpdate;
 
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'S Y S T E M'));
+  msg.push("");
+  msg.push(log.strToColor("yellow", "S Y S T E M"));
   if (data.osName) {
     if (data.osVersion) {
       msg.push(`Operating System  : ${data.osName} (${data.osVersion})`);
@@ -71,18 +71,18 @@ function displayResults(data) {
     msg.push(`Memory            : ${data.totalMemory.toFixed(MAX_DIGITS)} GB`);
   }
 
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'E N V I R O N M E N T'));
+  msg.push("");
+  msg.push(log.strToColor("yellow", "E N V I R O N M E N T"));
   if (data.uptime) {
     msg.push(`Uptime            : ${data.uptime}`);
   }
   if (data.loadAverage) {
     msg.push(
       `Load average      : ${data.loadAverage
-        .map(function (item) {
+        .map(function(item) {
           return item.toFixed(MAX_DIGITS);
         })
-        .join(', ')}`
+        .join(", ")}`
     );
   }
   if (data.freeMemory >= 0) {
@@ -98,18 +98,18 @@ function displayResults(data) {
   if (data.publicIp) {
     msg.push(`Public IP address : ${data.publicIp}`);
   } else {
-    msg.push('Public IP address : use --publicIp flag to show');
+    msg.push("Public IP address : use --publicIp flag to show");
   }
 
   if (data.proxyData) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'P R O X Y'));
+    msg.push("");
+    msg.push(log.strToColor("yellow", "P R O X Y"));
     if (data.proxyData.localProxyStatus === data.proxyData.globalProxyStatus) {
-      status = data.proxyData.localProxyStatus ? 'enabled' : 'disabled';
+      status = data.proxyData.localProxyStatus ? "enabled" : "disabled";
     } else {
       status = data.proxyData.localProxyStatus
-        ? 'enabled, but only in current window'
-        : 'disabled, but only in current window';
+        ? "enabled, but only in current window"
+        : "disabled, but only in current window";
     }
     msg.push(`Proxy             : ${data.proxyData.proxy}`);
     if (data.proxyData.proxy !== common.NA) {
@@ -118,8 +118,8 @@ function displayResults(data) {
   }
 
   if (data.registryData) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'N P M  R E G I S T R Y'));
+    msg.push("");
+    msg.push(log.strToColor("yellow", "N P M  R E G I S T R Y"));
     if (data.registryData.npmRegistry) {
       msg.push(`Npm registry      : ${data.registryData.npmRegistry}`);
     }
@@ -129,13 +129,13 @@ function displayResults(data) {
   }
 
   if (common.isMac() && data.diskSpace) {
-    msg.push('');
-    msg.push(log.strToColor('yellow', 'F I L E  S Y S T E M'));
+    msg.push("");
+    msg.push(log.strToColor("yellow", "F I L E  S Y S T E M"));
     msg.push(data.diskSpace);
   }
 
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'V E R S I O N S'));
+  msg.push("");
+  msg.push(log.strToColor("yellow", "V E R S I O N S"));
   msg.push(
     `Node              : ${data.nodeVersions.node} (${
       data.nodeVersions.arch
@@ -148,22 +148,22 @@ function displayResults(data) {
   if (data.gitVersion) {
     msg.push(
       `Git               : ${data.gitVersion
-        .replace('git version ', '')
+        .replace("git version ", "")
         .trim()}`
     );
   }
   if (data.rubyVersion) {
     msg.push(
       `Ruby              : ${data.rubyVersion
-        .slice(0, data.rubyVersion.indexOf(' ['))
-        .replace('ruby', '')
+        .slice(0, data.rubyVersion.indexOf(" ["))
+        .replace("ruby", "")
         .trim()}`
     );
   }
   if (data.mavenData && data.mavenData.mavenVersion) {
     msg.push(
       `Maven             : ${data.mavenData.mavenVersion
-        .replace('Apache Maven', '')
+        .replace("Apache Maven", "")
         .trim()}`
     );
   }
@@ -172,13 +172,13 @@ function displayResults(data) {
   }
   msg.push(`Envtools          : ${data.envtoolsVersion}`);
 
-  msg.push('');
-  msg.push(log.strToColor('yellow', 'L O C A T I O N S'));
+  msg.push("");
+  msg.push(log.strToColor("yellow", "L O C A T I O N S"));
   if (data.npmGlobalRootLocation) {
     msg.push(
       `Npm root location : ${data.npmGlobalRootLocation.replace(
         process.env.HOME,
-        '~'
+        "~"
       )}`
     );
   }
@@ -186,21 +186,21 @@ function displayResults(data) {
     msg.push(
       `Maven location    : ${data.mavenData.mavenHome.replace(
         process.env.HOME,
-        '~'
+        "~"
       )}`
     );
   }
 
-  msg.push('');
+  msg.push("");
   if (data.expiration) {
     nextUpdate =
       moment(data.expiration).diff(moment()) / MILLISECONDS_IN_SECOND;
-    msg.push('');
+    msg.push("");
     log.printMessagesInBox(
       msg,
       common.LOG_COLORS.DEFAULT_BOX,
       `Last update: ${moment(data.lastUpdate).format(
-        'hh:mm:ssa'
+        "hh:mm:ssa"
       )} (next update in ${nextUpdate.toFixed(0)}s)`
     );
   } else {
@@ -210,12 +210,12 @@ function displayResults(data) {
 
 // -- A S Y N C  M E T H O D S
 
-const getInternalIp = async (callback) => {
+const getInternalIp = async callback => {
   if (common.isMac()) {
-    const {stdout: route} = await execa.shell(
-      'route -n get default | grep interface | awk \'{print $2}\''
+    const { stdout: route } = await execa.shell(
+      "route -n get default | grep interface | awk '{print $2}'"
     );
-    const {stdout: ip} = await execa.shell(
+    const { stdout: ip } = await execa.shell(
       `ifconfig ${route} inet | grep inet | awk '{print $2}'`
     );
     return callback(null, ip);
@@ -225,39 +225,39 @@ const getInternalIp = async (callback) => {
 };
 
 function getPublicIp(callback) {
-  const download = require('download');
-  const url = 'https://api.ipify.org';
+  const download = require("download");
+  const url = "https://api.ipify.org";
   let res = {};
 
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   download(url, {
     timeout: process.env.https_proxy ? null : DOWNLOAD_URL_TIMEOUT,
     retries: 0
   })
-    .then(function (body) {
+    .then(function(body) {
       if (body) {
         res = body.toString();
       }
       return callback(null, res);
     })
-    .catch(function (err) {
+    .catch(function(err) {
       return callback(err, res);
     });
 }
 
-const getDiskSpace = async (callback) => {
-  const bin = 'df';
+const getDiskSpace = async callback => {
+  const bin = "df";
   let args;
 
   if (common.isMac()) {
-    args = ['-PlH'];
+    args = ["-PlH"];
   }
   if (common.isLinux()) {
-    args = ['-Plh'];
+    args = ["-Plh"];
   }
 
   if (args) {
-    const {stdout, stderr} = await execa(bin, args);
+    const { stdout, stderr } = await execa(bin, args);
     return callback(stderr, stdout);
   } else {
     return callback(1);
@@ -269,14 +269,14 @@ function getProxyStatus(callback) {
   let proxy = common.NA,
     globalProxyStatus = false;
 
-  fs.readFile(common.ENVTOOLS.PROXY_STATUS_FILE, function (err, data) {
+  fs.readFile(common.ENVTOOLS.PROXY_STATUS_FILE, function(err, data) {
     if (!err && data) {
-      data = data.toString().replace(/\n$/, '');
+      data = data.toString().replace(/\n$/, "");
       globalProxyStatus = data === common.ON;
     }
-    fs.readFile(common.ENVTOOLS.PROXY_FILE, function (err, data) {
+    fs.readFile(common.ENVTOOLS.PROXY_FILE, function(err, data) {
       if (!err && data) {
-        data = data.toString().replace(/\n$/, '');
+        data = data.toString().replace(/\n$/, "");
         proxy = data;
       }
       return callback(null, {
@@ -288,17 +288,17 @@ function getProxyStatus(callback) {
   });
 }
 
-const getRegistryInfo = async (callback) => {
+const getRegistryInfo = async callback => {
   try {
-    const {stdout: npmRegistry} = await execa('npm', [
-      'config',
-      'get',
-      'registry'
+    const { stdout: npmRegistry } = await execa("npm", [
+      "config",
+      "get",
+      "registry"
     ]);
-    const {stdout: yarnRegistry} = await execa('yarn', [
-      'config',
-      'get',
-      'registry'
+    const { stdout: yarnRegistry } = await execa("yarn", [
+      "config",
+      "get",
+      "registry"
     ]);
     return callback(null, {
       npmRegistry,
@@ -310,10 +310,10 @@ const getRegistryInfo = async (callback) => {
 };
 
 function getSystemInfo(self, options, callback) {
-  const os = require('os');
-  const osName = require('os-name');
-  const parallel = require('async/parallel');
-  const utilities = require('fedtools-utilities');
+  const os = require("os");
+  const osName = require("os-name");
+  const parallel = require("async/parallel");
+  const utilities = require("fedtools-utilities");
   let osVersion,
     uptime,
     cpuModel,
@@ -363,17 +363,17 @@ function getSystemInfo(self, options, callback) {
 
   parallel(
     [
-      function (done) {
-        getInternalIp(function (err, data) {
+      function(done) {
+        getInternalIp(function(err, data) {
           if (!err && data) {
             localIp = data;
           }
           return done(err);
         });
       },
-      function (done) {
+      function(done) {
         if (options.publicIp) {
-          getPublicIp(function (err, data) {
+          getPublicIp(function(err, data) {
             if (!err && data) {
               publicIp = data;
             }
@@ -383,9 +383,9 @@ function getSystemInfo(self, options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         if (options.proxy) {
-          getProxyStatus(function (err, data) {
+          getProxyStatus(function(err, data) {
             if (!err) {
               proxyData = data;
             }
@@ -395,17 +395,17 @@ function getSystemInfo(self, options, callback) {
           return done();
         }
       },
-      function (done) {
-        getRegistryInfo(function (err, data) {
+      function(done) {
+        getRegistryInfo(function(err, data) {
           if (!err) {
             registryData = data;
           }
           done();
         });
       },
-      function (done) {
+      function(done) {
         if (options.disk) {
-          getDiskSpace(function (err, data) {
+          getDiskSpace(function(err, data) {
             if (!err) {
               diskSpace = data;
             }
@@ -415,92 +415,92 @@ function getSystemInfo(self, options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'npm -v',
+          "npm -v",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              npmVersion = stdout.replace(/\n$/, '');
+              npmVersion = stdout.replace(/\n$/, "");
             }
             done(null);
           }
         );
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'npm root -g',
+          "npm root -g",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              npmGlobalRootLocation = stdout.replace(/\n$/, '');
+              npmGlobalRootLocation = stdout.replace(/\n$/, "");
             }
             done(null);
           }
         );
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'yarn --version',
+          "yarn --version",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              yarnVersion = stdout.replace(/\n$/, '');
+              yarnVersion = stdout.replace(/\n$/, "");
             }
             done(null);
           }
         );
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'git --version',
+          "git --version",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              gitVersion = stdout.replace(/\n$/, '');
+              gitVersion = stdout.replace(/\n$/, "");
             }
             done(null);
           }
         );
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'ruby -v',
+          "ruby -v",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              rubyVersion = stdout.replace(/\n$/, '');
+              rubyVersion = stdout.replace(/\n$/, "");
             }
             done(null);
           }
         );
       },
-      function (done) {
+      function(done) {
         cmd.run(
-          'mvn -v',
+          "mvn -v",
           {
             status: false
           },
-          function (err, stderr, stdout) {
+          function(err, stderr, stdout) {
             if (!err && stdout) {
-              mavenData = parseMavenInformation(stdout.replace(/\n$/, ''));
+              mavenData = parseMavenInformation(stdout.replace(/\n$/, ""));
             }
             done(null);
           }
         );
       }
     ],
-    function (err) {
+    function(err) {
       callback(err, {
         osName: options.os ? osName() : null,
         osVersion,
@@ -529,7 +529,7 @@ function getSystemInfo(self, options, callback) {
 }
 
 // -- E X P O R T S
-module.exports = function (self, program) {
+module.exports = function(self, program) {
   const options = {
     force: _.isBoolean(program.force) ? program.force : false,
     all: _.isBoolean(program.all) ? program.all : false,
@@ -555,7 +555,7 @@ module.exports = function (self, program) {
   let existingData = {};
 
   if (options.all) {
-    _.each(options, function (item, key) {
+    _.each(options, function(item, key) {
       options[key] = true;
     });
   }
@@ -564,7 +564,7 @@ module.exports = function (self, program) {
     // user specificaly asks for publicIp, we need to refresh
     // all, even if there is a cached file data by artificially
     // forcing cache expiration
-    existingData.expiration = moment().subtract(1, 'd');
+    existingData.expiration = moment().subtract(1, "d");
   } else {
     try {
       // try/catch is not only trapping a missing file, but also
@@ -573,18 +573,18 @@ module.exports = function (self, program) {
       existingData = JSON.parse(fs.readFileSync(common.ENVTOOLS.SYSTEM_INFO));
     } catch (e) {
       // forcing cache expiration
-      existingData.expiration = moment().subtract(1, 'd');
+      existingData.expiration = moment().subtract(1, "d");
     }
   }
 
   if (moment().isAfter(existingData.expiration)) {
     // expired, need to refetch
-    getSystemInfo(self, options, function (err, data) {
+    getSystemInfo(self, options, function(err, data) {
       if (err) {
         throw err;
       } else {
         data.lastUpdate = moment();
-        data.expiration = moment().add(1, 'm');
+        data.expiration = moment().add(1, "m");
         displayResults(data);
         // caching data to disk for 1 minute
         fs.writeFileSync(

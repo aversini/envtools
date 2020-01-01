@@ -1,29 +1,29 @@
-const _ = require('lodash');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const waterfall = require('async/waterfall');
-const inquirer = require('inquirer');
-const bootstrapHomebrew = require('./homebrew');
-const common = require('../../common');
+const _ = require("lodash");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const waterfall = require("async/waterfall");
+const inquirer = require("inquirer");
+const bootstrapHomebrew = require("./homebrew");
+const common = require("../../common");
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   let ruby, brew, compass, gem;
 
   function _installRuby(done) {
-    if (process.platform === 'darwin') {
+    if (process.platform === "darwin") {
       if (brew) {
         cmd.run(
-          'brew install ruby',
+          "brew install ruby",
           {
             status: !options.auto
           },
           done
         );
       } else {
-        bootstrapHomebrew(options, function (err) {
+        bootstrapHomebrew(options, function(err) {
           if (!err) {
             cmd.run(
-              'brew install ruby',
+              "brew install ruby",
               {
                 status: !options.auto
               },
@@ -33,7 +33,7 @@ module.exports = function (options, callback) {
         });
       }
     } else {
-      log.notice('Cannot find Ruby (ruby), please install it manually.');
+      log.notice("Cannot find Ruby (ruby), please install it manually.");
       return done(common.USER_INTERRUPT);
     }
   }
@@ -42,11 +42,11 @@ module.exports = function (options, callback) {
     let cmdline;
 
     if (gem) {
-      if (process.platform === 'darwin') {
+      if (process.platform === "darwin") {
         cmdline =
-          'gem install --no-ri --no-rdoc compass --install-dir /usr/local/gems';
+          "gem install --no-ri --no-rdoc compass --install-dir /usr/local/gems";
       } else {
-        cmdline = 'sudo -E gem install --no-ri --no-rdoc compass';
+        cmdline = "sudo -E gem install --no-ri --no-rdoc compass";
       }
       cmd.run(
         cmdline,
@@ -56,7 +56,7 @@ module.exports = function (options, callback) {
         done
       );
     } else {
-      log.notice('Cannot find Rubygems (gem), please install it manually.');
+      log.notice("Cannot find Rubygems (gem), please install it manually.");
       return done(common.USER_INTERRUPT);
     }
   }
@@ -64,13 +64,13 @@ module.exports = function (options, callback) {
   function _isRubyVersionOk(done) {
     const RUBY_MAJOR_VERSION_LOCATION = 5;
     const RUBY_MINOR_VERSION_MAX_FOR_0 = 8;
-    const res = cmd.run('ruby -v', {
+    const res = cmd.run("ruby -v", {
       status: false
     }).output;
     const version = res
-      .split(' ')[1]
+      .split(" ")[1]
       .slice(0, RUBY_MAJOR_VERSION_LOCATION)
-      .split('.');
+      .split(".");
     const major = Number(version[0]);
     const minor = Number(version[1]);
 
@@ -82,10 +82,10 @@ module.exports = function (options, callback) {
   }
 
   function _isCompassVersionOk(done) {
-    const res = cmd.run('compass -v', {
+    const res = cmd.run("compass -v", {
       status: false
     }).output;
-    const major = Number(res.split(' ')[1].charAt(0));
+    const major = Number(res.split(" ")[1].charAt(0));
 
     if (major >= 1) {
       return done();
@@ -96,15 +96,15 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const questions = {
-          message: 'About to install/update Ruby and Compass, continue?',
-          type: 'confirm',
-          name: 'goForIt',
+          message: "About to install/update Ruby and Compass, continue?",
+          type: "confirm",
+          name: "goForIt",
           default: true
         };
 
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           options.actionsPending++;
           if (answers.goForIt) {
             options.actionsDone++;
@@ -114,25 +114,25 @@ module.exports = function (options, callback) {
           }
         });
       },
-      function (done) {
-        ruby = cmd.run('which ruby', {
+      function(done) {
+        ruby = cmd.run("which ruby", {
           status: false
         }).output;
-        brew = cmd.run('which brew', {
+        brew = cmd.run("which brew", {
           status: false
         }).output;
-        compass = cmd.run('which compass', {
+        compass = cmd.run("which compass", {
           status: false
         }).output;
-        gem = cmd.run('which gem', {
+        gem = cmd.run("which gem", {
           status: false
         }).output;
 
         done();
       },
-      function (done) {
+      function(done) {
         if (_.isString(ruby)) {
-          _isRubyVersionOk(function (err) {
+          _isRubyVersionOk(function(err) {
             if (err) {
               _installRuby(done);
             } else {
@@ -143,9 +143,9 @@ module.exports = function (options, callback) {
           _installRuby(done);
         }
       },
-      function (done) {
+      function(done) {
         if (_.isString(compass)) {
-          _isCompassVersionOk(function (err) {
+          _isCompassVersionOk(function(err) {
             if (err) {
               _installCompass(done);
             } else {
@@ -157,7 +157,7 @@ module.exports = function (options, callback) {
         }
       }
     ],
-    function (err) {
+    function(err) {
       if (options.auto && err === common.USER_INTERRUPT) {
         err = null;
       }

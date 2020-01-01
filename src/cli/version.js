@@ -1,26 +1,26 @@
-const _ = require('lodash');
-const util = require('util');
-const moment = require('moment');
-const path = require('path');
-const log = require('fedtools-logs');
-const config = require('fedtools-config');
-const common = require('../common');
-const EnvtoolsBase = require('./base');
+const _ = require("lodash");
+const util = require("util");
+const moment = require("moment");
+const path = require("path");
+const log = require("fedtools-logs");
+const config = require("fedtools-config");
+const common = require("../common");
+const EnvtoolsBase = require("./base");
 
 // -- C O N S T R U C T O R
 
-const EnvtoolsVersion = function () {
+const EnvtoolsVersion = function() {
   EnvtoolsBase.call(this);
 };
 
 // -- I N H E R I T A N C E
 
 util.inherits(EnvtoolsVersion, EnvtoolsBase);
-EnvtoolsVersion.prototype.name = 'EnvtoolsVersion';
+EnvtoolsVersion.prototype.name = "EnvtoolsVersion";
 
 // -- E X T E N D E D  M E T H O D S
 
-EnvtoolsVersion.prototype._initialize = function () {
+EnvtoolsVersion.prototype._initialize = function() {
   let canCheck = false,
     needToCheck = false;
 
@@ -53,13 +53,13 @@ EnvtoolsVersion.prototype._initialize = function () {
   }
 
   if (needToCheck) {
-    require('child_process')
+    require("child_process")
       .spawn(
         process.execPath,
-        [path.join(__dirname, '..', '..', 'bin', 'check.js')],
+        [path.join(__dirname, "..", "..", "bin", "check.js")],
         {
           detached: true,
-          stdio: 'ignore'
+          stdio: "ignore"
         }
       )
       .unref();
@@ -67,24 +67,24 @@ EnvtoolsVersion.prototype._initialize = function () {
 };
 
 // -- P R I V A T E  M E T H O D S
-EnvtoolsVersion.prototype._getConfiguration = function () {
-  return config.getKey('envtoolsversion');
+EnvtoolsVersion.prototype._getConfiguration = function() {
+  return config.getKey("envtoolsversion");
 };
 
 // -- P U B L I C  M E T H O D S
 
-EnvtoolsVersion.prototype.setAutoCheck = function (flag) {
+EnvtoolsVersion.prototype.setAutoCheck = function(flag) {
   const o = {};
   o[common.ENVTOOLS.CFG_AUTOCHECK] = flag;
   config.setKey(
-    'envtoolsversion',
+    "envtoolsversion",
     _.extend(this._getConfiguration(), o),
     true,
     true
   );
 };
 
-EnvtoolsVersion.prototype.getAutoCheck = function () {
+EnvtoolsVersion.prototype.getAutoCheck = function() {
   const cfg = this._getConfiguration();
 
   if (cfg) {
@@ -110,17 +110,17 @@ EnvtoolsVersion.prototype.getAutoCheck = function () {
  * @method printUpgradeIfAny
  * @param  {Boolean} force If true, ignore the 'alreadyDisplayed' key
  */
-EnvtoolsVersion.prototype.printUpgradeIfAny = function (force) {
+EnvtoolsVersion.prototype.printUpgradeIfAny = function(force) {
   const self = this;
   const msg = [];
   const lightGrey = 245;
   const rcInfo = this._getConfiguration() || {};
-  const LATEST_IS_INSTALLED = 'You are up-to-date!';
+  const LATEST_IS_INSTALLED = "You are up-to-date!";
   const NO_DATA_AVAILABLE =
-    'There is no data available at this time.\nPlease check again later...';
+    "There is no data available at this time.\nPlease check again later...";
   const AUTOCHECK_DISABLED = `Automatically check for update is disabled.\nYou can enable this option by typing ${log.strToColor(
     lightGrey,
-    'envtools config'
+    "envtools config"
   )}\nand following the instructions at the prompt.`;
 
   let boxColor;
@@ -144,13 +144,13 @@ EnvtoolsVersion.prototype.printUpgradeIfAny = function (force) {
   }
 
   if (rcInfo && rcInfo.latest) {
-    if (require('semver').gt(rcInfo.latest, self.currentVersion)) {
-      boxColor = 'cyan';
-      msg.push('');
-      msg.push('A new version of Envtools has been published!');
+    if (require("semver").gt(rcInfo.latest, self.currentVersion)) {
+      boxColor = "cyan";
+      msg.push("");
+      msg.push("A new version of Envtools has been published!");
       msg.push(
         `Envtools ${log.strToColor(
-          'green',
+          "green",
           rcInfo.latest
         )} is now available - you have ${log.strToColor(
           lightGrey,
@@ -160,15 +160,15 @@ EnvtoolsVersion.prototype.printUpgradeIfAny = function (force) {
       msg.push(
         `Type ${log.strToColor(
           lightGrey,
-          'npm install -g envtools'
+          "npm install -g envtools"
         )} to upgrade.`
       );
-      msg.push('');
+      msg.push("");
     } else if (force) {
-      boxColor = 'green';
-      msg.push('');
+      boxColor = "green";
+      msg.push("");
       msg.push(`${LATEST_IS_INSTALLED} (${self.currentVersion})`);
-      msg.push('');
+      msg.push("");
     }
   } else if (force) {
     return printCustomMessage([NO_DATA_AVAILABLE]);
@@ -178,7 +178,7 @@ EnvtoolsVersion.prototype.printUpgradeIfAny = function (force) {
     // need to mark version as displayed so that it won't
     // be shown to the user again (until the expiration date)
     config.setKey(
-      'envtoolsversion',
+      "envtoolsversion",
       _.extend(rcInfo, {
         alreadyDisplayed: true
       }),
@@ -197,15 +197,15 @@ EnvtoolsVersion.prototype.printUpgradeIfAny = function (force) {
  *
  * @method printCurrentVersion
  */
-EnvtoolsVersion.prototype.printCurrentVersion = function (boring, done) {
+EnvtoolsVersion.prototype.printCurrentVersion = function(boring, done) {
   if (!this.printUpgradeIfAny()) {
     log.echo();
     log.printMessagesInBox(
       [
-        '',
-        this.i18n.t('version.installed') +
-          log.strToColor('green', this.currentVersion),
-        ''
+        "",
+        this.i18n.t("version.installed") +
+          log.strToColor("green", this.currentVersion),
+        ""
       ],
       common.LOG_COLORS.DEFAULT_BOX
     );
@@ -215,6 +215,6 @@ EnvtoolsVersion.prototype.printCurrentVersion = function (boring, done) {
 };
 
 // -- E X P O R T S
-module.exports = (function () {
+module.exports = (function() {
   return EnvtoolsVersion._instance || new EnvtoolsVersion();
 })();

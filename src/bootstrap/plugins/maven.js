@@ -1,20 +1,20 @@
 /* eslint indent: 0 */
-const fs = require('fs-extra');
-const waterfall = require('async/waterfall');
-const inquirer = require('inquirer');
-const path = require('path');
-const download = require('download');
-const log = require('fedtools-logs');
-const common = require('../../common');
-const MAVEN_VERSION = '3.3.9';
+const fs = require("fs-extra");
+const waterfall = require("async/waterfall");
+const inquirer = require("inquirer");
+const path = require("path");
+const download = require("download");
+const log = require("fedtools-logs");
+const common = require("../../common");
+const MAVEN_VERSION = "3.3.9";
 const MAVEN_DEST_DIR = path.join(
   common.RUNTIME_DIR,
   `apache-maven-${MAVEN_VERSION}`
 );
 const MAVEN_BIN_URL = `http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.zip`;
-const MAVEN_USER_SETTINGS_DST = path.join(process.env.HOME, '.m2');
+const MAVEN_USER_SETTINGS_DST = path.join(process.env.HOME, ".m2");
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   let resultingFolder;
 
   function _displayMavenRestartInfo(lines, boxColor) {
@@ -22,14 +22,14 @@ module.exports = function (options, callback) {
     if (lines) {
       msg = lines;
     } else {
-      msg.push('Before using Maven, you need to restart your session.');
+      msg.push("Before using Maven, you need to restart your session.");
     }
     if (process.env.ENVTOOLS_VERSION) {
-      msg.push('');
+      msg.push("");
       msg.push(
         `${log.strToColor(
-          'cyan',
-          'Hint:'
+          "cyan",
+          "Hint:"
         )} type r ENTER or just restart your terminal...`
       );
     }
@@ -42,18 +42,18 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         if (!process.env.RUNTIME_DIR) {
-          process.env.RUNTIME_DIR = path.join(process.env.HOME, '.envtools');
+          process.env.RUNTIME_DIR = path.join(process.env.HOME, ".envtools");
         }
         common.createRuntimeDir(done);
       },
-      function (done) {
-        fs.ensureDir(MAVEN_USER_SETTINGS_DST, function () {
+      function(done) {
+        fs.ensureDir(MAVEN_USER_SETTINGS_DST, function() {
           done();
         });
       },
-      function (done) {
+      function(done) {
         resultingFolder = MAVEN_DEST_DIR;
         if (!fs.existsSync(resultingFolder)) {
           // need to download maven
@@ -62,8 +62,8 @@ module.exports = function (options, callback) {
           if (!options.auto) {
             _displayMavenRestartInfo(
               [
-                'Maven is already installed...',
-                'Before using it, you may need to restart your session.'
+                "Maven is already installed...",
+                "Before using it, you may need to restart your session."
               ],
               common.LOG_COLORS.WARNING
             );
@@ -71,14 +71,14 @@ module.exports = function (options, callback) {
           return done(common.USER_IGNORE);
         }
       },
-      function (done) {
+      function(done) {
         const questions = {
-          type: 'confirm',
+          type: "confirm",
           message: `About to install Maven ${MAVEN_VERSION}, continue?`,
-          name: 'goForIt',
+          name: "goForIt",
           default: true
         };
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           options.actionsPending++;
           if (answers.goForIt) {
             options.actionsDone++;
@@ -88,17 +88,17 @@ module.exports = function (options, callback) {
           }
         });
       },
-      function (goForIt, done) {
+      function(goForIt, done) {
         if (goForIt) {
           download(MAVEN_BIN_URL, common.RUNTIME_DIR, {
-            mode: '755',
+            mode: "755",
             extract: true
           }).then(
-            function () {
+            function() {
               done();
             },
-            function (err) {
-              log.error('Unable to download Maven...');
+            function(err) {
+              log.error("Unable to download Maven...");
               log.echo(err);
               done(common.USER_IGNORE);
             }
@@ -107,7 +107,7 @@ module.exports = function (options, callback) {
           return done(common.USER_INTERRUPT);
         }
       },
-      function (done) {
+      function(done) {
         options.needToCheckForMaven = false;
         if (!options.auto) {
           _displayMavenRestartInfo();
@@ -115,7 +115,7 @@ module.exports = function (options, callback) {
         done(common.USER_IGNORE);
       }
     ],
-    function (err) {
+    function(err) {
       if (
         err &&
         (err === common.USER_INTERRUPT || err === common.USER_IGNORE)

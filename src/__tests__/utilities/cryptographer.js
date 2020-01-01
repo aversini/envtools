@@ -1,13 +1,13 @@
 // const fs = require('fs-extra');
 // const path = require('path');
-const cryptographer = require('../../utilities/cryptographer');
+const cryptographer = require("../../utilities/cryptographer");
 
 // const encryptedFile = path.join(__dirname, '..', 'mockdata', 'crypto', 'file1-e.txt');
 // const rawFile = path.join(__dirname, '..', 'mockdata', 'crypto', 'file1-r.txt');
 // const outputDir = path.join(__dirname, 'tmp', 'mocka');
-const PASSWORD = 'cgu4]wPJyCc8g';
+const PASSWORD = "cgu4]wPJyCc8g";
 
-describe('utilities#cryptographer', () => {
+describe("utilities#cryptographer", () => {
   // beforeEach(() => {
   //   fs.emptydirSync(outputDir);
   // });
@@ -79,8 +79,8 @@ describe('utilities#cryptographer', () => {
   //   );
   // });
 
-  it('should create the same hash for a string (default algo)', () => {
-    const data = 'Hello World!!!';
+  it("should create the same hash for a string (default algo)", () => {
+    const data = "Hello World!!!";
     const hash1 = cryptographer.createHash(data);
     const hash2 = cryptographer.createHash(data);
     const hash3 = cryptographer.createHash(data);
@@ -89,9 +89,9 @@ describe('utilities#cryptographer', () => {
     expect(hash2).toEqual(hash3);
   });
 
-  it('should create the same hash for a string (algo set to sha1)', () => {
-    const data = 'Hello World!!!';
-    const algo = 'sha1';
+  it("should create the same hash for a string (algo set to sha1)", () => {
+    const data = "Hello World!!!";
+    const algo = "sha1";
     const hash1 = cryptographer.createHash(data, algo);
     const hash2 = cryptographer.createHash(data, algo);
     const hash3 = cryptographer.createHash(data, algo);
@@ -100,20 +100,19 @@ describe('utilities#cryptographer', () => {
     expect(hash2).toEqual(hash3);
   });
 
-
-  it('should create different hash for a string with a different algorithm', () => {
-    const data = 'Hello World!!!';
+  it("should create different hash for a string with a different algorithm", () => {
+    const data = "Hello World!!!";
     const hash1 = cryptographer.createHash(data);
-    const hash2 = cryptographer.createHash(data, 'sha1');
-    const hash3 = cryptographer.createHash(data, 'sha256');
+    const hash2 = cryptographer.createHash(data, "sha1");
+    const hash3 = cryptographer.createHash(data, "sha256");
 
     expect(hash1).not.toEqual(hash2);
     expect(hash2).not.toEqual(hash3);
     expect(hash1).not.toEqual(hash3);
   });
 
-  it('should encrypt/decrypt a string', () => {
-    const data = 'Hello World!!!';
+  it("should encrypt/decrypt a string", () => {
+    const data = "Hello World!!!";
     const encrypted = cryptographer.encrypt(PASSWORD, data);
     const decrypted = cryptographer.decrypt(PASSWORD, encrypted);
     expect(decrypted).toEqual(data);

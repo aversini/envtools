@@ -1,23 +1,23 @@
-const _ = require('lodash');
-const chalk = require('chalk');
-const path = require('path');
-const fs = require('fs-extra');
-const waterfall = require('async/waterfall');
-const inquirer = require('inquirer');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const config = require('fedtools-config');
-const utilities = require('fedtools-utilities');
-const Fuse = require('fuse.js');
-const prompts = require('./utilities/prompts');
+const _ = require("lodash");
+const chalk = require("chalk");
+const path = require("path");
+const fs = require("fs-extra");
+const waterfall = require("async/waterfall");
+const inquirer = require("inquirer");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const config = require("fedtools-config");
+const utilities = require("fedtools-utilities");
+const Fuse = require("fuse.js");
+const prompts = require("./utilities/prompts");
 
-const isMac = process.platform === 'darwin';
-const isWindows = process.platform === 'win32';
+const isMac = process.platform === "darwin";
+const isWindows = process.platform === "win32";
 const isLinux =
-  process.platform === 'linux' ||
-  process.platform === 'freebsd' ||
-  process.platform === 'openbsd';
-const isZsh = Boolean(process.env.SHELL.match('zsh'));
+  process.platform === "linux" ||
+  process.platform === "freebsd" ||
+  process.platform === "openbsd";
+const isZsh = Boolean(process.env.SHELL.match("zsh"));
 const USER_INTERRUPT = -1;
 const USER_WARNING = -2;
 const USER_FATAL = -3;
@@ -26,18 +26,18 @@ const NB_SPACES_FOR_TAB = 2;
 const TYPE_SUDO = 100;
 const TYPE_CHOWN = 200;
 const TYPE_PREFIX = 300;
-const ON = 'ON';
-const OFF = 'OFF';
-const NA = 'N/A';
-const NOOP = function () {};
-const RUNTIME_DIR = path.join(process.env.HOME, '.envtools');
-const RUNTIME_BIN_DIR = path.join(process.env.HOME, '.envtools', 'bin');
-const DOT_PROFILE = path.join(process.env.HOME, '.profile');
-const DOT_BASH_PROFILE = path.join(process.env.HOME, '.bash_profile');
-const DOT_ZSH_PROFILE = path.join(process.env.HOME, '.zshrc');
-const DOT = '.';
-const NPRMC = 'npmrc';
-const YARNC = 'yarnrc';
+const ON = "ON";
+const OFF = "OFF";
+const NA = "N/A";
+const NOOP = function() {};
+const RUNTIME_DIR = path.join(process.env.HOME, ".envtools");
+const RUNTIME_BIN_DIR = path.join(process.env.HOME, ".envtools", "bin");
+const DOT_PROFILE = path.join(process.env.HOME, ".profile");
+const DOT_BASH_PROFILE = path.join(process.env.HOME, ".bash_profile");
+const DOT_ZSH_PROFILE = path.join(process.env.HOME, ".zshrc");
+const DOT = ".";
+const NPRMC = "npmrc";
+const YARNC = "yarnrc";
 const NPMRC_FILE = DOT + NPRMC;
 const YARNRC_FILE = DOT + YARNC;
 const NPMRC_PROFILE_FILE = NPRMC;
@@ -45,30 +45,30 @@ const YARNRC_PROFILE_FILE = YARNC;
 const NPM_CONFIG = path.join(process.env.HOME, NPMRC_FILE);
 const YARN_CONFIG = path.join(process.env.HOME, YARNRC_FILE);
 const ENVTOOLS = {
-  NAME: 'Envtools',
+  NAME: "Envtools",
   VERSION: process.env.ENVTOOLS_VERSION
     ? `v${process.env.ENVTOOLS_VERSION}`
-    : '',
-  ROOTDIR: path.join(__dirname, '..'),
-  THIRDDIR: path.join(__dirname, '..', 'data', 'third'),
-  SHELLDIR: path.join(__dirname, '..', 'shell'),
-  PROXY_FILE: path.join(RUNTIME_DIR, 'proxy'),
-  PROXY_STATUS_FILE: path.join(RUNTIME_DIR, 'proxy_status'),
-  HELP_STATUS: path.join(RUNTIME_DIR, 'help_status.json'),
-  RESUME_AUTO: path.join(RUNTIME_DIR, 'resume_auto'),
-  SYSTEM_INFO: path.join(RUNTIME_DIR, 'info.json'),
-  NPMRC_PROFILES: path.join(RUNTIME_DIR, 'npmrcs'),
-  NPMRC_CONFIG: path.join(RUNTIME_DIR, 'npmrcs.json'),
-  AUTO_DONE: path.join(RUNTIME_DIR, 'auto'),
-  DOT_PROFILE_COMMENT: '### Added by Envtools (main loader)',
-  CFG_AUTOLOAD: 'autoload',
-  CFG_AUTOLOAD_LABEL: 'Automatically load Envtools at each session',
-  CFG_BANNER: 'banner',
-  CFG_BANNER_LABEL: 'Enable Envtools Welcome Banner',
-  CFG_AUTOCHECK: 'autocheck',
-  CFG_AUTOCHECK_LABEL: 'Automatically check for new version',
-  CFG_CUSTOM_PROMPT: 'prompt',
-  CFG_CUSTOM_PROMPT_LABEL: 'Enable Envtools Custom Command Line Prompt'
+    : "",
+  ROOTDIR: path.join(__dirname, ".."),
+  THIRDDIR: path.join(__dirname, "..", "data", "third"),
+  SHELLDIR: path.join(__dirname, "..", "shell"),
+  PROXY_FILE: path.join(RUNTIME_DIR, "proxy"),
+  PROXY_STATUS_FILE: path.join(RUNTIME_DIR, "proxy_status"),
+  HELP_STATUS: path.join(RUNTIME_DIR, "help_status.json"),
+  RESUME_AUTO: path.join(RUNTIME_DIR, "resume_auto"),
+  SYSTEM_INFO: path.join(RUNTIME_DIR, "info.json"),
+  NPMRC_PROFILES: path.join(RUNTIME_DIR, "npmrcs"),
+  NPMRC_CONFIG: path.join(RUNTIME_DIR, "npmrcs.json"),
+  AUTO_DONE: path.join(RUNTIME_DIR, "auto"),
+  DOT_PROFILE_COMMENT: "### Added by Envtools (main loader)",
+  CFG_AUTOLOAD: "autoload",
+  CFG_AUTOLOAD_LABEL: "Automatically load Envtools at each session",
+  CFG_BANNER: "banner",
+  CFG_BANNER_LABEL: "Enable Envtools Welcome Banner",
+  CFG_AUTOCHECK: "autocheck",
+  CFG_AUTOCHECK_LABEL: "Automatically check for new version",
+  CFG_CUSTOM_PROMPT: "prompt",
+  CFG_CUSTOM_PROMPT_LABEL: "Enable Envtools Custom Command Line Prompt"
 };
 
 function _isMac() {
@@ -90,23 +90,23 @@ function _isZsh() {
 function _createRuntimeDir(callback) {
   const bin1Src = path.join(
     ENVTOOLS.THIRDDIR,
-    'growlnotify',
-    'growlnotify.exe'
+    "growlnotify",
+    "growlnotify.exe"
   );
   const bin2Src = path.join(
     ENVTOOLS.THIRDDIR,
-    'growlnotify',
-    'growlnotify.com'
+    "growlnotify",
+    "growlnotify.com"
   );
-  const bin1Dest = path.join(RUNTIME_BIN_DIR, 'growlnotify.exe');
-  const bin2Dest = path.join(RUNTIME_BIN_DIR, 'growlnotify.com');
+  const bin1Dest = path.join(RUNTIME_BIN_DIR, "growlnotify.exe");
+  const bin2Dest = path.join(RUNTIME_BIN_DIR, "growlnotify.com");
 
-  fs.ensureDir(RUNTIME_BIN_DIR, function (err) {
+  fs.ensureDir(RUNTIME_BIN_DIR, function(err) {
     if (_isWindows()) {
       // need to drop growlnotify if not there...
       if (!fs.existsSync(bin1Dest) || !fs.existsSync(bin2Dest)) {
-        fs.copy(bin1Src, bin1Dest, function () {
-          fs.copy(bin2Src, bin2Dest, function () {
+        fs.copy(bin1Src, bin1Dest, function() {
+          fs.copy(bin2Src, bin2Dest, function() {
             callback();
           });
         });
@@ -132,20 +132,20 @@ function _chownFolder(folder, options, callback) {
   }
 
   if (!whoami) {
-    whoami = cmd.run('whoami', {
+    whoami = cmd.run("whoami", {
       status: Boolean(options.debug)
     }).output;
   }
 
   if (_.isString(whoami) && fs.existsSync(folder)) {
-    whoami = whoami.replace('\n', '');
+    whoami = whoami.replace("\n", "");
     cmd.sudo(
       `chown -R ${whoami} ${folder}`,
       {
-        name: 'Envtools',
+        name: "Envtools",
         status: verbose
       },
-      function (err, stderr) {
+      function(err, stderr) {
         if (err && stderr) {
           err = stderr;
         }
@@ -160,39 +160,39 @@ function _chownFolder(folder, options, callback) {
 function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
   let cmdline;
   const packages = _.isString(p) ? [p] : p;
-  const yarnConfig = config.getKey(config.FEDTOOLSRCKEYS.yarnvsnpm) || 'yarn';
+  const yarnConfig = config.getKey(config.FEDTOOLSRCKEYS.yarnvsnpm) || "yarn";
 
-  if (yarnConfig === 'yarn' && isYarnAvailable) {
+  if (yarnConfig === "yarn" && isYarnAvailable) {
     cmdline = `${yarnBinary} global add `;
   } else {
-    cmdline = 'npm install -g ';
+    cmdline = "npm install -g ";
   }
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const questions = {
-          type: 'list',
-          name: 'action',
-          message: 'Please choose one of the following options',
+          type: "list",
+          name: "action",
+          message: "Please choose one of the following options",
           choices: [
             {
               value: TYPE_PREFIX,
-              short: 'prefix',
+              short: "prefix",
               name:
-                'Change the default location for global npm installation (preferable)'
+                "Change the default location for global npm installation (preferable)"
             },
             {
               value: TYPE_CHOWN,
-              short: 'chown',
+              short: "chown",
               name:
-                'Change ownership of the default destination folder to YOUR user (preferable)'
+                "Change ownership of the default destination folder to YOUR user (preferable)"
             },
             {
               value: TYPE_SUDO,
-              short: 'sudo',
+              short: "sudo",
               name:
-                'Install package(s) with sudo to overcome permission issue (not advised)'
+                "Install package(s) with sudo to overcome permission issue (not advised)"
             }
           ]
         };
@@ -200,13 +200,13 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
 
         const rootNodeModules = utilities.getGlobalNodeModulesPath();
         destNodeModules.push(rootNodeModules);
-        _.each(packages, function (p) {
+        _.each(packages, function(p) {
           destNodeModules.push(path.join(rootNodeModules, p));
         });
-        utilities.isFolderWritable(destNodeModules, function (err) {
+        utilities.isFolderWritable(destNodeModules, function(err) {
           if (err) {
-            log.warning('Uhoh, destination folder is not writable...');
-            inquirer.prompt(questions).then(function (answers) {
+            log.warning("Uhoh, destination folder is not writable...");
+            inquirer.prompt(questions).then(function(answers) {
               return done(null, rootNodeModules, packages, answers.action);
             });
           } else {
@@ -214,9 +214,9 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
           }
         });
       },
-      function (destination, packages, action, done) {
-        const actions = _.map(packages, function (pkg) {
-          return function (iamdone) {
+      function(destination, packages, action, done) {
+        const actions = _.map(packages, function(pkg) {
+          return function(iamdone) {
             const name = pkg.value ? pkg.value : pkg;
             const res = cmd.run(cmdline + name, {
               status: true
@@ -232,15 +232,15 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
           waterfall(actions, done);
         } else if (action === TYPE_SUDO) {
           cmd.sudo(
-            cmdline + packages.join(' '),
+            cmdline + packages.join(" "),
             {
-              name: 'Envtools'
+              name: "Envtools"
             },
-            function (err, stderr) {
+            function(err, stderr) {
               log.debug(stderr);
               if (err) {
                 log.error(
-                  'Something went wrong or you did not grant admin access...'
+                  "Something went wrong or you did not grant admin access..."
                 );
               }
               return done(err);
@@ -252,11 +252,11 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
             {
               debug: false
             },
-            function (err) {
+            function(err) {
               log.debug(err);
               if (err) {
                 log.error(
-                  'Something went wrong or you did not grant admin access...'
+                  "Something went wrong or you did not grant admin access..."
                 );
               } else {
                 waterfall(actions, done);
@@ -265,14 +265,14 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
           );
         } else if (action === TYPE_PREFIX) {
           cmd.run(
-            'npm config set prefix ~/npm',
+            "npm config set prefix ~/npm",
             {
               status: true
             },
-            function (err, stderr) {
+            function(err, stderr) {
               log.debug(err);
               if (err) {
-                log.error('Something went wrong...');
+                log.error("Something went wrong...");
                 if (stderr) {
                   log.rainbow(stderr);
                 } else {
@@ -288,7 +288,7 @@ function _installNpmPackages(p, isYarnAvailable, yarnBinary, callback) {
         }
       }
     ],
-    function (err) {
+    function(err) {
       callback(err);
     }
   );
@@ -302,7 +302,7 @@ function _sortObject(src, comparator) {
   let out;
 
   if (_.isArray(src)) {
-    return src.map(function (item) {
+    return src.map(function(item) {
       return _sortObject(item, comparator);
     });
   }
@@ -312,7 +312,7 @@ function _sortObject(src, comparator) {
 
     Object.keys(src)
       .sort(comparator || defaultSortFn)
-      .forEach(function (key) {
+      .forEach(function(key) {
         out[key] = _sortObject(src[key], comparator);
       });
 
@@ -365,20 +365,20 @@ function _createNpmrcProfile(profileName, callback) {
   profileName = profileName.trim().toLowerCase();
   waterfall(
     [
-      function (done) {
+      function(done) {
         if (
           !_.isEmpty(data) &&
           data.available &&
           data.available.indexOf(profileName) > -1
         ) {
           log.warning(`\nProfile "${profileName}" already exists...`);
-          prompts.displayConfirmation('Do you want to overide it?', done);
+          prompts.displayConfirmation("Do you want to overide it?", done);
         } else {
           return done();
         }
       }
     ],
-    function (err) {
+    function(err) {
       if (!err) {
         _updateProfileConfigurationData(data, profileName);
         fs.ensureDirSync(profileDir);
@@ -427,7 +427,7 @@ function _switchToNpmrcProfile(profileName, callback) {
   callback = callback || NOOP;
   waterfall(
     [
-      function (done) {
+      function(done) {
         if (!_.isEmpty(data)) {
           searchRes = _fuzzySearch(profileName, data.available, {
             closestMatch: true
@@ -436,7 +436,7 @@ function _switchToNpmrcProfile(profileName, callback) {
         if (_.isString(searchRes)) {
           prompts.displayConfirmation(
             `About to switch to profile "${searchRes}", continue?`,
-            function () {
+            function() {
               done(null, searchRes);
             }
           );
@@ -446,7 +446,7 @@ function _switchToNpmrcProfile(profileName, callback) {
         }
       }
     ],
-    function (err, name) {
+    function(err, name) {
       if (!err) {
         const profileDir = path.join(ENVTOOLS.NPMRC_PROFILES, name);
         const npmProfileConfigFile = path.join(profileDir, NPMRC_PROFILE_FILE);
@@ -473,9 +473,9 @@ exports.NB_SPACES_FOR_TAB = NB_SPACES_FOR_TAB;
 exports.DOT_PROFILE = DOT_PROFILE;
 exports.DOT_BASH_PROFILE = DOT_BASH_PROFILE;
 exports.DOT_ZSH_PROFILE = DOT_ZSH_PROFILE;
-exports.TYPE_AUTO = 't_auto';
-exports.TYPE_MANUAL = 't_manual';
-exports.TYPE_EXTRA = 't_extra';
+exports.TYPE_AUTO = "t_auto";
+exports.TYPE_MANUAL = "t_manual";
+exports.TYPE_EXTRA = "t_extra";
 exports.RUNTIME_DIR = RUNTIME_DIR;
 exports.ENVTOOLS = ENVTOOLS;
 exports.USER_INTERRUPT = USER_INTERRUPT;
@@ -485,10 +485,10 @@ exports.USER_IGNORE = USER_IGNORE;
 exports.CUSTOM_PROMPT_DEFAULT = 1;
 exports.CUSTOM_PROMPT_WITH_NODE = 4;
 exports.LOG_COLORS = {
-  SUCCESS: 'green',
-  FAILURE: 'red',
-  WARNING: 'yellow',
-  DEFAULT_BOX: 'cyan',
+  SUCCESS: "green",
+  FAILURE: "red",
+  WARNING: "yellow",
+  DEFAULT_BOX: "cyan",
   focusBg: chalk.bgYellow.black,
   gray: chalk.gray,
   blue: chalk.blue,

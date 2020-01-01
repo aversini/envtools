@@ -1,5 +1,5 @@
-const STR_TYPE_DIRECTORY = 'd';
-const STR_TYPE_FILE = 'f';
+const STR_TYPE_DIRECTORY = "d";
+const STR_TYPE_FILE = "f";
 const BYTE_CHUNKS = 1000;
 const MODE_OWNER_POS = 0;
 const MODE_GROUP_POS = 1;
@@ -7,23 +7,23 @@ const MODE_WORD_POS = 2;
 const OCTAL = 8;
 const DECIMAL = 10;
 const LAST_THREE_ENTRIES = -3;
-const path = require('path');
+const path = require("path");
 const join = path.join;
 const basename = path.basename;
-const fs = require('fs');
-const moment = require('moment');
-const childProcess = require('child_process');
-const utilities = require('fedtools-utilities');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const common = require('./common');
+const fs = require("fs");
+const moment = require("moment");
+const childProcess = require("child_process");
+const utilities = require("fedtools-utilities");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const common = require("./common");
 const cwd = process.cwd();
 const dirBlacklist = /node_modules|(^|\/)\.[^/.]/gi;
 const dirsList = [];
 const filesList = [];
 const groupNames = {};
 const ownerNames = {
-  0: 'root'
+  0: "root"
 };
 
 let rePattern,
@@ -38,52 +38,52 @@ let rePattern,
   ignoreBlacklists = false,
   perf;
 
-const optimist = require('optimist')
+const optimist = require("optimist")
   .usage(
-    '\nDescription:\n' +
-      ' List files or directories under the current directory that match\n' +
-      ' the given pattern or all of them if no pattern is given. If the\n' +
-      ' type is omitted, the default behavior is to look for files.\n\n' +
-      'Usage: ff [options] -p <search pattern> '
+    "\nDescription:\n" +
+      " List files or directories under the current directory that match\n" +
+      " the given pattern or all of them if no pattern is given. If the\n" +
+      " type is omitted, the default behavior is to look for files.\n\n" +
+      "Usage: ff [options] -p <search pattern> "
   )
-  .options('p', {
+  .options("p", {
     demand: true,
-    alias: 'pattern',
-    describe: 'a regular expression to match'
+    alias: "pattern",
+    describe: "a regular expression to match"
   })
-  .options('t', {
-    alias: 'type',
-    describe: 'choose to list either files or directories'
+  .options("t", {
+    alias: "type",
+    describe: "choose to list either files or directories"
   })
-  .options('l', {
-    alias: 'long',
-    describe: 'long listing format (equivalent to ls -l)'
+  .options("l", {
+    alias: "long",
+    describe: "long listing format (equivalent to ls -l)"
   })
-  .options('H', {
-    alias: 'hidden',
-    describe: 'show hidden files and directories'
+  .options("H", {
+    alias: "hidden",
+    describe: "show hidden files and directories"
   })
-  .options('c', {
-    alias: 'command',
-    describe: 'command to execute over each node (ex: chmod +x)'
+  .options("c", {
+    alias: "command",
+    describe: "command to execute over each node (ex: chmod +x)"
   })
-  .options('b', {
-    alias: 'boring',
-    describe: 'do not use color output'
+  .options("b", {
+    alias: "boring",
+    describe: "do not use color output"
   })
-  .options('d', {
-    alias: 'debug',
-    describe: 'display debbuging information'
+  .options("d", {
+    alias: "debug",
+    describe: "display debbuging information"
   })
-  .options('r', {
-    alias: 'rainbow',
-    describe: 'do not ignore any files or folders'
+  .options("r", {
+    alias: "rainbow",
+    describe: "do not ignore any files or folders"
   })
-  .options('s', {
-    alias: 'stats',
-    describe: 'display some statistics'
+  .options("s", {
+    alias: "stats",
+    describe: "display some statistics"
   })
-  .boolean(['l', 'H', 'b', 'd', 's', 'r']);
+  .boolean(["l", "H", "b", "d", "s", "r"]);
 
 const program = optimist.argv;
 
@@ -97,11 +97,11 @@ if (program._.length) {
   process.exit(1);
 }
 
-if (typeof program.pattern === 'string') {
+if (typeof program.pattern === "string") {
   rePattern = new RegExp(program.pattern);
 }
 
-if (typeof program.type === 'string') {
+if (typeof program.type === "string") {
   if (program.type === STR_TYPE_FILE || program.type === STR_TYPE_DIRECTORY) {
     type = program.type;
   } else {
@@ -114,8 +114,8 @@ if (program.long) {
   longListing = true;
 }
 
-if (typeof program.command === 'string') {
-  command = program.command.trim().split(' ');
+if (typeof program.command === "string") {
+  command = program.command.trim().split(" ");
 }
 
 if (program.stats) {
@@ -144,15 +144,15 @@ function hidden(path) {
   if (program.hidden) {
     return true;
   }
-  return path[0] !== '.';
+  return path[0] !== ".";
 }
 
 function checkPattern(str, type) {
   if (rePattern) {
     if (type === STR_TYPE_FILE || type === STR_TYPE_DIRECTORY) {
       if (debug) {
-        log.echo('==> looking for: [%s]', rePattern);
-        log.echo('==> str to check: ', str);
+        log.echo("==> looking for: [%s]", rePattern);
+        log.echo("==> str to check: ", str);
       }
       rePattern.lastIndex = 0;
       return rePattern.exec(str);
@@ -171,12 +171,12 @@ function runCommand(node) {
     sArgs.shift();
     sArgs.push(node);
     sProcess = childProcess.spawn(sCommand, sArgs);
-    sProcess.stdout.on('data', function (data) {
+    sProcess.stdout.on("data", function(data) {
       if (data) {
         log.echo(data.toString());
       }
     });
-    sProcess.stderr.on('data', function (data) {
+    sProcess.stderr.on("data", function(data) {
       if (data) {
         log.echo(data.toString());
       }
@@ -192,7 +192,7 @@ function ignoreFolders(dir) {
 }
 
 function findNodes(dirs, options) {
-  dirs.forEach(function (strPath) {
+  dirs.forEach(function(strPath) {
     let res, files, shortname;
     const stat = fs.lstatSync(strPath);
 
@@ -212,7 +212,7 @@ function findNodes(dirs, options) {
       try {
         files = fs.readdirSync(strPath);
         findNodes(
-          files.filter(hidden).map(function (file) {
+          files.filter(hidden).map(function(file) {
             return join(strPath, file);
           }),
           options
@@ -246,20 +246,20 @@ function extractMode(mode) {
   const modeGroup = modeDec.charAt(MODE_GROUP_POS);
   const modeWorld = modeDec.charAt(MODE_WORD_POS);
   const modes = {
-    0: '---',
-    1: '--x',
-    2: '-w-',
-    3: '-wx',
-    4: 'r--',
-    5: 'r-x',
-    6: 'rw-',
-    7: 'rwx'
+    0: "---",
+    1: "--x",
+    2: "-w-",
+    3: "-wx",
+    4: "r--",
+    5: "r-x",
+    6: "rw-",
+    7: "rwx"
   };
   return modes[modeOwner] + modes[modeGroup] + modes[modeWorld];
 }
 
 function convertSize(bytes) {
-  const sizes = ['B', 'K', 'M', 'G', 'T'];
+  const sizes = ["B", "K", "M", "G", "T"];
   const len = 5;
   let posttxt = 0;
 
@@ -268,11 +268,11 @@ function convertSize(bytes) {
     bytes = bytes / BYTE_CHUNKS;
   }
   const str = parseInt(bytes, DECIMAL).toFixed(0) + sizes[posttxt];
-  return new Array(len + 1 - str.length).join(' ') + str;
+  return new Array(len + 1 - str.length).join(" ") + str;
 }
 
 function convertDate(date) {
-  return moment(date).format('MMM DD HH:mm');
+  return moment(date).format("MMM DD HH:mm");
 }
 
 function getOwnerNameFromId(uid) {
@@ -284,8 +284,8 @@ function getOwnerNameFromId(uid) {
     res = cmd.run(`id -nu ${uid}`, {
       status: false
     });
-    if (res.code === 0 && res.stdout !== '') {
-      ownerNames[uid] = res.stdout.replace(/\n$/g, '');
+    if (res.code === 0 && res.stdout !== "") {
+      ownerNames[uid] = res.stdout.replace(/\n$/g, "");
     }
   }
   return ownerNames[uid];
@@ -300,8 +300,8 @@ function getGroupNameFromId(gid) {
     res = cmd.run(`grep ':*:${gid}:' /etc/group`, {
       status: false
     });
-    if (res.code === 0 && res.stdout !== '') {
-      group = res.stdout.split(':');
+    if (res.code === 0 && res.stdout !== "") {
+      group = res.stdout.split(":");
       if (group && group.length) {
         groupNames[gid] = group[0];
       }
@@ -311,7 +311,7 @@ function getGroupNameFromId(gid) {
 }
 
 function formatLongListings(stat, type) {
-  const delim = type === STR_TYPE_FILE ? '-' : 'd';
+  const delim = type === STR_TYPE_FILE ? "-" : "d";
 
   const res = {
     mode: delim + extractMode(stat.mode),
@@ -334,7 +334,7 @@ function formatLongListings(stat, type) {
 /* Geronimo!       */
 /** **************** */
 if (stats) {
-  utilities.performance.mark('ff-1');
+  utilities.performance.mark("ff-1");
 }
 
 findNodes([cwd], {
@@ -342,21 +342,21 @@ findNodes([cwd], {
 });
 
 if (!boring) {
-  log.echo('');
+  log.echo("");
 }
 
-utilities.performance.mark('ff-2');
+utilities.performance.mark("ff-2");
 
 if (filesList.length > 0) {
-  filesList.forEach(function (file) {
+  filesList.forEach(function(file) {
     const stat = file.stat;
     let name,
       l = {
-        mode: '',
-        size: '',
-        owner: '',
-        group: '',
-        mdate: ''
+        mode: "",
+        size: "",
+        owner: "",
+        group: "",
+        mdate: ""
       };
 
     if (longListing) {
@@ -365,7 +365,7 @@ if (filesList.length > 0) {
     name = `./${path.relative(cwd, file.name)}`;
     if (boring) {
       log.rainbow(
-        '%s%s%s%s%s%s',
+        "%s%s%s%s%s%s",
         l.mode,
         l.owner,
         l.group,
@@ -386,7 +386,7 @@ if (filesList.length > 0) {
         );
       }
       log.rainbow(
-        '  %s%s%s%s%s%s',
+        "  %s%s%s%s%s%s",
         l.mode,
         l.owner,
         l.group,
@@ -396,45 +396,45 @@ if (filesList.length > 0) {
       );
     }
   });
-  utilities.performance.mark('ff-file');
+  utilities.performance.mark("ff-file");
 } else if (dirsList.length > 0) {
-  dirsList.forEach(function (dir) {
+  dirsList.forEach(function(dir) {
     const stat = dir.stat;
     let name,
       l = {
-        mode: '',
-        size: '',
-        owner: '',
-        group: '',
-        mdate: ''
+        mode: "",
+        size: "",
+        owner: "",
+        group: "",
+        mdate: ""
       };
 
     if (longListing) {
       l = formatLongListings(stat, STR_TYPE_DIRECTORY);
     }
     name = path.relative(cwd, dir.name);
-    name = name === '' ? '.' : `./${name}`;
+    name = name === "" ? "." : `./${name}`;
     if (boring) {
-      log.rainbow('%s%s%s%s%s', l.mode, l.owner, l.group, l.mdate, name);
+      log.rainbow("%s%s%s%s%s", l.mode, l.owner, l.group, l.mdate, name);
     } else {
       if (dir && dir.match) {
         name = common.LOG_COLORS.blue(
           name.replace(dir.match, common.LOG_COLORS.focusBg(dir.match))
         );
       }
-      log.rainbow('  %s%s%s%s%s', l.mode, l.owner, l.group, l.mdate, name);
+      log.rainbow("  %s%s%s%s%s", l.mode, l.owner, l.group, l.mdate, name);
     }
   });
-  utilities.performance.mark('ff-dir');
+  utilities.performance.mark("ff-dir");
 }
 
 if (stats) {
-  log.echo('');
+  log.echo("");
   if (dirsList.length) {
     log.echo(`  Total dirs matching     : ${dirsList.length}`);
     log.echo(`  Total dirs scanned      : ${totalDirScanned}`);
-    utilities.performance.measure('dir-list', 'ff-1', 'ff-dir');
-    perf = utilities.performance.getEntriesByName('dir-list');
+    utilities.performance.measure("dir-list", "ff-1", "ff-dir");
+    perf = utilities.performance.getEntriesByName("dir-list");
     if (perf && perf[0].duration) {
       log.echo(
         `  Elapsed time            : ${utilities.formatMillisecondsToHuman(
@@ -446,8 +446,8 @@ if (stats) {
   if (filesList.length) {
     log.echo(`  Total files matching    : ${filesList.length}`);
     log.echo(`  Total files scanned     : ${totalFileScanned}`);
-    utilities.performance.measure('file-list', 'ff-1', 'ff-file');
-    perf = utilities.performance.getEntriesByName('file-list');
+    utilities.performance.measure("file-list", "ff-1", "ff-file");
+    perf = utilities.performance.getEntriesByName("file-list");
     if (perf && perf[0].duration) {
       log.echo(
         `  Elapsed time            : ${utilities.formatMillisecondsToHuman(
@@ -456,7 +456,7 @@ if (stats) {
       );
     }
   }
-  log.echo('');
+  log.echo("");
 } else if (!boring) {
-  log.echo('');
+  log.echo("");
 }

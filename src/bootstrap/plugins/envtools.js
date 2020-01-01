@@ -1,14 +1,14 @@
-const _ = require('lodash');
-const profile = require('./profile');
-const prompt = require('./prompt');
-const banner = require('./banner');
-const version = require('./version');
-const log = require('fedtools-logs');
-const inquirer = require('inquirer');
-const common = require('../../common');
+const _ = require("lodash");
+const profile = require("./profile");
+const prompt = require("./prompt");
+const banner = require("./banner");
+const version = require("./version");
+const log = require("fedtools-logs");
+const inquirer = require("inquirer");
+const common = require("../../common");
 const envtoolsCfg = common.ENVTOOLS;
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   const defaults = {
     choices: [
       envtoolsCfg.CFG_AUTOLOAD,
@@ -60,18 +60,18 @@ module.exports = function (options, callback) {
 
   questions = [
     {
-      type: 'checkbox',
-      name: 'choices',
-      message: 'Please choose one of more options',
+      type: "checkbox",
+      name: "choices",
+      message: "Please choose one of more options",
       when() {
         return !options.auto;
       },
       choices: mainQuestions
     },
     {
-      type: 'list',
-      name: 'custom',
-      message: 'Please choose one of the following custom prompts',
+      type: "list",
+      name: "custom",
+      message: "Please choose one of the following custom prompts",
       when(res) {
         if (
           !common.isZsh() &&
@@ -83,29 +83,29 @@ module.exports = function (options, callback) {
       default: currentPrompt - 1,
       choices: [
         {
-          name: 'Prompt with Proxy and Git information',
-          short: 'Proxy and Git',
+          name: "Prompt with Proxy and Git information",
+          short: "Proxy and Git",
           value: common.CUSTOM_PROMPT_DEFAULT
         },
         {
-          name: 'Prompt with Proxy, Git and Node information',
-          short: 'Proxy, Git and Node',
+          name: "Prompt with Proxy, Git and Node information",
+          short: "Proxy, Git and Node",
           value: common.CUSTOM_PROMPT_WITH_NODE
         }
       ]
     }
   ];
 
-  inquirer.prompt(questions).then(function (answers) {
+  inquirer.prompt(questions).then(function(answers) {
     const toggleOptions = {
       msg: []
     };
 
     function applyConfiguration(opts, done) {
-      profile.setAutoLoad(opts, function () {
-        prompt.setPrompt(opts, function () {
-          banner.setBanner(opts, function () {
-            version(opts, function () {
+      profile.setAutoLoad(opts, function() {
+        prompt.setPrompt(opts, function() {
+          banner.setBanner(opts, function() {
+            version(opts, function() {
               done(null, opts);
             });
           });
@@ -116,12 +116,12 @@ module.exports = function (options, callback) {
     function parseChoices(choices, val, label) {
       if (_.indexOf(choices, val) >= 0) {
         toggleOptions.msg.push(
-          `${label}: ${log.strToColor('green', common.ON)}`
+          `${label}: ${log.strToColor("green", common.ON)}`
         );
         toggleOptions[val] = common.ON;
       } else {
         toggleOptions.msg.push(
-          `${label}: ${log.strToColor('yellow', common.OFF)}`
+          `${label}: ${log.strToColor("yellow", common.OFF)}`
         );
         toggleOptions[val] = common.OFF;
       }
@@ -159,16 +159,16 @@ module.exports = function (options, callback) {
       applyConfiguration(options, callback);
     } else {
       questions = {
-        type: 'confirm',
-        name: 'goodToGo',
-        message: 'Do you want to continue?',
+        type: "confirm",
+        name: "goodToGo",
+        message: "Do you want to continue?",
         default: true
       };
       log.printMessagesInBox(
         options.toggleOptions.msg,
         common.LOG_COLORS.DEFAULT_BOX
       );
-      inquirer.prompt(questions).then(function (a) {
+      inquirer.prompt(questions).then(function(a) {
         if (a.goodToGo) {
           applyConfiguration(options, callback);
         } else {

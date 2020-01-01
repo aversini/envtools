@@ -1,24 +1,24 @@
-const _ = require('lodash');
-const util = require('util');
-const utilities = require('fedtools-utilities');
-const log = require('fedtools-logs');
-const common = require('../common');
-const EnvtoolsBase = require('./base');
+const _ = require("lodash");
+const util = require("util");
+const utilities = require("fedtools-utilities");
+const log = require("fedtools-logs");
+const common = require("../common");
+const EnvtoolsBase = require("./base");
 
 // -- C O N S T R U C T O R
 
-const EnvtoolsHelp = function () {
+const EnvtoolsHelp = function() {
   EnvtoolsBase.call(this);
 };
 
 // -- I N H E R I T A N C E
 
 util.inherits(EnvtoolsHelp, EnvtoolsBase);
-EnvtoolsHelp.prototype.name = 'EnvtoolsHelp';
+EnvtoolsHelp.prototype.name = "EnvtoolsHelp";
 
 // -- E X T E N D E D  M E T H O D S
 
-EnvtoolsHelp.prototype._initialize = function () {
+EnvtoolsHelp.prototype._initialize = function() {
   EnvtoolsBase.prototype._initialize.call(this);
 };
 
@@ -33,27 +33,27 @@ EnvtoolsHelp.prototype._initialize = function () {
  * @param  {String} intro   Some introductory message(s) to print.
  * @param  {Object} version The version instance.
  */
-EnvtoolsHelp.prototype.printShortUsage = function (intro, version) {
+EnvtoolsHelp.prototype.printShortUsage = function(intro, version) {
   const msgs = [];
   const commandsList = _.keys(this.commands);
 
-  msgs.push('');
+  msgs.push("");
   if (intro) {
     msgs.push(intro);
   }
-  msgs.push(log.strToColor('yellow', this.i18n.t('prompt.parameters')));
+  msgs.push(log.strToColor("yellow", this.i18n.t("prompt.parameters")));
   const commandsArray = utilities.wordWrap(
-    commandsList.join(', '),
+    commandsList.join(", "),
     this.CMD_DESC_MAX
   );
   const commandsArrayLen = commandsArray.length;
   for (let i = 0; i < commandsArrayLen; i += 1) {
     msgs.push(`  ${commandsArray[i]}`);
   }
-  msgs.push('');
-  msgs.push(log.strToColor('yellow', this.i18n.t('prompt.extraHelpTitle')));
-  msgs.push(`  ${this.i18n.t('prompt.extraHelpContent')}`);
-  msgs.push('');
+  msgs.push("");
+  msgs.push(log.strToColor("yellow", this.i18n.t("prompt.extraHelpTitle")));
+  msgs.push(`  ${this.i18n.t("prompt.extraHelpContent")}`);
+  msgs.push("");
 
   const currentVersion =
     version && version.currentVersion ? `v${version.currentVersion}` : null;
@@ -66,10 +66,10 @@ EnvtoolsHelp.prototype.printShortUsage = function (intro, version) {
  * @method printLongtUsage
  * @param  {String} intro Some introductory message(s) to print.
  */
-EnvtoolsHelp.prototype.printLongUsage = function (intro) {
+EnvtoolsHelp.prototype.printLongUsage = function(intro) {
   const commandsList = _.keys(this.commands);
   const len = commandsList.length;
-  const CMD_PRE_BUFFER = '  ';
+  const CMD_PRE_BUFFER = "  ";
   let cmdtmp,
     cmdtmplen,
     cmdt,
@@ -79,12 +79,12 @@ EnvtoolsHelp.prototype.printLongUsage = function (intro) {
     j,
     descArray,
     descArrayLen,
-    buffer = '';
+    buffer = "";
 
   if (intro) {
     log.echo(intro);
   }
-  log.echo(this.i18n.t('prompt.parameters'));
+  log.echo(this.i18n.t("prompt.parameters"));
 
   for (i = 0; i < len; i += 1) {
     cmdt = commandsList[i];
@@ -98,10 +98,10 @@ EnvtoolsHelp.prototype.printLongUsage = function (intro) {
     }
     cmdtmplen = cmdtmp.length;
 
-    buffer = `${log.strToColor('cyan', cmdtmp) +
+    buffer = `${log.strToColor("cyan", cmdtmp) +
       log.strToColor(
-        'white',
-        new Array(this.CMD_MAX_LEN - cmdtmplen).join('.')
+        "white",
+        new Array(this.CMD_MAX_LEN - cmdtmplen).join(".")
       )} `;
     descArray = utilities.wordWrap(cmdd, this.CMD_DESC_MAX);
 
@@ -109,7 +109,7 @@ EnvtoolsHelp.prototype.printLongUsage = function (intro) {
     log.rainbow(buffer + descArray[0]);
     descArrayLen = descArray.length;
     for (j = 1; j < descArrayLen; j += 1) {
-      log.rainbow(new Array(this.CMD_MAX_LEN + 1).join(' ') + descArray[j]);
+      log.rainbow(new Array(this.CMD_MAX_LEN + 1).join(" ") + descArray[j]);
     }
   }
   log.echo();
@@ -125,8 +125,8 @@ EnvtoolsHelp.prototype.printLongUsage = function (intro) {
  *                            is true or if program._[0] is 'help'...
  *                            (Way too close to optimist... needs to be improved)
  */
-EnvtoolsHelp.prototype.printUsage = function (intro, program, version) {
-  if (program.help || program._[0] === 'help') {
+EnvtoolsHelp.prototype.printUsage = function(intro, program, version) {
+  if (program.help || program._[0] === "help") {
     this.printLongUsage(intro);
     version.printUpgradeIfAny();
   } else {
@@ -136,6 +136,6 @@ EnvtoolsHelp.prototype.printUsage = function (intro, program, version) {
 };
 
 // -- E X P O R T S
-module.exports = (function () {
+module.exports = (function() {
   return EnvtoolsHelp._instance || new EnvtoolsHelp();
 })();

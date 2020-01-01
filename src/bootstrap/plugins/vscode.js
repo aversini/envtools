@@ -1,104 +1,104 @@
-const _ = require('lodash');
-const inquirer = require('inquirer');
-const waterfall = require('async/waterfall');
-const isAppInstalled = require('../../utilities/isAppInstalled');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const common = require('../../common');
+const _ = require("lodash");
+const inquirer = require("inquirer");
+const waterfall = require("async/waterfall");
+const isAppInstalled = require("../../utilities/isAppInstalled");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const common = require("../../common");
 const VSCODE_PACKAGES = [
   {
-    value: 'shurelia.base16-tomorrow-dark-vscode',
-    short: 'Base16 Tomorrow Dark+',
+    value: "shurelia.base16-tomorrow-dark-vscode",
+    short: "Base16 Tomorrow Dark+",
     name: ` [Base16 Tomorrow Dark+] .... A base16 color theme styled to look like Atom's base16-tomorrow-dark-theme.`
   },
   {
-    value: 'alefragnani.bookmarks',
-    short: 'Bookmarks',
-    name: ' [Bookmarks] ................ Mark lines and jump to them.'
+    value: "alefragnani.bookmarks",
+    short: "Bookmarks",
+    name: " [Bookmarks] ................ Mark lines and jump to them."
   },
   {
-    value: 'streetsidesoftware.code-spell-checker',
-    short: 'Code Spell Checker',
-    name: ' [Code Spell Checker] ....... Spelling checker for source code.'
+    value: "streetsidesoftware.code-spell-checker",
+    short: "Code Spell Checker",
+    name: " [Code Spell Checker] ....... Spelling checker for source code."
   },
   {
-    value: 'dbaeumer.vscode-eslint',
-    short: 'ESLint',
+    value: "dbaeumer.vscode-eslint",
+    short: "ESLint",
     name:
-      ' [ESLint] ................... Integrates ESLint JavaScript into VS Code.'
+      " [ESLint] ................... Integrates ESLint JavaScript into VS Code."
   },
   {
-    value: 'file-icons.file-icons',
-    short: 'file-icons',
+    value: "file-icons.file-icons",
+    short: "file-icons",
     name:
-      ' [file-icons] ............... File-specific icons in VSCode for improved visual grepping.'
+      " [file-icons] ............... File-specific icons in VSCode for improved visual grepping."
   },
   {
-    value: 'mhmadhamster.postcss-language',
-    short: 'postcss-sugarss',
-    name: ' [postcss-sugarss] ......... PostCSS language support.'
+    value: "mhmadhamster.postcss-language",
+    short: "postcss-sugarss",
+    name: " [postcss-sugarss] ......... PostCSS language support."
   },
   {
-    value: 'bierner.markdown-preview-github-styles',
-    short: 'Md Preview for Github',
+    value: "bierner.markdown-preview-github-styles",
+    short: "Md Preview for Github",
     name: ` [Md Preview for Github] .... Changes VS Code's built-in markdown preview to match Github's style.`
   },
   {
-    value: 'esbenp.prettier-vscode',
-    short: 'Prettier-Code formatter',
-    name: ' [Prettier-Code] ............ VS Code plugin for prettier/prettier.'
+    value: "esbenp.prettier-vscode",
+    short: "Prettier-Code formatter",
+    name: " [Prettier-Code] ............ VS Code plugin for prettier/prettier."
   },
   {
-    value: 'mrmlnc.vscode-duplicate',
-    short: 'Duplicate action',
+    value: "mrmlnc.vscode-duplicate",
+    short: "Duplicate action",
     name:
-      ' [Duplicate action] ......... Ability to duplicate files and folders in VS Code.'
+      " [Duplicate action] ......... Ability to duplicate files and folders in VS Code."
   },
   {
-    value: 'shakram02.bash-beautify',
-    short: 'Bash Beautify',
+    value: "shakram02.bash-beautify",
+    short: "Bash Beautify",
     name:
-      ' [Bash Beautify] ............ Format / Beautify bash and shell scripts.'
+      " [Bash Beautify] ............ Format / Beautify bash and shell scripts."
   },
   {
-    value: 'mrmlnc.vscode-stylefmt',
-    short: 'StyleFMT',
-    name: ' [Style FMT] ............... Modern CSS Formatter.'
+    value: "mrmlnc.vscode-stylefmt",
+    short: "StyleFMT",
+    name: " [Style FMT] ............... Modern CSS Formatter."
   }
 ];
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   waterfall(
     [
-      function (done) {
+      function(done) {
         // need to check for code package manager first...
-        const res = isAppInstalled('code');
+        const res = isAppInstalled("code");
         if (res === true) {
           return done();
         } else {
-          log.error('VS Code CLI is not installed on this machine...');
+          log.error("VS Code CLI is not installed on this machine...");
           return done(common.USER_FATAL);
         }
       },
-      function (done) {
+      function(done) {
         if (!options.auto) {
           inquirer
             .prompt([
               {
-                type: 'checkbox',
-                message: 'Select all packages you want to install',
-                name: 'vscode',
+                type: "checkbox",
+                message: "Select all packages you want to install",
+                name: "vscode",
                 choices: VSCODE_PACKAGES,
                 pageSize: VSCODE_PACKAGES.length + 1,
                 validate(val) {
                   if (!val.length) {
-                    return 'Press <space> to select one or more packages, or <ctrl-c> to quit...';
+                    return "Press <space> to select one or more packages, or <ctrl-c> to quit...";
                   }
                   return true;
                 }
               }
             ])
-            .then(function (answers) {
+            .then(function(answers) {
               // flatten the answers in case there is an array within the array, that is
               // multiple entries for one package (for example split-diff)
               return done(null, _.flatten(answers.vscode));
@@ -107,18 +107,18 @@ module.exports = function (options, callback) {
           return done(null, VSCODE_PACKAGES);
         }
       },
-      function (packages, done) {
+      function(packages, done) {
         // need to run each commands in waterfall,
         // so extracting all fct and putting them into
         // an array (for async.waterfall)
-        const res = _.map(packages, function (item) {
-          return function (goodToGo) {
+        const res = _.map(packages, function(item) {
+          return function(goodToGo) {
             cmd.run(
               `code --install-extension ${item}`,
               {
                 status: true
               },
-              function (err) {
+              function(err) {
                 goodToGo(err);
               }
             );
@@ -126,11 +126,11 @@ module.exports = function (options, callback) {
         });
         // and finally running the show
         if (packages && packages.length) {
-          waterfall(res, function (err) {
+          waterfall(res, function(err) {
             if (!err) {
               log.echo();
               log.printMessagesInBox(
-                ['Restart Visual Studio Code to take the changes into effect.'],
+                ["Restart Visual Studio Code to take the changes into effect."],
                 common.LOG_COLORS.DEFAULT_BOX
               );
               err = common.USER_IGNORE;
@@ -142,7 +142,7 @@ module.exports = function (options, callback) {
         }
       }
     ],
-    function (err) {
+    function(err) {
       callback(err, options);
     }
   );

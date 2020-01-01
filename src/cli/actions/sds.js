@@ -1,7 +1,7 @@
-const log = require('fedtools-logs');
-const cmd = require('fedtools-commands');
+const log = require("fedtools-logs");
+const cmd = require("fedtools-commands");
 
-module.exports = function (self, program) {
+module.exports = function(self, program) {
   const command = program._[1];
 
   if (command) {
@@ -10,7 +10,7 @@ module.exports = function (self, program) {
       {
         status: true
       },
-      function (err, stderr, stdout) {
+      function(err, stderr, stdout) {
         if (err) {
           if (stderr) {
             log.error(stderr);
@@ -26,6 +26,6 @@ module.exports = function (self, program) {
       }
     );
   } else {
-    log.error('Usage: envtools sds \'some command\'');
+    log.error("Usage: envtools sds 'some command'");
   }
 };

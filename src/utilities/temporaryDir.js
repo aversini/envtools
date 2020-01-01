@@ -9,24 +9,24 @@
  * @return {String} Path to a temporary folder.
  */
 
-const fs = require('fs-extra');
-const path = require('path');
-const os = require('os');
-const common = require('../common');
+const fs = require("fs-extra");
+const path = require("path");
+const os = require("os");
+const common = require("../common");
 
 module.exports = (subDir, rootDir) => {
   let osTmpDir, tmpDir;
 
-  if (typeof rootDir === 'string' && fs.existsSync(rootDir)) {
+  if (typeof rootDir === "string" && fs.existsSync(rootDir)) {
     osTmpDir = path.resolve(rootDir);
   } else if (common.isLinux() || common.isMac()) {
     // forcing /tmp on linux and mac
-    osTmpDir = '/tmp';
+    osTmpDir = "/tmp";
   } else {
     osTmpDir = os.tmpdir();
   }
 
-  tmpDir = path.join(osTmpDir, 'envtools-tmp');
+  tmpDir = path.join(osTmpDir, "envtools-tmp");
   if (subDir) {
     tmpDir = path.join(tmpDir, subDir);
   }

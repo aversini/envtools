@@ -1,17 +1,17 @@
-const _ = require('lodash');
-const fs = require('fs-extra');
-const inquirer = require('inquirer');
-const log = require('fedtools-logs');
-const cmd = require('fedtools-commands');
-const common = require('../../common');
+const _ = require("lodash");
+const fs = require("fs-extra");
+const inquirer = require("inquirer");
+const log = require("fedtools-logs");
+const cmd = require("fedtools-commands");
+const common = require("../../common");
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   // resetting /usr/local permission to current owner
   const questions = [
     {
-      type: 'confirm',
-      name: 'goForIt',
-      message: 'About to reset ownership for /usr/local... Continue?',
+      type: "confirm",
+      name: "goForIt",
+      message: "About to reset ownership for /usr/local... Continue?",
       default: true
     }
   ];
@@ -26,27 +26,27 @@ module.exports = function (options, callback) {
     verbose = true;
   }
   if (!whoami) {
-    whoami = cmd.run('whoami', {
+    whoami = cmd.run("whoami", {
       status: options.debug
     }).output;
   }
 
-  if (_.isString(whoami) && fs.existsSync('/usr/local')) {
-    inquirer.prompt(questions).then(function (answers) {
+  if (_.isString(whoami) && fs.existsSync("/usr/local")) {
+    inquirer.prompt(questions).then(function(answers) {
       options.actionsPending++;
       if (answers.goForIt) {
         options.actionsDone++;
         cmd.sudo(
           `chown -R ${whoami} /usr/local`,
           {
-            name: 'Envtools',
+            name: "Envtools",
             status: verbose
           },
-          function (err) {
+          function(err) {
             if (err) {
               err = common.USER_IGNORE;
               log.error(
-                'Something went wrong or you did not grant admin access...'
+                "Something went wrong or you did not grant admin access..."
               );
             }
             return callback(err, options);

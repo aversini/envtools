@@ -1,22 +1,22 @@
-const fs = require('fs-extra');
-const waterfall = require('async/waterfall');
-const path = require('path');
-const glob = require('glob');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const backup = require('../../utilities/backup');
-const common = require('../../common');
+const fs = require("fs-extra");
+const waterfall = require("async/waterfall");
+const path = require("path");
+const glob = require("glob");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const backup = require("../../utilities/backup");
+const common = require("../../common");
 
-module.exports = function (options, callback) {
-  const destFolder = path.join(process.env.HOME, 'Library', 'QuickLook');
-  const srcFolder = path.join(common.ENVTOOLS.THIRDDIR, 'quicklook');
+module.exports = function(options, callback) {
+  const destFolder = path.join(process.env.HOME, "Library", "QuickLook");
+  const srcFolder = path.join(common.ENVTOOLS.THIRDDIR, "quicklook");
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         if (!fs.existsSync(destFolder)) {
           // folder doesn't exist, let's create it
-          fs.ensureDir(destFolder, function (err) {
+          fs.ensureDir(destFolder, function(err) {
             done(err);
           });
         } else {
@@ -25,9 +25,9 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         let i, len;
-        glob(`${srcFolder}/*.qlgenerator`, {}, function (err, plugins) {
+        glob(`${srcFolder}/*.qlgenerator`, {}, function(err, plugins) {
           // removing the old ones if any
           // (but only the ones that are going to be re-installed)
           if (!err && plugins) {
@@ -39,14 +39,14 @@ module.exports = function (options, callback) {
           done(err);
         });
       },
-      function (done) {
+      function(done) {
         // copy new ones instead
         fs.copy(srcFolder, destFolder, done);
       },
-      function (done) {
+      function(done) {
         // tell the system to load the new plugins
         cmd.run(
-          'qlmanage -r',
+          "qlmanage -r",
           {
             status: false
           },
@@ -54,9 +54,9 @@ module.exports = function (options, callback) {
         );
       }
     ],
-    function (err) {
+    function(err) {
       if (!err) {
-        log.success('QuickLook Plugins successfully installed');
+        log.success("QuickLook Plugins successfully installed");
       }
       callback(err, options);
     }

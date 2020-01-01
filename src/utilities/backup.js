@@ -1,10 +1,10 @@
-const _ = require('lodash/core');
-const moment = require('moment');
-const path = require('path');
-const fs = require('fs-extra');
-const execa = require('execa');
+const _ = require("lodash/core");
+const moment = require("moment");
+const path = require("path");
+const fs = require("fs-extra");
+const execa = require("execa");
 
-const BACKUPDIR = path.join(process.env.HOME, '.envtools', 'backups');
+const BACKUPDIR = path.join(process.env.HOME, ".envtools", "backups");
 
 /**
  * Backup files and directories to a unique backup directory.
@@ -16,11 +16,11 @@ const BACKUPDIR = path.join(process.env.HOME, '.envtools', 'backups');
  * one is needed, then use an array. The backup directory is located under
  * ~/$ENVDIR/backups and calculated as MMDDYYYYHHmmss.
  */
-module.exports = (backups) => {
+module.exports = backups => {
   let backupStr;
   const backupDir = path.join(
     BACKUPDIR,
-    moment().format('MMDDYYYY-HH[h]mm[m]')
+    moment().format("MMDDYYYY-HH[h]mm[m]")
   );
 
   fs.ensureDirSync(backupDir);

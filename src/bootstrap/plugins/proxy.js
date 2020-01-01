@@ -1,14 +1,14 @@
 /* eslint complexity:0 */
-const url = require('url');
-const fs = require('fs-extra');
-const waterfall = require('async/waterfall');
-const log = require('fedtools-logs');
-const inquirer = require('inquirer');
-const common = require('../../common');
+const url = require("url");
+const fs = require("fs-extra");
+const waterfall = require("async/waterfall");
+const log = require("fedtools-logs");
+const inquirer = require("inquirer");
+const common = require("../../common");
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   const msg = [];
-  let proxy = '',
+  let proxy = "",
     questions;
 
   // in auto mode, no setting proxy if it's already set!
@@ -19,74 +19,74 @@ module.exports = function (options, callback) {
   function _setProxy(done) {
     const questions = [
       {
-        type: 'list',
-        name: 'protocol',
-        message: 'Select the proxy protocol:',
-        choices: ['http', 'https', 'other']
+        type: "list",
+        name: "protocol",
+        message: "Select the proxy protocol:",
+        choices: ["http", "https", "other"]
       },
       {
-        type: 'input',
-        name: 'protocol',
-        message: 'Type the protocol you want to use: ',
+        type: "input",
+        name: "protocol",
+        message: "Type the protocol you want to use: ",
         when(res) {
-          return res.protocol === 'other';
+          return res.protocol === "other";
         },
         validate(val) {
           if (!val) {
-            return 'Protocol cannot be empty...';
+            return "Protocol cannot be empty...";
           }
           return true;
         },
         filter(res) {
-          return res.replace('://', '');
+          return res.replace("://", "");
         }
       },
       {
-        type: 'list',
-        name: 'port',
-        message: 'Select the proxy port:',
+        type: "list",
+        name: "port",
+        message: "Select the proxy port:",
         choices: [
-          '8080',
-          '80',
+          "8080",
+          "80",
           {
-            value: '',
-            name: 'none'
+            value: "",
+            name: "none"
           },
-          'other'
+          "other"
         ]
       },
       {
-        type: 'input',
-        name: 'port',
-        message: 'Type the port you want to use (<enter> for none): ',
+        type: "input",
+        name: "port",
+        message: "Type the port you want to use (<enter> for none): ",
         when(res) {
-          return res.port === 'other';
+          return res.port === "other";
         }
       },
       {
-        type: 'input',
-        name: 'url',
-        message: 'Type the proxy URL: ',
+        type: "input",
+        name: "url",
+        message: "Type the proxy URL: ",
         validate(val) {
           if (!val) {
-            return 'URL cannot be empty...';
+            return "URL cannot be empty...";
           }
           return true;
         }
       }
     ];
 
-    inquirer.prompt(questions).then(function (answers) {
+    inquirer.prompt(questions).then(function(answers) {
       const urlCfg = url.parse(answers.url);
 
       let hostname = answers.url,
         protocol = `${answers.protocol}://`,
-        port = answers.port !== '' ? `:${answers.port}` : null;
+        port = answers.port !== "" ? `:${answers.port}` : null;
 
       if (urlCfg && urlCfg.protocol) {
         if (
           urlCfg.protocol &&
-          (urlCfg.protocol === 'http:' || urlCfg.protocol === 'https:')
+          (urlCfg.protocol === "http:" || urlCfg.protocol === "https:")
         ) {
           protocol = `${urlCfg.protocol}//`;
           if (urlCfg.port) {
@@ -98,7 +98,7 @@ module.exports = function (options, callback) {
         } else {
           // invalid protocol which means the url was invalid,
           // need to wipe out anything after : if any
-          hostname = hostname.split(':')[0];
+          hostname = hostname.split(":")[0];
         }
       }
       const proxy = protocol + hostname + port;
@@ -108,31 +108,31 @@ module.exports = function (options, callback) {
         log.success(`proxy set to ${proxy}`);
         log.echo();
         msg.push(
-          'To take your proxy into account, you need to restart your session.'
+          "To take your proxy into account, you need to restart your session."
         );
         if (process.env.ENVTOOLS_VERSION) {
-          msg.push('');
+          msg.push("");
           msg.push(
             `${log.strToColor(
-              'cyan',
-              'Hint #1:'
+              "cyan",
+              "Hint #1:"
             )} type r ENTER or just restart your terminal...`
           );
           msg.push(
             `${log.strToColor(
-              'cyan',
-              'Hint #2:'
+              "cyan",
+              "Hint #2:"
             )} type pon ENTER to turn the proxy ON.`
           );
           msg.push(
             `${log.strToColor(
-              'cyan',
-              'Hint #3:'
+              "cyan",
+              "Hint #3:"
             )} type poff ENTER to turn the proxy OFF.`
           );
         }
         if (options.auto) {
-          fs.writeFileSync(common.ENVTOOLS.RESUME_AUTO, '');
+          fs.writeFileSync(common.ENVTOOLS.RESUME_AUTO, "");
         }
         options.msg = msg;
         return done(common.USER_WARNING, options);
@@ -147,19 +147,19 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         questions = [
           {
-            type: 'confirm',
-            name: 'goForIt',
-            message: 'Do you need to setup a proxy?',
+            type: "confirm",
+            name: "goForIt",
+            message: "Do you need to setup a proxy?",
             default: true
           }
         ];
         if (!options.auto) {
           return done();
         } else {
-          inquirer.prompt(questions).then(function (answers) {
+          inquirer.prompt(questions).then(function(answers) {
             options.actionsPending++;
             if (answers.goForIt) {
               options.actionsDone++;
@@ -170,20 +170,20 @@ module.exports = function (options, callback) {
           });
         }
       },
-      function (done) {
+      function(done) {
         if (fs.existsSync(common.ENVTOOLS.PROXY_FILE)) {
-          proxy = fs.readFileSync(common.ENVTOOLS.PROXY_FILE, 'utf8');
-          if (proxy && proxy !== '') {
+          proxy = fs.readFileSync(common.ENVTOOLS.PROXY_FILE, "utf8");
+          if (proxy && proxy !== "") {
             questions = [
               {
-                type: 'confirm',
-                name: 'change',
-                message: 'Proxy already set... Do you want to change it?',
+                type: "confirm",
+                name: "change",
+                message: "Proxy already set... Do you want to change it?",
                 default: false
               }
             ];
           }
-          inquirer.prompt(questions).then(function (answers) {
+          inquirer.prompt(questions).then(function(answers) {
             options.actionsPending++;
             if (answers.change) {
               options.actionsDone++;
@@ -193,13 +193,13 @@ module.exports = function (options, callback) {
             }
           });
         } else {
-          common.createRuntimeDir(function () {
+          common.createRuntimeDir(function() {
             _setProxy(done);
           });
         }
       }
     ],
-    function (err, data) {
+    function(err, data) {
       if (err && err === common.USER_WARNING && data && data.msg) {
         log.printMessagesInBox(data.msg, common.LOG_COLORS.DEFAULT_BOX);
       }

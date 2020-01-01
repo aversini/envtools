@@ -1,23 +1,23 @@
-const fs = require('fs-extra');
-const path = require('path');
-const waterfall = require('async/waterfall');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const backup = require('../../utilities/backup');
-const common = require('../../common');
-const NPM_CONFIG = path.join(process.env.HOME, '.npmrc');
-const YARN_CONFIG = path.join(process.env.HOME, '.yarnrc');
-const YARN_DEST = path.join(process.env.HOME, '.yarn');
+const fs = require("fs-extra");
+const path = require("path");
+const waterfall = require("async/waterfall");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const backup = require("../../utilities/backup");
+const common = require("../../common");
+const NPM_CONFIG = path.join(process.env.HOME, ".npmrc");
+const YARN_CONFIG = path.join(process.env.HOME, ".yarnrc");
+const YARN_DEST = path.join(process.env.HOME, ".yarn");
 const YARN_TAR_GZ = path.join(
   common.ENVTOOLS.THIRDDIR,
-  'yarn',
-  'latest.tar.gz'
+  "yarn",
+  "latest.tar.gz"
 );
 
-let YARN_BIN = 'yarn',
+let YARN_BIN = "yarn",
   promptForRestart = false;
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   backup([NPM_CONFIG, YARN_CONFIG]);
 
   function _displayRestartInfo(lines, boxColor) {
@@ -25,15 +25,15 @@ module.exports = function (options, callback) {
     if (lines) {
       msg = lines;
     } else {
-      msg.push('Yarn has been automatically installed for you.');
-      msg.push('You need to restart your session to use it');
+      msg.push("Yarn has been automatically installed for you.");
+      msg.push("You need to restart your session to use it");
     }
     if (process.env.ENVTOOLS_VERSION) {
-      msg.push('');
+      msg.push("");
       msg.push(
         `${log.strToColor(
-          'cyan',
-          'Hint:'
+          "cyan",
+          "Hint:"
         )} type r ENTER or just restart your terminal...`
       );
     }
@@ -43,17 +43,17 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
-        fs.emptyDir(YARN_DEST, function () {
+      function(done) {
+        fs.emptyDir(YARN_DEST, function() {
           return done(null);
         });
       },
-      function (done) {
-        fs.mkdirp(YARN_DEST, function (err) {
+      function(done) {
+        fs.mkdirp(YARN_DEST, function(err) {
           return done(null, err);
         });
       },
-      function (cannotInstallYarn, done) {
+      function(cannotInstallYarn, done) {
         if (!cannotInstallYarn && !common.isWindows()) {
           // installing yarn ourselves on Mac and Linux...
           cmd.run(
@@ -61,9 +61,9 @@ module.exports = function (options, callback) {
             {
               status: false
             },
-            function (err) {
+            function(err) {
               if (!err) {
-                YARN_BIN = path.join(process.env.HOME, '.yarn', 'bin', 'yarn');
+                YARN_BIN = path.join(process.env.HOME, ".yarn", "bin", "yarn");
                 promptForRestart = true;
               }
               done(null);
@@ -74,40 +74,40 @@ module.exports = function (options, callback) {
         }
       },
 
-      function (done) {
+      function(done) {
         waterfall(
           [
-            function (fini) {
+            function(fini) {
               cmd.run(
-                'npm config set strict-ssl false',
+                "npm config set strict-ssl false",
                 {
                   status: !options.auto
                 },
-                function () {
+                function() {
                   fini();
                 }
               );
             },
-            function (fini) {
+            function(fini) {
               const cmdline = `${YARN_BIN} config set strict-ssl false`;
               cmd.run(
                 cmdline,
                 {
                   status: !options.auto
                 },
-                function () {
+                function() {
                   fini();
                 }
               );
             }
           ],
-          function (err) {
+          function(err) {
             done(err);
           }
         );
       }
     ],
-    function (err) {
+    function(err) {
       if (promptForRestart) {
         _displayRestartInfo();
       }

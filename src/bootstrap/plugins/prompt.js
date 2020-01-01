@@ -1,9 +1,9 @@
-const fs = require('fs-extra');
-const path = require('path');
-const common = require('../../common');
+const fs = require("fs-extra");
+const path = require("path");
+const common = require("../../common");
 
 function setPrompt(options, callback) {
-  const envtoolsPrompt = path.join(common.RUNTIME_DIR, 'envtools-prompt');
+  const envtoolsPrompt = path.join(common.RUNTIME_DIR, "envtools-prompt");
 
   if (options.toggleOptions[common.ENVTOOLS.CFG_CUSTOM_PROMPT] === common.ON) {
     if (options.toggleOptions.custom) {
@@ -17,11 +17,11 @@ function setPrompt(options, callback) {
 }
 
 function getPrompt() {
-  const envtoolsPrompt = path.join(common.RUNTIME_DIR, 'envtools-prompt');
+  const envtoolsPrompt = path.join(common.RUNTIME_DIR, "envtools-prompt");
   let data;
 
   try {
-    data = fs.readFileSync(envtoolsPrompt, 'utf8');
+    data = fs.readFileSync(envtoolsPrompt, "utf8");
   } catch (e) {
     // nothing to declare
   }

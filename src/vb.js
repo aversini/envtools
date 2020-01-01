@@ -2,14 +2,14 @@
 
 // @todo use a promise library instead of so many callbacks
 
-var exec = require('child_process').exec,
+var exec = require("child_process").exec,
   hostPlatform = process.platform,
-  logging = require('fedtools-logs'),
+  logging = require("fedtools-logs"),
   vBoxManageBinary,
   knownOSTypes = {
-    WINDOWS: 'windows',
-    MAC: 'mac',
-    LINUX: 'linux'
+    WINDOWS: "windows",
+    MAC: "mac",
+    LINUX: "linux"
   };
 
 // Host operating system
@@ -17,13 +17,13 @@ if (/^win/.test(hostPlatform)) {
   // Path may not contain VBoxManage.exe but it provides this environment variable
   var vBoxInstallPath =
     process.env.VBOX_INSTALL_PATH || process.env.VBOX_MSI_INSTALL_PATH;
-  vBoxManageBinary = '"' + vBoxInstallPath + '\\VBoxManage.exe' + '" ';
+  vBoxManageBinary = '"' + vBoxInstallPath + "\\VBoxManage.exe" + '" ';
 } else if (/^darwin/.test(hostPlatform) || /^linux/.test(hostPlatform)) {
   // Mac OS X and most Linux use the same binary name, in the path
-  vBoxManageBinary = 'vboxmanage ';
+  vBoxManageBinary = "vboxmanage ";
 } else {
   // Otherwise (e.g., SunOS) hope it's in the path
-  vBoxManageBinary = 'vboxmanage ';
+  vBoxManageBinary = "vboxmanage ";
 }
 
 function command(cmd, callback) {
@@ -31,8 +31,8 @@ function command(cmd, callback) {
     if (
       !err &&
       stderr &&
-      cmd.indexOf('pause') !== -1 &&
-      cmd.indexOf('savestate') !== -1
+      cmd.indexOf("pause") !== -1 &&
+      cmd.indexOf("savestate") !== -1
     ) {
       err = new Error(stderr);
     }
@@ -42,7 +42,7 @@ function command(cmd, callback) {
 }
 
 function vboxcontrol(cmd, callback) {
-  command('VBoxControl ' + cmd, callback);
+  command("VBoxControl " + cmd, callback);
 }
 
 function vboxmanage(cmd, callback) {
@@ -62,7 +62,7 @@ function parseListData(rawData) {
   if (_raw.length > 0) {
     for (var _i = 0; _i < _raw.length; _i += 1) {
       var _line = _raw[_i];
-      if (_line === '') {
+      if (_line === "") {
         continue;
       }
       // "centos6" {64ec13bb-5889-4352-aee9-0f1c2a17923d}
@@ -114,12 +114,12 @@ function resume(vmname, callback) {
 }
 
 function start(vmname, useGui, callback) {
-  var startOpts = ' --type ';
-  if (typeof useGui === 'function') {
+  var startOpts = " --type ";
+  if (typeof useGui === "function") {
     callback = useGui;
     useGui = true;
   }
-  startOpts += useGui ? 'gui' : 'headless';
+  startOpts += useGui ? "gui" : "headless";
 
   // logging.info('Starting VM "%s" with options: ', vmname, startOpts);
 
@@ -175,7 +175,7 @@ function acpisleepbutton(vmname, callback) {
 
 function vmExec(options, callback) {
   var vm = options.vm || options.name || options.vmname || options.title,
-    username = options.user || options.username || 'Guest',
+    username = options.user || options.username || "Guest",
     password = options.pass || options.passwd || options.password,
     path =
       options.path ||
@@ -188,11 +188,11 @@ function vmExec(options, callback) {
     params = options.params || options.parameters || options.args;
 
   if (Array.isArray(params)) {
-    params = params.join(' ');
+    params = params.join(" ");
   }
 
   if (params === undefined) {
-    params = '';
+    params = "";
   }
 
   function getOSTypeCb(OSType) {
@@ -200,11 +200,11 @@ function vmExec(options, callback) {
 
     switch (OSType) {
       case knownOSTypes.WINDOWS:
-        path = path.replace(/\\/g, '\\\\');
+        path = path.replace(/\\/g, "\\\\");
         cmd +=
           ' execute  --image "cmd.exe" --username ' +
           username +
-          (password ? ' --password ' + password : '') +
+          (password ? " --password " + password : "") +
           ' -- "/c" "' +
           path +
           '" "' +
@@ -215,7 +215,7 @@ function vmExec(options, callback) {
         cmd +=
           ' execute  --image "/usr/bin/open -a" --username ' +
           username +
-          (password ? ' --password ' + password : '') +
+          (password ? " --password " + password : "") +
           ' -- "/c" "' +
           path +
           '" "' +
@@ -226,7 +226,7 @@ function vmExec(options, callback) {
         cmd +=
           ' execute  --image "/bin/sh" --username ' +
           username +
-          (password ? ' --password ' + password : '') +
+          (password ? " --password " + password : "") +
           ' -- "/c" "' +
           path +
           '" "' +
@@ -273,7 +273,7 @@ function vmKill(options, callback) {
             vm: vm,
             user: options.user,
             password: options.password,
-            path: 'C:\\Windows\\System32\\taskkill.exe /im ',
+            path: "C:\\Windows\\System32\\taskkill.exe /im ",
             params: imageName
           },
           callback
@@ -286,7 +286,7 @@ function vmKill(options, callback) {
             vm: vm,
             user: options.user,
             password: options.password,
-            path: 'sudo killall ',
+            path: "sudo killall ",
             params: imageName
           },
           callback
@@ -310,8 +310,8 @@ var guestproperty = {
         if (error) {
           throw error;
         }
-        var value = stdout.substr(stdout.indexOf(':') + 1).trim();
-        if (value === 'No value set!') {
+        var value = stdout.substr(stdout.indexOf(":") + 1).trim();
+        if (value === "No value set!") {
           value = undefined;
         }
         callback(value);
@@ -335,7 +335,7 @@ var guestproperty = {
       } else {
         guestproperty.OSType = knownOSTypes.LINUX;
       }
-      logging.debug('Detected guest OS as: ' + guestproperty.OSType);
+      logging.debug("Detected guest OS as: " + guestproperty.OSType);
       callback(guestproperty.OSType);
     }
 
@@ -349,7 +349,7 @@ var guestproperty = {
         getOSTypeCallback
       );
     } catch (e) {
-      logging.info('Could not showvminfo for %s', vmname);
+      logging.info("Could not showvminfo for %s", vmname);
     }
   }
 };

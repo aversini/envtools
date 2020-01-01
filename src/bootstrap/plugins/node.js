@@ -1,95 +1,95 @@
-const _ = require('lodash');
-const fs = require('fs-extra');
-const path = require('path');
-const waterfall = require('async/waterfall');
-const inquirer = require('inquirer');
-const cmd = require('fedtools-commands');
-const log = require('fedtools-logs');
-const isAppInstalled = require('../../utilities/isAppInstalled');
-const backup = require('../../utilities/backup');
-const common = require('../../common');
-const NPM_CONFIG = path.join(process.env.HOME, '.npmrc');
-const YARN_CONFIG = path.join(process.env.HOME, '.yarnrc');
-const YARN_DEST = path.join(process.env.HOME, '.yarn');
+const _ = require("lodash");
+const fs = require("fs-extra");
+const path = require("path");
+const waterfall = require("async/waterfall");
+const inquirer = require("inquirer");
+const cmd = require("fedtools-commands");
+const log = require("fedtools-logs");
+const isAppInstalled = require("../../utilities/isAppInstalled");
+const backup = require("../../utilities/backup");
+const common = require("../../common");
+const NPM_CONFIG = path.join(process.env.HOME, ".npmrc");
+const YARN_CONFIG = path.join(process.env.HOME, ".yarnrc");
+const YARN_DEST = path.join(process.env.HOME, ".yarn");
 const YARN_TAR_GZ = path.join(
   common.ENVTOOLS.THIRDDIR,
-  'yarn',
-  'latest.tar.gz'
+  "yarn",
+  "latest.tar.gz"
 );
 const NPM_PACKAGES = [
   {
-    value: ['eslint', 'eslint-plugin-react'],
-    short: 'eslint',
-    name: '[eslint] ...... Pattern checker/linter for JavaScript.'
+    value: ["eslint", "eslint-plugin-react"],
+    short: "eslint",
+    name: "[eslint] ...... Pattern checker/linter for JavaScript."
   },
   {
-    value: 'fastlint',
-    short: 'fastlint',
-    name: '[fastlint] .... Linter helper.'
+    value: "fastlint",
+    short: "fastlint",
+    name: "[fastlint] .... Linter helper."
   },
   {
-    value: 'fedtools',
-    short: 'fedtools',
-    name: '[fedtools] .... Framework code builder.'
+    value: "fedtools",
+    short: "fedtools",
+    name: "[fedtools] .... Framework code builder."
   },
   {
-    value: 'grunt-cli',
-    short: 'grunt-cli',
-    name: '[grunt-cli] ... The grunt command line interface.'
+    value: "grunt-cli",
+    short: "grunt-cli",
+    name: "[grunt-cli] ... The grunt command line interface."
   },
   {
-    value: 'gulp-cli',
-    short: 'gulp-cli',
-    name: '[gulp-cli] .... The gulp command line interface.'
+    value: "gulp-cli",
+    short: "gulp-cli",
+    name: "[gulp-cli] .... The gulp command line interface."
   },
   {
-    value: 'npm-check',
-    short: 'npm-check',
+    value: "npm-check",
+    short: "npm-check",
     name:
-      '[npm-check] ... Check for outdated, incorrect, and unused dependencies.'
+      "[npm-check] ... Check for outdated, incorrect, and unused dependencies."
   },
   {
-    value: 'selleck',
-    short: 'selleck',
-    name: '[selleck] ..... YUI documentation generator.'
+    value: "selleck",
+    short: "selleck",
+    name: "[selleck] ..... YUI documentation generator."
   },
   {
-    value: 'serve',
-    short: 'serve',
-    name: '[serve]  ...... Static server.'
+    value: "serve",
+    short: "serve",
+    name: "[serve]  ...... Static server."
   },
   {
-    value: 'surge',
-    short: 'surge',
-    name: '[surge] ....... Static web publishing.'
+    value: "surge",
+    short: "surge",
+    name: "[surge] ....... Static web publishing."
   },
   {
-    value: 'svgo',
-    short: 'svgo',
-    name: '[svgo] ........ Tool for optimizing SVG files.'
+    value: "svgo",
+    short: "svgo",
+    name: "[svgo] ........ Tool for optimizing SVG files."
   },
   {
-    value: 'unicorn-tool',
-    short: 'unicorn',
-    name: '[unicorn] ..... Framework code builder.'
+    value: "unicorn-tool",
+    short: "unicorn",
+    name: "[unicorn] ..... Framework code builder."
   },
   {
-    value: 'yogi',
-    short: 'yogi',
-    name: '[yogi] ........ YUI gallery code builder.'
+    value: "yogi",
+    short: "yogi",
+    name: "[yogi] ........ YUI gallery code builder."
   },
   {
-    value: 'yuidocjs',
-    short: 'yuidocjs',
-    name: '[yuidocjs] .... YUI JavaScript Documentation engine.'
+    value: "yuidocjs",
+    short: "yuidocjs",
+    name: "[yuidocjs] .... YUI JavaScript Documentation engine."
   }
 ];
 
 let promptForRestart = false,
-  YARN_BIN = 'yarn',
-  isYarn = isAppInstalled('yarn');
+  YARN_BIN = "yarn",
+  isYarn = isAppInstalled("yarn");
 
-module.exports = function (options, callback) {
+module.exports = function(options, callback) {
   backup([NPM_CONFIG, YARN_CONFIG]);
 
   function _displayRestartInfo(lines, boxColor) {
@@ -97,15 +97,15 @@ module.exports = function (options, callback) {
     if (lines) {
       msg = lines;
     } else {
-      msg.push('Yarn has been automatically installed for you.');
-      msg.push('You need to restart your session to use it.');
+      msg.push("Yarn has been automatically installed for you.");
+      msg.push("You need to restart your session to use it.");
     }
     if (process.env.ENVTOOLS_VERSION) {
-      msg.push('');
+      msg.push("");
       msg.push(
         `${log.strToColor(
-          'cyan',
-          'Hint:'
+          "cyan",
+          "Hint:"
         )} type r ENTER or just restart your terminal...`
       );
     }
@@ -115,16 +115,16 @@ module.exports = function (options, callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         if (!isYarn) {
-          fs.mkdirp(YARN_DEST, function (err) {
+          fs.mkdirp(YARN_DEST, function(err) {
             return done(null, err);
           });
         } else {
           return done(null, false);
         }
       },
-      function (cannotInstallYarn, done) {
+      function(cannotInstallYarn, done) {
         if (!isYarn && !cannotInstallYarn && !common.isWindows()) {
           // installing yarn ourselves on Mac and Linux...
           cmd.run(
@@ -132,9 +132,9 @@ module.exports = function (options, callback) {
             {
               status: false
             },
-            function (err) {
+            function(err) {
               if (!err) {
-                YARN_BIN = path.join(process.env.HOME, '.yarn', 'bin', 'yarn');
+                YARN_BIN = path.join(process.env.HOME, ".yarn", "bin", "yarn");
                 isYarn = true;
                 promptForRestart = true;
               }
@@ -145,16 +145,16 @@ module.exports = function (options, callback) {
           return done(null);
         }
       },
-      function (done) {
+      function(done) {
         const questions = {
-          type: 'confirm',
-          name: 'goForIt',
+          type: "confirm",
+          name: "goForIt",
           message: isYarn
-            ? 'About to update npm and yarn configuration, continue?'
-            : 'About to update npm configuration, continue?',
+            ? "About to update npm and yarn configuration, continue?"
+            : "About to update npm configuration, continue?",
           default: true
         };
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           options.actionsPending++;
           if (answers.goForIt) {
             options.actionsDone++;
@@ -164,14 +164,14 @@ module.exports = function (options, callback) {
           }
         });
       },
-      function (goForIt, done) {
+      function(goForIt, done) {
         if (goForIt) {
           cmd.run(
-            'npm config set strict-ssl false',
+            "npm config set strict-ssl false",
             {
               status: !options.auto
             },
-            function () {
+            function() {
               done(null, goForIt);
             }
           );
@@ -179,7 +179,7 @@ module.exports = function (options, callback) {
           return done(null, goForIt);
         }
       },
-      function (goForIt, done) {
+      function(goForIt, done) {
         let cmdline;
         if (goForIt && isYarn) {
           cmdline = `${YARN_BIN} config set strict-ssl false`;
@@ -188,7 +188,7 @@ module.exports = function (options, callback) {
             {
               status: !options.auto
             },
-            function () {
+            function() {
               done();
             }
           );
@@ -196,18 +196,18 @@ module.exports = function (options, callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         const questions = {
-          type: 'confirm',
-          name: 'goForIt',
-          message: 'About to install core node packages, continue?',
+          type: "confirm",
+          name: "goForIt",
+          message: "About to install core node packages, continue?",
           default: true
         };
         if (!options.auto) {
           // no need to ask the question in manual mode
           return done(null, 1);
         } else {
-          inquirer.prompt(questions).then(function (answers) {
+          inquirer.prompt(questions).then(function(answers) {
             options.actionsPending++;
             if (answers.goForIt) {
               options.actionsDone++;
@@ -218,7 +218,7 @@ module.exports = function (options, callback) {
           });
         }
       },
-      function (goForIt, done) {
+      function(goForIt, done) {
         if (goForIt) {
           // in manual mode, let's ask the user to choose
           // which package they want to install...
@@ -226,28 +226,28 @@ module.exports = function (options, callback) {
             inquirer
               .prompt([
                 {
-                  type: 'checkbox',
+                  type: "checkbox",
                   message:
-                    'Select one or more node packages you want to install',
-                  name: 'npms',
+                    "Select one or more node packages you want to install",
+                  name: "npms",
                   choices: NPM_PACKAGES,
                   pageSize: NPM_PACKAGES.length + 1,
                   validate(val) {
                     if (!val.length) {
-                      return 'Press <space> to select one or more packages, or <ctrl-c> to quit...';
+                      return "Press <space> to select one or more packages, or <ctrl-c> to quit...";
                     }
                     return true;
                   }
                 }
               ])
-              .then(function (answers) {
+              .then(function(answers) {
                 return done(null, answers.npms);
               });
           } else {
             // in auto mode, install all packages
             return done(
               null,
-              _.map(NPM_PACKAGES, function (p) {
+              _.map(NPM_PACKAGES, function(p) {
                 return p.value;
               })
             );
@@ -256,7 +256,7 @@ module.exports = function (options, callback) {
           return done(common.USER_INTERRUPT);
         }
       },
-      function (packages, done) {
+      function(packages, done) {
         if (packages && packages.length) {
           // flatten the packages in case there is an array within the array, that is
           // multiple entries for one package (for example eslint)
@@ -271,7 +271,7 @@ module.exports = function (options, callback) {
         }
       }
     ],
-    function (err) {
+    function(err) {
       if (promptForRestart) {
         _displayRestartInfo();
       }

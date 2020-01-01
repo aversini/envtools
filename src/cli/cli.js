@@ -1,10 +1,10 @@
 /* eslint complexity: 0, no-magic-numbers: 0 */
 
-const common = require('../common');
-const util = require('util');
-const log = require('fedtools-logs');
-const config = require('fedtools-config');
-const EnvtoolsBase = require('./base');
+const common = require("../common");
+const util = require("util");
+const log = require("fedtools-logs");
+const config = require("fedtools-config");
+const EnvtoolsBase = require("./base");
 
 // -- C O N S T R U C T O R
 
@@ -13,22 +13,22 @@ const EnvtoolsBase = require('./base');
  * It's a one liner:
  * require('<this file>').parseCommandLine();
  */
-const EnvtoolsCLI = function () {
+const EnvtoolsCLI = function() {
   EnvtoolsBase.call(this);
 };
 
 // -- I N H E R I T A N C E
 
 util.inherits(EnvtoolsCLI, EnvtoolsBase);
-EnvtoolsCLI.prototype.name = 'EnvtoolsCLI';
+EnvtoolsCLI.prototype.name = "EnvtoolsCLI";
 
 // -- E X T E N D E D  M E T H O D S
 
-EnvtoolsCLI.prototype._initialize = function () {
+EnvtoolsCLI.prototype._initialize = function() {
   EnvtoolsBase.prototype._initialize.call(this);
 
-  this.help = require('./help');
-  this.version = require('./version');
+  this.help = require("./help");
+  this.version = require("./version");
   this.config = this.packageJson.config;
   this.name = this.packageJson.name;
 
@@ -39,175 +39,175 @@ EnvtoolsCLI.prototype._initialize = function () {
 };
 
 // -- P R I V A T E  M E T H O D S
-EnvtoolsCLI.prototype._runCommand = function (program, command, optimist) {
+EnvtoolsCLI.prototype._runCommand = function(program, command, optimist) {
   const self = this;
 
   if (self.help.help) {
-    log.debug('call for help with command: ', command);
+    log.debug("call for help with command: ", command);
     if (command) {
-      require('./actions/help')(self, command);
+      require("./actions/help")(self, command);
     } else {
-      require('./actions/default')(self, program, optimist);
+      require("./actions/default")(self, program, optimist);
     }
   } else {
     switch (command) {
-      case 'color':
-      case 'colors':
-      case 'colour':
-      case 'colours':
-        require('./actions/colors')(self, program);
+      case "color":
+      case "colors":
+      case "colour":
+      case "colours":
+        require("./actions/colors")(self, program);
         break;
 
-      case 'md2html':
-        require('./actions/md2html')(self, program);
+      case "md2html":
+        require("./actions/md2html")(self, program);
         break;
 
-      case 'npmrc':
-      case 'yarnrc':
-        require('./actions/npmrc')(self, program);
+      case "npmrc":
+      case "yarnrc":
+        require("./actions/npmrc")(self, program);
         break;
 
-      case 'registry':
+      case "registry":
         if (program._.length === 2) {
-          require('./actions/npmrc')(self, program);
+          require("./actions/npmrc")(self, program);
         } else {
-          require('./actions/registry')(self, program);
+          require("./actions/registry")(self, program);
         }
         break;
 
-      case 'smtp':
-      case 'smtp-server':
-      case 'smtpserver':
-        require('./actions/smtp-server')(self, program);
+      case "smtp":
+      case "smtp-server":
+      case "smtpserver":
+        require("./actions/smtp-server")(self, program);
         break;
 
-      case 'info':
-      case 'system':
-        require('./actions/info')(self, program);
+      case "info":
+      case "system":
+        require("./actions/info")(self, program);
         break;
 
-      case 'config':
-        require('../bootstrap/plugins/envtools')(
+      case "config":
+        require("../bootstrap/plugins/envtools")(
           {
             version: self.version
           },
-          function () {
+          function() {
             // nothing to declare
           }
         );
         break;
-      case 'notif':
-      case 'notifier':
-      case 'alert':
-      case 'growl':
-        require('./actions/notifier')(self, program);
+      case "notif":
+      case "notifier":
+      case "alert":
+      case "growl":
+        require("./actions/notifier")(self, program);
         break;
 
-      case 'timer':
-      case 't':
-        require('./actions/timer')(self, program);
+      case "timer":
+      case "t":
+        require("./actions/timer")(self, program);
         break;
 
-      case 'encrypt':
-      case 'encipher':
+      case "encrypt":
+      case "encipher":
         program.encrypt = true;
-        require('./actions/crypto')(self, program);
+        require("./actions/crypto")(self, program);
         break;
 
-      case 'decrypt':
-      case 'decipher':
+      case "decrypt":
+      case "decipher":
         program.encrypt = false;
-        require('./actions/crypto')(self, program);
+        require("./actions/crypto")(self, program);
         break;
 
-      case 'http':
-      case 'web':
-      case 'wup':
-      case 'http-server':
-        require('./actions/http-server')(self, program);
+      case "http":
+      case "web":
+      case "wup":
+      case "http-server":
+        require("./actions/http-server")(self, program);
         break;
 
-      case 'update':
-      case 'check':
-      case 'up':
-      case 'upgrade':
+      case "update":
+      case "check":
+      case "up":
+      case "upgrade":
         self.version.printUpgradeIfAny(true);
         break;
 
-      case 'auto':
-      case 'automatic':
-      case 'boot':
-      case 'bootstrap':
-      case 'a':
-        require('./actions/bootstrap')(self, 'auto', program, function (err) {
+      case "auto":
+      case "automatic":
+      case "boot":
+      case "bootstrap":
+      case "a":
+        require("./actions/bootstrap")(self, "auto", program, function(err) {
           if (!err) {
             self.version.printUpgradeIfAny();
           }
         });
         break;
 
-      case 'manual':
-      case 'configure':
-      case 'setup':
-      case 'm':
-        require('./actions/bootstrap')(self, 'manual', program, function (err) {
+      case "manual":
+      case "configure":
+      case "setup":
+      case "m":
+        require("./actions/bootstrap")(self, "manual", program, function(err) {
           if (!err) {
             self.version.printUpgradeIfAny();
           }
         });
         break;
 
-      case 'extra':
-      case 'xtra':
-      case 'e':
-      case 'x':
-        require('./actions/bootstrap')(self, 'extra', program, function (err) {
+      case "extra":
+      case "xtra":
+      case "e":
+      case "x":
+        require("./actions/bootstrap")(self, "extra", program, function(err) {
           if (!err) {
             self.version.printUpgradeIfAny();
           }
         });
         break;
 
-      case 'lite':
-      case 'envlite':
-      case 'envtools-lite':
-        require('./actions/envlite')(self, program);
+      case "lite":
+      case "envlite":
+      case "envtools-lite":
+        require("./actions/envlite")(self, program);
         break;
 
-      case 'wt':
-        require('./actions/testing-only')(self, program);
+      case "wt":
+        require("./actions/testing-only")(self, program);
         break;
 
-      case 'sds':
-        require('./actions/sds')(self, program);
+      case "sds":
+        require("./actions/sds")(self, program);
         break;
 
       default:
-        log.debug('default case...');
-        require('./actions/default')(self, program, optimist);
+        log.debug("default case...");
+        require("./actions/default")(self, program, optimist);
         break;
     }
   }
 };
 
 // -- P U B L I C  M E T H O D S
-EnvtoolsCLI.prototype.parseCommandLine = function () {
+EnvtoolsCLI.prototype.parseCommandLine = function() {
   const self = this;
   let command;
 
-  const optimist = require('optimist')
+  const optimist = require("optimist")
     .usage(
-      `${log.strToColor('yellow', 'Usage: ') + self.name} [options] command`
+      `${log.strToColor("yellow", "Usage: ") + self.name} [options] command`
     )
-    .alias('v', 'version')
-    .describe('v', self.i18n.t('help.v'))
-    .alias('b', 'boring')
-    .describe('b', self.i18n.t('help.b'))
-    .alias('d', 'debug')
-    .describe('d', self.i18n.t('help.d'))
-    .alias('h', 'help')
-    .describe('h', self.i18n.t('help.h'))
-    .boolean(['b', 'd', 'V', 'v', 'h', 'n']);
+    .alias("v", "version")
+    .describe("v", self.i18n.t("help.v"))
+    .alias("b", "boring")
+    .describe("b", self.i18n.t("help.b"))
+    .alias("d", "debug")
+    .describe("d", self.i18n.t("help.d"))
+    .alias("h", "help")
+    .describe("h", self.i18n.t("help.h"))
+    .boolean(["b", "d", "V", "v", "h", "n"]);
 
   const program = optimist.argv;
 
@@ -224,23 +224,23 @@ EnvtoolsCLI.prototype.parseCommandLine = function () {
   }
 
   // Parsing the actual commands
-  if (program._[0] === 'help' && program._[1]) {
+  if (program._[0] === "help" && program._[1]) {
     self.help.help = true;
     command = program._[1];
   } else {
     command = program._[0];
   }
 
-  log.debug('program: ', program);
-  log.debug('command: ', command);
+  log.debug("program: ", program);
+  log.debug("command: ", command);
 
   // Geronimo!
-  common.createRuntimeDir(function () {
+  common.createRuntimeDir(function() {
     self._runCommand(program, command, optimist);
   });
 };
 
 // -- E X P O R T S
-module.exports = (function () {
+module.exports = (function() {
   return EnvtoolsCLI._instance || new EnvtoolsCLI();
 })();

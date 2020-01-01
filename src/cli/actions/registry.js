@@ -1,14 +1,14 @@
-const execa = require('execa');
-const log = require('fedtools-logs');
-const config = require('fedtools-config');
-const waterfall = require('async/waterfall');
-const _ = require('lodash');
-const inquirer = require('inquirer');
-const common = require('../../common');
-const prompts = require('../../utilities/prompts');
-const NA = 'N/A';
-const DEFAULT_NPM_REGISTRY = 'http://registry.npmjs.org/';
-const DEFAULT_YARN_REGISTRY = 'http://registry.yarnpkg.com';
+const execa = require("execa");
+const log = require("fedtools-logs");
+const config = require("fedtools-config");
+const waterfall = require("async/waterfall");
+const _ = require("lodash");
+const inquirer = require("inquirer");
+const common = require("../../common");
+const prompts = require("../../utilities/prompts");
+const NA = "N/A";
+const DEFAULT_NPM_REGISTRY = "http://registry.npmjs.org/";
+const DEFAULT_YARN_REGISTRY = "http://registry.yarnpkg.com";
 
 // -- P R I V A T E  M E T H O D S
 function getEnvProxyStatus() {
@@ -22,14 +22,14 @@ function getEnvProxyStatus() {
 function runCommand(command, callback) {
   let data = NA;
 
-  const args = command.trim().split(' ');
+  const args = command.trim().split(" ");
   const bin = args[0];
   args.shift();
 
   execa(bin, args)
-    .then((results) => {
+    .then(results => {
       data = results.stdout;
-      if (!data || data === 'undefined' || data === 'null') {
+      if (!data || data === "undefined" || data === "null") {
         data = NA;
       }
       return callback(null, data);
@@ -52,7 +52,7 @@ function displayStatus(callback) {
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const data = common.getExistingNpmrcProfiles();
         if (!_.isEmpty(data)) {
           if (data.enabled) {
@@ -66,89 +66,89 @@ function displayStatus(callback) {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         envProxies = getEnvProxyStatus();
         done();
       },
-      function (done) {
-        runCommand('npm config get registry', function (err, data) {
+      function(done) {
+        runCommand("npm config get registry", function(err, data) {
           npmRegistry = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('npm config get @wf:registry', function (err, data) {
+      function(done) {
+        runCommand("npm config get @wf:registry", function(err, data) {
           npmScopedRegistry = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('npm config get proxy', function (err, data) {
+      function(done) {
+        runCommand("npm config get proxy", function(err, data) {
           npmHttpProxy = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('npm config get https-proxy', function (err, data) {
+      function(done) {
+        runCommand("npm config get https-proxy", function(err, data) {
           npmHttpsProxy = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('yarn config get registry', function (err, data) {
+      function(done) {
+        runCommand("yarn config get registry", function(err, data) {
           yarnRegistry = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('yarn config get proxy', function (err, data) {
+      function(done) {
+        runCommand("yarn config get proxy", function(err, data) {
           yarnHttpProxy = data;
           done(err);
         });
       },
-      function (done) {
-        runCommand('yarn config get https-proxy', function (err, data) {
+      function(done) {
+        runCommand("yarn config get https-proxy", function(err, data) {
           yarnHttpsProxy = data;
           done(err);
         });
       }
     ],
-    function () {
-      msg.push(log.strToColor('yellow', 'Environment'));
+    function() {
+      msg.push(log.strToColor("yellow", "Environment"));
       msg.push(`http proxy  : ${envProxies.http}`);
       msg.push(`https proxy : ${envProxies.https}`);
-      envProxies.noProxy.split(',').forEach(function (data, idx) {
+      envProxies.noProxy.split(",").forEach(function(data, idx) {
         if (idx === 0) {
           msg.push(`no_proxy    : ${data}`);
         } else {
           msg.push(`              ${data}`);
         }
       });
-      msg.push('');
+      msg.push("");
 
-      msg.push(log.strToColor('yellow', 'NPM Configuration'));
+      msg.push(log.strToColor("yellow", "NPM Configuration"));
       msg.push(`registry    : ${npmRegistry}`);
       if (npmScopedRegistry !== NA) {
         msg.push(`scope @wf   : ${npmScopedRegistry}`);
       }
       msg.push(`http proxy  : ${npmHttpProxy}`);
       msg.push(`https proxy : ${npmHttpsProxy}`);
-      msg.push('');
+      msg.push("");
 
-      msg.push(log.strToColor('yellow', 'Yarn Configuration'));
+      msg.push(log.strToColor("yellow", "Yarn Configuration"));
       msg.push(`registry    : ${yarnRegistry}`);
       msg.push(`http proxy  : ${yarnHttpProxy}`);
       msg.push(`https proxy : ${yarnHttpsProxy}`);
 
       if (currentNpmProfile || availableNpmProfiles) {
-        msg.push('');
-        msg.push(log.strToColor('yellow', 'Envtools Registry Profile(s)'));
+        msg.push("");
+        msg.push(log.strToColor("yellow", "Envtools Registry Profile(s)"));
         if (!currentNpmProfile) {
           currentNpmProfile = common.NA;
         }
 
         msg.push(`Current profile    : ${currentNpmProfile}`);
-        msg.push(`Available profiles : ${availableNpmProfiles.join(', ')}`);
+        msg.push(`Available profiles : ${availableNpmProfiles.join(", ")}`);
       }
 
       log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
@@ -171,18 +171,18 @@ function displayStatus(callback) {
 function updateRegistry(registry, callback) {
   waterfall(
     [
-      function (done) {
-        runCommand(`npm config set registry ${registry}`, function () {
+      function(done) {
+        runCommand(`npm config set registry ${registry}`, function() {
           done(null);
         });
       },
-      function (done) {
-        runCommand(`yarn config set registry ${registry}`, function () {
+      function(done) {
+        runCommand(`yarn config set registry ${registry}`, function() {
           done(null);
         });
       }
     ],
-    function () {
+    function() {
       log.echo();
       log.success(`Registry set to ${registry}`);
       callback();
@@ -191,62 +191,62 @@ function updateRegistry(registry, callback) {
 }
 
 function setRegistryProxies(flag, http, https, callback) {
-  const SET = flag ? 'set' : 'unset';
+  const SET = flag ? "set" : "unset";
   const NPM_CMDS = flag
     ? [`npm config set proxy ${http}`, `npm config set https-proxy ${https}`]
-    : ['npm config delete proxy', 'npm config delete https-proxy'];
+    : ["npm config delete proxy", "npm config delete https-proxy"];
 
-  const fcts = _.map(NPM_CMDS, function (command) {
-    return function (cb) {
-      runCommand(command, function () {
+  const fcts = _.map(NPM_CMDS, function(command) {
+    return function(cb) {
+      runCommand(command, function() {
         cb(null);
       });
     };
   });
 
-  waterfall(fcts, function () {
+  waterfall(fcts, function() {
     log.echo();
     log.success(`Registry proxies have been ${SET}`);
     callback();
   });
 }
 
-module.exports = function () {
+module.exports = function() {
   const newProfileActivation = 666;
 
   let registries, currentSetting;
 
   waterfall(
     [
-      function (done) {
-        displayStatus(function (err, data) {
+      function(done) {
+        displayStatus(function(err, data) {
           currentSetting = data;
           done(err);
         });
       },
-      function (done) {
-        registries = config.getKey('envtoolsnpmregistries');
+      function(done) {
+        registries = config.getKey("envtoolsnpmregistries");
         if (!registries || !registries.length) {
           // there is no cache yet, let's create one
           registries = [DEFAULT_NPM_REGISTRY, DEFAULT_YARN_REGISTRY];
-          config.setKey('envtoolsnpmregistries', registries);
+          config.setKey("envtoolsnpmregistries", registries);
         }
         done();
       },
-      function (done) {
+      function(done) {
         if (currentSetting && !_.isEmpty(currentSetting.availableNpmProfiles)) {
           prompts.displayConfirmation(
-            'Do you want to activate an existing Profile?',
-            function (err) {
+            "Do you want to activate an existing Profile?",
+            function(err) {
               if (err) {
                 return done();
               } else {
                 prompts.displayListOfOptions(
-                  'Please choose one of the following options:',
+                  "Please choose one of the following options:",
                   currentSetting.availableNpmProfiles,
-                  function (err, profileName) {
+                  function(err, profileName) {
                     if (!err) {
-                      common.switchToNpmrcProfile(profileName, function (
+                      common.switchToNpmrcProfile(profileName, function(
                         err,
                         name
                       ) {
@@ -269,37 +269,37 @@ module.exports = function () {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         prompts.displayConfirmation(
-          'Do you want to update the current registry?',
-          function (err) {
+          "Do you want to update the current registry?",
+          function(err) {
             if (err) {
               waterfall(
                 [
-                  function (done) {
+                  function(done) {
                     prompts.displayConfirmation(
-                      'Do you want to save this configuration in a profile?',
+                      "Do you want to save this configuration in a profile?",
                       done
                     );
                   },
-                  function (done) {
+                  function(done) {
                     prompts.displayPromptWithInput(
-                      'Please type a profile name:',
-                      function (err, profileName) {
+                      "Please type a profile name:",
+                      function(err, profileName) {
                         if (!err) {
-                          common.createNpmrcProfile(profileName, function (err) {
+                          common.createNpmrcProfile(profileName, function(err) {
                             done(err);
                           });
                         }
                       }
                     );
                   },
-                  function (done) {
-                    log.success('\nProfile created and active');
+                  function(done) {
+                    log.success("\nProfile created and active");
                     done();
                   }
                 ],
-                function () {
+                function() {
                   done(err);
                 }
               );
@@ -309,43 +309,43 @@ module.exports = function () {
           }
         );
       },
-      function (done) {
+      function(done) {
         const questions = {
-          type: 'list',
-          name: 'registry',
-          message: 'Please choose one of the following options:'
+          type: "list",
+          name: "registry",
+          message: "Please choose one of the following options:"
         };
         questions.choices = registries.slice();
         questions.choices.push({
-          name: 'Enter a custom registry',
-          value: 'custom'
+          name: "Enter a custom registry",
+          value: "custom"
         });
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           let reg;
           const reUrl = new RegExp(
             /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(localhost)|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i
           );
           const questions = {
-            type: 'input',
-            name: 'custom',
-            message: 'Type a custom registry (including protocol):',
+            type: "input",
+            name: "custom",
+            message: "Type a custom registry (including protocol):",
             validate(val) {
               if (!val) {
-                return 'Registry URL cannot be empty...';
+                return "Registry URL cannot be empty...";
               }
               if (!reUrl.test(val)) {
-                return 'Please enter a valid URL...';
+                return "Please enter a valid URL...";
               }
               return true;
             }
           };
 
-          if (answers.registry === 'custom') {
-            inquirer.prompt(questions).then(function (answers) {
+          if (answers.registry === "custom") {
+            inquirer.prompt(questions).then(function(answers) {
               reg = answers.custom.toLowerCase().trim();
               registries.push(reg);
               config.setKey(
-                'envtoolsnpmregistries',
+                "envtoolsnpmregistries",
                 _.uniqWith(registries, _.isEqual)
               );
               return done(null, reg);
@@ -358,11 +358,11 @@ module.exports = function () {
           }
         });
       },
-      function (registry, done) {
+      function(registry, done) {
         common.unsetActiveNpmrcProfile();
         updateRegistry(registry, done);
       },
-      function (done) {
+      function(done) {
         const httpProxy =
           currentSetting.envProxies.http || currentSetting.npmHttpProxy;
         const httpsProxy =
@@ -374,8 +374,8 @@ module.exports = function () {
           httpsProxy !== common.NA
         ) {
           prompts.displayConfirmation(
-            'Do you need to enable proxies for this registry?',
-            function (err) {
+            "Do you need to enable proxies for this registry?",
+            function(err) {
               if (err) {
                 return setRegistryProxies(false, null, null, done);
               } else {
@@ -387,32 +387,32 @@ module.exports = function () {
           return done();
         }
       },
-      function (done) {
+      function(done) {
         prompts.displayConfirmation(
-          'Do you want to save this configuration in a profile?',
+          "Do you want to save this configuration in a profile?",
           done
         );
       },
-      function (done) {
-        prompts.displayPromptWithInput('Please type a profile name:', function (
+      function(done) {
+        prompts.displayPromptWithInput("Please type a profile name:", function(
           err,
           profileName
         ) {
           if (!err) {
-            common.createNpmrcProfile(profileName, function (err) {
+            common.createNpmrcProfile(profileName, function(err) {
               done(err);
             });
           }
         });
       },
-      function (done) {
-        log.success('\nProfile created and active');
+      function(done) {
+        log.success("\nProfile created and active");
         done();
       }
     ],
-    function (abort) {
+    function(abort) {
       if (abort && abort !== newProfileActivation) {
-        log.echo('\nBye then!');
+        log.echo("\nBye then!");
       }
     }
   );

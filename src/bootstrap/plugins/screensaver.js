@@ -1,33 +1,33 @@
-const fs = require('fs-extra');
-const inquirer = require('inquirer');
-const glob = require('glob');
-const waterfall = require('async/waterfall');
-const each = require('async/each');
-const path = require('path');
-const log = require('fedtools-logs');
-const decompress = require('decompress');
-const backup = require('../../utilities/backup');
-const common = require('../../common');
+const fs = require("fs-extra");
+const inquirer = require("inquirer");
+const glob = require("glob");
+const waterfall = require("async/waterfall");
+const each = require("async/each");
+const path = require("path");
+const log = require("fedtools-logs");
+const decompress = require("decompress");
+const backup = require("../../utilities/backup");
+const common = require("../../common");
 
 function _installScreensavers(options, callback) {
   const srcFolderPattern = path.join(
     common.ENVTOOLS.THIRDDIR,
-    'screensavers/*.tgz'
+    "screensavers/*.tgz"
   );
-  const destFolder = path.join(process.env.HOME, 'Library', 'Screen Savers');
+  const destFolder = path.join(process.env.HOME, "Library", "Screen Savers");
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const questions = [
           {
-            type: 'confirm',
-            name: 'install',
-            message: 'Extra screensavers will be installed, continue?',
+            type: "confirm",
+            name: "install",
+            message: "Extra screensavers will be installed, continue?",
             default: true
           }
         ];
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           if (answers.install) {
             return done();
           } else {
@@ -35,29 +35,29 @@ function _installScreensavers(options, callback) {
           }
         });
       },
-      function (done) {
+      function(done) {
         glob(
           srcFolderPattern,
           {
             nosort: true,
             nocase: true
           },
-          function (err, files) {
+          function(err, files) {
             // need to decompress each tgz
             if (!err && files) {
               each(
                 files,
-                function (file, cb) {
+                function(file, cb) {
                   decompress(file, destFolder).then(
-                    function () {
+                    function() {
                       cb();
                     },
-                    function () {
+                    function() {
                       cb();
                     }
                   );
                 },
-                function (err) {
+                function(err) {
                   done(err);
                 }
               );
@@ -68,11 +68,11 @@ function _installScreensavers(options, callback) {
         );
       }
     ],
-    function (err) {
+    function(err) {
       if (!err) {
-        log.success('Extra screensavers have been successfully installed!');
+        log.success("Extra screensavers have been successfully installed!");
         log.echo(
-          'You can find them under\nSystem Prefernces -> Desktop & Screen Saver -> Screen Saver...'
+          "You can find them under\nSystem Prefernces -> Desktop & Screen Saver -> Screen Saver..."
         );
         err = common.USER_IGNORE;
       }
@@ -85,26 +85,26 @@ function _fixScreensaverSettings(options, callback) {
   const msg = [];
   const ssFolder = path.join(
     process.env.HOME,
-    'Library',
-    'Preferences',
-    'ByHost'
+    "Library",
+    "Preferences",
+    "ByHost"
   );
 
   let i, len;
 
   waterfall(
     [
-      function (done) {
+      function(done) {
         const questions = [
           {
-            type: 'confirm',
-            name: 'change',
+            type: "confirm",
+            name: "change",
             message:
-              'Screensaver configuration files will be cleaned, continue?',
+              "Screensaver configuration files will be cleaned, continue?",
             default: true
           }
         ];
-        inquirer.prompt(questions).then(function (answers) {
+        inquirer.prompt(questions).then(function(answers) {
           if (answers.change) {
             return done();
           } else {
@@ -112,14 +112,14 @@ function _fixScreensaverSettings(options, callback) {
           }
         });
       },
-      function (done) {
+      function(done) {
         glob(
           `${ssFolder}/com.apple.screensaver*`,
           {
             nosort: true,
             nocase: true
           },
-          function (err, files) {
+          function(err, files) {
             // removing the old screensaver configurations
             if (!err && files) {
               len = files.length;
@@ -128,9 +128,9 @@ function _fixScreensaverSettings(options, callback) {
                 fs.removeSync(path.join(ssFolder, path.basename(files[i])));
               }
             }
-            msg.push('Screensaver configuration files have been cleaned.');
+            msg.push("Screensaver configuration files have been cleaned.");
             msg.push(
-              'Please logout or restart before accessing the\nscreensaver configuration panel again.'
+              "Please logout or restart before accessing the\nscreensaver configuration panel again."
             );
             log.printMessagesInBox(msg, common.LOG_COLORS.DEFAULT_BOX);
             done();
@@ -138,7 +138,7 @@ function _fixScreensaverSettings(options, callback) {
         );
       }
     ],
-    function (err) {
+    function(err) {
       callback(err, options);
     }
   );

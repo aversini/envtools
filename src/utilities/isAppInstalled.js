@@ -7,7 +7,7 @@
  *
  */
 
-module.exports = (name) => {
-  const execPath = require('shelljs').which(name);
+module.exports = name => {
+  const execPath = require("shelljs").which(name);
   return execPath !== null;
 };

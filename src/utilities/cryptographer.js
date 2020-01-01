@@ -1,9 +1,9 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 
-const CRYPTO_ALGO = 'aes-256-ctr';
+const CRYPTO_ALGO = "aes-256-ctr";
 const BYTES_FOR_IV = 16;
-const HEX = 'hex';
-const UTF8 = 'utf8';
+const HEX = "hex";
+const UTF8 = "utf8";
 
 /**
  * Create an hexadecimal hash from a given string. The default
@@ -13,10 +13,10 @@ const UTF8 = 'utf8';
  * @param  {String} [algorithm='md5'] the algorithm to use or hashing
  * @return {String}                   the hashed string in hexa format
  */
-const _createHash = (string, algorithm = 'md5') =>
+const _createHash = (string, algorithm = "md5") =>
   crypto
     .createHash(algorithm)
-    .update(string, 'utf8')
+    .update(string, "utf8")
     .digest(HEX);
 
 /**
@@ -35,7 +35,7 @@ const _encrypt = (password, data) => {
   // Create a cipher.
   const cipher = crypto.createCipheriv(CRYPTO_ALGO, key, iv);
   // Encrypt the data using the newly created cipher.
-  const crypted = cipher.update(data, 'utf8', HEX) + cipher.final(HEX);
+  const crypted = cipher.update(data, "utf8", HEX) + cipher.final(HEX);
   // Append the IV at the end of the encrypted data to reuse it for
   // decryption (IV is not a key, it can be public).
   return `${crypted}$${iv.toString(HEX)}`;
@@ -53,7 +53,7 @@ const _encrypt = (password, data) => {
  */
 const _decrypt = (password, data) => {
   // Extract encrypted data and initialization vector (IV).
-  const [crypted, ivHex] = data.split('$');
+  const [crypted, ivHex] = data.split("$");
   // Create a buffer out of the raw hex IV
   const iv = new Buffer(ivHex, HEX);
   // Hash the given password (result should always be the same).
@@ -61,7 +61,7 @@ const _decrypt = (password, data) => {
   // Create a cipher.
   const decryptor = crypto.createDecipheriv(CRYPTO_ALGO, hash, iv);
   // Return the decrypted data using the newly created cipher.
-  return decryptor.update(crypted, HEX, UTF8) + decryptor.final('utf8');
+  return decryptor.update(crypted, HEX, UTF8) + decryptor.final("utf8");
 };
 
 exports.encrypt = _encrypt;
