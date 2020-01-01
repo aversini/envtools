@@ -5,9 +5,7 @@ module.exports = {
     "versini/rules/react-a11y/off",
     "prettier"
   ],
-  plugins: ["import"],
   rules: {
-    "import/no-commonjs": ["error"],
     "max-len": [
       "error",
       {
