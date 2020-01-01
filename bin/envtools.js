@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../dist/cli/cli').parseCommandLine();
+require("../lib/cli/cli").parseCommandLine();

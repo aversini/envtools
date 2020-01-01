@@ -1,1 +1,0 @@
-"use strict";const fs=require("fs-extra"),path=require("path"),os=require("os"),common=require("../common");module.exports=(a,b)=>{let c,d;return c="string"==typeof b&&fs.existsSync(b)?path.resolve(b):common.isLinux()||common.isMac()?"/tmp":os.tmpdir(),d=path.join(c,"envtools-tmp"),a&&(d=path.join(d,a)),fs.ensureDirSync(d),d};

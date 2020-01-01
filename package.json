@@ -1,6 +1,6 @@
 {
   "name": "envtools",
-  "version": "2.0.15",
+  "version": "3.0.0",
   "description": "Set of env tools for Mac/Linux",
   "author": "Arno Versini",
   "bin": {
@@ -10,7 +10,7 @@
     "version",
     "shell",
     "bin",
-    "dist",
+    "lib",
     "data/i18n",
     "data/third"
   ],
@@ -22,22 +22,20 @@
     "url": "https://github.com/aversini/envtools/issues"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=10.0.0"
   },
   "license": "MIT",
   "preferGlobal": true,
   "scripts": {
     "clean": "rimraf dist coverage",
-    "build:dist": "cross-env BABEL_ENV=production NODE_ENV=production babel src --out-dir dist --ignore \"src/__tests__\"",
-    "build": "npm-run-all --serial clean lint build:dist",
+    "build": "npm-run-all --serial clean lint",
     "lint": "eslint src --ext .js",
     "pretest": "npm run lint",
-    "prettier": "prettier-eslint --write \"src/**/*.js\"",
+    "prettier": "prettier-eslint --write \"lib/**/*.js\"",
     "prettier:file": "prettier-eslint --write",
     "test": "cross-env BABEL_DISABLE_CACHE=1 BABEL_ENV=test NODE_ENV=test jest",
     "test:coverage": "npm-run-all \"test -- --coverage\"",
-    "test:watch": "npm-run-all \"test -- --watch\"",
-    "watch": "npm run build:dist -- --watch"
+    "test:watch": "npm-run-all \"test -- --watch\""
   },
   "dependencies": {
     "async": "2.6.1",

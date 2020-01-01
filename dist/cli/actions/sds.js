@@ -1,1 +1,0 @@
-"use strict";const log=require("fedtools-logs"),cmd=require("fedtools-commands");module.exports=function(a,b){const c=b._[1];c?cmd.sudo(c,{status:!0},function(a,b,d){a?b?log.error(b):log.red(a):(log.success(` ${c}`),d&&log.rainbow(d))}):log.error("Usage: envtools sds 'some command'")};

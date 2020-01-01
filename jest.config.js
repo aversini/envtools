@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['src'],
+  roots: ["lib"],
   coverageThreshold: {
     global: {
       branches: 100,
@@ -8,5 +8,5 @@ module.exports = {
       statements: 100
     }
   },
-  collectCoverageFrom: ['src/**/*.{js}']
+  collectCoverageFrom: ["lib/**/*.{js}"]
 };
