@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "async": "2.6.1",
-    "chalk": "2.4.1",
     "compression": "1.7.4",
     "decompress": "4.2.0",
     "download": "7.1.0",

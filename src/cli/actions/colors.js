@@ -1,7 +1,7 @@
 /* eslint no-magic-numbers:0, radix: 0 */
 
 const _ = require("lodash");
-const chalk = require("chalk");
+const { cyan, yellow } = require("kleur");
 const color = require("onecolor");
 const log = require("fedtools-logs");
 const ntc = require("../../utilities/ntc");
@@ -33,8 +33,8 @@ module.exports = function(self, program) {
   ntc.init();
   const [hexa, name, exact] = ntc.name(colorObj.hexa);
   const rgb = `rgba(${ntc.rgb(hexa).join(", ")}, 1)`;
-  const intro = `Color data for ${chalk.cyan(colorObj.hexa)}`;
-  const extra = exact ? "(exact match)" : chalk.yellow("(closest match)");
+  const intro = `Color data for ${cyan(colorObj.hexa)}`;
+  const extra = exact ? "(exact match)" : yellow("(closest match)");
   const CSSVariable = `--color-${_.kebabCase(name)}`;
   const isHTML = isHTMLColor(hexa) ? "yes" : "no";
 
@@ -42,13 +42,11 @@ module.exports = function(self, program) {
   log.rainbow(`${intro} ${extra}:`);
   log.echo();
 
-  log.rainbow(`Color name      : ${chalk.cyan(name)}`);
-  log.rainbow(`Color hexa code : ${chalk.cyan(hexa)}`);
-  log.rainbow(`Color rgba code : ${chalk.cyan(rgb)}`);
+  log.rainbow(`Color name      : ${cyan(name)}`);
+  log.rainbow(`Color hexa code : ${cyan(hexa)}`);
+  log.rainbow(`Color rgba code : ${cyan(rgb)}`);
   log.rainbow(
-    `CSS variable    : ${chalk.cyan(CSSVariable)}: ${chalk.cyan(
-      hexa.toLowerCase()
-    )};`
+    `CSS variable    : ${cyan(CSSVariable)}: ${cyan(hexa.toLowerCase())};`
   );
-  log.rainbow(`HTML color      : ${chalk.cyan(isHTML)}`);
+  log.rainbow(`HTML color      : ${cyan(isHTML)}`);
 };

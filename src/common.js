@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const chalk = require("chalk");
+const { black, blue, grey } = require("kleur");
 const path = require("path");
 const fs = require("fs-extra");
 const waterfall = require("async/waterfall");
@@ -489,10 +489,9 @@ exports.LOG_COLORS = {
   FAILURE: "red",
   WARNING: "yellow",
   DEFAULT_BOX: "cyan",
-  focusBg: chalk.bgYellow.black,
-  gray: chalk.gray,
-  blue: chalk.blue,
-  reset: chalk.reset
+  focusBg: black().bgYellow,
+  gray: grey,
+  blue
 };
 
 exports.ON = ON;
