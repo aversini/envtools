@@ -1,4 +1,69 @@
 
+__3.0.1 / 2020-01-02__
+
+- feat: envtools 3.x drops support for node < 10 ([945f4c7](https://github.com/aversini/envtools/commit/945f4c7e33b2fe244da0ace621c5a63a642ac95d))
+  Breaking change: node 10 or higher is required for v3
+  
+- feat(simpleWeb): adding possibility to open in default browser ([34d7f21](https://github.com/aversini/envtools/commit/34d7f2124be26ebb5d792fb3e21da9055349fe53))
+- chore: bumped all devDeps to highest available ([ad7901d](https://github.com/aversini/envtools/commit/ad7901d8780061c0cd0962ef8f1d2593069c21f7))
+- chore: ran prettier on all files ([ebf25e4](https://github.com/aversini/envtools/commit/ebf25e4606fe2045887954de7b85feb903f9e338))
+- chore: bump prettier and eslint to max workable ([7bbdc60](https://github.com/aversini/envtools/commit/7bbdc60723007920316001f1d3762624fe4cdd9c))
+- fix: updating lock and removing old babel deps ([1261111](https://github.com/aversini/envtools/commit/12611112b8f5dbfbbe1df0705d3620c075efc7e3))
+- feat: dropping support for node < 10 ([c713365](https://github.com/aversini/envtools/commit/c7133658164cb8c73b05b2960a536ea272908857))
+- fix: replacing chalk with kleur ([67be018](https://github.com/aversini/envtools/commit/67be018dc8addad4350f920b98dca1a7007f84bb))
+- fix: improving simple web server ([872f3a4](https://github.com/aversini/envtools/commit/872f3a40326e6161b9c4bbaabbab7b62e5f0db96))
+- chore: running prettier on all files ([03cbf1a](https://github.com/aversini/envtools/commit/03cbf1a6b6a4c822a6b47a3e7dd77d5c6ed07086))
+- chore: renaming eslint configuration file ([d3387a8](https://github.com/aversini/envtools/commit/d3387a8bd8c0230083648c28eb888c266a4dcf01))
+- chore: updating elsint config to add prettier ([4e34970](https://github.com/aversini/envtools/commit/4e349700915a6d75ccc641f73fc96d029941018f))
+- Merge pull request #6 from aversini/dependabot/npm_and_yarn/lodash.merge-4.6.2 ([affc835](https://github.com/aversini/envtools/commit/affc835acb1524a45987bd3551e2c7ff983c53c7))
+  chore(deps): bump lodash.merge from 4.6.1 to 4.6.2
+- chore(deps): bump lodash.merge from 4.6.1 to 4.6.2 ([b163bb7](https://github.com/aversini/envtools/commit/b163bb7804dfcee712b5f6d9ec3516ad2516ea43))
+  Bumps [lodash.merge](https://github.com/lodash/lodash) from 4.6.1 to 4.6.2.
+  - [Release notes](https://github.com/lodash/lodash/releases)
+  - [Commits](https://github.com/lodash/lodash/commits)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- Merge pull request #5 from aversini/dependabot/npm_and_yarn/handlebars-4.5.1 ([6f98da7](https://github.com/aversini/envtools/commit/6f98da70971a3c0436059290c90c02dbc0c5bf6b))
+  chore(deps): bump handlebars from 4.0.11 to 4.5.1
+- Merge pull request #4 from aversini/dependabot/npm_and_yarn/ecstatic-2.2.2 ([9cfe921](https://github.com/aversini/envtools/commit/9cfe921ddb83af30baa5c8292b817b85ca5b40a0))
+  chore(deps): bump ecstatic from 2.2.1 to 2.2.2
+- Merge pull request #3 from aversini/dependabot/npm_and_yarn/mixin-deep-1.3.2 ([5df805e](https://github.com/aversini/envtools/commit/5df805e1c806262813c89cf135d5d0af4d704086))
+  chore(deps): bump mixin-deep from 1.3.1 to 1.3.2
+- chore(deps): bump handlebars from 4.0.11 to 4.5.1 ([a76f1af](https://github.com/aversini/envtools/commit/a76f1af1ec0cc747a06b04ea4118f2229e52471d))
+  Bumps [handlebars](https://github.com/wycats/handlebars.js) from 4.0.11 to 4.5.1.
+  - [Release notes](https://github.com/wycats/handlebars.js/releases)
+  - [Changelog](https://github.com/wycats/handlebars.js/blob/v4.5.1/release-notes.md)
+  - [Commits](https://github.com/wycats/handlebars.js/compare/v4.0.11...v4.5.1)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- chore(deps): bump ecstatic from 2.2.1 to 2.2.2 ([14edc6c](https://github.com/aversini/envtools/commit/14edc6ca22cb00c02b5683d61fe1e0a10a18766a))
+  Bumps [ecstatic](https://github.com/jfhbrook/node-ecstatic) from 2.2.1 to 2.2.2.
+  - [Release notes](https://github.com/jfhbrook/node-ecstatic/releases)
+  - [Changelog](https://github.com/jfhbrook/node-ecstatic/blob/2.2.2/CHANGELOG.md)
+  - [Commits](https://github.com/jfhbrook/node-ecstatic/compare/2.2.1...2.2.2)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- chore(deps): bump mixin-deep from 1.3.1 to 1.3.2 ([15b2c48](https://github.com/aversini/envtools/commit/15b2c48653da8e4fc5c5c4e108eddee348ed7aa3))
+  Bumps [mixin-deep](https://github.com/jonschlinkert/mixin-deep) from 1.3.1 to 1.3.2.
+  - [Release notes](https://github.com/jonschlinkert/mixin-deep/releases)
+  - [Commits](https://github.com/jonschlinkert/mixin-deep/compare/1.3.1...1.3.2)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- chore(deps): bump lodash from 4.17.10 to 4.17.13 ([eb1a53a](https://github.com/aversini/envtools/commit/eb1a53af3ba51b208718da918348fdab674b59b9))
+  Bumps [lodash](https://github.com/lodash/lodash) from 4.17.10 to 4.17.13.
+  - [Release notes](https://github.com/lodash/lodash/releases)
+  - [Commits](https://github.com/lodash/lodash/compare/4.17.10...4.17.13)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- chore(deps): bump tar from 4.4.1 to 4.4.13 ([12d00aa](https://github.com/aversini/envtools/commit/12d00aaa6ae91ba696d3910e55f43eecee5bddd0))
+  Bumps [tar](https://github.com/npm/node-tar) from 4.4.1 to 4.4.13.
+  - [Release notes](https://github.com/npm/node-tar/releases)
+  - [Commits](https://github.com/npm/node-tar/compare/v4.4.1...v4.4.13)
+  
+  Signed-off-by: dependabot[bot] <support@github.com>
+- chore: making sure terminal can be loaded in vscode ([aca58bf](https://github.com/aversini/envtools/commit/aca58bf49dd1f7c371a69b60e2aa3d68b0b875be))
+- chore: removing old alias ([4608c8d](https://github.com/aversini/envtools/commit/4608c8d95cf876a9579b70856e5462108ccb4a9a))
+
 __2.0.15 / 2018-11-02__
 
 - chore: bump merge package version ([6b6a41e](https://github.com/aversini/envtools/commit/6b6a41e91cbd15494a1d4a4a690212b0f4e0c787))
@@ -52,7 +117,7 @@ __2.0.12 / 2018-07-22__
 - adding envtools colors ([c61eb6c](https://github.com/aversini/envtools/commit/c61eb6c39f417efc6465f06b0309cfc48a1d70bb))
 - chore: bumping nvm version ([bedb678](https://github.com/aversini/envtools/commit/bedb678119ccaefca1f6e25214523763dc12b762))
 
-__2.0.11 / 2018-06-10__
+__2.0.11 / 2018-06-11__
 
 - fix yarn installation ([cb02d7c](https://github.com/aversini/envtools/commit/cb02d7c70e40ec10619f6ba9c897c626a3bd6838))
 - simplifying Yarn installation ([5b34476](https://github.com/aversini/envtools/commit/5b34476e5b811d4cb44b19c08ecf22e65459d865))
@@ -79,7 +144,7 @@ __2.0.5 / 2018-02-22__
   - problem with execa promise and callback wrapper
   
 
-__2.0.4 / 2018-02-21__
+__2.0.4 / 2018-02-22__
 
 - fix: ignoring backup error if file does not exist ([fe63370](https://github.com/aversini/envtools/commit/fe63370aba2625412fc157645bbf98273c7e27a1))
 - fix: replace Atom package react with language-babel ([4593ad6](https://github.com/aversini/envtools/commit/4593ad63e11e2b3b6ca0b9b255f28d5c98a2c3ab))
@@ -93,7 +158,7 @@ __2.0.2 / 2018-01-24__
 
 - feat: adding scoped registry if any ([b950c72](https://github.com/aversini/envtools/commit/b950c7299f673c1ae179cfde877a8edfb8423e37))
 
-__2.0.1 / 2018-01-21__
+__2.0.1 / 2018-01-22__
 
 - refactor: moving test files for utilities under utilities ([13367a9](https://github.com/aversini/envtools/commit/13367a90f29844b86692cbfdb215fe0a77b7dc1d))
 - chore: adding test + coverage for backup utility ([c75af8f](https://github.com/aversini/envtools/commit/c75af8f8d7091ca7106782cbea6d737017bd2c39))
@@ -159,7 +224,7 @@ __2.0.1 / 2018-01-21__
   
 - doc: small typo ([634a6a1](https://github.com/aversini/envtools/commit/634a6a18c0486f4939f17706717a9f6b85803d53))
 
-__1.0.59 / 2018-01-12__
+__1.0.59 / 2018-01-13__
 
 - feat: adding fuzzy search to npm profile switch ([f4e7dc0](https://github.com/aversini/envtools/commit/f4e7dc078dd986a92106c09d7c54f23d9df3fd9c))
 - chore: adding fuse.js to dependencies ([c2ffe91](https://github.com/aversini/envtools/commit/c2ffe917f876cee5fc803f60f577d0679256ade5))
@@ -177,7 +242,7 @@ __1.0.59 / 2018-01-12__
 - chore: adding badges to README ([29afc66](https://github.com/aversini/envtools/commit/29afc66e798f7f0c930215a4fc053c0e041d09b8))
 - chore: updating license date ([dbd4698](https://github.com/aversini/envtools/commit/dbd469856695c3e2c3b6a8c259bc82b10f1146b9))
 
-__1.0.58 / 2018-01-09__
+__1.0.58 / 2018-01-10__
 
 - fix: do not update npm/yarn registry in auto/manual anymore ([3af0bb1](https://github.com/aversini/envtools/commit/3af0bb1d5e5f6a2457393fb86b83bc194430242c))
 
@@ -191,7 +256,7 @@ __1.0.56 / 2018-01-06__
   You can save the current npm/yarn configuration in a “profile” and re-activate any saved profiles on demand. Handy when having to switch from one public or local registry all the time.
   
 
-__1.0.54 / 2018-01-01__
+__1.0.54 / 2018-01-02__
 
 - Revert "chore: updating inquirer to latest and drop support for node < 6" ([0ec824e](https://github.com/aversini/envtools/commit/0ec824e46cc4ff9efcf27ba59e4347c7e384524d))
   This reverts commit f98be464b696d88ecef7e6099e05042cef2b5792.
@@ -205,13 +270,13 @@ __1.0.54 / 2018-01-01__
 - chore: fix lint allignemnt error ([36eba64](https://github.com/aversini/envtools/commit/36eba6408ea78f767651aa55805e9f05b5021a6d))
 - chore: update moment to latest (fix security issue) ([44536f4](https://github.com/aversini/envtools/commit/44536f4b443caa3639b2ac66383b4352e9f52f46))
 
-__1.0.53 / 2017-11-14__
+__1.0.53 / 2017-11-15__
 
 - fix: replacing shifter with serve ([2ef8a81](https://github.com/aversini/envtools/commit/2ef8a8167d3f913e6313bf588acc8865ad795977))
 - fix: adding nvm option for linux ([c8a8313](https://github.com/aversini/envtools/commit/c8a8313f99b858c92ca66ef70fd59035ea076fed))
 - fix: resetting prefix when using nvm ([9dd35a5](https://github.com/aversini/envtools/commit/9dd35a5a3728a5a75bd019ddf60ec587efdc5c73))
 
-__1.0.52 / 2017-11-07__
+__1.0.52 / 2017-11-08__
 
 - Update Yarn to 1.3.2 ([284559d](https://github.com/aversini/envtools/commit/284559dd8ecf0133bd24ada02a8c7f9c525efb5c))
 
@@ -253,7 +318,7 @@ __1.0.48 / 2017-07-12__
 
 - chore: allowing win7 64 bits ([57b1e40](https://github.com/aversini/envtools/commit/57b1e40cc608715b02458df45327c5d6824c0520))
 
-__1.0.47 / 2017-07-08__
+__1.0.47 / 2017-07-09__
 
 - chore: update dependencies ([0c33eaa](https://github.com/aversini/envtools/commit/0c33eaa9e74141fb8c32b69c78d5cdb4064f38bd))
 - chore: updating to the latest Yarn (v0.27.5) ([6ae846c](https://github.com/aversini/envtools/commit/6ae846c81e03bb576966245d73762b98dedd92a9))
@@ -273,12 +338,12 @@ __1.0.45 / 2017-06-12__
 
 - fix: do not override no_proxy if it's already set ([a8ebccc](https://github.com/aversini/envtools/commit/a8ebccce232fc4c65c4de3e3cc68b9d2b5a02eef))
 
-__1.0.44 / 2017-06-11__
+__1.0.44 / 2017-06-12__
 
 - adding npm and yarn registry data to `envtools info` ([9c54755](https://github.com/aversini/envtools/commit/9c547553da7484b9099611a795ea44ea8bc38aea))
 - fix: even with CUSTOM_NPM_REGISTRY_PROXY=off, do not prevent removing proxies ([83c1281](https://github.com/aversini/envtools/commit/83c1281656dae6b30ca391cc56326c715dc28bae))
 
-__1.0.43 / 2017-06-11__
+__1.0.43 / 2017-06-12__
 
 - Atom: replacing pane-manager with layout-control ([3f0eb8c](https://github.com/aversini/envtools/commit/3f0eb8cdcbfb396fc32d09f14691eb8bc097f0dc))
 - bumping nvm from 0.32.0 to [0.33.2](https://github.com/creationix/nvm/releases/tag/v0.33.2) ([e904056](https://github.com/aversini/envtools/commit/e90405606df4bd1a008338385eaecab394ce5444))
@@ -313,18 +378,18 @@ __1.0.36 / 2017-03-22__
 
 - Oops, fix detection for yarn ([609f3f8](https://github.com/aversini/envtools/commit/609f3f8dae48fa185002052c682325be44640552))
 
-__1.0.35 / 2017-03-21__
+__1.0.35 / 2017-03-22__
 
 - Not trying to install yarn on Windows… ([ef01f7d](https://github.com/aversini/envtools/commit/ef01f7d41da6e0c67a617a46e99924bb964a248f))
 - Installing yarn automatically if not there ([c0f1610](https://github.com/aversini/envtools/commit/c0f16101872984c23c6511462a9b00e9d268c257))
 - moving git alias “l” to mac only ([a7295ee](https://github.com/aversini/envtools/commit/a7295ee0c921a29941deaccffcf277c9cc0e74ef))
 
-__1.0.34 / 2017-03-19__
+__1.0.34 / 2017-03-20__
 
 - Updating atom linter package dependencies ([38b3f79](https://github.com/aversini/envtools/commit/38b3f79440987950d827ad081adf51532a362b05))
 - Hacky way to detect terminal while in Atom... ([68c7475](https://github.com/aversini/envtools/commit/68c7475738a82421af751830ad6ca2bcaedaf592))
 
-__1.0.33 / 2017-02-19__
+__1.0.33 / 2017-02-20__
 
 - Fixing `fgrs` to allow number as a pattern to search ([e7f4c76](https://github.com/aversini/envtools/commit/e7f4c76dcf888a1ad9537511cfdf3fd465eeba70))
 
@@ -333,7 +398,7 @@ __1.0.32 / 2017-02-19__
 - Relaxing eslint complexity rule ([bed770b](https://github.com/aversini/envtools/commit/bed770b13e2fccaf39abf5e71a4bf9d907d4365a))
 - Replacing fedtools-notifier with node-notifier ([b29b53e](https://github.com/aversini/envtools/commit/b29b53ef5720caf3ba7ffbd477c403d024db8fb0))
 
-__1.0.31 / 2017-02-14__
+__1.0.31 / 2017-02-15__
 
 - Better phrasing between yarn and npm choice ([22f8663](https://github.com/aversini/envtools/commit/22f86634777e5d641e1a233baab89ed69c56f837))
 - Before installing npm packages, set yarn configuration ([7afd541](https://github.com/aversini/envtools/commit/7afd541e7b1ff68bbfdffdc1fb6761a0f97382b0))
@@ -367,7 +432,7 @@ __1.0.28 / 2017-01-13__
   Rationale:  better to use webpack locally to each projects
   
 
-__1.0.27 / 2017-01-08__
+__1.0.27 / 2017-01-09__
 
 - adding terminal plugin to atom plugins list ([4c95928](https://github.com/aversini/envtools/commit/4c9592894184168a86e3e07f03970003ed59d2ba))
 - Adding support for terminal within Atom ([dbacd5f](https://github.com/aversini/envtools/commit/dbacd5fa1326bf0b78c8b67e4347e7ec2db357ab))
@@ -388,11 +453,11 @@ __1.0.25 / 2016-12-31__
 - ESLint: updating ES6 for module and adding React support ([963f6c3](https://github.com/aversini/envtools/commit/963f6c37052c02f48b0089096401522c94505d10))
 - Adding extra ESLint plugins if ESLint is required ([8f8117a](https://github.com/aversini/envtools/commit/8f8117ae7a732834edcc17e9fa532e58e67beddb))
 
-__1.0.24 / 2016-12-20__
+__1.0.24 / 2016-12-21__
 
 - Changing help location ([652c6e5](https://github.com/aversini/envtools/commit/652c6e5100da93b6d3f0b3e55b6e6f73120cfea5))
 
-__1.0.23 / 2016-12-06__
+__1.0.23 / 2016-12-07__
 
 - Moving proxy before sudo-less for `envtools auto` ([27dedcb](https://github.com/aversini/envtools/commit/27dedcb225b564e62181712239642a102cc788ef))
 
@@ -405,7 +470,7 @@ __1.0.21 / 2016-12-03__
 
 - [help] better quality pulsing dot while waiting on safari ([1116bbf](https://github.com/aversini/envtools/commit/1116bbf4b22239a9429ebf967e2cb2da9eb3bdd0))
 
-__1.0.20 / 2016-12-02__
+__1.0.20 / 2016-12-03__
 
 - Adding logo to README + License ([c7a91af](https://github.com/aversini/envtools/commit/c7a91af9ebc4d852528a0e754f78acfb84e109cd))
 - Adding logo for README ([60e9161](https://github.com/aversini/envtools/commit/60e9161245674dc20323960a84091c4874be3408))
@@ -424,14 +489,14 @@ __1.0.18 / 2016-12-01__
 - [help] reducing logo real-estate on lower breakpoints ([2e99afc](https://github.com/aversini/envtools/commit/2e99afca584693784f28b869b101a181cb3d3ca0))
 - [help] adding proxy to the `envtools info` section ([dba477b](https://github.com/aversini/envtools/commit/dba477b890469da039a14cfd81166b8e57d4716d))
 
-__1.0.17 / 2016-11-30__
+__1.0.17 / 2016-12-01__
 
 - [info] adding detailed proxy info to `envtools info` ([f364044](https://github.com/aversini/envtools/commit/f36404400b36b98abdea3267cb83e88d578d8513))
 - [new] adding a simple SMTP server `envtools smtp` ([471ca8d](https://github.com/aversini/envtools/commit/471ca8de167891e705366e4e5c0a78f42d8d5b56))
 - [fix] do not re-append paths to $PATH on soft reload ([6237ebb](https://github.com/aversini/envtools/commit/6237ebbc4d39820b8dbbe32c43d155f48f406d1b))
 - [help] moving image responsiveness to higher breakpoint ([eb02f60](https://github.com/aversini/envtools/commit/eb02f60dab6737fa40b44ddebda87cbd73c0cfaa))
 
-__1.0.16 / 2016-11-29__
+__1.0.16 / 2016-11-30__
 
 - Refactoring yellow/cyan output ([777c6f4](https://github.com/aversini/envtools/commit/777c6f4e4dbef482a2109596c0d439ab56955603))
 - [help] responsive all the way to 320 ([25790f0](https://github.com/aversini/envtools/commit/25790f049b51334345b37e81a626e4ecb28a9cfd))
@@ -442,11 +507,11 @@ __1.0.15 / 2016-11-29__
 - Updating custom terminal colors to match iTerm more closely ([c412c4f](https://github.com/aversini/envtools/commit/c412c4f5d76b619259f625077ae6fd1cbcb9e9bf))
 - Fixing version up-to-date message appearing unexpected ([1856df5](https://github.com/aversini/envtools/commit/1856df5a6a3e7b36ab0e08f44d075952e8975197))
 
-__1.0.14 / 2016-11-28__
+__1.0.14 / 2016-11-29__
 
 - Better blue for the logo (matches the <headers>) ([f16d260](https://github.com/aversini/envtools/commit/f16d260aea8f3141d06ff4e769c2acabfd9ff901))
 
-__1.0.13 / 2016-11-28__
+__1.0.13 / 2016-11-29__
 
 - [faq] adding entry about git status in the prompt ([8bbe2c8](https://github.com/aversini/envtools/commit/8bbe2c8c1521fdc8de4a602d14178ac57610bdb2))
 
@@ -454,7 +519,7 @@ __1.0.12 / 2016-11-28__
 
 - Flatter logo ([fc3e967](https://github.com/aversini/envtools/commit/fc3e967666426965714d57c3ae0f5c6454b131e1))
 
-__1.0.11 / 2016-11-27__
+__1.0.11 / 2016-11-28__
 
 - updating logo ([42208be](https://github.com/aversini/envtools/commit/42208bee0a50f738827dfb33818d32ac178a022e))
 
@@ -514,7 +579,7 @@ __1.0.4 / 2016-11-21__
 - adding `info` to envtools help ([2d566ce](https://github.com/aversini/envtools/commit/2d566cef479a9a0d7102773ac5c683c0bb1e92b9))
 - [info] better filesystem info ([95ccc64](https://github.com/aversini/envtools/commit/95ccc64f00630b709af8bae12aff5ef0c2bd8317))
 
-__1.0.3 / 2016-11-20__
+__1.0.3 / 2016-11-21__
 
 - [help] updating info screenshot ([1d7a0ed](https://github.com/aversini/envtools/commit/1d7a0eddc0d98ec79c562334a25533df87b20b7e))
 - [info] adding OS name + version (for mac) ([aca3991](https://github.com/aversini/envtools/commit/aca39910d638c4b3cded434e5831fe56093b57bc))
@@ -535,7 +600,7 @@ __1.0.2 / 2016-11-20__
 - [fix] removing unused dependency ([70a68b6](https://github.com/aversini/envtools/commit/70a68b63a6d929a883ddd764c772e56cdbdb8543))
 - [help] removing bootstrap source maps ([abe2b0d](https://github.com/aversini/envtools/commit/abe2b0d0f9e6dbcd4817598fd5d439123965c0b5))
 
-__1.0.1 / 2016-11-18__
+__1.0.1 / 2016-11-19__
 
 - Bumping to version 1.0.0 ([62c7a70](https://github.com/aversini/envtools/commit/62c7a701b098e80e947a6f00962a65eb36a89c20))
 - [help] adding favicon :/ ([855a516](https://github.com/aversini/envtools/commit/855a516afc1f516c52efea5bfcf363315b54bc2c))
@@ -596,7 +661,7 @@ __0.0.166 / 2016-11-16__
 - Fix `fedtools config` that got broken by the previous configuration optimization ([f7ab45e](https://github.com/aversini/envtools/commit/f7ab45e5d1bf351909fc71840495e9565ed99837))
 - [help] fading bottom part of header ([ddcc317](https://github.com/aversini/envtools/commit/ddcc317782ebe83101277b946c7faf830fb63b1a))
 
-__0.0.165 / 2016-11-14__
+__0.0.165 / 2016-11-15__
 
 - Allowing proxy to be entered full ([69ab957](https://github.com/aversini/envtools/commit/69ab9573a0477431ba7be17ea83378000c72226f))
 - Adding proxy url to `pq` ([08910f6](https://github.com/aversini/envtools/commit/08910f6b519788adb1be5779cf8ab1df5282b00a))
@@ -607,7 +672,7 @@ __0.0.165 / 2016-11-14__
 - [envtools config] adding option to ask for version check ([3039783](https://github.com/aversini/envtools/commit/3039783c14092c083522bb0c7bd7620fde3a44b6))
 - Fixing `envtools lite` for freaking Windows ([5a706e3](https://github.com/aversini/envtools/commit/5a706e3363fa26833f2abb4f2ed27dc4f6e7c5bc))
 
-__0.0.164 / 2016-11-12__
+__0.0.164 / 2016-11-13__
 
 - Optimizing `ff` for windows ([5318431](https://github.com/aversini/envtools/commit/5318431de040e5490dfb7e0509b22e619eb6287a))
 - Removing posix dependency ([316d778](https://github.com/aversini/envtools/commit/316d77887870f13d646fea4eb4dded664aa8b80d))
@@ -629,11 +694,11 @@ __0.0.163 / 2016-11-08__
 - Adding proxy info when starting sinopia ([cf1b9f1](https://github.com/aversini/envtools/commit/cf1b9f140acbf07b35b6fe4aa0c26dcb03969bc5))
 - Do not run npm commands if npm is not installed ([66888c6](https://github.com/aversini/envtools/commit/66888c6182941f1fdef61fe19c915a6eea0fcc30))
 
-__0.0.162 / 2016-11-07__
+__0.0.162 / 2016-11-08__
 
 - Do not run git commands/prompt if git is not installed ([9be15cd](https://github.com/aversini/envtools/commit/9be15cd059f460edf50453ca1793b0c0788b3be8))
 
-__0.0.161 / 2016-11-07__
+__0.0.161 / 2016-11-08__
 
 - Adding git-completion support ([fd2d9b0](https://github.com/aversini/envtools/commit/fd2d9b005b6133bd9990e37e01d35e964e917553))
 - Bumping grunt-import to latest version ([bec44bf](https://github.com/aversini/envtools/commit/bec44bf7bc68a1451f16234052efb0ab6eb49fe5))
@@ -663,7 +728,7 @@ __0.0.157 / 2016-11-05__
 
 - Fixing build/deploy process ([f3121ac](https://github.com/aversini/envtools/commit/f3121ace57ce203705b6bdec42f53d0fc6663fe8))
 
-__0.0.155 / 2016-11-04__
+__0.0.155 / 2016-11-05__
 
 - First pass at `envtools config` ([e4675ff](https://github.com/aversini/envtools/commit/e4675ff11abc3835adfd4ed2e1c9c0411a6112fb))
 - [help] even more help wording update ([46718ea](https://github.com/aversini/envtools/commit/46718ea75defad2c82c597dc7a46e66e3b80e2bc))
@@ -693,7 +758,7 @@ __0.0.155 / 2016-11-04__
 - Moving aliases `down` and `desk` to win/mac ([6c2c8a5](https://github.com/aversini/envtools/commit/6c2c8a5665d0f63262fcaa61c556ba3265474972))
 - [help] scroll back to top on tab change ([cdf405d](https://github.com/aversini/envtools/commit/cdf405d6acd3b5c00762b1e747ece294d5547f83))
 
-__0.0.154 / 2016-10-31__
+__0.0.154 / 2016-11-01__
 
 - [help] crisper logo on retina displays ([89078a4](https://github.com/aversini/envtools/commit/89078a493ccdeb98a7bbcf242af35f0de7dc8fc5))
 - [help] do not start another help server if one is already up ([1b0d4e4](https://github.com/aversini/envtools/commit/1b0d4e4594434b387cba6f41962f6133818a88e4))
@@ -751,7 +816,7 @@ __0.0.152 / 2016-10-28__
 - [sudo] removing sudo when installing fedtools ([713dd7e](https://github.com/aversini/envtools/commit/713dd7ef34fabbb7329ec0c78d503689f575d015))
 - Adding webpack to the list of core node packages ([82e622a](https://github.com/aversini/envtools/commit/82e622a51b43b4090b04bf0e746200f2a91f0fa9))
 
-__0.0.151 / 2016-10-16__
+__0.0.151 / 2016-10-17__
 
 - Adding `envtools lite`, a simple envtools-lite package generator ([c3efb31](https://github.com/aversini/envtools/commit/c3efb314c345008e40f9a1db6188f62fdd83d4e6))
 - Remove binding when not interactive shell (scp for example) ([12a12ba](https://github.com/aversini/envtools/commit/12a12baef028e46b1ae100b6abaff0cf332e8e6e))
@@ -764,7 +829,7 @@ __0.0.150 / 2016-10-16__
 - Limiting shell fuctions to lite vs non-lite envtools ([694ae30](https://github.com/aversini/envtools/commit/694ae30b8a79865ce18bc21bc47c2321849049f8))
 - First pass at envtools-lite ([33ea0fe](https://github.com/aversini/envtools/commit/33ea0febfd73bcea78abd558e527511beeee6486))
 
-__0.0.149 / 2016-10-15__
+__0.0.149 / 2016-10-16__
 
 - Adding third type of custom prompt (proxy, git, sinopia, node and nvm!) ([7810a52](https://github.com/aversini/envtools/commit/7810a524d55874af809c7f541f3a87a4d73d713d))
 - Updating `r` alias to reload nvm as well ([5ec8770](https://github.com/aversini/envtools/commit/5ec87706d4b798c06df550356ddd023a573124b7))
@@ -816,12 +881,12 @@ __0.0.143 / 2016-09-23__
 - Oops - sorry for the "bash: notifier: command not found" when toggling proxies ([ccf824c](https://github.com/aversini/envtools/commit/ccf824c925bf3f3fd824a4c8bd9ba081520bbfc6))
 - Sligth color fix for fgrs and Windows ([4566cf9](https://github.com/aversini/envtools/commit/4566cf9d0fbd52a23322bf24e2cc71a9cc4d10c1))
 
-__0.0.142 / 2016-09-22__
+__0.0.142 / 2016-09-23__
 
 - Upgrading ff to use the new “performance” module for stats ([ca62962](https://github.com/aversini/envtools/commit/ca629629aca387be870d20993b997265195150de))
 - Using ‘performance’ module from utilities for fgrs stats ([1a564ec](https://github.com/aversini/envtools/commit/1a564ec9bf8c7df31b751827274c62805f7dba55))
 
-__0.0.141 / 2016-09-21__
+__0.0.141 / 2016-09-22__
 
 - Fixing “ff” size calculation ([1a0536f](https://github.com/aversini/envtools/commit/1a0536f4f616fb6a71cbd00abd6ee4bf7cfe2e0d))
 - Fixing “ff” not interpreting file ownership correctly ([e993ed4](https://github.com/aversini/envtools/commit/e993ed413059f06bf411c509a96631a74ca1499d))
@@ -862,7 +927,7 @@ __0.0.136 / 2016-09-16__
 - Fix log status with no newline in windows ([ba3b0e3](https://github.com/aversini/envtools/commit/ba3b0e3fa6014840329244c03190df517afca18b))
 - Removing extra screensaver options - not working all the time… ([3edcfa4](https://github.com/aversini/envtools/commit/3edcfa4cdd787b02ae0198a776d2239cf8093f83))
 
-__0.0.135 / 2016-09-15__
+__0.0.135 / 2016-09-16__
 
 - Adding extra screensavers to "envtools extra" ([6ed59f7](https://github.com/aversini/envtools/commit/6ed59f735873be3e017aefbca8828aeb6fee9890))
 - Found a way to set the Terminal as default profile ([b1808c8](https://github.com/aversini/envtools/commit/b1808c8455552c86f09418adbacf205a02a9bba8))
@@ -970,7 +1035,7 @@ __0.0.120 / 2016-08-31__
   
 - Adding testing CLI to envtools ([b802fcf](https://github.com/aversini/envtools/commit/b802fcf1cbb655f222dabe5f9fbd52ae68c77f52))
 
-__0.0.119 / 2016-08-26__
+__0.0.119 / 2016-08-27__
 
 - Fix login prompt not remembering previous location ([b75f32f](https://github.com/aversini/envtools/commit/b75f32f33d6616389987e5736d7087934a717e74))
 - Log error when homebrew installation of wget fails ([c4058d8](https://github.com/aversini/envtools/commit/c4058d8749a1129f13535b5d94d557f556e36750))
@@ -987,7 +1052,7 @@ __0.0.118 / 2016-08-25__
 - Better README ([86577cf](https://github.com/aversini/envtools/commit/86577cfdc4ffce6bdad990ecf273a19cdd202ec3))
 - Simplifying "envtools -h" since the web page is now supported ([7539a1b](https://github.com/aversini/envtools/commit/7539a1b9b68190ceb4212cebdf4b2a340a08da9f))
 
-__0.0.117 / 2016-08-21__
+__0.0.117 / 2016-08-22__
 
 - Refactoring help page (available for Windows too) ([67eca50](https://github.com/aversini/envtools/commit/67eca502968e69463e26d1bccf7e349dd2f7899a))
 
@@ -1009,7 +1074,7 @@ __0.0.114 / 2016-08-17__
 
 - Bumping maven version to 3.3.9 since it's now supported ([bd8a8c2](https://github.com/aversini/envtools/commit/bd8a8c26f606fa152f6fb2a9660bca7fc0649ff5))
 
-__0.0.113 / 2016-08-07__
+__0.0.113 / 2016-08-08__
 
 - Removing getArtifacts - not needed anymore ([b9433d0](https://github.com/aversini/envtools/commit/b9433d0d26cca3cbc9fcfc9e16cb960da2578762))
 - Spelling! ([f2d138e](https://github.com/aversini/envtools/commit/f2d138ef52636bc82da922e36a3aaedf01963d67))
@@ -1025,7 +1090,7 @@ __0.0.110 / 2016-08-06__
 - eslint rules: adding es6 support ([3025253](https://github.com/aversini/envtools/commit/3025253f60515cb72ba78d8d656ddf96a48d7653))
 - eslint rules: allowing template litterals ([9aad3d6](https://github.com/aversini/envtools/commit/9aad3d672039294788523c124c3e18d58835d082))
 
-__0.0.108 / 2016-06-17__
+__0.0.108 / 2016-06-18__
 
 - Updating gith because of an API change in fedtools-utilities ([f04c08a](https://github.com/aversini/envtools/commit/f04c08a9aa1c8a1564c5b3c56ccfb9703545b32d))
 
@@ -1038,7 +1103,7 @@ __0.0.106 / 2016-06-14__
 - In extra mode, allowing the user to choose which atom packages to install ([850d4c5](https://github.com/aversini/envtools/commit/850d4c58f43d288f2e93f3771ca02352e43e1640))
 - In manual mode, allowing the user to choose which npm packages to install ([365ab88](https://github.com/aversini/envtools/commit/365ab88011383da04c174a6424d20f075d60de4e))
 
-__0.0.105 / 2016-06-10__
+__0.0.105 / 2016-06-11__
 
 - Better handling of npm installationg failure ([1fade8c](https://github.com/aversini/envtools/commit/1fade8ca7a313f8b6f45a6b9749c712630dabfa2))
 
@@ -1077,7 +1142,7 @@ __0.0.97 / 2016-06-07__
 - Removing stars in banner on Windows ([38ad271](https://github.com/aversini/envtools/commit/38ad271f5734336bfcae42484f4117c913fc7955))
 - No sudo on windows ([3ba2e73](https://github.com/aversini/envtools/commit/3ba2e7312db8eec94a096cc6fbf0e3ce51f2e181))
 
-__0.0.96 / 2016-06-06__
+__0.0.96 / 2016-06-07__
 
 - Replacing "cp -f" with fs.copy ([ff5b6e6](https://github.com/aversini/envtools/commit/ff5b6e62452e5b6b79b73299d8a73fdd482f9041))
 - First pass at trying to support windows ([631ef1d](https://github.com/aversini/envtools/commit/631ef1de58eae9d34dbe02df5488a1ce28e9dbb8))
@@ -1088,11 +1153,11 @@ __0.0.95 / 2016-05-24__
 
 - Adding gulp to needed npm packages ([76ca6f9](https://github.com/aversini/envtools/commit/76ca6f9948ebd88d63126e5edf0d680c300055f3))
 
-__0.0.94 / 2016-05-19__
+__0.0.94 / 2016-05-20__
 
 - Updating npm bootstrap to take sinopia into account (if already setup) ([ce502ae](https://github.com/aversini/envtools/commit/ce502ae743fc6cad9842d2f1cd636c0145abdab8))
 
-__0.0.93 / 2016-05-13__
+__0.0.93 / 2016-05-14__
 
 - Fix envtools message display in node v6+ ([71b3708](https://github.com/aversini/envtools/commit/71b37084583974b6b30694e332123aae0189850f))
 
@@ -1117,15 +1182,15 @@ __0.0.90 / 2016-04-30__
   You still need to start/restart sinopia manually though.
   
 
-__0.0.89 / 2016-04-29__
+__0.0.89 / 2016-04-30__
 
 - Removing gemnasium from README ([01c1f3b](https://github.com/aversini/envtools/commit/01c1f3b17eff56e29ecedb1e468b430e8a8b6339))
 
-__0.0.88 / 2016-04-29__
+__0.0.88 / 2016-04-30__
 
 - Tiny update to trigger a bump - failing to publish because of... sinopia :) ([40fe7fa](https://github.com/aversini/envtools/commit/40fe7fa1a7aa0d72f82b3c92052d8a1ee3e09d89))
 
-__0.0.85 / 2016-04-29__
+__0.0.85 / 2016-04-30__
 
 - Fix package dev dependencies ([eed240c](https://github.com/aversini/envtools/commit/eed240c400099d1cf1c2d8a322a82cc3ee6b7a78))
 - Removing time-grunt ([a8640c2](https://github.com/aversini/envtools/commit/a8640c22c2552f1dd68549ebba1f5abdfe5d8a2f))
@@ -1141,7 +1206,7 @@ __0.0.85 / 2016-04-29__
 - Updating to latest stable version of glob ([aa70ff3](https://github.com/aversini/envtools/commit/aa70ff3800edb15a316c4bbd65a3ca29564c3d71))
 - Updating to latest stable version of fs-extra ([fa6bcd4](https://github.com/aversini/envtools/commit/fa6bcd4d475b43193cd409d313d17a23971b1f71))
 
-__0.0.84 / 2016-04-27__
+__0.0.84 / 2016-04-28__
 
 - Enabling by-passing a few steps in "envtools auto" ([82f4604](https://github.com/aversini/envtools/commit/82f4604b84e9208a85d6365a63f85b4d1329236f))
 - Sorting Vms ([5a24412](https://github.com/aversini/envtools/commit/5a244128c0f5343b89560d15add188a330b6f541))
@@ -1159,7 +1224,7 @@ __0.0.81 / 2016-04-25__
 
 - Updating ESLintrc ([a21401e](https://github.com/aversini/envtools/commit/a21401ed16416c4dbef7ad4803bd0052e9d4bf69))
 
-__0.0.80 / 2016-04-21__
+__0.0.80 / 2016-04-22__
 
 - Try to limit grunt dependencies ([3c9f24f](https://github.com/aversini/envtools/commit/3c9f24f97c4a06917a4e4506f6d5b96360c73948))
 - grunt-cli is enough, not need to install grunt as well ([6a6a928](https://github.com/aversini/envtools/commit/6a6a928902dd9a2c53a0e7dcccab0c484fab8be6))
@@ -1185,13 +1250,13 @@ __0.0.77 / 2016-04-13__
 
 - Removing fedtools installation from envtools ([6442c13](https://github.com/aversini/envtools/commit/6442c135dfda86c6e2c1f95535397d06cceeacbc))
 
-__0.0.76 / 2016-04-11__
+__0.0.76 / 2016-04-12__
 
 - Simplifying README ([a0e4ac3](https://github.com/aversini/envtools/commit/a0e4ac31766386031af149ae1318afe164d8e01f))
 - Adding eslint and unicorn to default NPM packages ([69b9ceb](https://github.com/aversini/envtools/commit/69b9ceb5f740a926bbc3c1495353c69afa2b8cfe))
 - Fix lint error ([37af907](https://github.com/aversini/envtools/commit/37af907d8b0cd02c57cae3e77759012eefb1d120))
 
-__0.0.75 / 2016-02-17__
+__0.0.75 / 2016-02-18__
 
 - Dump the resume_auto file only in auto mode! ([f47c249](https://github.com/aversini/envtools/commit/f47c249685df46e3be106a430e3e93f4c4007286))
 
@@ -1200,7 +1265,7 @@ __0.0.74 / 2016-02-12__
 - Updating `la` alias to list only hidden files ([bfb3e83](https://github.com/aversini/envtools/commit/bfb3e8373370eb9aa541bdfa93d824b7b62885b9))
 - Sligthly better help ([db4b433](https://github.com/aversini/envtools/commit/db4b433efdc65e89a897b6225eeae035c7961643))
 
-__0.0.73 / 2016-02-11__
+__0.0.73 / 2016-02-12__
 
 - Adding support for .bash_profile (on top of .profile) ([b84e968](https://github.com/aversini/envtools/commit/b84e96897c26fd67e07bd4e71e9a2602e627c3e2))
 - Relaxing eslint rule for style of wrap-iife functions ([bae4e84](https://github.com/aversini/envtools/commit/bae4e843aef773000ec7375099160d7711b2456b))
@@ -1209,30 +1274,30 @@ __0.0.72 / 2016-02-08__
 
 - Removing App Store fix since it does not work... ([1068ae1](https://github.com/aversini/envtools/commit/1068ae15399374a3971661e08a4c4d575429ba28))
 
-__0.0.71 / 2016-02-05__
+__0.0.71 / 2016-02-06__
 
 - Adding wget as the first real core package needed after brew ([0334bd1](https://github.com/aversini/envtools/commit/0334bd12ce08681b6c097546424277b2fef9d5be))
 
-__0.0.70 / 2016-02-05__
+__0.0.70 / 2016-02-06__
 
 - Add bash function `getArtifacts` to get nexus artifacts quickly ([2f0e9e2](https://github.com/aversini/envtools/commit/2f0e9e2acc8f3de067bf33b29ba2862aa60d1785))
 - Removing Atom package atomatigit (not working very well) ([1f32f46](https://github.com/aversini/envtools/commit/1f32f460931667da84ee714617897ba61e1c4eb6))
 - Adding project-manager to the list of Atom packages to be installed ([2914a1e](https://github.com/aversini/envtools/commit/2914a1efee5880ba0a6f176f2f4e2ef7e426690a))
 
-__0.0.69 / 2016-02-04__
+__0.0.69 / 2016-02-05__
 
 - Adding alias to fix icon association in Finder ([e13033b](https://github.com/aversini/envtools/commit/e13033b53db80988af6ef74438ad444a6d49ed29))
 - Adding alias for testing HDD performance (hdd) ([327490e](https://github.com/aversini/envtools/commit/327490e68057657e90588f211ad667293a93ce04))
 
-__0.0.68 / 2016-02-03__
+__0.0.68 / 2016-02-04__
 
 - Oops, forgot vendor prefixes... who do I think I am.. ([bb5331a](https://github.com/aversini/envtools/commit/bb5331ab0200c7f673e1fac4e0bf10ec51ba58d1))
 
-__0.0.67 / 2016-02-03__
+__0.0.67 / 2016-02-04__
 
 - Even better logo via SVG ([ed42faf](https://github.com/aversini/envtools/commit/ed42fafe592ec43c452ecca6a72a8ce814ec9329))
 
-__0.0.66 / 2016-02-03__
+__0.0.66 / 2016-02-04__
 
 - Fixed header for the help page ([92cc77d](https://github.com/aversini/envtools/commit/92cc77d74cf47251d5b8e9d51f44b3fef26d0c36))
 - Adding default .jsbeautifyrc file ([9a9f70f](https://github.com/aversini/envtools/commit/9a9f70fedd6379bac127cab8c6327b5a58f99a1e))
@@ -1246,7 +1311,7 @@ __0.0.64 / 2016-02-03__
 - Adding ESLint configuration to auto and manual ([5356b52](https://github.com/aversini/envtools/commit/5356b52a02161b193fa66e1230b29f5a3263a510))
 - Trying to fix Atom package installation ([fde62ff](https://github.com/aversini/envtools/commit/fde62ff2e0667e7982231ed0195d45925d9b7fef))
 
-__0.0.63 / 2016-02-02__
+__0.0.63 / 2016-02-03__
 
 - Refactoring `gith` to access better tags info and removing useless sugar (git status really?!?) ([526d852](https://github.com/aversini/envtools/commit/526d852dae84a2b8441122e1df6f930327c8e5ee))
 
@@ -1273,16 +1338,16 @@ __0.0.58 / 2016-02-01__
 - Renaming options.bootstrap into options.auto for consistency ([2415f48](https://github.com/aversini/envtools/commit/2415f4844ad34b200a2971dba39bcb44d3b496d8))
 - Adding 'svgo' to core npm packages and removing 'jshint' ([851801e](https://github.com/aversini/envtools/commit/851801e041bd49ded5b23acbd1ddeda4fa1d0811))
 
-__0.0.57 / 2016-01-31__
+__0.0.57 / 2016-02-01__
 
 - Resuming envtools auto after first time env/proxy setup ([a5c51a1](https://github.com/aversini/envtools/commit/a5c51a1871234557ec209113f1602a50b96b9bed))
 
-__0.0.56 / 2016-01-31__
+__0.0.56 / 2016-02-01__
 
 - Adding power charging sound ([9b4bf1b](https://github.com/aversini/envtools/commit/9b4bf1bbb5cb0e2fd2e12768ce614b8eafe41c59))
 - Adding fix for Mac App Store ([d20fc7e](https://github.com/aversini/envtools/commit/d20fc7e30639453a091e2b5450729c04f98848bd))
 
-__0.0.55 / 2016-01-31__
+__0.0.55 / 2016-02-01__
 
 - Adding atomatigit to atom package list ([6079808](https://github.com/aversini/envtools/commit/6079808e253622d4401a61aa72f9920f3e2c6ee4))
 
@@ -1306,7 +1371,7 @@ __0.0.51 / 2016-01-31__
 - Better proxy fat finger filtering ([366d79b](https://github.com/aversini/envtools/commit/366d79b5cc3f60218144b1f3dea336847b40f0a9))
 - Better error/message on proxy setting ([6f9d8fb](https://github.com/aversini/envtools/commit/6f9d8fb091f4ede5d33f2f8d0382fb0896c6fd83))
 
-__0.0.50 / 2016-01-30__
+__0.0.50 / 2016-01-31__
 
 - Better auto mode: do not ask for env or proxy if already set ([4114324](https://github.com/aversini/envtools/commit/4114324aa86d4fe5e489167eedf762445d44f8ac))
 
@@ -1348,14 +1413,14 @@ __0.0.43 / 2016-01-28__
 
 - Adding envtools web ([ae83857](https://github.com/aversini/envtools/commit/ae838577e6dc91fa6318f0462ac08e11fdeb279f))
 
-__0.0.42 / 2016-01-27__
+__0.0.42 / 2016-01-28__
 
 - Adding small blurb about `fedtools extra` in the help file. ([ab824c5](https://github.com/aversini/envtools/commit/ab824c58c51b28e0cc3f019ca6f2b83aab7fba9a))
 - Renamed help.md into aliases.md (cleaner...) ([74a0e05](https://github.com/aversini/envtools/commit/74a0e05f7905a9cb0e8090d6fd51dd8d210f6e8d))
 - Updating git-ptompt to latest release ([41efaf5](https://github.com/aversini/envtools/commit/41efaf52e7f7f232aa06d169a918a750b8a9a4cf))
 - Unused var ([b876b01](https://github.com/aversini/envtools/commit/b876b0126286e1ccdb71ba2944de0eb22583aed9))
 
-__0.0.41 / 2016-01-27__
+__0.0.41 / 2016-01-28__
 
 - Slighty better README/help ([1b8f06c](https://github.com/aversini/envtools/commit/1b8f06c4134112a0a2583243f0934d27158a17a4))
 - Fixing "version" alias ([fe614b6](https://github.com/aversini/envtools/commit/fe614b691943cfa8fe8c3c116d628b936e5d8d6b))
@@ -1394,24 +1459,24 @@ __0.0.34 / 2016-01-25__
 
 - Better help ([25549c2](https://github.com/aversini/envtools/commit/25549c24bb1c2cb59c0ea8c9b065e0f9303cfe80))
 
-__0.0.33 / 2016-01-24__
+__0.0.33 / 2016-01-25__
 
 - Adding Envtools vesion to welcome banner ([9fdacf7](https://github.com/aversini/envtools/commit/9fdacf71859e4aad608a9b7a868566cc763fc494))
 - Ignore error when setting proxy off and git config complains - it's ok ([133ee42](https://github.com/aversini/envtools/commit/133ee42d8b57b173f1d9c218b86518e023cb8cb5))
 - Do not ask for Proxy confirmation if proxy is already set (in auto mode) ([b170a8e](https://github.com/aversini/envtools/commit/b170a8e074ff33d2df61419e768c55915fe8f1e4))
 
-__0.0.32 / 2016-01-24__
+__0.0.32 / 2016-01-25__
 
 - Wip on adding debug flag ([8d07061](https://github.com/aversini/envtools/commit/8d070615aa9201b41662f36864e5b046c1640171))
 - Bypassing maven check if we just installed it before... ([3f39fb3](https://github.com/aversini/envtools/commit/3f39fb3d132b04c8b98c48288e326d1ad9da1527))
 - Installing Compass should be silent in auto mode ([cd761e4](https://github.com/aversini/envtools/commit/cd761e41263eea06d6e1ea9f1eb920c7978ea3e9))
 - Logging error message when failure to download maven ([b88ea39](https://github.com/aversini/envtools/commit/b88ea397fdc1efed33f40f97ca68f098dfbbffec))
 
-__0.0.31 / 2016-01-24__
+__0.0.31 / 2016-01-25__
 
 - Adding .hushlogin to prevent nasty welcome banner ([948e6f4](https://github.com/aversini/envtools/commit/948e6f48f9ff665083faefc66d6c9175122a2ae0))
 
-__0.0.30 / 2016-01-24__
+__0.0.30 / 2016-01-25__
 
 - Allow banner to be disabled ([34cbe81](https://github.com/aversini/envtools/commit/34cbe81e554503c40fecd588f609ed26aa3126c6))
 - Still playing with the banner :) ([4edf307](https://github.com/aversini/envtools/commit/4edf307319c74f2303790d78f87483325a441a3e))
@@ -1447,15 +1512,15 @@ __0.0.23 / 2016-01-24__
 - No async for array of commands.. ([4193dd2](https://github.com/aversini/envtools/commit/4193dd2cf1ce6f5d7903a62a10812a5e867c12ab))
 - Adding shifter in core npm packages ([41b2b14](https://github.com/aversini/envtools/commit/41b2b14f5458d8847a2a9283c8129a58bdee4ac9))
 
-__0.0.22 / 2016-01-23__
+__0.0.22 / 2016-01-24__
 
 - Confirm Admin request for git only if not bootstrap mode ([53cfc4d](https://github.com/aversini/envtools/commit/53cfc4d5aaff318230a7d28ca5b69f71659d2aca))
 
-__0.0.21 / 2016-01-23__
+__0.0.21 / 2016-01-24__
 
 - Set gem path via brew only if brew is installed ([eea4fa4](https://github.com/aversini/envtools/commit/eea4fa429aaec4f4f9d4fe0d1500223b822aad0a))
 
-__0.0.20 / 2016-01-23__
+__0.0.20 / 2016-01-24__
 
 - If .profile doesnt exist, create it ([e19a797](https://github.com/aversini/envtools/commit/e19a7976fa4db1c6706f7d2320a8385ca2cc44f4))
 
@@ -1490,11 +1555,11 @@ __0.0.14 / 2016-01-22__
 - Adding fedtools step ([5ffb4b2](https://github.com/aversini/envtools/commit/5ffb4b24658655335e69ca80c60a1390ea253b6d))
 - Adding usr local chown + m2 settings ([d46f34f](https://github.com/aversini/envtools/commit/d46f34f724b419c512c5346b72cd2d5cd60ad9b0))
 
-__0.0.13 / 2016-01-21__
+__0.0.13 / 2016-01-22__
 
 - Fixing async issue with mkdirp - too tired to investigate :/ ([c001564](https://github.com/aversini/envtools/commit/c001564e485783d0ef259b07463c18441c3a1d68))
 
-__0.0.11 / 2016-01-21__
+__0.0.11 / 2016-01-22__
 
 - Adding Maven installation ([07c382a](https://github.com/aversini/envtools/commit/07c382ad73c6d7f42118db865eeec01965f1fcfb))
 - Adding aliases for desktop/download folders on mac ([8a7cab7](https://github.com/aversini/envtools/commit/8a7cab76b4e8c42563c2a67f3b2d00a7b9eeb854))
@@ -1510,40 +1575,40 @@ __0.0.10 / 2016-01-21__
 - Man pages: adding extra bit about customization ([cef6295](https://github.com/aversini/envtools/commit/cef629551c0f05e50e133fd6ea3bca367d6dc741))
 - Better man pages ([35814d2](https://github.com/aversini/envtools/commit/35814d28fe3363ee883dd019bfdf01f3256f510d))
 
-__0.0.9 / 2016-01-20__
+__0.0.9 / 2016-01-21__
 
 - Fixing git bootstrap - forgot array of cmd would not be async... ([e9810f4](https://github.com/aversini/envtools/commit/e9810f446a17af8a4091427d99522ee3567f44f5))
 
-__0.0.8 / 2016-01-20__
+__0.0.8 / 2016-01-21__
 
 - Adding missing file at root level of npm package - not sure if this is going to work thouhg.. ([20bc08a](https://github.com/aversini/envtools/commit/20bc08a612f91e424e3316aa14120aeaca6b5193))
 - Changing commands to 'auto' and 'manual' - makes more sense ([863cf0f](https://github.com/aversini/envtools/commit/863cf0f823a93a778993e2122d6ad26826644939))
 - Better introduction + better verbiage on proxy ([3542e41](https://github.com/aversini/envtools/commit/3542e41bb6f1483e0192023b6b2826adf699fc9e))
 
-__0.0.7 / 2016-01-20__
+__0.0.7 / 2016-01-21__
 
 - Better handling of proxy setting (before and after) ([6c420f6](https://github.com/aversini/envtools/commit/6c420f6984216d1fe309d60af1578c4892fb7cb9))
 - Do not ask for admin access in bootstrap mode ([5eeee4b](https://github.com/aversini/envtools/commit/5eeee4bc37d8dfe498d1656fb8205dc1f8a4e6e3))
 
-__0.0.6 / 2016-01-20__
+__0.0.6 / 2016-01-21__
 
 - Adding bash version file to grunt task ([abbcc3e](https://github.com/aversini/envtools/commit/abbcc3ebceb56708502ddbe8735bbebe9456679b))
 - Fixing envtools logo... ([e9deb2f](https://github.com/aversini/envtools/commit/e9deb2f7d68dd476e0cd8a258463c175acfee2e7))
 
-__0.0.5 / 2016-01-20__
+__0.0.5 / 2016-01-21__
 
 - Fixing grunt tasks... ([8e64d3d](https://github.com/aversini/envtools/commit/8e64d3d3179104f8b89ca6237fe0723400d9567a))
 
-__0.0.4 / 2016-01-20__
+__0.0.4 / 2016-01-21__
 
 - Adding shell folder to npm distro ([54eef05](https://github.com/aversini/envtools/commit/54eef054b5383f04d211a28c778db1554720b474))
 
-__0.0.3 / 2016-01-20__
+__0.0.3 / 2016-01-21__
 
 - bad json bad! ([dc586fe](https://github.com/aversini/envtools/commit/dc586febd065c1c5b9712ed7fed312c834785973))
 - posix package would not install on linux... ([0081be6](https://github.com/aversini/envtools/commit/0081be6ee1121c1a6b6416c0bc1a49e373d85ea0))
 
-__0.0.0 / 2016-01-20__
+__0.0.0 / 2016-01-21__
 
 - Adding empty test harness - for now ([03525a0](https://github.com/aversini/envtools/commit/03525a0e32687c5f95912821a6da1b5be44a748a))
 - First commit after major refactor ([37d42a7](https://github.com/aversini/envtools/commit/37d42a73f4a46414ee005d228c07f6655c670dcf))
