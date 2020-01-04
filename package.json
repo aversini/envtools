@@ -46,7 +46,7 @@
     "fedtools-commands": "0.0.54",
     "fedtools-config": "0.0.47",
     "fedtools-i18n": "0.0.17",
-    "fedtools-logs": "0.1.42",
+    "fedtools-logs": "^1.0.1",
     "fedtools-utilities": "1.0.44",
     "fs-extra": "7.0.0",
     "fuse.js": "3.2.1",
