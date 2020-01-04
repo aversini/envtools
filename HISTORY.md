@@ -1,4 +1,10 @@
 
+__3.0.2 / 2020-01-04__
+
+- update fedtools-logs to latest ([91a7b38](https://github.com/aversini/envtools/commit/91a7b38c67da2b2b082e3acd4744cd936aa5ecff))
+- fix: return error if public path for http-server is invalid ([f8703d4](https://github.com/aversini/envtools/commit/f8703d4fd016932b6595540fb11a88f026d58855))
+- fix: faster graceful shutdown for http-server ([0f0a9d6](https://github.com/aversini/envtools/commit/0f0a9d640e2d06b84231b21f076df0ab275874b7))
+
 __3.0.1 / 2020-01-02__
 
 - feat: envtools 3.x drops support for node < 10 ([945f4c7](https://github.com/aversini/envtools/commit/945f4c7e33b2fe244da0ace621c5a63a642ac95d))
