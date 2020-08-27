@@ -1,6 +1,5 @@
 {
   "lib/**/*.js": [
-    "tslint --config ./tslint.json --fix",
     "prettier-eslint --write"
   ]
 }
