@@ -1,4 +1,12 @@
 
+__3.0.4 / 2020-10-29__
+
+- chore: add hidden option to replace PN-xxx in md2html ([4f547f1](https://github.com/aversini/envtools/commit/4f547f18ce05801fcd7f1a671ffbc93d7c144ef0))
+- chore: using prettier + eslint instead of prettier-eslint ([e3b2025](https://github.com/aversini/envtools/commit/e3b202531f45890ad8ba5b241512137cbcef86ad))
+- chore: removing tslint and downgrading eslint ([70382a6](https://github.com/aversini/envtools/commit/70382a69562fb830331aa328338a370cba0c37f8))
+- chore: adding auto prettier on commit ([724a1c7](https://github.com/aversini/envtools/commit/724a1c76c06bf8c42111570fc3b99e6bf0bee69d))
+- chore: update deps based on security warning ([3bd554e](https://github.com/aversini/envtools/commit/3bd554e54b3fc738a717c52ea7cbd6a09a45517e))
+
 __3.0.2 / 2020-01-04__
 
 - update fedtools-logs to latest ([91a7b38](https://github.com/aversini/envtools/commit/91a7b38c67da2b2b082e3acd4744cd936aa5ecff))
