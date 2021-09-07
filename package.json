@@ -62,7 +62,7 @@
     "optimist": "0.6.1",
     "os-name": "2.0.1",
     "portfinder": "1.0.25",
-    "remark-html": "7.0.0",
+    "remark-html": "13.0.2",
     "remark-parse": "5.0.0",
     "semver": "5.5.0",
     "serve-handler": "6.1.2",
